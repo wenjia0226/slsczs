@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "page/tabBar/screen/screen",
+    "nicheng/nicheng",
+    "page/tabBar/my/my",
+    "page/tabBar/archives/archives"
+     
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "page/tabBar/screen/screen",
+        "text": "筛查",
+        "iconPath": "/image/sc.png",
+        "selectedIconPath": "/image/scactive.png"
+      },
+      {
+        "pagePath": "page/tabBar/archives/archives",
+        "text": "档案",
+        "iconPath": "/image/da.png",
+        "selectedIconPath": "/image/daactive.png"
+      },
+      {
+        "pagePath": "page/tabBar/my/my",
+        "text": "我的",
+        "iconPath": "/image/my.png",
+        "selectedIconPath": "/image/myactive.png"
+      }
+    ],
+    "color": "#000",
+    "selectedColor": "#3e65e4"
+  },
+  "subPackages": [
+    {
+      "root": "page/component/",
+      "pages": [
+        "pages/test/test",
+        "pages/detail/detail",
+        "pages/testR/testR",
+        "pages/rightstart/rightstart",
+        "pages/check/check",
+        "pages/start/start",
+        "pages/result/result",
+        "pages/navbar/navbar"
+      ]
+    },
+    {
+      "root": "page/myCollection/",
+      "pages": [
+        "pages/plan/plan",
+        "pages/jifen/jifen",
+        "pages/childrenManage/childrenManage",
+        "pages/mychildren/mychildren",
+        "pages/corparation/corparation",
+        "pages/user/user",
+        "pages/reportList/reportList",
+        "pages/reportDetail/reportDetail"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

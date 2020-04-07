@@ -1,0 +1,18 @@
+<!--pages/check/check.wxml-->
+<view class="main">
+    <text class="text"> 屏幕校准</text>
+   <view class='content'>
+      <image mode='aspectFit' binderror="errImg" src="/image/biaozhun.png" style="width:{{scaleWidth}}px;height:{{scaleHeight}}px" bindload="imgload"></image>
+  </view>
+    <view class="warning">
+     <view style="color:red">*</view>
+     <view>
+      将1元硬币或尺子至于屏幕图案上，点击放大或缩小按钮， 调整屏幕上图案到真实大小（硬币的直径为2.5厘米）
+    </view>
+    </view>
+    <view class="btn">
+        <view class="btncon" bindtap="biggerImg"><image src="/image/zeng.png" mode="aspectFit"></image> </view>
+        <view class="btncon" bindtap="smallImg"> <image src="/image/jian.png" mode="aspectFit"></image></view>
+    </view>
+    <view class="checkfinish" bindtap="gotocheck">校准完成</view>
+</view>

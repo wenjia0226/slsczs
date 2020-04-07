@@ -1,0 +1,46 @@
+<!--pages/jifen/jifen.wxml-->
+<view class="main">
+  <view class="headerWrap">
+    <view class="gonglue" bindtap="gotoGongLve">
+      <view class="gl">积分攻略</view>
+      <image src="/image/righticon.png" mode="aspectFit"></image>
+    </view>
+      <view class="total"> {{balance}}</view>
+      <view class="des" >
+        <image src="/image/jifen.png" mode="aspectFit"></image>
+        <view>总积分</view>
+      </view>
+      <view class="numWrap">
+        <view clas="get" >
+          <view class="getNum">{{income}}</view>
+          <view class="huo">
+             <image src="/image/jifen.png" mode="aspectFit"></image>
+            <text>获取积分</text>
+          </view>
+        </view>
+         <view clas="get">
+          <view class="getNum">{{expenditure}}</view>
+          <view class="huo">
+             <image src="/image/xiaofei.png" mode="aspectFit"></image>
+            <text>消费积分</text>
+          </view>
+        </view>
+      </view>
+      <!-- 积分明细 -->
+      <view class="detail">
+          积分明细
+      </view>
+  </view>
+  <view class="centerWrap" style="height: 300rpx">
+    <scroll-view scroll-y  style="height: 100%;">
+      <view class="itemWrap" wx:for="{{jifenList}}">
+        <view class="leftitem">
+          <view>{{item.detailed}}</view>
+          <view class="time">{{item.date}}</view>
+        </view>
+        <view class="rightitem"  wx:if="{{item.state == 0}}"> - {{item.integral}}</view>
+        <view class="rightitem daijinquan"  wx:if="{{item.state == 1}}"> + {{item.integral}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

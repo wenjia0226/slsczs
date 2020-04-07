@@ -1,0 +1,7 @@
+<!--page/assembly/pages/navbar/navbar.wxml-->
+<view class="nav-wrap" style="height:{{height}}px">
+  <view class="titleWrap" bindtap="goback">
+    <image src="/image/back.png"  mode="aspctFit"></image>
+  </view>
+  <text class="biaoti">{{navbarData.title}}</text>
+</view>

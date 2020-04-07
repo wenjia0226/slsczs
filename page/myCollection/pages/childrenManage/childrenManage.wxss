@@ -1,0 +1,89 @@
+/* pages/childrenManage/childrenManage.wxss */
+.main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+}
+/* //头部轮播 */
+.swiperwrap{
+  box-sizing: border-box;
+  height: 440rpx;
+  margin: 3% ;
+  width: 45%;
+  padding: 0 20rpx;
+  background: -webkit-linear-gradient(bottom,
+    #4db2fd, #5f0ce6);
+  border-radius: 5rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+ .swiperwrap:nth-of-type(2n + 1) {
+  margin:  3% 2% 2% 3%;
+}
+.swiperwrap:nth-of-type(2n) {
+  margin:  3% 2% 2% 2%;
+} 
+.itemContainer {
+  display: flex;
+  flex-flow:row wrap;
+  flex-direction: row;
+}
+.logo {
+  width: 150rpx;
+  height: 150rpx;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:40rpx ;
+}
+.logo_img{
+  height: 140rpx;
+}
+.text {
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 36rpx;
+  margin: 20rpx 0;
+}
+.liebiao {
+  white-space: nowrap;
+  padding: 30rpx 0;
+  margin: 0 5%;
+  text-align: center;
+}
+.title {
+  display: inline-block;
+  font-size: 36rpx;
+  margin: 30rpx;
+  padding-bottom: 30rpx;
+}
+.del {
+  width: 100%;
+  background:#FCD440;
+  border-radius: 10rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+  margin: 10rpx;
+}
+.add {
+  height: 100rpx;
+  border-radius: 50rpx;
+  background: #5f0ce6;
+  margin: 10rpx auto;
+}
+.add image {
+  height: 100rpx;
+}
+.addC {
+ width: 46%;
+}

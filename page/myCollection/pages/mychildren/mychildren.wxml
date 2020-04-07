@@ -1,0 +1,34 @@
+<!--pages/user/user.wxml-->
+<view class="main">
+  <view class="touxiangWrap">
+    <view class="touxiang">
+      <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == 0}}"></image>
+      <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == 1}}"></image>
+    </view>
+  </view>
+  <view class="centerWrap">
+    <view class="name common">
+    姓名： {{name}}
+    </view>
+    <view class="name common">
+    学校： {{schoolName}}
+    </view>
+    <view class="name common">
+    班级： {{classesName}}
+    </view>
+    <view class="name common">
+    出生日期： {{birthday}}
+    </view>
+     <!-- <view class="sex common">
+      <text>性别：</text>
+      <radio-group>
+      <radio bindcahnge="radioChange" checked="true">
+          <text>男</text>
+        </radio>
+        <radio indcahnge="radioChange">
+          <text>女</text>
+        </radio>
+      </radio-group>
+    </view> -->
+  </view>
+</view>

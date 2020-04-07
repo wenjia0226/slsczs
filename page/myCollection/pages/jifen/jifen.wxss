@@ -1,0 +1,119 @@
+/* pages/jifen/jifen.wxss */
+.main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.headerWrap{
+  height: 450rpx;
+  background: #5f0ce6;
+  position:relative;
+}
+.gonglue{
+  color: #fff;
+  height: 60rpx;
+  padding: 5rpx 10rpx;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 28rpx;
+}
+.gonglue  image {
+  height: 40rpx;
+  width: 40rpx;
+  margin: 0 10rpx 0 20rpx;
+}
+.total {
+  font-size: 66rpx;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+.des {
+  display: flex;
+  justify-content: center;
+  margin: 20rpx 0;
+  color: #fff;
+}
+.des image {
+  height: 50rpx;
+  width: 50rpx;
+  margin: 0 20rpx 
+}
+.des view {
+  font-size: 36rpx;
+}
+.centerWrap {
+  flex: 1;
+}
+.numWrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 100rpx;
+}
+.getNum {
+  font-size: 40rpx;
+  color: orange;
+  text-align: center;
+}
+.huo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx 0;
+  color: #fff;
+}
+.huo > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx;
+}
+.detail {
+  position: absolute;
+  left: 25%;
+  bottom: -10%;
+  width: 50%;
+  height: 80rpx;
+  border-radius: 50rpx;
+  background: #3e65e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centerWrap{
+  margin: 10% 5% 0;
+}
+.itemWrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+  border-bottom: 2px solid #666;
+}
+.leftitem {
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+}
+.time {
+  font-size: 20rpx;
+  color: #999;
+  margin: 6rpx 0;
+}
+.rightitem {
+  padding: 6rpx 0 0;
+  color: #3e65e4;
+  font-size: 36rpx;
+  box-sizing: border-box;
+}
+.daijinquan {
+  color: #f00;
+}
+  ::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}

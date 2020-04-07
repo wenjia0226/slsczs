@@ -1,0 +1,29 @@
+<!--pages/test/test.wxml-->
+<view class="testwrap"  wx:for="{{navList}}" wx:if="{{item.levelId == levelPre}}" wx:key="levelId">
+    <view class="num">{{item.showName}}</view>
+    <view class="total">
+      <view >正确：{{rightNum}}</view>
+      <view>错误: {{wrongNum}}</view>
+    </view>
+    <!-- 中间展示部分 -->
+    <!-- <view class="imgWrap" bindtouchstart="handletouchtart"   bindtouchmove="handletouchmove" bindtouchend="handletouchend" wx:for="{{item.path}}" wx:for-item="sheet" wx:key="id" wx:if="{{sheet.id == id}}">
+        <image src="/image/shibiao/{{sheet.src}}.png" data-info="{{sheet.answer}}"  style="width:{{scaleWidth}}rpx ;height:{{scaleHeight}}rpx"   bindload="imgLoad"></image>   
+    </view> 
+    <view class="imgWrap" wx:for="{{item.path}}" wx:for-item="sheet" wx:key="id" wx:if="{{sheet.id == id}}" >
+        <image src="/image/shibiao/{{sheet.src}}.png"  style="width:{{scaleWidth}}rpx ;height:{{scaleHeight}}rpx" bindload="imgLoad"  data-info ="{{sheet.answer}}"></image>
+    </view> -->
+    <view class="imgWrap" wx:for="{{item.path}}" wx:for-item="sheet" wx:key="id" wx:if="{{sheet.id == id}}" >
+        <image src="/image/shibiao/{{sheet.src}}.png" bindload="imgLoad" style="width:{{scaleWidth}}rpx ;height:{{scaleHeight}}rpx"   data-info ="{{sheet.answer}}"></image>
+    </view>
+    <view class="panduan">
+      <view class="right" data-type="right" bindtap="right"> 
+        <image src="/image/right2.png" mode="aspectFit"></image>
+        <text>正确</text>
+      </view>
+      <view class="right" data-type="wrong" bindtap="right">
+        <image src="/image/wrong2.png" mode="aspectFit"></image>
+        <text>错误</text>
+      </view>
+    </view>
+    <view class="end" bindtap="gotoResult">结束检测</view>
+</view>

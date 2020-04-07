@@ -1,0 +1,40 @@
+<!--screen.wxml-->
+<view class="main" >
+  <!-- 如果请求到孩子 -->
+  <view  class="topwap">
+  <image src="/image/bg2.png" class="bg"></image>
+    <swiper  class='u-wrp-bnr'   current="0"   previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
+        <block >
+          <swiper-item class="swiperItem" data-id="{{item.id}}"  wx:for="{{childrenList}}" wx:key="id" >
+            <view class="portrait {{index == currentIndex ? 'active': ''}}" >
+              <image src="/image/boy.png"  mode="aspectFit" wx:if="{{index !== childrenList.length -1 && item.gender == 0}}"></image>
+              <image src="/image/girl.png"  mode="aspectFit"  wx:if="{{index !== childrenList.length -1 && item.gender == 1}}"></image>       
+              <image  wx:if="{{index == childrenList.length -1}}" src="/image/jia2.png"  mode="aspectFit" bindtap="gotoAddChild"></image>
+            </view>
+            <view class="name" wx:if="{{index !== childrenList.length -1}}">{{item.name}}</view>
+             <view class="time" wx:if="{{index !== childrenList.length -1 && item.lastTime !== null}}">最近检测时间：</view>
+             <view class="time" wx:if="{{item.lastTime !== null}}">{{item.lastTime}}</view> 
+             <view class="time" wx:if="{{item.lastTime == null}}">无</view>
+            <view class="name" wx:if="{{index == childrenList.length -1}}" style="color:#5f0ce6"></view>
+          </swiper-item>
+        </block>
+        <block  wx:if="{{childrenList.length == 0}}">
+         <swiper-item class="swiperItem">
+            <view class="portrait">
+               <image src="/image/jia2.png" class="u-img-slide" mode="aspectFit" bindtap="gotoAddChild"></image>
+            </view>
+            <view class="name" wx:if="{{index == childrenList.length -1}}" style="color:#5f0ce6"></view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+   <view class="centerwrap">
+    <view class="daijingWrap" bindtap="goJozhun" data-detectType = "0">
+      <image src="/image/luoyan.png"  mode="aspectFit"></image>
+    </view>
+     <view class="daijingWrap" style="background: #64D7E9"  bindtap="goJozhun" data-detectType = "1" >
+      <image  src="/image/daijing.png"    mode="aspectFit"></image>
+     </view>
+   </view>
+</view>

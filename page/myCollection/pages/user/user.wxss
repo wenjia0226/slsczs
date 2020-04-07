@@ -1,0 +1,41 @@
+/* pages/user/user.wxss */
+.main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.touxiangWrap {
+  background: #eee;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.touxiang {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  background:#fff;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.touxiang image {
+  width: 150rpx;
+  height:150rpx;
+}
+.centerWrap {
+  box-sizing: border-box;
+  padding: 0 5%;
+
+}
+.common {
+  padding: 20rpx;
+  border-bottom: 2rpx dotted #333;
+  font-size: 28rpx;
+}
+.sex {
+  display: flex;
+}

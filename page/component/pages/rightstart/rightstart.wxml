@@ -1,0 +1,21 @@
+
+<view class="main" bindtouchstart="startTest">
+  <view class="text"> 
+    <view class="right"> 左眼</view>
+    <view> 视力自测</view>
+   </view>
+  <view class="imgWrap">
+    <image src="/image/righttoufa.png" mode="aspectFit"></image>
+  </view>
+    <view class="describe"> 
+      <view class="zhegai"> 遮盖右眼</view>
+      <view bindtap="startTest"> 触碰屏幕继续测试</view>
+  </view>
+  <!-- bindtouchstart="startTest" -->
+  <!-- <view class="detail"> 测试方法说明</view>
+  <view class="shuoming">  
+    <view class="checkfinish reset" bindtap="gotocheck">重新校验</view>
+    <view class="checkfinish" bindtap="startTest">开始测试</view>
+  </view>   -->
+</view>
+

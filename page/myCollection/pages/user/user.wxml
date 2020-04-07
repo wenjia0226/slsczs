@@ -1,0 +1,27 @@
+<!--pages/user/user.wxml-->
+<view class="main">
+  <view class="touxiangWrap">
+    <view class="touxiang">
+      <image src="/image/icon.png" mode="aspectFit"></image>
+    </view>
+  </view>
+  <view class="centerWrap">
+    <view class="name common">
+    姓名： 
+    </view>
+     <view class="sex common">
+      <text>性别：</text>
+      <radio-group>
+      <radio bindcahnge="radioChange" checked="true">
+          <text>男</text>
+        </radio>
+        <radio indcahnge="radioChange">
+          <text>女</text>
+        </radio>
+      </radio-group>
+    </view>
+     <view class="phone common">
+    手机号： 
+    </view>
+  </view>
+</view>

@@ -1,0 +1,83 @@
+/* pages/plan/plan.wxss */
+.main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.itemwrap {
+  margin: 10rpx 20rpx;
+  background: #eee;
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.imgWrap {
+ width: 150rpx;
+ height: 150rpx;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.imgWrap image {
+  height: 112rpx;
+  width: 113rpx;
+}
+.wordWrap {
+  flex: 1;
+  font-size: 20rpx;
+  margin: 0 20rpx;
+}
+.daka {
+  font-size: 24rpx;
+  color: #000;
+}
+.title {
+  font-size: 30rpx;
+}
+.content {
+  font-size: 20rpx;
+}
+.finishBtn {
+  width: 150rpx;
+}
+.btn {
+  padding: 10rpx 10rpx;
+  background: #4b68d0;
+  border-radius: 35rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #fff;
+}
+.noFininsh {
+  background: #ffa200;
+}
+.finish {
+  color: #4b68d0;
+  padding: 10rpx 10rpx;
+  border-radius: 35rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+.first{
+  background: #E8EBFF;
+}
+.second {
+  background: #FAE5FF;
+}
+.three {
+  background:#FDFFE7;
+}
+.four {
+  background: #E7FBFF
+}
+.five {
+  background: #FFF6E9;
+}
+.six {
+  background: #F2FFF2;
+}
+.seven {
+  background: #FFE6E5;
+}

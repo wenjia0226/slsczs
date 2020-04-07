@@ -1,0 +1,67 @@
+<!--my.wxml-->
+<view class="main">
+  <view class="headerWrap">
+    <view class="inner">
+      <view class="leftIcon">
+        <image  class=" userinfo-avatar" src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image>
+         <image   class=" userinfo-avatar" src="{{avatarUrl}}" mode="aspectFit" wx:if="{{avatarUrl}}"></image>
+      </view>
+      <view class="centerNi" wx:if="{{phone}}">
+        <view > {{nickName}}</view>
+      </view>
+       <view class="centerNi" wx:if="{{!phone}}">
+        <view  class="login" bindtap="gotoLogin">
+          点击登录
+        </view>
+      </view>
+      <view class="rightQian" bindtap="gotoQian">
+        <image src="/image/qiandao.png" mode="aspectFit"></image>
+        <view class="qiandao">每日签到</view>
+      </view>
+    </view>
+  </view>
+  <view class="listWrap" >
+    <view class="item" bindtap="goToBao">
+      <view class="title" >眼健康档案</view>
+      <view class="titleCenter"></view>
+       <view class="titleRight">
+        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="item" bindtap="gotMyChild">
+      <view class="mychild">我的孩子</view>
+       <view class="titleRight">
+        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+      </view>
+    </view> 
+    <view class="item" bindtap="gotoPlan">
+      <view class="mychild">爱眼计划</view>
+       <view class="titleRight">
+        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+      </view>
+    </view> 
+  </view>
+  <view class="listWrap" >
+    <view class="item" bindtap="gotoJiFen">
+        <view class="mychild">我的积分</view>
+        <view class="titleRight">
+          <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      <view class="item shareing">
+        <view class="mychild">
+          <button open-type="share"  class="shareBtn">好友分享 </button>
+        </view>
+        
+        <view class="titleRight">
+          <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+        </view>
+      </view>
+       <view class="item " bindtap="gotoshare">
+        <view class="mychild">合作机构</view>
+        <view class="titleRight">
+          <image  mode="aspectFit"  size="mini"src="/image/righticon.png" mode="aspectFit"></image>
+        </view>
+      </view>
+  </view>
+</view>

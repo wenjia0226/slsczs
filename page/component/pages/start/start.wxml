@@ -1,0 +1,22 @@
+<!--pages/start/start.wxml-->
+<view class="main">
+  <view class="text"> 
+    <view class="right"> 右眼</view>
+    <view> 视力自测</view>
+   </view>
+  <!-- <view class="imgWrap">
+    <image src="/image/righttoufa.png" mode="aspectFit"></image>
+  </view> -->
+    <view class="describe"> 
+      <view class="zhegai"> 遮盖左眼</view>
+      <view> ，点击开始测试</view>
+  </view>
+  <!-- <view class="detail"> 测试方法说明</view> -->
+  <view class="imgWrap">
+    <image src="/image/shuoming.gif" mode="aspectFit"></image>
+  </view>
+  <view class="shuoming">  
+    <view class="checkfinish reset" bindtap="gotocheck">重新校验</view>
+    <view class="checkfinish" bindtap="startTest">开始测试</view>
+  </view>  
+</view>

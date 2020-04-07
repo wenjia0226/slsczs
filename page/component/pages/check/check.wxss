@@ -1,0 +1,71 @@
+/* pages/check/check.wxss */
+.main {
+  margin: 0 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  margin: 30rpx 0 0 ;
+  font-size: 42rpx;
+  font-weight: bold;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.tu {
+  padding: 20rpx 0;
+}
+.warning{
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  display: flex;
+}
+.btn {
+  width: 80%;
+  height: 150rpx;
+  margin: 70rpx 0;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.btncon {
+  width: 50%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.btncon  > image {
+  height: 150rpx;
+}
+.checkfinish{
+  width: 80%;
+  height: 80rpx;                                          
+  background: #4db2fd;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-weight: 34rpx;
+  border-radius: 40rpx;
+}
+
+.content {
+  width: 100%;
+  height:500rpx;
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.image image {
+  text-align: center;
+  line-height:500rpx;
+}

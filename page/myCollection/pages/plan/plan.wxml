@@ -1,0 +1,120 @@
+<!--pages/plan/plan.wxml-->
+<view clas="main">
+  <view class="itemwrap first">
+     <view class="imgWrap">
+      <image src="/image/huwai.png" mode="aspectFit"></image>
+     </view>
+     <view class="wordWrap ">
+        <view class="title">{{taskList[0].title}}</view>
+        <view class="content">{{taskList[0].content}}</view>
+     </view>
+      <view class="finishBtn">
+       <view class=" finish" wx:if="{{taskList[0].success == 1}}">    
+         <image src="/image/zhengque.png" mode="aspectFit" style="width: 50rpx;height:50rpx"></image>
+         <view class="daka">已打卡</view>
+       </view>
+       <view class="btn noFininsh" wx:else data-id="{{taskList[0].id}}" bindtap="fininsh">打卡</view>
+     </view>
+  </view>
+
+   <view class="itemwrap second">
+     <view class="imgWrap">
+      <image src="/image/du.png" mode="aspectFit"></image>
+     </view>
+     <view class="wordWrap">
+        <view class="title">{{taskList[1].title}}</view>
+        <view class="content">{{taskList[1].content}}</view>
+     </view>
+     <view class="finishBtn">
+        <view class="finish" wx:if="{{taskList[1].success == 1}}">
+          <image src="/image/zhengque.png" mode="aspectFit" style="width: 50rpx;height:50rpx"></image>
+          <view class="daka">已打卡</view>
+        </view>
+       <view class="btn noFininsh" wx:else data-id="{{taskList[1].id}}" bindtap="fininsh">打卡</view>
+     </view>
+  </view>
+
+   <view class="itemwrap third">
+     <view class="imgWrap">
+      <image src="/image/faze.png" mode="aspectFit"></image>
+     </view>
+     <view class="wordWrap">
+        <view class="title">{{taskList[2].title}}</view>
+        <view class="content">{{taskList[2].content}}</view>
+     </view>
+     <view class="finishBtn">
+        <view class="finish" wx:if="{{taskList[2].success === 1}}">
+          <image src="/image/zhengque.png" mode="aspectFit" style="width: 50rpx;height:50rpx"></image>
+          <view class="daka">已打卡</view>
+        </view>
+       <view class="btn noFininsh" wx:else data-id="{{taskList[2].id}}" bindtap="fininsh">打卡</view>
+     </view>
+  </view>
+  
+  <view class="itemwrap four">
+     <view class="imgWrap">
+      <image src="/image/guangyuan.png" mode="aspectFit"></image>
+     </view>
+     <view class="wordWrap">
+        <view class="title">{{taskList[3].title}}</view>
+        <view class="content">{{taskList[3].content}}</view>
+     </view>
+     <view class="finishBtn">
+         <view class="finish" wx:if="{{taskList[3].success === 1}}">
+          <image src="/image/zhengque.png" mode="aspectFit" style="width: 50rpx;height:50rpx"></image>
+          <view class="daka">已打卡</view>
+         </view>
+       <view class="btn noFininsh" wx:else data-id="{{taskList[3].id}}" bindtap="fininsh">打卡</view>
+     </view>
+  </view>
+
+  <view class="itemwrap five">
+     <view class="imgWrap">
+      <image src="/image/yingyang.png" mode="aspectFit"></image>
+     </view>
+     <view class="wordWrap">
+        <view class="title">{{taskList[4].title}}</view>
+        <view class="content">{{taskList[4].content}}</view>
+     </view>
+     <view class="finishBtn">
+         <view class="finish" wx:if="{{taskList[4].success == 1}}">
+           <image src="/image/zhengque.png" mode="aspectFit" style="width: 50rpx;height:50rpx"></image>
+           <view class="daka">已打卡</view>
+         </view>
+       <view class="btn noFininsh" wx:else  data-id="{{taskList[4].id}}" bindtap="fininsh">打卡</view>
+     </view>
+  </view>
+
+  <view class="itemwrap six">
+     <view class="imgWrap">
+      <image src="/image/shuimian.png" mode="aspectFit"></image>
+     </view>
+     <view class="wordWrap">
+        <view class="title">{{taskList[5].title}}</view>
+        <view class="content">{{taskList[5].content}}</view>
+     </view>
+     <view class="finishBtn">
+        <view class="finish" wx:if="{{taskList[5].success === 1}}">
+            <image src="/image/zhengque.png" mode="aspectFit" style="width: 50rpx;height:50rpx"></image>
+            <view class="daka">已打卡</view>
+        </view>
+        <view class="btn noFininsh"wx:else data-id="{{taskList[5].id}}" bindtap="fininsh">打卡</view>
+     </view>
+  </view>
+    <view class="itemwrap seven">
+     <view class="imgWrap">
+      <image src="/image/jiancha.png" mode="aspectFit"></image>
+     </view>
+     <view class="wordWrap">
+        <view class="title">{{taskList[6].title}}</view>
+        <view class="content">{{taskList[6].content}}</view>
+     </view>
+     <view class="finishBtn">
+      <view class="finish" wx:if="{{taskList[6].success === 1}}">
+        <image src="/image/zhengque.png" mode="aspectFit" style="width: 50rpx;height:50rpx"></image>
+        <view class="daka">已打卡</view>
+      </view>
+        <view class="btn noFininsh" wx:else data-id="{{taskList[6].id}}" bindtap="fininsh">打卡</view>
+     </view>
+  </view>
+</view>

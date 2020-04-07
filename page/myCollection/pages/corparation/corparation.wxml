@@ -1,0 +1,14 @@
+<!--pages/corparation/corparation.wxml-->
+<view class="main" >
+  <view class="itemWrap" wx:for="{{companyList}}" :key="{{item.id}}">
+    <view class="left">
+      <image wx:if="{{item.imgurl}}" src="{{item.imgurl}}" mode="aspectFit"></image>
+      <!-- <image src="https://www.guangliangkongjian.com/images/1.png" mode="aspectFit"></image> -->
+    </view>
+    <view class="right">
+      <view class="name">{{item.name}}</view>
+      <view class="address">地址：{{item.address}}</view>
+      <view class="address">电话：{{item.phone}}</view>
+    </view>   
+  </view>
+</view>
