@@ -1,16 +1,18 @@
 <!--pages/detail/detail.wxml-->
-<view class="main">
-  <image src="/image/bg2.png" class="bg" style="height:{{height + 200}}px"></image>
-  <nav-bar navbar-data='{{navbarData}}'  style="height: {{height}}px"> </nav-bar>
-  <view class="headerTop" style="height: 200px">
-    <view class="left">
-      <view> 姓名:{{studentName}}</view>
-      <view>出生日期：{{birthday}}</view>
-    </view>
-    <view class="right">
-      <view class="rightCon">
-        <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == 0}}"></image>
-        <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == 1}}"></image>
+ <image src="/image/bg2.png" class="bg"></image>
+<view clas="main">
+  <view class="headerWrap">
+    <nav-bar navbar-data='{{navbarData}}'  style="height: {{height}}px"> </nav-bar>
+    <view class="headerTop" style="height: {{height + 200}}px">
+      <view class="left">
+        <view> 姓名:{{studentName}}</view>
+        <view>出生日期：{{birthday}}</view>
+      </view>
+      <view class="right">
+        <view class="rightCon">
+          <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == 0}}"></image>
+          <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == 1}}"></image>
+        </view>
       </view>
     </view>
   </view>
@@ -26,14 +28,14 @@
       <view class="smallNum">{{visionLeftStr}}</view>
     </view>
   </view>
-  <view class="bottomWrap">
+   <view class="bottomWrap">
     <scroll-view scroll-y style="height: 100%" wx:if="{{isSelect == 1}}">
       <view class="time">检测时间:{{date}}</view>
         <view class="inner">
       <view class="distance" wx:for="{{processRightList}}">
-        <view class="item">等级：{{item.levelPre}}</view>
-        <view class="item">正确: {{item.right}}</view>
-        <view class="item">错误：{{item.wrong}}</view>  
+        <view>等级：{{item.levelPre}}</view>
+        <view >正确: {{item.right}}</view>
+        <view >错误：{{item.wrong}}</view>  
       </view> 
       </view>
     </scroll-view>
@@ -41,9 +43,9 @@
       <view class="time">检测时间:{{date}}</view>
         <view class="inner">
         <view class="distance" wx:for="{{processLeftList}}">
-          <view class="item">等级：{{item.levelPre}}</view>
-          <view class="item">正确: {{item.right}}</view>
-          <view class="item">错误：{{item.wrong}}</view>  
+          <view >等级：{{item.levelPre}}</view>
+          <view >正确: {{item.right}}</view>
+          <view>错误：{{item.wrong}}</view>  
         </view> 
       </view>
     </scroll-view>

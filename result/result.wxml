@@ -1,5 +1,5 @@
 <!--pages/save/save.wxml-->
- <image src="/image/bg2.png" class="bg"></image>
+ <image src="/image/bg2.png" class="bg" style="height: {{height + 100}}px"></image>
 <view class="main"  >
 
   <!-- <nav-bar  navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar> -->

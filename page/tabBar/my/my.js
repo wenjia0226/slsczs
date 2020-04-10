@@ -5,23 +5,46 @@ Page({
     phone: false,
     phoneNum: '',
     avatarUrl: '',
-    nickName: ''
+    nickName: '',
+    code: ''
   },
   onShow() {
+    this.getPhone();
+    wx.login({
+      success: (res) => {
+        this.setData({
+          code: res.code
+        })
+      }
+    })
       this.setData({
         phone: wx.getStorageSync('phone'),
-        phoneNum: wx.getStorageSync('phoneNum'),
         avatarUrl: wx.getStorageSync('avatarUrl'),
         nickName: wx.getStorageSync('nickName')
       })
   },
+  getPhone() {
+    let that = this;
+    let openId = wx.getStorageSync('openId');
+    let url = app.globalData.URL + 'mine', data = {
+      openId: wx.getStorageSync('openId')
+    };
+    wx.showLoading({
+      title: '加载中...',
+    })
+    app.wxRequest(url, data, (res) => {
+      if(res.data.data) {
+        that.setData({
+          phoneNum: res.data.data.phone
+        })
+      }
+    }, (err) => {
+      console.log(err)
+    })
+  },
   gotoQian() {
     if(wx.getStorageSync('phone')) {
-      if (wx.getStorageSync('time')) {
-         this.OneMoreGet();
-      } else {
-        this.getJiFen();
-      }
+      this.OneMoreGet();
     }else {
       this.gotoLogin();
     }
@@ -30,8 +53,9 @@ Page({
     let data = { openId: wx.getStorageSync('openId') };
     let url = app.globalData.URL + 'signin';
     app.wxRequest(url, data, (res) => {
+      if(res.data.status == 10200) {
       wx.showModal({
-        title: '本日已签到',
+        title: res.data.msg,
         content: '若要获取更多积分，完成爱眼计划',
         showCancel: true,//是否显示取消按钮
         cancelText: "以后再说",//默认是“取消”
@@ -41,15 +65,35 @@ Page({
         success: function (res) {
           if (res.cancel) {
             //点击取消,默认隐藏弹框
-          } else {
+          }else {
             //点击确定
-            wx.setStorageSync('time', 1)
             wx.navigateTo({
               url: '/page/myCollection/pages/plan/plan',
             })
           }
         }
       })
+      }else if(res.data.status == 200) {
+        wx.showModal({
+          title: res.data.msg,
+          content: '若要获取更多积分，完成爱眼计划',
+          showCancel: true,//是否显示取消按钮
+          cancelText: "以后再说",//默认是“取消”
+          // cancelColor: 'skyblue',//取消文字的颜色
+          confirmText: "现在就去",//默认是“确定”
+          // confirmColor: 'skyblue',//确定文字的颜色
+          success: function (res) {
+            if (res.cancel) {
+              //点击取消,默认隐藏弹框
+            } else {
+              //点击确定
+              wx.navigateTo({
+                url: '/page/myCollection/pages/plan/plan',
+              })
+            }
+          }
+        })
+      }
     }, (err) => {
       console.log(err)
     })
@@ -70,8 +114,6 @@ Page({
           if (res.cancel) {
             //点击取消,默认隐藏弹框
           } else {
-            //点击确定
-            wx.setStorageSync('time', 1)
             wx.navigateTo({
               url: '/page/myCollection/pages/plan/plan',
             })
@@ -97,14 +139,12 @@ Page({
     }
   },
   goToBao() {
-    // wx.showToast({
-    //   title: '开发中...',
-    //   icon: 'none'
-    // })
     if (wx.getStorageSync('phone')) {
       wx.navigateTo({
         url: '/page/myCollection/pages/reportList/reportList'
       })
+    }else {
+      this.gotoLogin()
     }
   },
   gotoPlan() {
@@ -115,7 +155,6 @@ Page({
     }else {
       this.gotoLogin();
     }
-    
   },
   gotoJiFen() {
     if(this.data.phone) {
@@ -125,7 +164,6 @@ Page({
     }else {
      this.gotoLogin()
     }
- 
   },
   gotoshare() {
     wx.navigateTo({
@@ -149,5 +187,88 @@ Page({
         // 不管成功失败都会执行
       }
     }
-  }
+  },
+  getPhoneNumber(e) {
+    var msg = e.detail.errMsg, that = this;
+    var that = this;
+    
+    // var sessionID = wx.getStorageSync('session_key'),
+    let encryptedData = e.detail.encryptedData,
+     code = that.data.code,
+      iv = e.detail.iv;
+
+    if (msg == 'getPhoneNumber:ok') {
+      wx.checkSession({
+        success: function () {
+          //调用自己的登录接口
+         
+          // that.getPhone(code, encryptedDataStr, iv);
+          let url = app.globalData.URL + 'bindingPhone';
+          let data = {
+            encryptedData: encryptedData,
+            iv: iv,
+            code: code,
+            openId: wx.getStorageSync('openId')
+          };
+          wx.showLoading({
+            title: '加载中...',
+          })
+          app.wxRequest(url, data, (res) => {
+            if (res.data.status == 200) {
+              console.log(res)
+              that.setData({
+                phoneNum: res.data.data
+              })
+              wx.switchTab({
+                url: '/page/tabBar/my/my'
+              })
+            }
+          }, (err) => {
+            console.log(err)
+          })
+        },
+        fail: function (err) {
+          console.log(err)
+          // wx.login({
+          //   success: res => {
+          //     console.log(res, 'sessionkey过期')
+          //   }
+          // })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '',
+        content: '请先授权',
+      })
+    }
+  },
+  //登录
+  // getPhone(code, encryptedData, iv) {
+  //   console.log(that.data.code, 999)
+  //   let that = this;
+  //   let url = app.globalData.URL + 'bindingPhone';
+  //   let data = {
+  //     encryptedData: encryptedData,
+  //     iv: iv,
+  //     code: code,
+  //     openId: wx.getStorageSync('openId')
+  //   };
+  //   wx.showLoading({
+  //     title: '加载中...',
+  //   })
+  //   app.wxRequest(url, data, (res) => {
+  //     if (res.data.status == 200) {
+  //     //  console.log(res)
+  //      that.setData({
+  //        phoneNum: res.data.data
+  //      })
+  //       wx.switchTab({
+  //         url: '/page/tabBar/my/my'
+  //       })
+  //     }
+  //   }, (err) => {
+  //     console.log(err)
+  //   })
+  // }
 })

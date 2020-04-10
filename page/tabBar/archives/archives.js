@@ -93,7 +93,7 @@ Page({
       let url = app.globalData.URL + 'screeningList', data = {
         openId: wx.getStorageSync('openId')
       };
-      app.wxRequest(url, data, (res) => {
+      app.wxRequest(url, data, (res) => { 
         // console.log(res)
         //如果孩子不为空
         if(res.data.data !== null) {
@@ -107,7 +107,10 @@ Page({
               return item;
             }
           })
-          // console.log(currentStu)
+          that.setData({
+            navList: currentStu
+          })
+          // console.log(that.data.navList)
           if(currentStu.length) {
             let picList = currentStu.map((item) => {
               return item.picList
@@ -122,7 +125,6 @@ Page({
               return item.wearpicList
             })
             that.setData({
-              navList: currentStu,
               dataList: dataList[0],
               picList: picList[0],
               weardataList: weardataList[0],
@@ -151,18 +153,16 @@ Page({
             wearrightData = wearpicList2.map((item) => {
               return item.visionRightStr
             })
-           
           }
         }
-        that.oneComponent = that.selectComponent('#mychart-one');
-        that.twoComponent = that.selectComponent("#mychart-two");
+          that.oneComponent = that.selectComponent('#mychart-one');
+          that.twoComponent = that.selectComponent("#mychart-two");
         if (xData.length && leftData.length && rightData.length ) {
+         
           //某个人列表赋值
-          that.init_one(xData, leftData, rightData)
-       
+          that.init_one(xData, leftData, rightData) 
         }else {
           that.setData({
-            navList: [],
             dataList: [],
             picList: []
           })
@@ -171,11 +171,18 @@ Page({
           that.init_two(wearxData, wearleftData, wearrightData)
         }else {  //如果孩子为空
         that.setData({
-          navList: [],
           weardataList: [],
           wearpicList: []
         })
       } 
+      }else {  //如果孩子为空
+          that.setData({
+            navList: [],
+            dataList: [],
+            picList: [],
+            weardataList: [],
+            wearpicList: []
+          })
       }
       }, (err) => {
         console.log(err)
@@ -188,17 +195,19 @@ Page({
         width: width,
         height: height
       });
+      //console.log(xData, leftData, rightData)
       setOption(chart, xData, leftData, rightData)
       this.chart = chart;
       return chart;
     })
   },
-  init_two(xData, leftData, rightData) {
+  init_two(wearxData, wearleftData, wearrightData) {
     this.twoComponent.init((canvas, width, height) => {
       const chart2 = echarts.init(canvas, null, {
         width: width,
         height: height
       });
+      // console.log(chart2, wearxData, wearleftData, wearrightData)
       setOption(chart2, wearxData, wearleftData, wearrightData)
       this.chart2 = chart2;
       return chart2;

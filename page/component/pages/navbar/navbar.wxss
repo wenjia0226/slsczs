@@ -14,18 +14,17 @@
   font-size: 30rpx;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 10rpx;
   padding: 0 10rpx;
-
 }
 .titleWrap image {
   width: 30rpx;
   height: 30rpx;
 }
 .biaoti {
-  font-size: 30rpx;
+  font-size: 32rpx;
   color:#fff;
   position: absolute;
-  bottom: 0;
-  left: 50rpx;
+  bottom: 2rpx;
+  left: 70rpx;
 }

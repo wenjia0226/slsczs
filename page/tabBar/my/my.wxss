@@ -18,11 +18,12 @@
   position: absolute;
   top: 100rpx;
   width: 90%;
-  margin: 0 0 0 5%;
+  margin: 0  5%;
   height: 200rpx;
   background: #fff;
   border-radius: 20rpx 20rpx 0 0 ;
   display: flex;
+  box-sizing: border-box;
 }
 .leftIcon {
   width: 200rpx;
@@ -30,6 +31,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding:  0 20rpx;
 }
 .userinfo-avatar {
   height: 150rpx;
@@ -39,9 +42,31 @@
 .centerNi{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex: 1;
+  flex-direction: column;
+   margin-left: 10rpx;
 }
+.nickName {
+  font-size: 36rpx;
+  font-weight: bold;
+ 
+}
+.phoneNum {
+  text-align: left;
+  margin: 10rpx 0;
+}
+.phoneNum > button {
+  font-weight: normal;
+  font-size: 30rpx;
+  margin: 0 !important;
+  width: 100%;
+  text-align:left !important;
+  padding: 0 !important;
+ 
+
+}
+
 .rightQian{
    width: 200rpx;
    height: 100%;
@@ -49,13 +74,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 20rpx;
 }
 .rightQian image {
   width: 100rpx;
   height: 100rpx;
 }
 .qiandao {
-  font-size: 28rpx;
+  font-size: 24rpx;
 }
 .listWrap {
   margin: 10rpx 0;
@@ -109,8 +136,7 @@
   font-weight: normal;
   padding-left: 0;
   width: 100%;
-  border-bottom: 3rpx dotted #eee;
-}
+  }
 .shareing {
   padding: 20rpx 20rpx 20rpx 0; 
 }

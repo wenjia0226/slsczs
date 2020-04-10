@@ -1,6 +1,6 @@
 <!--reportList/reportList.wxml-->
 <view class="main">
-  <view class="itemWrap" wx:for="{{reportList}}" >
+  <view class="itemWrap" wx:for="{{reportList}}" bindtap = "gotoDetailReport" wx:if="{{reportList.length}}">
     <view class="leftWrap">
     <view class="logo">
       <image src="/image/girl.png" mode="aspectFit" wx:if="{{item.gender == 1}}"></image>
@@ -11,9 +11,14 @@
       <view class="name">{{item.name}}</view>
       <view class="time">检测时间: {{item.time}}</view>
     </view>
-    <view class="rightWrap" data-id="{{item.id}}" bindtap = "gotoDetailReport">
+    <view class="rightWrap" data-id="{{item.id}}">
       <view class="report">报告详情</view>
        <image  class="rightGo " src="/image/rightgo.png" mode="aspectFit"></image>
     </view>
   </view>
+  <block wx:if="{{reportList.length == 0}}">
+    <view class="nodangan">
+      <view class="no">暂无档案信息</view>
+    </view>
+  </block>
 </view>

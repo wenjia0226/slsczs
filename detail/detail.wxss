@@ -9,6 +9,10 @@
   flex-direction: column;
   justify-content: center;
 }
+.headerWrap{
+  height: 360rpx;
+  width: 100%;
+}
 .back {
   font-size: 30rpx;
   color: #fff;
@@ -28,22 +32,18 @@
   display:flex;
   box-sizing: border-box;
   font-size: 30rpx;
-  align-items: center;
-  height: 200px;
-}
-.item {
-  width: 33%;
-  text-align: left;
-  padding-left: 20rpx;
+  height: 380rpx;
 }
 .left {
   width: 60%;
   color: #fff;
   text-align: left;
   margin-left: 100rpx;
+  padding: 100rpx 0 50rpx;
 }
 .right {
-  width: 40%;
+  width: 40%; 
+  padding: 70rpx 0 20rpx;
 }
 .rightCon {
   width: 150rpx;
@@ -70,13 +70,13 @@
 }
 /* 中间圆圈 */
 .centerWrap{
-  padding:  5rpx;
+  padding:  5rpx 30rpx;
   display: flex;
-  justify-content: space-around;
+
 }
 .leftWrap {
-  width: 200rpx;
-  height: 200rpx;
+  width: 250rpx;
+  height: 250rpx;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -96,6 +96,10 @@
 .smallNum {
   font-size: 20rpx;
   color: #999;
+}
+.item {
+  width: 33%;
+  text-align: left;
 }
 /* 底部 */
 .bottomWrap{

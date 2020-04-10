@@ -43,7 +43,6 @@ Page({
     })
     wrongContext.onError((res) => {
       console.log(res.errMsg)
-      console.log(res.errCode)
     })
   },
   // 按钮式判断正误
@@ -80,7 +79,7 @@ Page({
       //循环次数大于5次后清零 判断升级还是降级
       if (that.data.time == 5) {
         that.data.list.push({
-          l: 0.6,
+          l: "0.6",
           r: that.data.right,
           w: that.data.wrong
         })
@@ -138,13 +137,13 @@ Page({
         //存入数据
         if(that.data.levelPre == 10) {
           that.data.list.push({
-            l: 0.8,
+            l: "0.8",
             r: that.data.right,
             w: that.data.wrong
           })
         }else if(that.data.levelPre == 11) {
           that.data.list.push({
-            l: 1.0,
+            l: "1.0",
             r: that.data.right,
             w: that.data.wrong
           })
@@ -212,13 +211,13 @@ Page({
         //存入数据
         if (that.data.levelPre == 12) {
           that.data.list.push({
-            l: 1.2,
+            l: "1.2",
             r: that.data.right,
             w: that.data.wrong
           })
         } else if (that.data.levelPre == 13) {
           that.data.list.push({
-            l: 1.5,
+            l: "1.5",
             r: that.data.right,
             w: that.data.wrong
           })
@@ -302,7 +301,7 @@ Page({
       //测试5次后逻辑判断 
       if (that.data.time == 5) {
           that.data.list.push({
-            l: 2.0,
+            l: "2.0",
             r: that.data.right,
             w: that.data.wrong
           })
@@ -359,25 +358,25 @@ Page({
         //存入数据
         if (that.data.levelPre == 8) {
           that.data.list.push({
-            l: 0.5,
+            l: "0.5",
             r: that.data.right,
             w: that.data.wrong
           })
         } else if (that.data.levelPre == 7) {
           that.data.list.push({
-            l: 0.4,
+            l: "0.4",
             r: that.data.right,
             w: that.data.wrong
           })
         } else if (that.data.levelPre == 6) {
           that.data.list.push({
-            l: 0.3,
+            l: "0.3",
             r: that.data.right,
             w: that.data.wrong
           })
         }else if (that.data.levelPre == 5) {
           that.data.list.push({
-            l: 0.25,
+            l: "0.25",
             r: that.data.right,
             w: that.data.wrong
           })
@@ -389,19 +388,19 @@ Page({
           })
         } else if (that.data.levelPre == 3) {
           that.data.list.push({
-            l: 0.15,
+            l: "0.15",
             r: that.data.right,
             w: that.data.wrong
           })
         } else if (that.data.levelPre == 2) {
           that.data.list.push({
-            l: 0.12,
+            l: "0.12",
             r: that.data.right,
             w: that.data.wrong
           })
         } else if (that.data.levelPre == 1) {
           that.data.list.push({
-            l: 0.1,
+            l: "0.1",
             r: that.data.right,
             w: that.data.wrong
           })

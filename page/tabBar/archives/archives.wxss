@@ -53,8 +53,7 @@
   margin: 0 40rpx 0 20rpx;
 }
 .logo_img{
-  height: 100rpx;
-  width: 100%;
+  width: 140rpx;
 }
 .text {
   font-size: 28rpx;

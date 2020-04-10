@@ -8,9 +8,62 @@ Page({
     result: '',
     statusBarHeight: '', 
     navTop: '', 
-    navHeight: ''
+    navHeight: '',
+    height: app.globalData.height * 2 + 20
   },
- 
+ getChildrenList() {
+   let that = this;
+   let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
+   //如果已经授权过
+   if (wx.getStorageSync('phone')) {
+     wx.showLoading({
+       title: '加载中...'
+     })
+     app.wxRequest(url, data, (res) => {
+      //  console.log(res)
+       if (res.data.status == 200) {
+         that.setData({
+           childrenList: res.data.data
+         })
+         that.data.childrenList.push({
+           age: 8,
+           birthday: "2019-04-01",
+           chairHeight: "60",
+           classesId: 42,
+           classesName: "二（3）班",
+           correct: 0,
+           description: "",
+           gender: "",
+           lastTime: '',
+           height: "125",
+           id: 2,
+           name: "新增",
+           nature: "无",
+           parentPhone: "18311192425",
+           regionId: 1,
+           regionName: "唐山",
+           schoolId: 50,
+           schoolName: "唐山市师范附属小学",
+           sittingHeight: "105.0",
+           weight: "22.34",
+           lastTime: null
+         })
+         that.setData({
+           childrenList: that.data.childrenList
+         })
+         let childList = that.data.childrenList;
+         wx.setStorageSync('studentId', childList[0].id);
+       }
+       if (res.data.status == 10220) {
+         that.setData({
+           childrenList: []
+         })
+       }
+     }, (err) => {
+       console.log(err)
+     })
+   }
+ },
   onShow() {
     let that = this;
     this.setData({
@@ -19,61 +72,8 @@ Page({
       navHeight: app.globalData.navHeight
     })
     // console.log(app.globalData.navHeight)
-    let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId')};
-    //如果已经授权过
-    if(wx.getStorageSync('phone')) {
-      wx.showLoading({
-        title: '加载中...'
-      })
-      app.wxRequest(url, data, (res) => {
-        if (res.data.status == 200) { 
-          //  console.log(res)     
-          if(res.data.data) {
-          that.setData({
-            childrenList: res.data.data
-          })
-          that.data.childrenList.push({
-            age: 8,
-            birthday: "2019-04-01",
-            chairHeight: "60",
-            classesId: 42,
-            classesName: "二（3）班",
-            correct: 0,
-            description: "",
-            gender: "",
-            lastTime: '',
-            height: "125",
-            id: 2,
-            name: "新增",
-            nature: "无",
-            parentPhone: "18311192425",
-            regionId: 1,
-            regionName: "唐山",
-            schoolId: 50,
-            schoolName: "唐山市师范附属小学",
-            sittingHeight: "105.0",
-            weight: "22.34"
-          })
-          that.setData({
-            childrenList: res.data.data
-          })
-          // wx.setStorageSync('childLength', that.data.childrenList.length);
-          let childList = that.data.childrenList;
-          wx.setStorageSync('studentId', childList[0].id);
-        } else {     
-          that.setData({
-            childrenList: []
-          })
-        }
-      }else {
-          that.setData({
-            childrenList: []
-          })
-      }
-    }, (err) => {
-        console.log(err)
-      })
-    }
+    this.getChildrenList();
+    
   },
   //确定当前孩子具体是哪个
   activeNav: function (e) {

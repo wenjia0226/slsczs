@@ -11,7 +11,7 @@
 }
 .itemWrap {
   display: flex;
-  height: 200rpx;
+  height: 180rpx;
   background: #4db2fd;
   border-radius: 20rpx;
   margin:10rpx;
@@ -57,4 +57,19 @@
 .rightGo {
   width: 50rpx;
   height: 50rpx;
+}
+.nodangan {
+  text-align: center;
+  background: #eee;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.no {
+  /* background: #fff; */
+  height: 200rpx;
+  line-height: 200rpx;
+  margin-top: 100rpx;
 }

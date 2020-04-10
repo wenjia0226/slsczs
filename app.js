@@ -25,18 +25,7 @@ App({
               wx.setStorageSync("encryptedData", res.encryptedData);
               wx.setStorageSync("iv", res.iv);
               // 可以将 res 发送给后台解码出 unionId
-            //   this.globalData.userInfo = res.userInfo
-            //   let url = this.globalData.URL + 'loginXcx';
-            //   let data = {
-            //     encryptedData: res.encryptedData,
-            //     iv: res.iv,
-            //     code: wx.getStorageSync('code')
-            //   };
-            //  this. wxRequest(url,data, (res) => {
-            //     console.log(res)
-            //   }, (err) => {
-            //     console.log(err)
-            //   })
+        
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -47,24 +36,25 @@ App({
         }
       }
     })
-    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
-      wx.getSystemInfo({
-        success: res => {
-          let statusBarHeight = res.statusBarHeight,
-            navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
-            navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
+    // let menuButtonObject = wx.getMenuButtonBoundingClientRect();
+    //   wx.getSystemInfo({
+    //     success: res => {
+    //       let statusBarHeight = res.statusBarHeight,
+    //         navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
+    //         navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
            
-          this.globalData.navHeight = navHeight;
-          this.globalData.navTop = navTop;
-          this.globalData.windowHeight = res.windowHeight;
-          // console.log(statusBarHeight, navTop, navHeight);
-        },
-        fail(err) {
-          console.log(err);
-        }
-      })
+    //       this.globalData.navHeight = navHeight;
+    //       this.globalData.navTop = navTop;
+    //       this.globalData.windowHeight = res.windowHeight;
+    //       // console.log(statusBarHeight, navTop, navHeight);
+    //     },
+    //     fail(err) {
+    //       console.log(err);
+    //     }
+    //   })
     wx.getSystemInfo({
       success: (res) => {
+        console.log(res)
         this.globalData.height = res.statusBarHeight;
       }
     });
@@ -75,8 +65,8 @@ App({
     navTop: '',
     windowHeight: '',
     height: '',
-    //URL: 'https://www.guangliangkongjian.com/lightspace/xcx/',
-    URL: 'http://192.168.2.201:8080/lightspace/xcx/'
+    URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
+    //URL: 'http://192.168.2.201:8080/lightspace/xcx/'
   },
   wxRequest(url, data, callback, errFun) {
     wx.request({

@@ -7,7 +7,9 @@
          <image   class=" userinfo-avatar" src="{{avatarUrl}}" mode="aspectFit" wx:if="{{avatarUrl}}"></image>
       </view>
       <view class="centerNi" wx:if="{{phone}}">
-        <view > {{nickName}}</view>
+        <view class="nickName"> {{nickName}}</view>
+        <view class="phoneNum" wx:if="{{!phoneNum}}"><button  open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">获取手机号</button></view> 
+         <view class="phoneNum" wx:if="{{phoneNum}}">{{phoneNum}}</view> 
       </view>
        <view class="centerNi" wx:if="{{!phone}}">
         <view  class="login" bindtap="gotoLogin">

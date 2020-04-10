@@ -10,7 +10,7 @@
 }
 .headerWrap{
   height: 450rpx;
-  background: #5f0ce6;
+  background: #5391FC;
   position:relative;
 }
 .gonglue{
