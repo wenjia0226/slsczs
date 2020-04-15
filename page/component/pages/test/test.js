@@ -264,16 +264,6 @@ Page({
           wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
           wx.navigateTo({
             url: '/page/component/pages/result/result'
-
-          })
-        }
-        if (that.data.levelPre == 13) {
-          let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
-          wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-          wx.setStorageSync('numLeft', that.data.number)
-          wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
-          wx.navigateTo({
-            url: '/page/component/pages/result/result'
           })
         }
       }
@@ -324,17 +314,16 @@ Page({
             wrong: 0
           })
         }
-        
         let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
-        wx.setStorageSync('visionRight', currentLevel[0].levelName)
-        wx.setStorageSync('numRight', that.data.number)
-        wx.setStorageSync('levelName5Right', currentLevel[0].levelName5)
+        wx.setStorageSync('visionLeft', currentLevel[0].levelName)
+        wx.setStorageSync('numLeft', that.data.number)
+        wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
         wx.navigateTo({
           url: '/page/component/pages/result/result'
         })
         }
       //等级1/2/3 4.7/0.5   4.6/0.4   4.5/0.3
-    } else if (that.data.levelPre <= 8) {
+    } else if (that.data.levelPre <= 8 || that.data.levelPre >= 1) {
       if (that.data.time < 5) {   //五次循环 判断对错
         if (flag == 'right') {
           that.voidRight();

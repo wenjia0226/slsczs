@@ -51,8 +51,17 @@ Page({
          that.setData({
            childrenList: that.data.childrenList
          })
-         let childList = that.data.childrenList;
-         wx.setStorageSync('studentId', childList[0].id);
+        //  console.log(that.data.childrenList[0].id)
+        //  wx.setStorageSync('studentId', that.data.childrenList[0].id)
+        //  let childList = that.data.childrenList;
+         
+        //  if(wx.getStorageSync('studentId') !== 2) {
+        //    that.setData({
+        //      currentIndex: 0
+        //    })
+        //    wx.setStorageSync('studentId', childList[0].id);
+        //  }
+         
        }
        if (res.data.status == 10220) {
          that.setData({
@@ -86,6 +95,16 @@ Page({
       wx.setStorageSync('studentId', student[0].id)
     }
   },
+  getItem(e) {
+    let that = this;
+      this.setData({
+        currentIndex: e.currentTarget.dataset.index
+      })
+    // if (that.data.childrenList) {
+    //   let student = this.data.childrenList.filter((item, index) => { return index == that.data.currentIndex });
+    //   wx.setStorageSync('studentId', student[0].id)
+    // }
+  },
   // 跳转到添加孩子页面
   gotoAddChild() {
     let that = this;
@@ -100,7 +119,6 @@ Page({
                 var str = res.path;
                 let stuId = str.split('=')[1];   
                 //获取到学生id后添加孩子
-              
                 wx.setStorageSync('studentId', stuId);
                 let openId = wx.getStorageSync('openId');
                 let url = app.globalData.URL + 'binding', data = {
@@ -138,7 +156,7 @@ Page({
                   that.setData({
                     childrenList: res.data.data
                   })
-                  wx.setStorageSync('childLength', that.data.childrenList.length)
+                  // wx.setStorageSync('childLength', that.data.childrenList.length)
                   wx.switchTab({
                     url: '/page/tabBar/screen/screen'
                   })

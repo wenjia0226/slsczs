@@ -78,6 +78,7 @@ swiper {
 }
 .active {
   transform:  scale(1.1);
+  /* transform: translate(100%, 0px) translateZ(0px); */
   transition: all 0.2s ease-in 0s;
   z-index: 20;
   margin-top: 20rpx;

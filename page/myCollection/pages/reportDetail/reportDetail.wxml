@@ -1,26 +1,27 @@
 <!--reportList/reportList.wxml-->
 <view class="main">
+<scroll-view scroll-y style="height: 100%">
   <view class="title">视觉检测报告单</view>
   <!-- 顶部头像 -->
   <view class="itemWrap">
     <view class="leftWrap">
-    <view class="logo">
-      <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == '女'}}"></image>
-      <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == '男'}}"></image>
-      <image src="/image/my.png" mode="aspectFit"></image>
-    </view>
+      <view class="logo">
+        <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == '女'}}"></image>
+        <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == '男'}}"></image>
+        <image src="/image/my.png" mode="aspectFit" wx:if="{{!gender}}"></image>
+      </view>
     </view>
     <view class="centerWrap">
-      <view class="name" wx:if="{{name}}">{{name}}</view>
-      <view class="time" wx:if="{{!name}}">无</view>
-      <view class="time" wx:if="{{birthday}}">{{birthday}}</view>
-      <view class="time" wx:if="{{!birthday}}">无</view>
+      <view class="name white" wx:if="{{name}}">{{name}}</view>
+      <view class="time white" wx:if="{{!name}}">姓名：无</view>
+      <view class="time white" wx:if="{{birthday}}">{{birthday}}</view>
+      <view class="time white" wx:if="{{!birthday}}">生日：无</view>
     </view>
     <view class="rightWrap">
-      <view wx:if="{{school}}">学校: {{school}}</view>
-      <view wx:if="{{!school}}">学校: 无</view>
-      <view wx:if="{{phone}}">电话: {{phone}}</view>
-       <view wx:if="{{!phone}}">电话: 无</view>
+      <view class="name white" wx:if="{{school}}">学校: {{school}}</view>
+      <view class="time white" wx:if="{{!school}}">学校: 无</view>
+      <view class="time white" wx:if="{{phone}}">电话: {{phone}}</view>
+       <view class="time white" wx:if="{{!phone}}">电话: 无</view>
     </view>
   </view>
   <view class="reportMian">
@@ -37,80 +38,96 @@
       <view class="wth">瞳距</view>
       <view class="wth">主导眼</view>
     </view>
-    <view  class="list listLeft" style="border-bottom: 1px dotted  #6794EB">
+    <view  class="list listLeft" style="margin-bottom: 5rpx;">
       <view class="wth">右眼</view>
-      <view class="wth" wx:if="{{farRight}}">{{farRight}} </view>
-      <view class="wth" wx:if="{{!farRight}}">-/-</view>
-      <view class="wth" wx:if="{{nearRight}}">{{nearRight}}</view>
-      <view class="wth" wx:if="{{!nearRight}}">-/-</view>
-      <view class="wth" wx:if="{{sphRight}}">{{sphRight}}</view>
-      <view class="wth" wx:if="{{!sphRight}}">-/-</view>
-      <view class="wth" wx:if="{{cytRight}}">{{cytRight}}</view>
-      <view class="wth" wx:if="{{!cytRight}}">-/-</view>
-      <view class="wth wthMin" wx:if="{{axisRight}}">{{axisRight}}</view>
-      <view class="wth wthMin" wx:if="{{!axisRight}}">-/-</view>
-      <view class="wth wthMax" wx:if="{{correctRight}}">{{correctRight}}</view>
-      <view class="wth wthMax" wx:if="{{!correctRight}}">-/-</view>
-      <view class="wth" wx:if="{{ipdRight}}">{{ipdRight}}</view>
-      <view class="wth" wx:if="{{!ipdRight}}">-/-</view>
-      <view class="wth" wx:if="{{leadingRight}}">{{leadingRight}} </view>
-      <view class="wth" wx:if="{{!leadingRight}}">-/-</view>
+      <view class="wth black" wx:if="{{farRight}}">{{farRight}} </view>
+      <view class="wth black" wx:if="{{!farRight}}">-/-</view>
+      <view class="wth black" wx:if="{{nearRight}}">{{nearRight}}</view>
+      <view class="wth black" wx:if="{{!nearRight}}">-/-</view>
+      <view class="wth black" wx:if="{{sphRight}}">{{sphRight}}</view>
+      <view class="wth black" wx:if="{{!sphRight}}">-/-</view>
+      <view class="wth black" wx:if="{{cytRight}}">{{cytRight}}</view>
+      <view class="wth black" wx:if="{{!cytRight}}">-/-</view>
+      <view class="wth wthMin black" wx:if="{{axisRight}}">{{axisRight}}</view>
+      <view class="wth wthMin black" wx:if="{{!axisRight}}">-/-</view>
+      <view class="wth wthMax black" wx:if="{{correctRight}}">{{correctRight}}</view>
+      <view class="wth wthMax black" wx:if="{{!correctRight}}">-/-</view>
+      <view class="wth black" wx:if="{{ipdRight}}">{{ipdRight}}</view>
+      <view class="wth black" wx:if="{{!ipdRight}}">-/-</view>
+      <view class="wth black" wx:if="{{leadingRight}}">{{leadingRight}} </view>
+      <view class="wth black" wx:if="{{!leadingRight}}">-/-</view>
     </view>
      <view  class=" list listLeft" >
       <view class="wth">左眼</view>
-      <view class="wth" wx:if="{{farLeft}}"> {{farLeft}}</view>
-      <view class="wth" wx:if="{{!farLeft}}">-/-</view>
-      <view class="wth" wx:if="{{nearLeft}}">{{nearLeft}}</view>
-      <view class="wth" wx:if="{{!nearLeft}}">-/-</view>
-      <view class="wth" wx:if="{{sphLeft}}">{{sphLeft}}</view>
-      <view class="wth" wx:if="{{!sphLeft}}">-/-</view>
-       <view class="wth" wx:if="{{cytLeft}}">{{cytLeft}}</view>
-       <view class="wth" wx:if="{{!cytLeft}}">-/-</view>
-      <view class="wth wthMin" wx:if="{{axisLeft}}">{{axisLeft}}</view>
-      <view class="wth wthMin" wx:if="{{!axisLeft}}">-/-</view>
-      <view class="wth wthMax" wx:if="{{correctLeft}}">{{correctLeft}}</view>
-      <view class="wth wthMax" wx:if="{{!correctLeft}}">-/-</view>
-      <view class="wth" wx:if="{{ipdLeft}}">{{ipdLeft}}</view>
-      <view class="wth" wx:if="{{!ipdLeft}}">-/-</view>
-      <view class="wth" wx:if="{{leadingLeft}}">{{leadingLeft}}</view>
-      <view class="wth" wx:if="{{!leadingLeft}}">-/-</view>
+      <view class="wth black" wx:if="{{farLeft}}"> {{farLeft}}</view>
+      <view class="wth black" wx:if="{{!farLeft}}">-/-</view>
+      <view class="wth black" wx:if="{{nearLeft}}">{{nearLeft}}</view>
+      <view class="wth black" wx:if="{{!nearLeft}}">-/-</view>
+      <view class="wth black" wx:if="{{sphLeft}}">{{sphLeft}}</view>
+      <view class="wth black" wx:if="{{!sphLeft}}">-/-</view>
+       <view class="wth black" wx:if="{{cytLeft}}">{{cytLeft}}</view>
+       <view class="wth black" wx:if="{{!cytLeft}}">-/-</view>
+      <view class="wth wthMin black" wx:if="{{axisLeft}}">{{axisLeft}}</view>
+      <view class="wth wthMin black" wx:if="{{!axisLeft}}">-/-</view>
+      <view class="wth wthMax black" wx:if="{{correctLeft}}">{{correctLeft}}</view>
+      <view class="wth wthMax black" wx:if="{{!correctLeft}}">-/-</view>
+      <view class="wth black" wx:if="{{ipdLeft}}">{{ipdLeft}}</view>
+      <view class="wth black" wx:if="{{!ipdLeft}}">-/-</view>
+      <view class="wth black" wx:if="{{leadingLeft}}">{{leadingLeft}}</view>
+      <view class="wth black" wx:if="{{!leadingLeft}}">-/-</view>
     </view>
     <!-- 视功能检查 -->
     <view class="listWTitle">视功能检查</view>
     <view class="itemLine">
-      <view class="itemLeft" wx:if="{{motion}}">眼球运动:{{motion}}</view>
-       <view class="itemLeft" wx:if="{{!motion}}">眼球运动:-/-</view>
-      <view class="itemLeft" wx:if="{{stereopsis}}">立体视检查:{{stereopsis}} </view>
-       <view class="itemLeft" wx:if="{{!stereopsis}}">立体视检查:-/-</view>
+      <view class="itemLeft" >
+      眼球运动:
+        <view class="black" wx:if="{{motion}}">{{motion}}</view>
+        <view class="black" wx:if="{{!motion}}">-/-</view>
+      </view>
+      <view class="itemLeft">
+         立体视检查: 
+        <view class="black" wx:if="{{stereopsis}}">{{stereopsis}}</view>
+        <view class="black" wx:if="{{!stereopsis}}">-/-</view>
+      </view>
     </view>
      <view class="itemLine">
-      <view class="itemLeft"wx:if="{{cover}}">遮盖眼位:{{cover}}</view>
-      <view class="itemLeft" wx:if="{{!cover}}">遮盖眼位:-/-</view>
-      <view class="itemLeft" wx:if="{{worth}}">Worth-4点:{{worth}}</view>
-      <view class="itemLeft" wx:if="{{!worth}}">Worth-4点:-/-</view>
+      <view class="itemLeft">
+        遮盖眼位:
+        <view class="black" wx:if="{{cover}}"> {{cover}}</view>
+        <view class="black" wx:if="{{!cover}}"> -/-</view>
+      </view>
+      <view class="itemLeft">
+        Worth-4点:
+        <view class="black" wx:if="{{worth}}"> {{worth}}</view>
+        <view class="black" wx:if="{{!worth}}"> -/-</view>
+      </view>
     </view>
-     <view class="collectionWrap">
+    <view class="collectionWrap">
       <view class="collectLeft">
-        <view wx:if="{{assembly}}">集合近点 :{{assembly}}</view>
-        <view wx:if="{{!assembly}}">集合近点:-/- </view>
-        <view wx:if="{{colourVision}}">色觉检查 :{{colourVision}}</view> 
-        <view wx:if="{{!colourVision}}">色觉检查:-/- </view>
+        <view>
+          集合近点:
+        <text class="black" wx:if="{{assembly}}">{{assembly}}</text>
+        <text class="black" wx:if="{{!assembly}}">-/-</text>
+        </view>
+        <view>
+          色觉检查:
+        <text class="black" wx:if="{{colourVision}}">{{colourVision}}</text>
+        <text class="black" wx:if="{{!colourVision}}">-/-</text>
+        </view>
       </view>
       <view class="collectRight ">
         <view class="collectRightTitle bd_bottom">调 节 灵 敏 度</view>
          <view class="eyeWrap">
-            <view wx:if="{{splRight}}">{{splRight}}</view>
-            <view wx:if="{{!splRight}}">-/-</view>
-            <view wx:if="{{splLeft}}">{{splLeft}}</view>
-             <view wx:if="{{!splLeft}}">-/-</view>
-            <view wx:if="{{splBinoculus}}">{{splBinoculus}}</view>
-             <view wx:if="{{!splBinoculus}}">-/-</view>
+            <view class="black" wx:if="{{splRight}}">{{splRight}}</view>
+            <view class="black" wx:if="{{!splRight}}">-/-</view>
+            <view class="black" wx:if="{{splLeft}}">{{splLeft}}</view>
+             <view class="black" wx:if="{{!splLeft}}">-/-</view>
+            <view class="black" wx:if="{{splBinoculus}}">{{splBinoculus}}</view>
+             <view  class="black" wx:if="{{!splBinoculus}}">-/-</view>
          </view>
       </view>
     </view>
-    <view>
-    </view>
-    <!-- 生物测量检查 -->
+     <!-- 生物测量检查 -->
     <view class="listWTitle">生物测量检查</view>
     <view  class="list">
       <view class="wth">眼别</view>
@@ -120,61 +137,62 @@
       <view class="wth2">前房深度</view>
       <view class="wth2">晶体厚度</view>
     </view>
-    <view  class=" list listLeft" style="border-bottom: 1px dotted  #6794EB;padding: 0">
+    <view  class=" list listLeft" style="margin-bottom: 5rpx;padding: 0">
        <view class="wth">右眼</view>
-      <view class="wth2" wx:if="{{levelRight}}">{{levelRight}}</view>
-      <view class="wth2" wx:if="{{!levelRight}}">-/-</view>
-      <view class="wth2" wx:if="{{verticalRight}}">{{verticalRight}}</view>
-       <view class="wth2" wx:if="{{!verticalRight}}">-/-</view>
-      <view class="wth2" wx:if="{{axialLengthRight}}">{{axialLengthRight}}</view>
-       <view class="wth2" wx:if="{{!axialLengthRight}}">-/-</view>
-      <view class="wth2" wx:if="{{acdRight}}">{{acdRight}}</view>
-       <view class="wth2" wx:if="{{!acdRight}}">-/-</view>
-      <view class="wth2" wx:if="{{ltRight}}">{{ltRight}}</view>
-       <view class="wth2" wx:if="{{!ltRight}}">-/-</view>
+      <view class="wth2 black" wx:if="{{levelRight}}">{{levelRight}}</view>
+      <view class="wth2 black" wx:if="{{!levelRight}}">-/-</view>
+      <view class="wth2 black" wx:if="{{verticalRight}}">{{verticalRight}}</view>
+       <view class="wth2 black" wx:if="{{!verticalRight}}">-/-</view>
+      <view class="wth2 black" wx:if="{{axialLengthRight}}">{{axialLengthRight}}</view>
+       <view class="wth2 black" wx:if="{{!axialLengthRight}}">-/-</view>
+      <view class="wth2 black" wx:if="{{acdRight}}">{{acdRight}}</view>
+       <view class="wth2 black" wx:if="{{!acdRight}}">-/-</view>
+      <view class="wth2 black" wx:if="{{ltRight}}">{{ltRight}}</view>
+       <view class="wth2 black" wx:if="{{!ltRight}}">-/-</view>
     </view>
     <view  class="list listLeft" style="padding: 0">
       <view class="wth">左眼</view>
-      <view class="wth2" wx:if="{{levelLeft}}">{{levelLeft}}</view>
-       <view class="wth2" wx:if="{{!levelLeft}}">-/-</view>
-      <view class="wth2" wx:if="{{verticalLeft}}">{{verticalLeft}}</view>
-       <view class="wth2" wx:if="{{!verticalLeft}}">-/-</view>
-      <view class="wth2" wx:if="{{axialLengthLeft}}">{{axialLengthLeft}}</view>
-       <view class="wth2" wx:if="{{!axialLengthLeft}}">-/-</view>
-      <view class="wth2" wx:if="{{acdLeft}}">{{acdLeft}}</view>
-       <view class="wth2" wx:if="{{!acdLeft}}">-/-</view>
-      <view class="wth2"  wx:if="{{ltLeft}}">{{ltLeft}}</view>
-       <view class="wth2" wx:if="{{!ltLeft}}">-/-</view>
+      <view class="wth2 black" wx:if="{{levelLeft}}">{{levelLeft}}</view>
+       <view class="wth2 black" wx:if="{{!levelLeft}}">-/-</view>
+      <view class="wth2 black" wx:if="{{verticalLeft}}">{{verticalLeft}}</view>
+       <view class="wth2 black" wx:if="{{!verticalLeft}}">-/-</view>
+      <view class="wth2 black" wx:if="{{axialLengthLeft}}">{{axialLengthLeft}}</view>
+       <view class="wth2 black" wx:if="{{!axialLengthLeft}}">-/-</view>
+      <view class="wth2 black" wx:if="{{acdLeft}}">{{acdLeft}}</view>
+       <view class="wth2 black" wx:if="{{!acdLeft}}">-/-</view>
+      <view class="wth2 black"  wx:if="{{ltLeft}}">{{ltLeft}}</view>
+       <view class="wth2 black" wx:if="{{!ltLeft}}">-/-</view>
     </view>
     <!-- 眼部健康检查 -->
       <view class="listWTitle">眼部健康检查</view>
-      <view  class="list listLeft"  style="border-bottom: 1px dotted  #6794EB">
+      <view  class="list listLeft"  style="margin-bottom: 5rpx;">
         <view>裂隙灯检查 :</view>
-        <view class="pl" wx:if="{{slitLamp}}">{{slitLamp}}</view>
-        <view class="pl" wx:if="{{!slitLamp}}">无</view>
+        <view class="pl black" wx:if="{{slitLamp}}">{{slitLamp}}</view>
+        <view class="pl black" wx:if="{{!slitLamp}}">无</view>
       </view>
       <view  class="list listLeft">
         <view>眼底照相检查:</view>
-        <view class="pl"  wx:if="{{retCam}}">{{retCam}}</view>
-        <view class="pl" wx:if="{{!retCam}}">无</view>
+        <view class="pl black"  wx:if="{{retCam}}">{{retCam}}</view>
+        <view class="pl black" wx:if="{{!retCam}}">无</view>
       </view>
-    <!-- 身体情况 -->
+      <!-- 身体情况 -->
       <view class="listWTitle">身体情况</view>
-      <view  class="list listLeft"  style="border-bottom: 1px dotted  #6794EB">
+      <view  class="list listLeft"  style="margin-bottom: 5rpx;">
         <view>身高（cm）:</view>
-        <view class="pl"  wx:if="{{height}}">{{height}}</view>
-        <view class="pl" wx:if="{{!height}}">无</view>
+        <view class="pl black"  wx:if="{{height}}">{{height}}</view>
+        <view class="pl black" wx:if="{{!height}}">无</view>
       </view>
       <view  class="list listLeft">
         <view>体重（kg):</view>
-        <view class="pl" wx:if="{{weight}}">{{weight}}</view>
-        <view class="pl" wx:if="{{!weight}}">无</view>
+        <view class="pl black" wx:if="{{weight}}">{{weight}}</view>
+        <view class="pl black" wx:if="{{!weight}}">无</view>
       </view>
-      <!-- 处理建议 -->
+        <!-- 处理建议 -->
       <view class="listWTitle">处理建议:</view>
       <view  class="list listLeft"  style="height: 100rpx;">
-        <view class="pl" wx:if="{{suggest}}">{{suggest}}</view>
-        <view class="pl" wx:if="{{!suggest}}">无</view>
+        <view class="pl black" wx:if="{{suggest}}">{{suggest}}</view>
+        <view class="pl black" wx:if="{{!suggest}}">无</view>
       </view>
-  </view> 
+    </view> 
+    </scroll-view>
 </view>

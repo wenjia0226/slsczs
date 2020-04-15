@@ -3,9 +3,9 @@
 <view class="main" style="margin-top: {{height}}px">
   <!-- 如果请求到孩子 -->
     <view  class="topwap" style="height:230px">
-      <swiper  class='u-wrp-bnr' current="0"   previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
+      <swiper  class='u-wrp-bnr' current="{{currentIndex}}"   previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
         <block wx:if="{{childrenList.length}}">
-          <swiper-item class="swiperItem" data-id="{{item.id}}"  wx:for="{{childrenList}}" wx:key="id" >
+          <swiper-item class="swiperItem" data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="{{item.id}}" bindtap="getItem" >
             <view class="portrait {{index == currentIndex ? 'active': ''}}" >
               <image src="/image/boy.png"  mode="aspectFit" wx:if="{{index !== childrenList.length -1 && item.gender == 0}}"></image>
               <image src="/image/girl.png"  mode="aspectFit"  wx:if="{{index !== childrenList.length -1 && item.gender == 1}}"></image>       
@@ -15,6 +15,7 @@
              <view class="time" wx:if="{{index !== childrenList.length -1 && item.lastTime !== null}}">最近检测时间：</view>
              <view class="time" wx:if="{{item.lastTime !== null}}">{{item.lastTime}}</view> 
              <view class="time" wx:if="{{item.lastTime == null && index !== childrenList.length - 1}}">无</view>
+             <view class="time" wx:if="{{item.lastTime == null && index !== childrenList.length - 1}}"></view>
             <view class="name" wx:if="{{index == childrenList.length -1}}" style="color:#5f0ce6"></view>
           </swiper-item>
         </block>

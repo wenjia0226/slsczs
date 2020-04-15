@@ -40,7 +40,7 @@
     <scroll-view scroll-y style="height:100%" wx:if="{{isSelect == 0}}">
       <view class="time">检测时间:{{date}}</view>
         <view class="inner">
-        <view class="distance" wx:for="{{processLeftList}}">
+        <view class="distance" wx:for="{{processLeftList}}" :key="item.id">
           <view class="item">等级：{{item.levelPre}}</view>
           <view class="item">正确: {{item.right}}</view>
           <view class="item">错误：{{item.wrong}}</view>  

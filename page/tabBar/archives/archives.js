@@ -72,6 +72,7 @@ Page({
     showList: true,
     isSelect: 0,
     currentStu: [],
+    stId: 0,
     ec: {
       lazyLoad: true
     },
@@ -79,8 +80,79 @@ Page({
       lazyLoad: true
     }
   },
+  getChildrenList() {
+    let that = this;
+    let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
+    //如果已经授权过
+    if (wx.getStorageSync('phone')) {
+      wx.showLoading({
+        title: '加载中...'
+      })
+      app.wxRequest(url, data, (res) => {
+        //  console.log(res)
+        if (res.data.status == 200) {
+          that.setData({
+            childrenList: res.data.data
+          })
+          that.data.childrenList.push({
+            age: 8,
+            birthday: "2019-04-01",
+            chairHeight: "60",
+            classesId: 42,
+            classesName: "二（3）班",
+            correct: 0,
+            description: "",
+            gender: "",
+            lastTime: '',
+            height: "125",
+            id: 2,
+            name: "新增",
+            nature: "无",
+            parentPhone: "18311192425",
+            regionId: 1,
+            regionName: "唐山",
+            schoolId: 50,
+            schoolName: "唐山市师范附属小学",
+            sittingHeight: "105.0",
+            weight: "22.34",
+            lastTime: null
+          })
+          that.setData({
+            stId: that.data.childrenList[0].id
+          })
+        
+          //  console.log(that.data.childrenList[0].id)
+          //  wx.setStorageSync('studentId', that.data.childrenList[0].id)
+          //  let childList = that.data.childrenList;
+
+          //  if(wx.getStorageSync('studentId') !== 2) {
+          //    that.setData({
+          //      currentIndex: 0
+          //    })
+          //    wx.setStorageSync('studentId', childList[0].id);
+          //  }
+
+        }
+        if (res.data.status == 10220) {
+          that.setData({
+            childrenList: []
+          })
+        }
+      }, (err) => {
+        console.log(err)
+      })
+    }
+  },
   //请求数据
   onShow() {
+    if (wx.getStorageSync('studentId')) {
+      this.setData({
+        stId: wx.getStorageSync('studentId')
+      })
+    }else {
+      this.getChildrenList();
+    }
+   
     this.getArchiveList()
     },
   //获取档案列表
@@ -94,16 +166,16 @@ Page({
         openId: wx.getStorageSync('openId')
       };
       app.wxRequest(url, data, (res) => { 
-        // console.log(res)
+        //  console.log(res)
         //如果孩子不为空
         if(res.data.data !== null) {
-        that.setData({
-          navList: res.data.data,
-        })
+          that.setData({
+            navList: res.data.data,
+          })
         if(that.data.navList) {
           let stu = that.data.navList;
           let currentStu = stu.filter((item, index) => {
-            if (item.id == wx.getStorageSync('studentId')) {
+            if (item.id == that.data.stId) {
               return item;
             }
           })
@@ -176,20 +248,21 @@ Page({
         })
       } 
       }else {  //如果孩子为空
-          that.setData({
-            navList: [],
-            dataList: [],
-            picList: [],
-            weardataList: [],
-            wearpicList: []
-          })
+        that.setData({
+          navList: [],
+          dataList: [],
+          picList: [],
+          weardataList: [],
+          wearpicList: []
+        })
       }
       }, (err) => {
         console.log(err)
       })
-    }
+    } 
   },
   init_one(xData, leftData, rightData) {
+    // console.log(this.oneComponent)
     this.oneComponent.init((canvas, width, height) => {
       const chart = echarts.init(canvas, null, {
         width: width,

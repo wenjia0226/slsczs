@@ -7,9 +7,9 @@
          <image   class=" userinfo-avatar" src="{{avatarUrl}}" mode="aspectFit" wx:if="{{avatarUrl}}"></image>
       </view>
       <view class="centerNi" wx:if="{{phone}}">
-        <view class="nickName"> {{nickName}}</view>
+        <view class="nickName el"> {{nickName}}</view>
         <view class="phoneNum" wx:if="{{!phoneNum}}"><button  open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">获取手机号</button></view> 
-         <view class="phoneNum" wx:if="{{phoneNum}}">{{phoneNum}}</view> 
+         <view class="phoneNum el" wx:if="{{phoneNum}}">{{phoneNum}}</view> 
       </view>
        <view class="centerNi" wx:if="{{!phone}}">
         <view  class="login" bindtap="gotoLogin">
@@ -24,8 +24,7 @@
   </view>
   <view class="listWrap" >
     <view class="item" bindtap="goToBao">
-      <view class="title" >眼健康档案</view>
-      <view class="titleCenter"></view>
+      <view class="mychild">眼健康档案</view>
        <view class="titleRight">
         <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
       </view>
@@ -52,7 +51,7 @@
       </view>
       <view class="item shareing">
         <view class="mychild">
-          <button open-type="share"  class="shareBtn">好友分享 </button>
+           <button open-type="share"  class="shareBtn">好友分享 </button>
         </view>
         
         <view class="titleRight">

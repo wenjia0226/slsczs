@@ -36,25 +36,26 @@ App({
         }
       }
     })
-    // let menuButtonObject = wx.getMenuButtonBoundingClientRect();
-    //   wx.getSystemInfo({
-    //     success: res => {
-    //       let statusBarHeight = res.statusBarHeight,
-    //         navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
-    //         navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
-           
-    //       this.globalData.navHeight = navHeight;
-    //       this.globalData.navTop = navTop;
-    //       this.globalData.windowHeight = res.windowHeight;
-    //       // console.log(statusBarHeight, navTop, navHeight);
-    //     },
-    //     fail(err) {
-    //       console.log(err);
-    //     }
-    //   })
+    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
+    let jnHight = menuButtonObject.height;
+    wx.setStorageSync('jnHight', jnHight/ 2)
+      wx.getSystemInfo({
+        success: res => {
+          let statusBarHeight = res.statusBarHeight,
+            navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
+            navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
+          this.globalData.wz =  menuButtonObject.height / 2;
+          this.globalData.navHeight = navHeight;
+          this.globalData.navTop = navTop;
+          this.globalData.windowHeight = res.windowHeight;
+          // console.log(statusBarHeight, navTop, navHeight);
+        },
+        fail(err) {
+          console.log(err);
+        }
+      })
     wx.getSystemInfo({
       success: (res) => {
-        console.log(res)
         this.globalData.height = res.statusBarHeight;
       }
     });
@@ -65,6 +66,7 @@ App({
     navTop: '',
     windowHeight: '',
     height: '',
+    wz:'',
     URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
     //URL: 'http://192.168.2.201:8080/lightspace/xcx/'
   },

@@ -1,7 +1,9 @@
 <!--page/assembly/pages/navbar/navbar.wxml-->
-<view class="nav-wrap" style="height:{{height}}px">
-  <view class="titleWrap" bindtap="goback">
-    <image src="/image/back.png"  mode="aspctFit"></image>
-  </view>
-  <text class="biaoti">{{navbarData.title}}</text>
+<view class="nav-wrap" style="height:{{height}}px;">
+  <view style="height: {{wz * 2}}px;line-height: {{wz * 2}}px;padding-top: {{navTop}}px;vertical-align:middle"  class="inner">
+    <view class="titleWrap" bindtap="goback" >
+      <image src="/image/back.png"  mode="aspctFit"></image>
+    </view>
+    <text class="biaoti" >{{navbarData.title}}</text>
+    </view>
 </view>

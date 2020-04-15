@@ -118,3 +118,7 @@ ec-canvas {
   width: 60%;
   height: 100%;
 }
+.time {
+  font-size: 20rpx;
+  color: #fff;
+}

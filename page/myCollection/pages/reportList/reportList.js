@@ -13,7 +13,7 @@ Page({
     let url = app.globalData.URL + "queryStudentWord", data = { openId: openId };
     app.wxRequest(url, data, (res) => {
       if(res.data.status == 200) {
-        console.log(res.data.data)
+        // console.log(res)
         if(res.data.data) {
         that.setData({
           reportList: res.data.data

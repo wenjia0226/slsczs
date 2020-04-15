@@ -270,8 +270,8 @@ Page({
            right: 0,
            wrong: 0
          })
-         // 如果等级为9 就跳出循环
-         if (that.data.levelPre == 9) {
+        //  // 如果等级为9 就跳出循环
+         if (that.data.levelPre == 14) {
            return;
          }
        } else if (that.data.wrong == 3) { //如果错误数量为2个就是这个等级

@@ -10,7 +10,9 @@ Component({
     }
   },
   data: {
-    height: app.globalData.height * 2 + 20
+    height: app.globalData.height * 2 + 20,
+    wz: app.globalData.wz,
+    navTop: app.globalData.navTop
   },
   methods: {
     goback() {

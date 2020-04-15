@@ -45,7 +45,13 @@
   align-items: flex-start;
   flex: 1;
   flex-direction: column;
-   margin-left: 10rpx;
+  margin-left: 10rpx;
+}
+.el {
+  width: 250rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
 }
 .nickName {
   font-size: 36rpx;
@@ -94,7 +100,6 @@
 }
 /* 底部 */
 .item {
-  height: 100rpx;
   padding: 20rpx;
   color: #333;
   display: flex;
@@ -106,7 +111,6 @@
 
 .title {
   width: 50%;
-  height: 100%;
   padding-left: 20rpx;
 }
 .mychild {
@@ -134,8 +138,9 @@
 .shareBtn {
   background: #fff;
   font-weight: normal;
-  padding-left: 0;
+  padding: 0;
   width: 100%;
+
   }
 .shareing {
   padding: 20rpx 20rpx 20rpx 0; 
