@@ -172,7 +172,7 @@ Page({
           wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           console.log(currentLevel[0])
           wx.navigateTo({
-            url: '/page/component/pages/result/result'
+            url: '/page/mainFunction/pages/result/result'
           })
         } else {  //如果错误数量为3，4，5个就是降级
           that.setData({
@@ -187,7 +187,7 @@ Page({
           wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
           wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
-            url: '/page/component/pages/result/result'
+            url: '/page/mainFunction/pages/result/result'
           })
         }
       }
@@ -256,7 +256,7 @@ Page({
           wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
           wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
-            url: '/page/component/pages/result/result'
+            url: '/page/mainFunction/pages/result/result'
           })
         } else {  //如果错误数量为4，5个就是降级
           that.setData({
@@ -271,7 +271,7 @@ Page({
           wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
           wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
-            url: '/page/component/pages/result/result'
+            url: '/page/mainFunction/pages/result/result'
           })
         }
       }
@@ -328,7 +328,7 @@ Page({
         wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
         wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
         wx.navigateTo({
-          url: '/page/component/pages/result/result'
+          url: '/page/mainFunction/pages/result/result'
         })
         }
       //等级1/2/3 4.7/0.5   4.6/0.4   4.5/0.3
@@ -429,7 +429,7 @@ Page({
           wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
           wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
-            url: '/page/component/pages/result/result'
+            url: '/page/mainFunction/pages/result/result'
           })
           }
           } else {
@@ -443,7 +443,7 @@ Page({
           wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
           wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
-            url: '/page/component/pages/result/result'
+            url: '/page/mainFunction/pages/result/result'
           })
         }
       }
@@ -471,7 +471,7 @@ Page({
             wx.setStorageSync('LeftEyeRightNum', that.data.rightNum);
             wx.setStorageSync('LeftEyeWrongNum', wrong);
             wx.navigateTo({
-              url: '/page/component/pages/result/result'
+              url: '/page/mainFunction/pages/result/result'
             })
           }
         }

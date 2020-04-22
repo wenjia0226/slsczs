@@ -1,6 +1,5 @@
 {
   "pages": [
-   
     "page/tabBar/screen/screen",
     "page/tabBar/my/my",
     "page/tabBar/archives/archives",
@@ -33,14 +32,11 @@
   "subPackages": [
     {
       "root": "page/component/",
-      "pages": [
-        "pages/test/test",
+      "pages": [  
         "pages/detail/detail",
-        "pages/testR/testR",
         "pages/rightstart/rightstart",
         "pages/check/check",
         "pages/start/start",
-        "pages/result/result",
         "pages/navbar/navbar"
       ]
     },
@@ -55,6 +51,13 @@
         "pages/user/user",
         "pages/reportList/reportList",
         "pages/reportDetail/reportDetail"
+      ]
+    }, {
+      "root": "page/mainFunction",
+      "pages": [
+        "pages/test/test",
+        "pages/testR/testR",
+        "pages/result/result"
       ]
     }
   ],

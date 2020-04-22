@@ -30,7 +30,6 @@ Page({
     rightContext.autoplay = true
     rightContext.src = '/image/1.mp3'
     rightContext.onPlay(() => {
-
     })
     rightContext.onError((res) => {
       console.log(res.errMsg)
@@ -41,7 +40,6 @@ Page({
     wrongContext.autoplay = true
     wrongContext.src = '/image/wrong.mp3'
     wrongContext.onPlay(() => {
-      // console.log('开始播放')
     })
     wrongContext.onError((res) => {
       console.log(res.errMsg)
@@ -128,11 +126,9 @@ Page({
     wx.setStorageSync('RightEyeRightNum', 0);
     wx.setStorageSync('RightEyeWrongNum', 0);
     app.wxRequest(url, data, (res) => {
-      console.log(res)
       that.setData({
         navList: res.data.data
       })
-      console.log(that.data.navList)
     }, (err) => {
       console.log(err)
     })
