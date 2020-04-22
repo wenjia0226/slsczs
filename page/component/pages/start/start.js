@@ -10,7 +10,7 @@ Page({
     autoplay: false,
     interval: 2000,
     duration: 500,
-    swiperImg: ['https://www.guangliangkongjian.com/images/step1.jpg', 'https://www.guangliangkongjian.com/images/step2.jpg', 'https://www.guangliangkongjian.com/images/step3.jpg', 'https://www.guangliangkongjian.com/images/step4.jpg']
+    swiperImg: ['https://www.guangliangkongjian.com/images/step4.jpg','https://www.guangliangkongjian.com/images/step1.jpg', 'https://www.guangliangkongjian.com/images/step2.jpg', 'https://www.guangliangkongjian.com/images/step3.jpg']
   },
   startTest() {
     wx.navigateTo({

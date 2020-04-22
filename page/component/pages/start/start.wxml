@@ -14,7 +14,7 @@
   <!-- <view class="detail"> 测试方法说明</view> -->
   <view class="imgWrap">
     <!-- <image src="/image/shuoming.gif" mode="aspectFit"></image> -->
-     <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" >
+     <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" autoplay="true" circular>
         <block wx:for="{{swiperImg}}">
           <swiper-item class="swiperItem" >
             <image src="{{item}}"mode="aspectFit"></image>
