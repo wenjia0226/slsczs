@@ -17,7 +17,7 @@
      <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" >
         <block wx:for="{{swiperImg}}">
           <swiper-item class="swiperItem" >
-            <image src="/image/{{item}}.png"mode="aspectFit"></image>
+            <image src="{{item}}"mode="aspectFit"></image>
           </swiper-item>
         </block>
       </swiper>

@@ -15,7 +15,7 @@ Page({
           flag: true
       })
       wx.navigateTo({
-        url: '/page/component/pages/test/test',
+        url: '/page/mainFunction/pages/test/test',
       })
     }
   },

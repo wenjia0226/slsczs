@@ -10,11 +10,11 @@ Page({
     autoplay: false,
     interval: 2000,
     duration: 500,
-    swiperImg: ['swiper1', 'swiper2', 'swiper3', 'swiper4']
+    swiperImg: ['https://www.guangliangkongjian.com/images/step1.jpg', 'https://www.guangliangkongjian.com/images/step2.jpg', 'https://www.guangliangkongjian.com/images/step3.jpg', 'https://www.guangliangkongjian.com/images/step4.jpg']
   },
   startTest() {
     wx.navigateTo({
-      url: '/page/component/pages/testR/testR',
+      url: '/page/mainFunction/pages/testR/testR',
     })
   },
   gotocheck() {

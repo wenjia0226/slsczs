@@ -2,7 +2,7 @@
 <view clas="main">
   <view class="itemwrap first">
      <view class="imgWrap">
-      <image src="/image/huwai.png" mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/plan5.png" mode="aspectFit"></image>
      </view>
      <view class="wordWrap ">
         <view class="title">{{taskList[0].title}}</view>
@@ -19,7 +19,7 @@
 
    <view class="itemwrap second">
      <view class="imgWrap">
-      <image src="/image/du.png" mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/plan2.png" mode="aspectFit"></image>
      </view>
      <view class="wordWrap">
         <view class="title">{{taskList[1].title}}</view>
@@ -36,7 +36,7 @@
 
    <view class="itemwrap third">
      <view class="imgWrap">
-      <image src="/image/faze.png" mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/plan3.png" mode="aspectFit"></image>
      </view>
      <view class="wordWrap">
         <view class="title">{{taskList[2].title}}</view>
@@ -53,7 +53,7 @@
   
   <view class="itemwrap four">
      <view class="imgWrap">
-      <image src="/image/guangyuan.png" mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/plan4.png" mode="aspectFit"></image>
      </view>
      <view class="wordWrap">
         <view class="title">{{taskList[3].title}}</view>
@@ -70,7 +70,7 @@
 
   <view class="itemwrap five">
      <view class="imgWrap">
-      <image src="/image/yingyang.png" mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/plan1.png" mode="aspectFit"></image>
      </view>
      <view class="wordWrap">
         <view class="title">{{taskList[4].title}}</view>
@@ -87,7 +87,7 @@
 
   <view class="itemwrap six">
      <view class="imgWrap">
-      <image src="/image/shuimian.png" mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/plan6.png" mode="aspectFit"></image>
      </view>
      <view class="wordWrap">
         <view class="title">{{taskList[5].title}}</view>
@@ -103,7 +103,7 @@
   </view>
     <view class="itemwrap seven">
      <view class="imgWrap">
-      <image src="/image/jiancha.png" mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/plan7.png" mode="aspectFit"></image>
      </view>
      <view class="wordWrap">
         <view class="title">{{taskList[6].title}}</view>
