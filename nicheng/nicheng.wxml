@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-  <image class="topImage"src="/image/logo.png" mode="aspectFit"></image>
-  <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  <image class="topImage"src="/image/logologin.png" mode="aspectFit"></image>
+  <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btnReset">登录</button>
    <!-- <button  open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">登录</button>  -->
   </view>
   <!-- <view class="userinfo">

@@ -7,13 +7,15 @@
   <view class="centerWrap">
        <view class="leftWrap">
         <view class="title">右眼视力</view>
-        <view class="bigNum">{{levelName5Right}}</view>
-        <view class="smallNum">{{visionRight}}</view>
+        <view class="bigNum" wx:if="{{!noUpdate}}">{{levelName5Right}}</view>
+         <view class="bigNum" wx:if="{{noUpdate}}"> {{'<'}} <text> 0.1</text> </view>
+        <view class="smallNum" wx:if="{{!noUpdate}}">{{visionRight}}</view>
       </view>
        <view class="leftWrap">
         <view class="title">左眼视力</view>
-        <view class="bigNum">{{levelName5Left}}</view>
-        <view class="smallNum">{{visionLeft}}</view>
+        <view class="bigNum" wx:if="{{!noUpdate}}">{{levelName5Left}}</view>
+        <view class="bigNum" wx:if="{{noUpdate}}"> {{'<'}} <text>0.1</text> </view>
+        <view class="smallNum" wx:if="{{!noUpdate}}">{{visionLeft}}</view>
       </view>
    </view>
    <view class="warning">

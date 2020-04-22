@@ -21,7 +21,10 @@ Page({
     time: 0,  // 检查次数
     right: 0,
     wrong: 0,
-    list: []
+    list: [],
+    flag: false,
+    leftEyeRightNum: 0,
+    leftEyeWrongNum: 0
      },
   voidRight() {
     const rightContext = wx.createInnerAudioContext();
@@ -164,8 +167,10 @@ Page({
           })
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-          wx.setStorageSync('numLeft', that.data.number)
           wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+          wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
+          wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
+          console.log(currentLevel[0])
           wx.navigateTo({
             url: '/page/component/pages/result/result'
           })
@@ -178,8 +183,9 @@ Page({
           })
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-          wx.setStorageSync('numLeft', that.data.number)
           wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+          wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
+          wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
             url: '/page/component/pages/result/result'
           })
@@ -246,8 +252,9 @@ Page({
           })
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-          wx.setStorageSync('numLeft', that.data.number)
           wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+          wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
+          wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
             url: '/page/component/pages/result/result'
           })
@@ -260,8 +267,9 @@ Page({
           })
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-          wx.setStorageSync('numLeft', that.data.number)
           wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+          wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
+          wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
             url: '/page/component/pages/result/result'
           })
@@ -316,8 +324,9 @@ Page({
         }
         let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
         wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-        wx.setStorageSync('numLeft', that.data.number)
         wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+        wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
+        wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
         wx.navigateTo({
           url: '/page/component/pages/result/result'
         })
@@ -416,8 +425,9 @@ Page({
             })
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-          wx.setStorageSync('numLeft', that.data.number)
           wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+          wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
+          wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
             url: '/page/component/pages/result/result'
           })
@@ -429,8 +439,9 @@ Page({
           })
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionLeft', currentLevel[0].levelName)
-          wx.setStorageSync('numLeft', that.data.number)
           wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+          wx.setStorageSync('LeftEyeRightNum', that.data.rightNum)
+          wx.setStorageSync('LeftEyeWrongNum', that.data.wrongNum)
           wx.navigateTo({
             url: '/page/component/pages/result/result'
           })
@@ -441,31 +452,72 @@ Page({
   //结束检测跳转页面
   gotoResult() {
     let that = this;
-    wx.showModal({
-      title: '提示',
-      content: '提前结束检测不会保存此次筛查结果，是否结束检测？',
-      success: function (res) {
-        if (res.confirm) {
-          that.setData({
-            right: 0,
-            wrong: 0,
-            num: 0,
-            levelPre: that.data.levelPre
-          })
-          wx.switchTab({
-            url: "/page/tabBar/screen/screen",
-          })
+    if(this.data.rightNum !== 0) {
+      wx.showModal({
+        title: '提示',
+        content: '是否结束左眼测试？',
+        success: function (res) {
+          if (res.confirm) {
+            let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
+            wx.setStorageSync('visionLeft', currentLevel[0].levelName)
+            wx.setStorageSync('levelName5Left', currentLevel[0].levelName5)
+            that.data.list.push({
+              l: currentLevel[0].levelName,
+              r: that.data.right,
+              w: 5 - that.data.right
+            })
+            let wrong = that.data.wrongNum + 5 - that.data.wrong - that.data.right;
+            wx.setStorageSync('left', that.data.list);
+            wx.setStorageSync('LeftEyeRightNum', that.data.rightNum);
+            wx.setStorageSync('LeftEyeWrongNum', wrong);
+            wx.navigateTo({
+              url: '/page/component/pages/result/result'
+            })
+          }
         }
-      }
-    })
+      })
+    }else {
+      wx.showModal({
+        title: '此次检测无效',
+        content: '是否重新检测左眼？',
+        cancelText: '跳到首页',//默认是“取消”
+        confirmText: "是",
+        success: function (res) {
+          if (res.confirm) {
+            that.setData({
+              list: [],
+              right: 0,
+              wrong: 0,
+              rightNum: 0,
+              wrongNum: 0,
+              levelPre: 9,
+              id: 1,
+              time: 0
+            })
+          } else {
+            wx.switchTab({
+              url: '/page/tabBar/screen/screen'
+            })
+          }
+          wx.setStorageSync('LeftEyeRightNum', 0);
+          wx.setStorageSync('LeftEyeWrongNum', 0);
+          wx.setStorageSync('left', '')
+        }
+      })
+    }
   },
   onShow() {
     var that = this;
     wx.showLoading({
       title: '加载中...',
     });
+    wx.setStorageSync('left', ''); //加载页面数据清空
+    this.setData({
+      leftEyeRightNum: wx.getStorageSync('LeftEyeRightNum'),
+      leftEyeWrongNum: wx.getStorageSync('LeftEyeWrongNum')
+    })
     let url = app.globalData.URL + 'optotype', data = {};
-    app.wxRequest(url, data, (res) => {
+    app .wxRequest(url, data, (res) => {
       // console.log(res.data.data)
       that.setData({
         navList: res.data.data
@@ -484,12 +536,6 @@ Page({
       'scaleHeight': e.detail.height * scale,//给图片设置高度,
       answer: e.currentTarget.dataset.info
     })
-  },
-  //结束检测
-  gotoStart() {
-    wx.navigateTo({
-      url: '/page/component/pages/result/result'
-    })
-  },
+  }
 
 })

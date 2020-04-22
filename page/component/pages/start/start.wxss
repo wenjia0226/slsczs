@@ -20,18 +20,7 @@
 .right {
   color: #3e65e4;
 }
-.imgWrap{
-  width: 100%;
-  height: 500rpx;
-  text-align: center;
-  margin: 50rpx 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.imgWrap >image {
-  height: 400rpx;
-}
+
 .describe{
    display: flex;
   font-size: 30rpx;
@@ -67,4 +56,25 @@
 }
 .reset {
   background: #999;
+}
+/* 轮播 */
+.imgWrap{
+  width: 100%;
+  height: 500rpx;
+  text-align: center;
+  margin: 50rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgWrap >image {
+  height: 400rpx;
+}
+.swiperWrap {
+  width: 100%;
+  height: 100%;
+}
+.itemWrap {
+  width: 100%;
+  height: 100%;
 }

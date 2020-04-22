@@ -22,5 +22,5 @@
         <text>错误</text>
       </view>
     </view>
-    <view class="end" bindtap="gotoResult">结束检测</view>
+    <view class="end" bindtap="gotoResult">结束左眼检测</view>
 </view>

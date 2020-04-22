@@ -1,11 +1,28 @@
 <!--screen.wxml-->
  <image src="/image/bg2.png" class="bg" style="height: {{height + 240}}px"></image>
-<view class="main" style="margin-top: {{height}}px">
+  <view class="main" style="margin-top: {{height}}px">
+  <view  class="warning" animation="{{hideWarn}}" wx:if="{{isShow}}">
+    <view class="text">
+      <view class="firstline">
+        <text>点击</text>
+        <view class="img">
+        <image src="/image/dian.png" mode="aspectFit"></image>
+        </view>
+        <!-- <text class="first">.</text><text class="second">.</text><text class= "first">.</text> -->
+        <text>添加到我的小程序、我的桌面,方便下次</text>
+      </view>
+      <view class="firstline"> 更方便找到光量空间</view>
+    </view>
+    <view class="hand"> <image src="/image/shou.png" mode="aspectFit"></image></view>
+    <view class="cancel" bindtap="hideWarning">
+      <image src="/image/quxiao.png" mode="aspectFit"></image>
+    </view>
+  </view>
   <!-- 如果请求到孩子 -->
-    <view  class="topwap" style="height:230px">
+    <view  class="topwap" style="height:250px">
       <swiper  class='u-wrp-bnr' current="{{currentIndex}}"   previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
         <block wx:if="{{childrenList.length}}">
-          <swiper-item class="swiperItem" data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="{{item.id}}" bindtap="getItem" >
+          <swiper-item class="swiperItem" data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="id" bindtap="getItem" >
             <view class="portrait {{index == currentIndex ? 'active': ''}}" >
               <image src="/image/boy.png"  mode="aspectFit" wx:if="{{index !== childrenList.length -1 && item.gender == 0}}"></image>
               <image src="/image/girl.png"  mode="aspectFit"  wx:if="{{index !== childrenList.length -1 && item.gender == 1}}"></image>       

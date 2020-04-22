@@ -18,6 +18,53 @@
   display: block;
   width: 100%;
 }
+/* // 温馨提示 */
+.warning {
+  display: flex;
+  padding: 5rpx 3%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.firstline {
+  line-height: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.img {
+  display: inline-block;
+  width: 50rpx;
+  vertical-align: center;
+  
+}
+.img > image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.text {
+  flex: 1;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 38rpx;
+}
+.hand {
+ width:80rpx; 
+}
+.hand image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.cancel {
+  width: 80rpx;
+}
+.cancel image {
+  width: 60rpx;
+  height: 60rpx;
+}
 swiper {
   height: 400rpx !important;
 }

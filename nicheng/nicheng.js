@@ -22,7 +22,6 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-       
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -48,35 +47,6 @@ Page({
     wx.setStorageSync("nickName", e.detail.userInfo.nickName);
     let encryptedData = e.detail.encryptedData, iv = e.detail.iv;
     this.deciyption(encryptedData, iv);
-  },
-  getPhoneNumber(e) {
-    var msg = e.detail.errMsg, that = this;
-    var that = this;
-    // var sessionID = wx.getStorageSync('session_key'),
-      let encryptedDataStr = e.detail.encryptedData,
-      iv = e.detail.iv;
-    
-    if (msg == 'getPhoneNumber:ok') {
-
-      wx.checkSession({
-        success: function () {
-          //调用自己的登录接口
-          that.deciyption(encryptedDataStr, iv);
-        },
-        fail: function () {
-          wx.login({
-            success: res => {
-              console.log(res, 'sessionkey过期')
-            }
-          })
-        }
-      })
-    }else {
-      wx.showModal({
-        title: '',
-        content: '请先授权',
-      })
-    }
   },
   //登录
   deciyption( encryptedData, iv) {

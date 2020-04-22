@@ -93,7 +93,7 @@
 .item {
   width: 33%;
   text-align: center;
-  padding: 10rpx 0;
+  padding: 8rpx 0;
 }
 .item-top{
   height: 50rpx;
@@ -104,7 +104,6 @@
   height: 40rpx;
   width: 100%;
 }
-
 .mainCon {
   width: 100%;
   flex: 1;
@@ -121,4 +120,8 @@ ec-canvas {
 .time {
   font-size: 20rpx;
   color: #fff;
+}
+.genTime {
+  font-size: 24rpx;
+  line-height: 30rpx;
 }

@@ -40,6 +40,7 @@ function setOption(chart, xData, leftData, rightData) {
     },
     yAxis: [{ // 纵轴标尺固定
       type: 'value',
+      boundaryGap: [0.2, 0.2],
       data: yData
     }],
     series: [{
@@ -120,18 +121,6 @@ Page({
           that.setData({
             stId: that.data.childrenList[0].id
           })
-        
-          //  console.log(that.data.childrenList[0].id)
-          //  wx.setStorageSync('studentId', that.data.childrenList[0].id)
-          //  let childList = that.data.childrenList;
-
-          //  if(wx.getStorageSync('studentId') !== 2) {
-          //    that.setData({
-          //      currentIndex: 0
-          //    })
-          //    wx.setStorageSync('studentId', childList[0].id);
-          //  }
-
         }
         if (res.data.status == 10220) {
           that.setData({
@@ -145,6 +134,15 @@ Page({
   },
   //请求数据
   onShow() {
+    if (wx.getStorageSync('detectType') == 0) {
+      this.setData({
+        isSelect: 0
+      })
+    }else {
+      this.setData({
+        isSelect: 2
+      })
+    }
     if (wx.getStorageSync('studentId')) {
       this.setData({
         stId: wx.getStorageSync('studentId')
@@ -152,7 +150,6 @@ Page({
     }else {
       this.getChildrenList();
     }
-   
     this.getArchiveList()
     },
   //获取档案列表
@@ -182,7 +179,6 @@ Page({
           that.setData({
             navList: currentStu
           })
-          // console.log(that.data.navList)
           if(currentStu.length) {
             let picList = currentStu.map((item) => {
               return item.picList

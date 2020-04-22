@@ -1,26 +1,30 @@
 /**index.wxss**/
+.container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;  
+  background: linear-gradient(to bottom,#5b30eb,#4cbeff);
+}
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 68rpx;
+  height: 68rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
-
+.topImage {
+  width: 250rpx;
+}
 .userinfo-nickname {
   color: #aaa;
 }
-
 .usermotto {
   margin-top: 200px;
-}
-.topImage {
-  
 }
 .btn {
  margin: 0rpx 20rpx;
@@ -29,4 +33,12 @@
  margin-top: 20rpx;
  font-size: 30rpx;
  opacity:0.8
+}
+.btnReset {
+  width: 40%;
+ padding: 15rpx 0;
+ font-size: 28rpx;
+ color: blue;
+ border-radius: 40rpx;
+ letter-spacing: 10rpx;
 }

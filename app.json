@@ -1,10 +1,10 @@
 {
   "pages": [
+   
     "page/tabBar/screen/screen",
     "page/tabBar/my/my",
     "page/tabBar/archives/archives",
     "nicheng/nicheng"
-    
   ],
   "tabBar": {
     "list": [

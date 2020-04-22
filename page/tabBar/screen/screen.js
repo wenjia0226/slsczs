@@ -9,7 +9,23 @@ Page({
     statusBarHeight: '', 
     navTop: '', 
     navHeight: '',
-    height: app.globalData.height * 2 + 20
+    height: app.globalData.height * 2 + 20,
+    flag: false,
+    hideWarn: {},
+    isShow: true
+  },
+
+  hideWarning() {
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease'
+    })
+    animation.opacity(0).step();
+    wx.setStorageSync('isShow', false)
+    this.setData({
+      hideWarn: animation.export(),
+      
+    })  
   },
  getChildrenList() {
    let that = this;
@@ -20,7 +36,7 @@ Page({
        title: '加载中...'
      })
      app.wxRequest(url, data, (res) => {
-      //  console.log(res)
+      // console.log(res)
        if (res.data.status == 200) {
          that.setData({
            childrenList: res.data.data
@@ -51,16 +67,9 @@ Page({
          that.setData({
            childrenList: that.data.childrenList
          })
-        //  console.log(that.data.childrenList[0].id)
-        //  wx.setStorageSync('studentId', that.data.childrenList[0].id)
-        //  let childList = that.data.childrenList;
-         
-        //  if(wx.getStorageSync('studentId') !== 2) {
-        //    that.setData({
-        //      currentIndex: 0
-        //    })
-        //    wx.setStorageSync('studentId', childList[0].id);
-        //  }
+         if(that.data.currentIndex == 0) {
+           wx.setStorageSync('studentId', that.data.childrenList[0].id)
+         }   
          
        }
        if (res.data.status == 10220) {
@@ -73,14 +82,22 @@ Page({
      })
    }
  },
+
   onShow() {
     let that = this;
+  
     this.setData({
       statusBarHeight: app.globalData.statusBarHeight,
       navTop: app.globalData.navTop,
-      navHeight: app.globalData.navHeight
+      navHeight: app.globalData.navHeight,
+      flag: false
+      
     })
-    // console.log(app.globalData.navHeight)
+    if(wx.getStorageSync('isShow') === false) {
+      this.setData({
+        isShow: wx.getStorageSync('isShow')
+      })
+    }
     this.getChildrenList();
     
   },
@@ -100,10 +117,6 @@ Page({
       this.setData({
         currentIndex: e.currentTarget.dataset.index
       })
-    // if (that.data.childrenList) {
-    //   let student = this.data.childrenList.filter((item, index) => { return index == that.data.currentIndex });
-    //   wx.setStorageSync('studentId', student[0].id)
-    // }
   },
   // 跳转到添加孩子页面
   gotoAddChild() {
@@ -179,26 +192,31 @@ Page({
   },
   //跳转到自我校准
   goJozhun(e) {
-    wx.setStorageSync('detectType', e.currentTarget.dataset.detecttype);
-    if (wx.getStorageSync('phone')) {
-      if(wx.getStorageSync('studentId') !== 2) {
-      if (this.data.childrenList.length == 0) {
-        wx.showToast({
-          title: '请先添加孩子',
-          icon: 'none',
-          duration: 2000
-        })
-        return;
-      } else {
+    if(!this.data.flag) {
+      this.setData({
+        flag: true
+      })
+      wx.setStorageSync('detectType', e.currentTarget.dataset.detecttype);
+      if (wx.getStorageSync('phone')) {
+        if(wx.getStorageSync('studentId') !== 2) {
+        if (this.data.childrenList.length == 0) {
+          wx.showToast({
+            title: '请先添加孩子',
+            icon: 'none',
+            duration: 2000
+          })
+          return;
+        } else {
+          wx.navigateTo({
+            url: '/page/component/pages/check/check'
+          })
+        }
+      } 
+      }else {
         wx.navigateTo({
-          url: '/page/component/pages/check/check'
+          url: '/nicheng/nicheng'
         })
       }
-    } 
-    }else {
-      wx.navigateTo({
-        url: '/nicheng/nicheng'
-      })
     }
   },
   onShareAppMessage() {

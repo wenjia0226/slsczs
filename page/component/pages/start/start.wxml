@@ -13,7 +13,14 @@
   </view>
   <!-- <view class="detail"> 测试方法说明</view> -->
   <view class="imgWrap">
-    <image src="/image/shuoming.gif" mode="aspectFit"></image>
+    <!-- <image src="/image/shuoming.gif" mode="aspectFit"></image> -->
+     <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" >
+        <block wx:for="{{swiperImg}}">
+          <swiper-item class="swiperItem" >
+            <image src="/image/{{item}}.png"mode="aspectFit"></image>
+          </swiper-item>
+        </block>
+      </swiper>
   </view>
   <view class="shuoming">  
     <view class="checkfinish reset" bindtap="gotocheck">重新校验</view>

@@ -9,10 +9,14 @@ Page({
     baseHeight: null,//图片真实高度
     scaleWidth: '',//图片设显示宽度
     scaleHeight: '',//图片设显示高度
+    flag: false
   },
   onShow() {
-   
     let resetScale = wx.getStorageSync('resetscale');
+    this.setData({
+      flag: false
+    })
+    console.log(resetScale)
     if(resetScale) {
       this.setData({
         scale: resetScale
@@ -51,9 +55,14 @@ Page({
   },
   //页面跳转
   gotocheck() {
-    wx.setStorageSync('scale', this.data.scale);
-    wx.navigateTo({
-      url: '/page/component/pages/start/start'
-    })
+    if(!this.data.flag) {
+      this.setData({
+        flag: true
+      })
+      wx.setStorageSync('scale', this.data.scale);
+      wx.navigateTo({
+        url: '/page/component/pages/start/start'
+      })
+    }
   }
 })

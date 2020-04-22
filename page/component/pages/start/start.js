@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    indicatorDots: true,
+    vertical: false,
+    autoplay: false,
+    interval: 2000,
+    duration: 500,
+    swiperImg: ['swiper1', 'swiper2', 'swiper3', 'swiper4']
   },
   startTest() {
     wx.navigateTo({
