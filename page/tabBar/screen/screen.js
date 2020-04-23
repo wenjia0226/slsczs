@@ -14,7 +14,15 @@ Page({
     hideWarn: {},
     isShow: true
   },
-
+  //关注公众号
+  followBtn() {
+    let url = '微信公众号地址eg:https://mp.weixin.qq.com/mp/...?action=home&__biz=...==&scene=...#wechat_redirect';
+    var LinkUrl = encodeURIComponent(url);
+    let type = 'encodeUrl';
+    wx.navigateTo({
+      url: `../d_webview/d_webview?type=${type}&url=${LinkUrl}`
+    });
+  },
   hideWarning() {
     var animation = wx.createAnimation({
       duration: 1000,

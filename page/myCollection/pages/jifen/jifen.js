@@ -7,6 +7,8 @@ Page({
     expenditure: '',
     income: '',
     state: '',
+    type: 0,
+    show: false
   },
   onShow: function (options) {
     if(wx.getStorageSync('phone')) {
@@ -27,7 +29,23 @@ Page({
       }, (err) => {
         console.log(err)
       })
-  }
+    }
+  },
+  //切换
+  switch(e) {
+    this.setData({
+      type: e.currentTarget.dataset.type
+    })    
+  },
+  hideview() {
+    this.setData({
+      show: true
+    })
+  },
+  hide() {
+    this.setData({
+      show: false
+    })
   },
   gotoGongLve() {
     wx.showToast({

@@ -1,8 +1,31 @@
 <!--pages/save/save.wxml-->
  <image src="/image/bg2.png" class="bg"></image>
-<view class="main"  >
-
-  <!-- <nav-bar  navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar> -->
+<view class="main">
+<view class="bg2" bindtap='hideview' style='display:{{display}}'></view>
+<view class="show" bindtap='hideview' style='display:{{display}}'>
+  <view class="congratulaition">
+    <image src="/image/cg.png" mode="aspectFit"></image>
+  </view>
+  <view class="titleWrap">
+    获得 <text class="number">3个</text> 爱眼币
+    </view>
+    <view class="flowerWrap">
+      <image src="/image/flower2.png"  class="flower"mode="aspectFit"></image>
+      <image src="/image/eyes.png" class="eye" mode="aspectFit"></image>
+    </view>
+    <view class="buttonWrap">
+      <view class="iknow"> 我知道了</view>
+      <view class="see" bindtap="gotobi"> 去看看</view>
+    </view>
+</view>
+<!-- <modal class="modal" hidden="{{modalFlag}}"   no-cancel no-confirm bindconfirm="modalOk">
+    <view class="congratulaition">
+      <image src="/image/cg.png" mode="aspectFit"></image>
+    </view>
+    <view class="titleWrap">
+    获得 <text>3个</text>爱眼币
+    </view>  
+</modal> -->
   <view class="total" style="margin-top: {{height}}px">{{result}}</view>
   <view class="centerWrap">
        <view class="leftWrap">

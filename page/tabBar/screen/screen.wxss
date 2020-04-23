@@ -164,4 +164,7 @@ swiper {
 .daijingWrap > image {
    height: 150rpx;
 }
+.bottomwrap {
+ 
+}
  

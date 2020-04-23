@@ -16,7 +16,6 @@ Page({
     this.setData({
       flag: false
     })
-    console.log(resetScale)
     if(resetScale) {
       this.setData({
         scale: resetScale

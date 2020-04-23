@@ -1,9 +1,9 @@
 {
   "pages": [
-    "result/result",
+    "page/tabBar/my/my",
     "nicheng/nicheng",
     "page/tabBar/screen/screen",
-    "page/tabBar/my/my",
+    
     "page/tabBar/archives/archives"
   ],
   "tabBar": {

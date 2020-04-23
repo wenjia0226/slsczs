@@ -7,6 +7,7 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
+  background: #F7F8F8;
 }
 .headerWrap{
   height: 450rpx;
@@ -20,6 +21,49 @@
   display: flex;
   justify-content: flex-end;
   font-size: 28rpx;
+}
+/* //蒙层 */
+.bg2 {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 10;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+}
+.show {
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 50%;
+  box-sizing: border-box;
+  background-color: white;
+  z-index: 12;
+  overflow: auto;
+  margin: auto;
+  color: #000;
+  padding: 20rpx;
+}
+.txt{
+  padding: 10rpx 0;
+}
+.quxiao {
+  text-align: right;
+  height: 50rpx;
+}
+.quxiao > image {
+  height: 40rpx;
+  width: 40rpx;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30rpx;
 }
 .gonglue  image {
   height: 40rpx;
@@ -74,9 +118,9 @@
 }
 .detail {
   position: absolute;
-  left: 25%;
+  left: 15%;
   bottom: -10%;
-  width: 50%;
+  width: 200rpx;
   height: 80rpx;
   border-radius: 50rpx;
   background: #3e65e4;
@@ -86,14 +130,33 @@
   color: #fff;
   letter-spacing: 3rpx;
 }
+.getdetail {
+  position: absolute;
+  right: 15%;
+  bottom: -10%;
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  background: #3e65e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  letter-spacing: 3rpx;
+}
+.active {
+  background: #FF9B00;
+}
 .centerWrap{
   margin: 10% 5% 0;
 }
 .itemWrap {
   display: flex;
   justify-content: space-between;
-  padding: 10rpx 0;
-  border-bottom: 2px solid #666;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
 }
 .leftitem {
   font-size: 30rpx;

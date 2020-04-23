@@ -54,4 +54,8 @@
       <image  src="/image/daijing.png"    mode="aspectFit"></image>
      </view>
    </view>
+   <view class="bottomwrap">
+    <official-account></official-account> 
+  </view>
 </view>
+

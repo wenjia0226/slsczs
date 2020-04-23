@@ -16,10 +16,10 @@
           点击登录
         </view>
       </view>
-      <view class="rightQian" bindtap="gotoQian">
+      <!-- <view class="rightQian" bindtap="gotoQian">
         <image src="/image/qiandao.png" mode="aspectFit"></image>
         <view class="qiandao">每日签到</view>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class="listWrap" >
@@ -44,7 +44,7 @@
   </view>
   <view class="listWrap" >
     <view class="item" bindtap="gotoJiFen">
-        <view class="mychild">我的积分</view>
+        <view class="mychild">我的爱眼币</view>
         <view class="titleRight">
           <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
         </view>
