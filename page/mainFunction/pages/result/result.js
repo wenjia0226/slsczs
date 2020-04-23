@@ -2,7 +2,6 @@
 const app = getApp();
 Page({
   data: {
-    display: 'block',
     visionLeft: '',
     visionRight: '',
     number: '',
@@ -12,6 +11,7 @@ Page({
     statusBarHeight: 0,
     gobalTop: 0,
     detectTye: 0,
+    showCongratulation: false,
     flag: false,
     height: app.globalData.height * 2 + 20,
     navbarData: {
@@ -25,12 +25,15 @@ Page({
   },
   gotobi() {
     wx.navigateTo({
-      url: '/page/myCollection/jifen/jifen'
+      url: '/page/myCollection/pages/jifen/jifen'
+    })
+    this.setData({
+      showCongratulation: false
     })
   },
   hideview() {
     this.setData({
-      display: 'none'
+      showCongratulation: false
     })
   },
   voidRight() {
@@ -43,15 +46,11 @@ Page({
       console.log(res.errMsg)
     })
   },
-  onLoad() {
-    this.voidRight();
-  },
   onShow() {
     let that = this;
     that.setData({
       statusBarHeight: app.globalData.statusBarHeight,
       globalTop: app.globalData.top,
-      detectType: wx.getStorageSync('detectType')
     })
     let min;
     this.setData({
@@ -94,7 +93,10 @@ Page({
       })
     }
   },
-  addResult(e) {
+  onLoad() {
+    this.setData({
+      detectType: wx.getStorageSync('detectType')
+    })
     if (!this.data.noUpdate) {
       if (!this.data.flag) {
         this.setData({
@@ -103,7 +105,6 @@ Page({
         wx.showLoading({
           title: '加载中...',
         })
-        let type = e.currentTarget.dataset.type;
         let url;
         let that = this;
         if (that.data.detectType == 0) {
@@ -116,50 +117,119 @@ Page({
           visionLeft: wx.getStorageSync('visionLeft'),
           visionRight: wx.getStorageSync('visionRight'),
           processLeft: JSON.stringify(wx.getStorageSync('left')),
-          processRight: JSON.stringify(wx.getStorageSync('right'))
+          processRight: JSON.stringify(wx.getStorageSync('right')),
+          openId: wx.getStorageSync('openId')
         };
         app.wxRequest(url, data, (res) => {
+          if(res.data.status == 10224) {
+            wx.showLoading({
+              title: res.data.msg,
+            })
+          }
           if (res.data.status == 200) {
-            //清空存储
-            wx.setStorageSync('right', '');
-            wx.setStorageSync('left', '');
-            wx.setStorageSync('visionLeft', '');
-            wx.setStorageSync('visionRight', '');
-            wx.setStorageSync('levelName5Left', '');
-            wx.setStorageSync('levelName5Right', '');
-            wx.setStorageSync('RightEyeRightNum', 0);
-            wx.setStorageSync('RightEyeWrongNum', 0);
-            wx.setStorageSync('LeftEyeRightNum', 0);
-            wx.setStorageSync('LeftEyeWrongNum', 0);
-            // console.log(res)
-            if (type == 'home') {
-              wx.switchTab({
-                url: '/page/tabBar/screen/screen'
-              })
-            } else if (type == 'archives') {
-              let studentId = wx.getStorageSync('studentId');
-              wx.switchTab({
-                url: '/page/tabBar/archives/archives?studentId=' + studentId
-              })
-            }
+            this.voidRight();
+            this.setData({
+              showCongratulation: true
+            })
+          
           }
         }, (err) => {
           console.log(err)
         })
       }
-    } else {
-      //清空存储
-      let type = e.currentTarget.dataset.type;
-      if (type == 'home') {
-        wx.switchTab({
-          url: '/page/tabBar/screen/screen'
-        })
-      } else if (type == 'archives') {
-        let studentId = wx.getStorageSync('studentId');
-        wx.switchTab({
-          url: '/page/tabBar/archives/archives?studentId=' + studentId
-        })
-      }
-    }
-  }
+    } 
+  },
+   go(e) {
+     let type = e.currentTarget.dataset.type;
+       //清空存储
+      wx.setStorageSync('right', '');
+      wx.setStorageSync('left', '');
+      wx.setStorageSync('visionLeft', '');
+      wx.setStorageSync('visionRight', '');
+      wx.setStorageSync('levelName5Left', '');
+      wx.setStorageSync('levelName5Right', '');
+      wx.setStorageSync('RightEyeRightNum', 0);
+      wx.setStorageSync('RightEyeWrongNum', 0);
+      wx.setStorageSync('LeftEyeRightNum', 0);
+      wx.setStorageSync('LeftEyeWrongNum', 0);
+     if (type == 'home') {
+       wx.switchTab({
+         url: '/page/tabBar/screen/screen'
+       })
+     } else if (type == 'archives') {
+       let studentId = wx.getStorageSync('studentId');
+       wx.switchTab({
+         url: '/page/tabBar/archives/archives?studentId=' + studentId
+       })
+     }
+   }
+  // addResult(e) {
+  //   if (!this.data.noUpdate) {
+  //     if (!this.data.flag) {
+  //       this.setData({
+  //         flag: true
+  //       })
+  //       wx.showLoading({
+  //         title: '加载中...',
+  //       })
+  //       let type = e.currentTarget.dataset.type;
+  //       let url;
+  //       let that = this;
+  //       if (that.data.detectType == 0) {
+  //         url = app.globalData.URL + 'addScreening';
+  //       } else if (that.data.detectType == 1) {
+  //         url = app.globalData.URL + 'addWearScreening';
+  //       }
+  //       let data = {
+  //         studentId: wx.getStorageSync('studentId'),
+  //         visionLeft: wx.getStorageSync('visionLeft'),
+  //         visionRight: wx.getStorageSync('visionRight'),
+  //         processLeft: JSON.stringify(wx.getStorageSync('left')),
+  //         processRight: JSON.stringify(wx.getStorageSync('right'))
+  //       };
+  //       app.wxRequest(url, data, (res) => {
+  //         if (res.data.status == 200) {
+  //           //清空存储
+  //           wx.setStorageSync('right', '');
+  //           wx.setStorageSync('left', '');
+  //           wx.setStorageSync('visionLeft', '');
+  //           wx.setStorageSync('visionRight', '');
+  //           wx.setStorageSync('levelName5Left', '');
+  //           wx.setStorageSync('levelName5Right', '');
+  //           wx.setStorageSync('RightEyeRightNum', 0);
+  //           wx.setStorageSync('RightEyeWrongNum', 0);
+  //           wx.setStorageSync('LeftEyeRightNum', 0);
+  //           wx.setStorageSync('LeftEyeWrongNum', 0);
+            
+  //           // console.log(res)
+  //           if (type == 'home') {
+  //             wx.switchTab({
+  //               url: '/page/tabBar/screen/screen'
+  //             })
+  //           } else if (type == 'archives') {
+  //             let studentId = wx.getStorageSync('studentId');
+  //             wx.switchTab({
+  //               url: '/page/tabBar/archives/archives?studentId=' + studentId
+  //             })
+  //           }
+  //         }
+  //       }, (err) => {
+  //         console.log(err)
+  //       })
+  //     }
+  //   } else {
+  //     //清空存储
+  //     let type = e.currentTarget.dataset.type;
+  //     if (type == 'home') {
+  //       wx.switchTab({
+  //         url: '/page/tabBar/screen/screen'
+  //       })
+  //     } else if (type == 'archives') {
+  //       let studentId = wx.getStorageSync('studentId');
+  //       wx.switchTab({
+  //         url: '/page/tabBar/archives/archives?studentId=' + studentId
+  //       })
+  //     }
+  //   }
+  // }
 })

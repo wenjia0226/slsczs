@@ -14,7 +14,8 @@ Page({
     swiper2: '',
     swiper3: '',
     swiper4: '',
-    swiperImg: ['https://www.guangliangkongjian.com/images/step4.jpg', 'https://www.guangliangkongjian.com/images/step1.jpg', 'https://www.guangliangkongjian.com/images/step2.jpg', 'https://www.guangliangkongjian.com/images/step3.jpg']
+    swiperImg2: [],
+    swiperImg: ['https://www.guangliangkongjian.com/images/step1.jpg', 'https://www.guangliangkongjian.com/images/step2.jpg', 'https://www.guangliangkongjian.com/images/step3.jpg', 'https://www.guangliangkongjian.com/images/step4.jpg']
   },
   startTest() {
     wx.navigateTo({
@@ -22,35 +23,40 @@ Page({
     })
   },
   onShow() {
-    // const path = wx.getStorageSync('swiper1');
-    // const path2 = wx.getStorageSync('swiper2');
-    // const path3 = wx.getStorageSync('swiper3');
-    // const path4 = wx.getStorageSync('swiper4');
-    if (path !== null) {
-      this.setData({
-        swiper1: path
-      })
-    }else if (path2 !== null) {
-      this.setData({
-        swiper2: path2
-      })
-    } else if (path3 !== null) {
-      this.setData({
-        swiper3: path3
-      })
-    } else if (path4 !== null) {
-      this.setData({
-        swiper4: path4
-      })
-    } 
-    else {
-      console.log('去缓存图片')
-    }
-   
-    this.downImage('https://www.guangliangkongjian.com/images/step2.jpg', 'swiper2');
-    this.downImage('https://www.guangliangkongjian.com/images/step3.jpg', 'swiper3');
-    this.downImage('https://www.guangliangkongjian.com/images/step1.jpg', 'swiper4');
-    this.downImage('https://www.guangliangkongjian.com/images/step4.jpg', 'swiper1');
+  //   const path = wx.getStorageSync('swiper1');
+  //   const path2 = wx.getStorageSync('swiper2');
+  //   const path3 = wx.getStorageSync('swiper3');
+  //   const path4 = wx.getStorageSync('swiper4');
+  //   console.log(path)
+  //   if (path !== null) {
+  //     this.setData({
+  //       swiper1: path
+  //     })
+  //   } else {
+  //     console.log(1111)
+  //     this.downImage('https://www.guangliangkongjian.com/images/step4.jpg', 'swiper1');
+  //   }
+  //   if (path2 !== null) {
+  //     this.setData({
+  //       swiper2: path2
+  //     })
+  //   } else {
+  //     this.downImage('https://www.guangliangkongjian.com/images/step2.jpg', 'swiper2');
+  //   }
+  // if (path3 !== null) {
+  //     this.setData({
+  //       swiper3: path3
+  //     })
+  //   } else {
+  //   this.downImage('https://www.guangliangkongjian.com/images/step3.jpg', 'swiper3');
+  //   }
+  //  if (path4 !== null) {
+  //     this.setData({
+  //       swiper4: path4
+  //     })
+  //   } else {
+  //    this.downImage('https://www.guangliangkongjian.com/images/step1.jpg', 'swiper4');
+  //   }
   },
   downImage(url, name) {
     wx.downloadFile({
@@ -65,7 +71,7 @@ Page({
           fs.saveFile({
             tempFilePath: res.tempFilePath, // 传入一个临时文件路径
             success(res) {
-              console.log(123)
+            
               console.log('图片缓存成功', res.savedFilePath) // res.savedFilePath 为一个本地缓存文件路径  
               // 此时图片本地缓存已经完成，res.savedFilePath为本地存储的路径。
               //小程序的本地文件路径标准： {{协议名}}://文件路径

@@ -1,5 +1,21 @@
-<!--pages/plan/plan.wxml-->
-<view clas="main">
+<view class="main">
+<view class="bg2"  wx:if="{{showCongratulation}}"></view>
+<view class="show"  wx:if="{{showCongratulation}}">
+  <view class="congratulaition"  wx:if="{{showCongratulation}}">
+    <image src="/image/cg.png" mode="aspectFit"></image>
+  </view>
+  <view class="titleWrap">
+    获得 <text class="number">2个</text> 爱眼币
+    </view>
+    <view class="flowerWrap">
+      <image src="/image/flower2.png"  class="flower"mode="aspectFit"></image>
+      <image src="/image/eyes.png" class="eye" mode="aspectFit"></image>
+    </view>
+    <view class="buttonWrap">
+      <view class="iknow" bindtap='hideview'> 我知道了</view>
+      <!-- <view class="see" bindtap="gotobi"> 去看看</view> -->
+    </view>
+</view>
   <view class="itemwrap first">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan5.png" mode="aspectFit"></image>

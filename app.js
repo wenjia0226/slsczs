@@ -95,7 +95,7 @@ App({
     height: '',
     wz:'',
     URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
-    //URL: 'http://192.168.2.201:8080/lightspace/xcx/'
+   // URL: 'http://192.168.2.201:8080/lightspace/xcx/'
   },
   wxRequest(url, data, callback, errFun) {
     wx.request({

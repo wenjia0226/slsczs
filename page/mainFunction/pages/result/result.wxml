@@ -1,9 +1,9 @@
 <!--pages/save/save.wxml-->
  <image src="/image/bg2.png" class="bg"></image>
 <view class="main">
-<view class="bg2" bindtap='hideview' style='display:{{display}}'></view>
-<view class="show" bindtap='hideview' style='display:{{display}}'>
-  <view class="congratulaition">
+<view class="bg2"  wx:if="{{showCongratulation}}"></view>
+<view class="show"  wx:if="{{showCongratulation}}">
+  <view class="congratulaition"  wx:if="{{showCongratulation}}">
     <image src="/image/cg.png" mode="aspectFit"></image>
   </view>
   <view class="titleWrap">
@@ -14,7 +14,7 @@
       <image src="/image/eyes.png" class="eye" mode="aspectFit"></image>
     </view>
     <view class="buttonWrap">
-      <view class="iknow"> 我知道了</view>
+      <view class="iknow" bindtap='hideview'> 我知道了</view>
       <view class="see" bindtap="gotobi"> 去看看</view>
     </view>
 </view>
@@ -46,6 +46,6 @@
       <view> 1、6岁以上儿童正常视力应达到5.0 </view>
       <view>2、视力结果容易受到诸如检查环境、孩子注意力等因素的影响，单次检测结果仅供参考</view>
   </view>
-  <view class="end" style="background: #92A6FF" bindtap="addResult" data-type="home">返回首页</view>
-  <view class="end" style="background:linear-gradient(to bottom right,#6EC9FF, #6B88FC)" data-type="archives" bindtap="addResult">进入档案</view>
+  <view class="end" style="background: #92A6FF" bindtap="go" data-type="home">返回首页</view>
+  <view class="end" style="background:linear-gradient(to bottom right,#6EC9FF, #6B88FC)" data-type="archives" bindtap="go">进入档案</view>
 </view>

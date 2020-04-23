@@ -63,7 +63,6 @@ Page({
               r: that.data.right,
               w: 5 - that.data.right
             })
-            console.log(that.data.wrongNum, that.data.right)
             let wrong = that.data.wrongNum + 5 - that.data.wrong- that.data.right;
             wx.setStorageSync('right', that.data.list)
             wx.setStorageSync('RightEyeRightNum', that.data.rightNum);
