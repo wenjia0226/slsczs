@@ -1,0 +1,110 @@
+/* page/exchange//pages/shopSearch/shopSearch.wxss */
+.main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #F8F8F8;
+  display: flex;
+  flex-direction: column;
+}
+/* 搜索框 */
+.search{  
+      width: 80%;  
+    }  
+.search_arr {  
+  border: 1px solid #d0d0d0;  
+  border-radius: 30rpx;  
+  margin-left: 20rpx; 
+  display: flex;
+}  
+.search_arr input{  
+  text-align: center;  
+  height: 60rpx;   
+}  
+.bc_text {  
+  line-height: 68rpx;  
+  height: 68rpx;  
+  margin-top: 34rpx;  
+}  
+  
+.sousuo {  
+  margin-left: 15rpx;  
+  width: 15%;
+  border: 1px solid #d0d0d0;  
+  border-radius: 30rpx;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}  
+.page_row{  
+  display: flex;  
+  flex-direction: row  
+}  
+.searchcion {  
+  margin: 10rpx 10rpx 10rpx 10rpx;    
+  width: 20px;  
+  height: 20px;  
+  text-align: center;  
+}
+.searchInput {
+  flex: 1;
+  font-size: 28rpx;
+}
+    /* 商品列表 */
+.listWrap {
+  display: flex;
+  flex-flow:row wrap;
+  flex: 1;
+  justify-content: space-between;
+}
+.itemWrap {
+  width: 48%;
+  margin: 20rpx 1%;
+  background: #FBFBFB;
+}
+.itemTop {
+  height: 400rpx;
+}
+.itemTop  > image {
+  width: 100%;
+  height: 100%;
+}
+.itemCenter {
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+}
+.itemBottom {
+  display: flex;
+  height: 50rpx;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding:  30rpx 20rpx;
+ 
+}
+.jinbi {
+  width:160rpx;
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+}
+.money {
+  padding: 0 10rpx;
+  font-size: 24rpx;
+}
+.jinbi image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.exchangeBtn {
+  padding: 5rpx 26rpx;
+  background: #0073E9;
+  color: #fff;
+  font-size: 20rpx;
+  text-align: right;
+  border-radius: 10rpx;
+}

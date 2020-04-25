@@ -1,9 +1,13 @@
 {
   "pages": [
+    "jiesuan/jiesuan",
+    "shopDetail/shopDetail",
+    "shopSearch/shopSearch",
+    "page/tabBar/exchange/exchange",
+   
     "page/tabBar/my/my",
-    "nicheng/nicheng",
     "page/tabBar/screen/screen",
-    
+    "nicheng/nicheng",  
     "page/tabBar/archives/archives"
   ],
   "tabBar": {
@@ -25,6 +29,12 @@
         "text": "我的",
         "iconPath": "/image/my.png",
         "selectedIconPath": "/image/myactive.png"
+      },
+      {
+        "pagePath": "page/tabBar/exchange/exchange",
+        "text": "兑换",
+        "iconPath": "/image/exchange.png",
+        "selectedIconPath": "/image/exchange.png"
       }
     ],
     "color": "#000",
@@ -59,6 +69,14 @@
         "pages/test/test",
         "pages/testR/testR",
         "pages/result/result"
+      ]
+    },
+    {
+      "root": "page/exchange/",
+      "pages": [
+        "pages/shopDetail/shopDetail",
+        "pages/shopSearch/shopSearch",
+        "pages/jiesuan/jiesuan"
       ]
     }
   ],

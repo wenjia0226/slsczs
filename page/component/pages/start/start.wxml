@@ -27,7 +27,7 @@
        <swiper-item class="swiperItem" >
         <image src="{{swiper3}}"mode="aspectFit"></image>
       </swiper-item> -->
-      <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" >
+      <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" autoplay circular>
         <block wx:for="{{swiperImg}}">
           <swiper-item class="swiperItem" >
             <image src="{{item}}"mode="aspectFit"></image>

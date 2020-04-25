@@ -1,0 +1,59 @@
+<view class="main">
+<!-- 配送信息 -->
+  <view class="infoWrap">
+    <view class="itemOne" style="border-right: 2px dotted #F4F4F4">
+      <input placeholder="请填写联系人" style="text-align:center"/>
+    </view>
+    <view class="itemOne" style="flex: 1">
+      <input placeholder="请填写手机号" style="text-align:center"/>
+    </view>
+  </view>
+  <view class='logoWrap'>
+    <image src="/image/logo.png"></image>
+  </view>
+  <!-- 配送方式 -->
+  <view class="dliverWrap">
+    <view style="width: 50%">配送方式</view>
+    <view class="choice {{type == 0? 'active': ''}}" data-type="0" bindtap="addBg">在校自取          </view>
+    <view class="choice {{type == 1? 'active': ''}}" data-type="1" bindtap="addBg">快递配送          </view>
+  </view>
+  <!-- 学校信息 -->
+  <view class="schoolWrap">
+    <view class ="schoolInfo">学校信息</view>
+    <text class="address" style="font-size: 26rpx;" decode="{{true}}" >学校名称: &nbsp;迎宾路小学</text>
+    <text class="address" decode="{{true}}">地址:&nbsp;&nbsp;&nbsp;唐山市开平区动感龙城</text>
+  </view>
+  <!-- 商品信息 -->
+  <view class="shopInfoWrap">
+    <view class="leftImg">
+      <image src="/image/01.png"></image>
+    </view>
+    <view class="centerInfo">
+      <view class="cTop">防蓝光儿童眼镜 型号9018</view>
+      <view class="cClass">默认型号</view>
+      <view class="cClass">x1</view>
+    </view>
+    <view class="rightMoney">
+      <view class="biWrap">
+        <image src="/image/bi.png"></image>
+      </view>
+      <view class="biMony">450</view>
+    </view>
+   </view>
+   <!-- 运费 -->
+  <view class="dliverWrap">
+    <view class="dliverTitle">运费</view>
+    <view class="dliverMoney">￥200 元</view>
+  </view>
+  <!-- 买家留言 -->
+  <view class="buyner">
+    <textarea placeholder="买家留言" value="{{inputValue}}"placeholder-style="font-size: 28rpx;padding: 20rpx;"></textarea>
+  </view>
+  <!-- 合计 -->
+  <view class="totalWrap">
+    <text decode="{{true}}" class="totalTitle">
+      合计:&nbsp;￥200 元
+    </text>
+    <text class="addBtn"> 提交</text>
+  </view>
+</view>

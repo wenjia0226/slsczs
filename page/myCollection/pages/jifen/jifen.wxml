@@ -45,7 +45,7 @@
           领取
       </view>
   </view>
-  <view class="centerWrap" style="height: 300rpx">
+  <view class="centerWrap" style="height: 300rpx" wx:if="{{type == 0}}">
     <scroll-view scroll-y  style="height: 100%;">
       <view class="itemWrap" wx:for="{{jifenList}}">
         <view class="leftitem">
@@ -56,5 +56,17 @@
         <view class="rightitem daijinquan"  wx:if="{{item.state == 1}}"> + {{item.integral}}</view>
       </view>
     </scroll-view>
+  </view>
+  <view wx:if="{{type == 1}}" class="centerWrap" style="height: 300rpx;" >
+     <view class="itemWrap" style="justify-content: center">
+     
+     <view class="lingqu">暂无领取记录</view>
+        <!-- <view class="leftitem">
+          <view>{{item.detailed}}</view>
+          <view class="time">{{item.date}}</view>
+        </view>
+        <view class="rightitem"  wx:if="{{item.state == 0}}"> - {{item.integral}}</view>
+        <view class="rightitem daijinquan"  wx:if="{{item.state == 1}}"> + {{item.integral}}</view> -->
+      </view>
   </view>
 </view>

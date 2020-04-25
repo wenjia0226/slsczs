@@ -1,0 +1,74 @@
+<!--page/tabBar/exchange/exchange.wxml-->
+<view class="main" style="margin-top: {{navTop}}px">
+    <!-- 搜索框 -->
+    <view class="searchWrap">
+      <view class="searchInner"  style="height: {{height}}px" bindtap="gotoSearch">
+      <view class="searchImg"> 
+          <image src="/image/search.png" mode="aspectFit"></image>
+        </view>
+        <view class="searchTxt"> 搜索</view>
+      </view>
+    </view>
+    <!-- 切换 -->
+    <view class="scrollWrap">
+    <scroll-view scroll-x>
+        <view class="exchange">每月抢兑</view>
+        <view class="exchange">0元兑换</view>
+        <view class="exchange">好物</view>
+        <view class="exchange">好物</view>
+      </scroll-view>
+    </view>
+    <!-- 轮播图 -->
+    <view class="swiperWrap">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay= 'true' class="swiperInner">
+        <block>
+          <swiper-item class="swiperItem">
+            <image src="/image/exchangeSwiper.png" ></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 列表 -->
+    <view class="listWrap">
+      <view class="itemWrap">
+        <view  class="itemTop">
+          <image src="/image/shop.png" mode=""></image>
+        </view>
+        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
+        <view class="itemBottom">
+          <view class="jinbi">
+            <image src="/image/bi.png" mode ="aspectFit"></image>
+            <view class="money">20</view>
+          </view>
+          <view class="exchangeBtn">兑换</view>
+        </view>
+      </view>
+      <view class="itemWrap">
+        <view  class="itemTop">
+          <image src="/image/shop.png" mode=""></image>
+        </view>
+        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
+        <view class="itemBottom">
+          <view class="jinbi">
+            <image src="/image/bi.png" mode ="aspectFit"></image>
+            <view class="money">20</view>
+          </view>
+          <view class="exchangeBtn">兑换</view>
+        </view>
+      </view>
+      <view class="itemWrap">
+        <view  class="itemTop">
+          <image src="/image/shop.png" mode=""></image>
+        </view>
+        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
+        <view class="itemBottom">
+          <view class="jinbi">
+            <image src="/image/bi.png" mode ="aspectFit"></image>
+            <view class="money">20</view>
+          </view>
+          <view class="exchangeBtn">兑换</view>
+        </view>
+      </view>
+   </view>
+</view>

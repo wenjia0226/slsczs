@@ -1,0 +1,54 @@
+<view class="main">
+  <view class='page_row' bindtap="suo">  
+    <view class="search">  
+      <view class="df search_arr">  
+        <icon class="searchcion" size='20' type='search'></icon>  
+        <input placeholder="请输入关键字" value="{{searchValue}}" class="searchInput"/>
+        <icon class="searchcion" type="clear" size="20" bindtap="clearWord"></icon>
+      </view>  
+    </view>  
+    <view class='sousuo'>搜索</view>
+  </view>
+     <!-- 列表 -->
+    <view class="listWrap">
+      <view class="itemWrap">
+        <view  class="itemTop">
+          <image src="/image/shop.png" mode=""></image>
+        </view>
+        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
+        <view class="itemBottom">
+          <view class="jinbi">
+            <image src="/image/bi.png" mode ="aspectFit"></image>
+            <view class="money">20</view>
+          </view>
+          <view class="exchangeBtn">兑换</view>
+        </view>
+      </view>
+      <view class="itemWrap">
+        <view  class="itemTop">
+          <image src="/image/shop.png" mode=""></image>
+        </view>
+        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
+        <view class="itemBottom">
+          <view class="jinbi">
+            <image src="/image/bi.png" mode ="aspectFit"></image>
+            <view class="money">20</view>
+          </view>
+          <view class="exchangeBtn">兑换</view>
+        </view>
+      </view>
+      <view class="itemWrap">
+        <view  class="itemTop">
+          <image src="/image/shop.png" mode=""></image>
+        </view>
+        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
+        <view class="itemBottom">
+          <view class="jinbi">
+            <image src="/image/bi.png" mode ="aspectFit"></image>
+            <view class="money">20</view>
+          </view>
+          <view class="exchangeBtn">兑换</view>
+        </view>
+      </view>
+   </view>  
+</view>

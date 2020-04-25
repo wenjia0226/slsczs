@@ -182,3 +182,8 @@
     height: 0;
     color: transparent;
 }
+.lingqu {
+  padding: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
