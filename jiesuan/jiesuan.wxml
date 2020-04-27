@@ -1,11 +1,29 @@
 <view class="main">
 <!-- 配送信息 -->
-  <view class="infoWrap">
+  <view class="infoWrap" wx:if="{{type == 0}}">
     <view class="itemOne" style="border-right: 2px dotted #F4F4F4">
       <input placeholder="请填写联系人" style="text-align:center"/>
     </view>
     <view class="itemOne" style="flex: 1">
       <input placeholder="请填写手机号" style="text-align:center"/>
+    </view>
+  </view>
+  <view class="infoWrap"  wx:if="{{type == 1}}">
+    <view class="itemTwo" style="border-right: 2px dotted #F4F4F4">
+      <input placeholder="请选择收货地址" style="text-align:center" wx:if="{{!userName}}"/>
+      <view wx:if="{{userName}}" style="display: flex;align-items: center">
+        <view class="leftArea"><image src="/image/address.png" mode="aspectFill"></image></view>
+        <view class="rightArea">
+        <view class="userInfo">{{userName}} :{{telNumber}}</view>
+        <view class="addressInfo">
+         <text>{{provinceName}} {{cityName}} {{countyName}} {{detailInfo}}</text>
+        </view>
+       </view>
+      </view>
+
+    </view>
+    <view class="rightIconWrap" bindtap="getAddress">
+      <image src="/image/righticon2.png" ></image>
     </view>
   </view>
   <view class='logoWrap'>
@@ -14,11 +32,11 @@
   <!-- 配送方式 -->
   <view class="dliverWrap">
     <view style="width: 50%">配送方式</view>
-    <view class="choice {{type == 0? 'active': ''}}" data-type="0" bindtap="addBg">在校自取          </view>
-    <view class="choice {{type == 1? 'active': ''}}" data-type="1" bindtap="addBg">快递配送          </view>
+    <view class="choice {{type == 0? 'active': ''}}" data-type="0" bindtap="addBg">在校自取</view>
+    <view class="choice {{type == 1? 'active': ''}}" data-type="1" bindtap="addBg">快递配送</view>
   </view>
   <!-- 学校信息 -->
-  <view class="schoolWrap">
+  <view class="schoolWrap" wx:if="{{type == 0}}">
     <view class ="schoolInfo">学校信息</view>
     <text class="address" style="font-size: 26rpx;" decode="{{true}}" >学校名称: &nbsp;迎宾路小学</text>
     <text class="address" decode="{{true}}">地址:&nbsp;&nbsp;&nbsp;唐山市开平区动感龙城</text>
