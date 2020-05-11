@@ -5,19 +5,26 @@
         <image  bindtap='sty_background' class='checkbox_v' src="{{checkbox[index]}}" data-index="{{index}}"></image>
       </view>
     <view class="centerArea">
-        <image src="/image/girl.png" mode="aspectFit" wx:if="{{item.gender == 1}}"></image>
-        <image src="/image/boy.png" mode="aspectFit"  wx:if="{{item.gender == 0}}"></image>
-      <view class="name">{{item.name}}</view>
+      <image src="/image/girl.png" mode="aspectFit" wx:if="{{item.gender == 1}}"></image>
+      <image src="/image/boy.png" mode="aspectFit"  wx:if="{{item.gender == 0}}"></image>
     </view>
-    <view class="rightArea" >
-      <view class="time" wx:for="{{item.taskList}}"  wx:for-item="task">
-         <view class="clockItem {{task.success == 1 ? 'active': ''}}">{{task.title}}</view>
-          <!-- <view class="clockItem">三个“一”读写姿势</view>
-         <view class="clockItem">营养均衡</view>
-          <view class="clockItem">遵守20-20-20法则</view>
-         <view class="clockItem">睡眠充足</view>
-          <view class="clockItem">使用科学的学习光源</view>
-         <view class="clockItem">定期自检</view> -->
+    <view class="rightArea">
+      <view class="name">{{item.name}}</view>
+      <view class="downArea"><image src="/image/down.png"></image></view>
+      <view class="sightArea">
+        <view class="title">裸眼视力</view>
+        <view class="lastTimeSight" >
+          <image src="/image/right.png"></image>
+          <view>{{item.old.visionRight}}</view>
+          <image src="/image/left.png"></image>
+          <view>{{item.old.visionLeft}}</view>
+        </view>
+        <view class="lastTimeSight" >
+          <image src="/image/right.png"></image>
+          <view>{{item.new.visionRight}}</view>
+          <image src="/image/left.png"></image>
+          <view>{{item.new.visionLeft}}</view>
+        </view>
       </view>
     </view>
   </view>

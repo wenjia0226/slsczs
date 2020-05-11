@@ -1,13 +1,11 @@
 {
   "pages": [
-      "clock/clock",
-    "noCheck/noCheck",
-    "down/down",
+    "page/tabBar/screen/screen",
     "page/tabBar/archives/archives",
     "page/tabBar/my/my",
   
     "survey/survey",
-    "page/tabBar/screen/screen",
+    
     "teacherLogin/teacherLogin",
     "nicheng/nicheng",
     "shopDetail/shopDetail",
@@ -62,7 +60,11 @@
         "pages/reportList/reportList",
         "pages/reportDetail/reportDetail",
         "pages/teacherLogin/teacherLogin",
-        "pages/survey/survey"
+        "pages/survey/survey",
+        "pages/clock/clock",
+        "pages/noCheck/noCheck",
+        "pages/down/down"
+
       ]
     }, {
       "root": "page/mainFunction",

@@ -100,17 +100,17 @@ Page({
   },
   gotoNoCheck() {
     wx.navigateTo({
-      url: "/noCheck/noCheck"
+      url: "/page/myCollection/page/noCheck/noCheck"     
     })
   },
   gotoDown() {
     wx.navigateTo({
-      url: "/down/down"
+      url: "/page/myCollection/page/down/down"
     })
   },
   gotoTask() {
     wx.navigateTo({
-      url: "/clock/clock"
+      url: "/page/myCollection/page//clock/clock"
     })
   }
 })
