@@ -1,14 +1,18 @@
 {
   "pages": [
-    "jiesuan/jiesuan",
+      "clock/clock",
+    "noCheck/noCheck",
+    "down/down",
+    "page/tabBar/archives/archives",
+    "page/tabBar/my/my",
+  
+    "survey/survey",
+    "page/tabBar/screen/screen",
+    "teacherLogin/teacherLogin",
+    "nicheng/nicheng",
     "shopDetail/shopDetail",
     "shopSearch/shopSearch",
-    "page/tabBar/exchange/exchange",
-   
-    "page/tabBar/my/my",
-    "page/tabBar/screen/screen",
-    "nicheng/nicheng",  
-    "page/tabBar/archives/archives"
+    "jiesuan/jiesuan"  
   ],
   "tabBar": {
     "list": [
@@ -29,13 +33,8 @@
         "text": "我的",
         "iconPath": "/image/my.png",
         "selectedIconPath": "/image/myactive.png"
-      },
-      {
-        "pagePath": "page/tabBar/exchange/exchange",
-        "text": "兑换",
-        "iconPath": "/image/exchange.png",
-        "selectedIconPath": "/image/exchange.png"
       }
+      
     ],
     "color": "#000",
     "selectedColor": "#3e65e4"
@@ -61,7 +60,9 @@
         "pages/corparation/corparation",
         "pages/user/user",
         "pages/reportList/reportList",
-        "pages/reportDetail/reportDetail"
+        "pages/reportDetail/reportDetail",
+        "pages/teacherLogin/teacherLogin",
+        "pages/survey/survey"
       ]
     }, {
       "root": "page/mainFunction",

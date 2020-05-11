@@ -1,0 +1,96 @@
+/* noCheck/noCheck.wxss */
+.mainWrapper{
+  
+  background: #eee;
+}
+.itemWraper {
+  display: flex;
+  background: #fff;
+  margin: 20rpx 0;
+  padding: 15rpx;
+}
+.leftArea {
+  width: 50rpx;
+  padding-left: 15rpx;
+}
+.leftArea image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.centerArea {
+  width: 160rpx;
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.centerArea image {
+  width: 130rpx;
+  height: 130rpx;
+  text-align: center;
+}
+.rightArea {
+  flex:1;
+  
+}
+.name {
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+.time {
+  display: flex;
+  flex-direction: row;
+  flex-flow:row wrap;
+  font-size: 24rpx;
+  padding: 10rpx;
+}
+
+.clockItem {
+padding: 5rpx 20rpx;
+background: #eee;
+border-radius: 20rpx;
+margin: 5rpx;
+}
+.active{
+  background: #5391FC;
+  color: #fff;
+}
+
+/* 下面提框 */
+.alertWrap {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ 
+  background: #fff;
+}
+.leftAlert {
+  flex: 1;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+}
+.leftAlert image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.rightAlert{
+  flex:1;
+  padding: 30rpx;
+  background: #5391FC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #fff;
+}
+.rightAlert image {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 0 20rpx;
+}

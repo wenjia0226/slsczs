@@ -1,0 +1,53 @@
+<!--survey/survey.wxml-->
+<view class="mainContainer">
+  <view class="itemWrap" bindtap="gotoNoCheck">
+    <view class="leftWrap">
+      未检测人数
+    </view>
+    <view class="centerWrap">
+      {{undetected}}
+    </view>
+    <view class="rightWrap">
+      <image src="/image/righticon.png"></image>
+    </view>
+  </view>
+   <view class="itemWrap">
+    <view class="leftWrap">
+      视力下降人数
+    </view>
+    <view class="centerWrap">
+      {{decline}}
+    </view>
+    <view class="rightWrap">
+      <image src="/image/righticon.png"></image>
+    </view>
+  </view>
+   <view class="itemWrap">
+    <view class="leftWrap">
+      未打卡人数
+    </view>
+    <view class="centerWrap">
+      {{untask}}
+    </view>
+    <view class="rightWrap">
+      <image src="/image/righticon.png"></image>
+    </view>
+  </view>
+   <!-- <view class="itemWrap">
+    <view class="leftWrap">
+      视力良好人数
+    </view>
+    <view class="centerWrap">
+      3
+    </view>
+    <view class="rightWrap">
+      <image src="/image/righticon.png"></image>
+    </view>
+  </view> -->
+  <view class="canvasTitle">
+    视力概况分布表
+  </view>
+  <view>
+  <ec-canvas id="mychart-dom-bar" class='mychart-bar'  width="100%" height="100%" canvas-id="c" ec="{{ec3}}"></ec-canvas>
+  </view>
+</view>

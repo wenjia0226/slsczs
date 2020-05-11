@@ -170,6 +170,52 @@ Page({
       url: '/page/myCollection/pages/corparation/corparation'
     })
   },
+  checkLogin() {
+    let that = this;
+    let url = app.globalData.URL + 'chkState';
+    let data = {
+      openId: wx.getStorageSync('openId')
+    }
+    wx.showLoading({
+      title: '加载中...',
+    })
+    app.wxRequest(url, data, (res) => {
+      console.log(res)
+      if (res.data.status == 200) {
+        wx.switchTab({
+          url: '/survey/survey'
+        })
+        that.setData({
+          isLogin: true
+        })
+      }
+    }, (err) => {
+      console.log(err)
+    })
+  },
+  goTeacher() {
+    let that = this;
+    let url = app.globalData.URL + 'chkState';
+    let data = {
+      openId: wx.getStorageSync('openId')
+    }
+    wx.showLoading({
+      title: '加载中...',
+    })
+    app.wxRequest(url, data, (res) => {
+      if (res.data.status == 200) {
+        wx.navigateTo({
+          url: '/page/myCollection/pages/survey/survey'
+        })
+      }else if(res.data.status == 10227) {
+        wx.navigateTo({
+          url: '/page/myCollection/pages/teacherLogin/teacherLogin'
+        })
+      }
+    }, (err) => {
+      console.log(err)
+    })
+  },
   onShareAppMessage() {
     return {
       title: '视力筛查助手',

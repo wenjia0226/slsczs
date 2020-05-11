@@ -72,7 +72,6 @@ App({
     wx.setStorageSync('jnHight', jnHight/ 2)
       wx.getSystemInfo({
         success: res => {
-          console.log(res)
           let statusBarHeight = res.statusBarHeight,
             navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
             navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
@@ -97,8 +96,8 @@ App({
     height: '',
     wz:'',
     menuHeight: '',
-    URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
-   // URL: 'http://192.168.2.201:8080/lightspace/xcx/'
+    //URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
+    URL: 'http://192.168.100.199:8080/lightspace/xcx/'
   },
   wxRequest(url, data, callback, errFun) {
     wx.request({

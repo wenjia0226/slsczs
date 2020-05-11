@@ -8,6 +8,8 @@
   background: #eee;
   display: flex;
   flex-direction: column;
+  overflow-x:hidden;
+  width:100%;
 }
 /* //头部轮播 */
 .headerWrapper{

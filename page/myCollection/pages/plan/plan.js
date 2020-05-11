@@ -71,10 +71,11 @@ Page({
     // })
     let url = app.globalData.URL + 'completeTask', data = {
       openId: wx.getStorageSync('openId'),
-      taskId: e.currentTarget.dataset.id
+      taskId: e.currentTarget.dataset.id,
+      studentId: wx.getStorageSync('studentId')
     };
     app.wxRequest(url, data, (res) => {
-      // console.log(res)
+      //  console.log(res)
       if (res.data.status == 200) {
         wx.showToast({
           title: '成功',
@@ -94,64 +95,6 @@ Page({
     })
   },
   onShow: function () {
-    // const path1 = wx.getStorageSync('plan1');
-    // const path2 = wx.getStorageSync('plan2');
-    // const path3 = wx.getStorageSync('plan3');
-    // const path4 = wx.getStorageSync('plan4');
-    // const path5 = wx.getStorageSync('plan5');
-    // const path6 = wx.getStorageSync('plan6');
-    // const path7 = wx.getStorageSync('plan7');
-    // console.log(path1)
-    // if (path1 !== null) {
-    //   this.setData({
-    //     plan1: path1
-    //   })
-    // } else {
-    //   console.log(123)
-    //   this.downImage('https://www.guangliangkongjian.com/images/plan1.png', 'plan1');
-    // }
-    // if (path2 !== null) {
-    //   this.setData({
-    //     plan2: path2
-    //   })
-    // } else {
-    //   this.downImage('https://www.guangliangkongjian.com/images/plan2.png', 'plan2');
-    // }
-    // if (path3 !== null) {
-    //   this.setData({
-    //     plan3: path3
-    //   })
-    // } else {
-    //   this.downImage('https://www.guangliangkongjian.com/images/plan3.png', 'plan3');
-    // }
-    // if (path4 !== null) {
-    //   this.setData({
-    //     plan4: path4
-    //   })
-    // } else {
-    //   this.downImage('https://www.guangliangkongjian.com/images/plan4.png', 'plan4');
-    // }
-    // if (path5 !== null) {
-    //   this.setData({
-    //     plan5: path5
-    //   })
-    // } else {
-    //   this.downImage('https://www.guangliangkongjian.com/images/plan5.png', 'plan5');
-    // }
-    // if (path6 !== null) {
-    //   this.setData({
-    //     plan6: path6
-    //   })
-    // } else {
-    //   this.downImage('https://www.guangliangkongjian.com/images/plan6.png', 'plan6');
-    // }
-    // if (path7 !== null) {
-    //   this.setData({
-    //     plan7: path7
-    //   })
-    // } else {
-    //   this.downImage('https://www.guangliangkongjian.com/images/plan7.png', 'plan7');
-    // }
     this.getList();
   },  
   getList() {
@@ -160,9 +103,10 @@ Page({
     })
     let that = this;
     let url = app.globalData.URL + 'xcxTaskList', data = {
-      openId: wx.getStorageSync('openId')
+      studentId: wx.getStorageSync('studentId')
     };
     app.wxRequest(url, data, (res) => {
+      // console.log(res)
       that.setData({
         taskList: res.data.data
       })

@@ -69,6 +69,13 @@
 					"pathName": "nicheng/nicheng",
 					"query": "scene=438",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/tabBar/screen/screen",
+					"pathName": "page/tabBar/screen/screen",
+					"query": "scene=617",
+					"scene": null
 				}
 			]
 		}

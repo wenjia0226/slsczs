@@ -42,7 +42,7 @@
       </view>
     </view> 
   </view>
-  <view  >
+  <view class="listWrap">
     <view class="item" bindtap="gotoJiFen">
         <view class="mychild">我的爱眼币</view>
         <view class="titleRight">
@@ -53,7 +53,6 @@
         <view class="mychild">
            <button open-type="share"  class="shareBtn">好友分享 </button>
         </view>
-        
         <view class="titleRight">
           <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
         </view>
@@ -65,8 +64,15 @@
         </view>
       </view>
   </view>
+  <view class="listWrap" >
+    <view class="item" bindtap="goTeacher">
+      <view class="mychild">我是教师</view>
+       <view class="titleRight">
+        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
   <view class="listWrap" style="margin: 10rpx 5%;">
     <official-account></official-account>
   </view>
-   
 </view>
