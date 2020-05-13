@@ -1,8 +1,0 @@
-{
- "navigationBarBackgroundColor": "#5391FC",
-  "navigationBarTitleText": "本周概况",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "ec-canvas": "../page/common/ec-canvas/ec-canvas/ec-canvas"
-  }
-}

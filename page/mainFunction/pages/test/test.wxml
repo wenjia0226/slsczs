@@ -14,11 +14,11 @@
     </view>
     <view class="panduan">
       <view class="right" data-type="right" bindtap="right"> 
-        <image src="/image/right2.png" mode="aspectFit"></image>
+        <image src="https://www.guangliangkongjian.com/images/right.png" mode="aspectFit"></image>
         <text>正确</text>
       </view>
       <view class="right" data-type="wrong" bindtap="right">
-        <image src="/image/wrong2.png" mode="aspectFit"></image>
+        <image src="https://www.guangliangkongjian.com/images/wrong.png" mode="aspectFit"></image>
         <text>错误</text>
       </view>
     </view>

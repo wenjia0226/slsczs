@@ -2,11 +2,7 @@
   "pages": [
     "page/tabBar/screen/screen",
     "page/tabBar/archives/archives",
-    "page/tabBar/my/my",
-  
-    "survey/survey",
-    
-    "teacherLogin/teacherLogin",
+    "page/tabBar/my/my",  
     "nicheng/nicheng",
     "shopDetail/shopDetail",
     "shopSearch/shopSearch",
@@ -63,7 +59,8 @@
         "pages/survey/survey",
         "pages/clock/clock",
         "pages/noCheck/noCheck",
-        "pages/down/down"
+        "pages/down/down",
+        "pages/webview/webview"
 
       ]
     }, {

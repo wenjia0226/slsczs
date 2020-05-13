@@ -37,21 +37,36 @@ Page({
   // 单选多选
   sty_background: function (e) {
     let index = e.currentTarget.dataset.index;
-    console.log(index)
+    let id = e.currentTarget.dataset.id;
     var checkbox = this.data.checkbox;
     let that = this;
     if (checkbox[index] == '/image/nocheck.png') {
       checkbox[index] = '/image/checked.png';
       that.data.collectionId.push(that.data.childrenList[index].id)
     } else {
-      checkbox[index] = '/image/nocheck.png'
-      that.data.collectionId.splice(index, 1);  //取消选中，删除最后一响
-      console.log(that.data.collectionId)
+      checkbox[index] = '/image/nocheck.png';
+      let stuMap = that.data.collectionId
+      let newResult = stuMap.filter((item) => {
+        return item !== id
+      })
+      that.setData({
+        collectionId: newResult
+      })
     }
     that.setData({
       checkbox: checkbox,
       collectionId: that.data.collectionId
     })
+    // 全选按钮
+    if (this.data.collectionId.length  !== that.data.checkbox.length) {
+      this.setData({
+        checkboxall: '/image/nocheck.png'
+      })
+    }else {
+      this.setData({
+        checkboxall: '/image/checked.png'
+      })
+    }
   },
   // 全选
   all_choice: function () {
@@ -69,7 +84,6 @@ Page({
       that.data.collectionId = [];
       that.data.checkboxall = "/image/nocheck.png"
     }
-    console.log(that.data.collectionId)
     that.setData({
       checkbox: that.data.checkbox,
       checkboxall: that.data.checkboxall,
@@ -101,9 +115,18 @@ Page({
         console.log(res)
         if (res.data.status == 200) {
           wx.showToast({
-            title: res.data.msg,
+            title: '提醒成功',
             icon: 'success',
             duration: 2000
+          })
+          for (var i = 0; i < that.data.childrenList.length; i++) {
+            that.data.checkbox[i] = ('/image/nocheck.png')
+          }
+          that.data.checkboxall = "/image/nocheck.png";
+          that.setData({
+            checkbox: that.data.checkbox,
+            checkboxall: that.data.checkboxall,
+            collectionId: []
           })
         }
       })

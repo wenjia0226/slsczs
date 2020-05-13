@@ -2,11 +2,15 @@
 const app = getApp();
 Page({
   data: {
-    phone: 19931372308,
-    password1: 123456,
+    phone: '',
+    password1: '',
     success: false,
     text: '',
-    isLogin: false
+    isLogin: false,
+    height: app.globalData.height * 2 + 20,
+    navbarData: {
+      title: '教师登录'
+    }
   },
   // 获取输入账号 
   phoneInput: function (e) {
@@ -31,12 +35,11 @@ Page({
     wx.showLoading({
       title: '加载中...',
     })
-    console.log(url, data)
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
         console.log(res)
-        wx.switchTab({
-          url: '/page/tabBar/screen/screen'
+        wx.navigateTo({
+          url: '/page/myCollection/pages/survey/survey'
         })
       }
     }, (err) => {

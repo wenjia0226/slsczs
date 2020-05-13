@@ -76,7 +76,6 @@ Page({
             untask: res.untask,
             decline: res.decline
           })
-          console.log(res)
           let good = res.good,
           mild = res.mild,
           moderate = res.moderate,
@@ -100,17 +99,17 @@ Page({
   },
   gotoNoCheck() {
     wx.navigateTo({
-      url: "/page/myCollection/page/noCheck/noCheck"     
+      url: "/page/myCollection/pages/noCheck/noCheck"     
     })
   },
   gotoDown() {
     wx.navigateTo({
-      url: "/page/myCollection/page/down/down"
+      url: "/page/myCollection/pages/down/down"
     })
   },
   gotoTask() {
     wx.navigateTo({
-      url: "/page/myCollection/page//clock/clock"
+      url: "/page/myCollection/pages/clock/clock"
     })
   }
 })

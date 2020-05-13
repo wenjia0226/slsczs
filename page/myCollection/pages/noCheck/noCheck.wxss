@@ -72,6 +72,7 @@
   align-items: center;
   font-size: 36rpx;
   color: #fff;
+  opacity: 0.6
 }
 .rightAlert image {
   width: 70rpx;
@@ -81,4 +82,7 @@
 .bg {
   background: red;
   border-radius: 50%;
+}
+.opacityNum {
+  opacity: 1;
 }

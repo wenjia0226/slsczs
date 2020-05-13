@@ -48,14 +48,31 @@
     </view>
    <view class="centerwrap">
     <view class="daijingWrap" bindtap="goJozhun" data-detectType = "0">
-      <image src="/image/luoyan.png"  mode="aspectFit"></image>
+      <image src="https://www.guangliangkongjian.com/images/luoyan.png"  mode="aspectFit"></image>
     </view>
      <view class="daijingWrap" style="background: #64D7E9"  bindtap="goJozhun" data-detectType = "1" >
-      <image  src="/image/daijing.png"    mode="aspectFit"></image>
+      <image  src="https://www.guangliangkongjian.com/images/daijing.png"    mode="aspectFit"></image>
      </view>
    </view>
-   <view class="bottomwrap">
+   <!-- <view class="bottomwrap">
    <official-account></official-account>
-  </view>
+  </view> -->
+ 
 </view>
+ <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view class="closeWrap">
+        <image src="/image/quxiao2.png" bindtap="hideYindao"></image>
+      </view>
+      <view class="btnWrap">
+        <image src="https://www.guangliangkongjian.com/images/loginblue.png"></image>
+      </view>
+      <!-- <view class="guanzhuWrap">
+        <view bindtap="followBtn" class="guanzhu">关注公众号</view> 
+      </view> -->
+    </view>
+  </view>
+
 

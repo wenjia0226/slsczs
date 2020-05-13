@@ -2,7 +2,7 @@
 <view class="main">
     <text class="text"> 屏幕校准</text>
    <view class='content'>
-      <image mode='aspectFit' binderror="errImg" src="/image/biaozhun2.png" style="width:{{scaleWidth}}px;height:{{scaleHeight}}px" bindload="imgload"></image>
+      <image mode='aspectFit' binderror="errImg" src="https://www.guangliangkongjian.com/images/biaozhun.png" style="width:{{scaleWidth}}px;height:{{scaleHeight}}px" bindload="imgload"></image>
   </view>
     <view class="warning">
      <view style="color:red">*</view>

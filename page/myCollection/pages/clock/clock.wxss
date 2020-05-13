@@ -88,9 +88,13 @@ margin: 5rpx;
   align-items: center;
   font-size: 36rpx;
   color: #fff;
+  opacity: 0.6
 }
 .rightAlert image {
   width: 70rpx;
   height: 70rpx;
   margin: 0 20rpx;
+}
+.opacityNum {
+  opacity: 1;
 }

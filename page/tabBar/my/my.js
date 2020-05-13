@@ -194,6 +194,7 @@ Page({
     })
   },
   goTeacher() {
+    if (wx.getStorageSync('phone')) {
     let that = this;
     let url = app.globalData.URL + 'chkState';
     let data = {
@@ -203,6 +204,7 @@ Page({
       title: '加载中...',
     })
     app.wxRequest(url, data, (res) => {
+      console.log(res)
       if (res.data.status == 200) {
         wx.navigateTo({
           url: '/page/myCollection/pages/survey/survey'
@@ -215,6 +217,9 @@ Page({
     }, (err) => {
       console.log(err)
     })
+    } else {
+      this.gotoLogin();
+    }
   },
   onShareAppMessage() {
     return {

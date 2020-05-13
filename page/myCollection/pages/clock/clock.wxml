@@ -1,8 +1,8 @@
 <view class="mainWrapper">
 <scroll-view scroll-y height="100%">
-  <view class="itemWraper" wx:for="{{childrenList}}">
+  <view class="itemWraper" wx:for="{{childrenList}}"  bindtap='sty_background' data-index="{{index}}"  data-id="{{item.id}}">
     <view class="leftArea" data-id="{{item.id}}"  wx:if="{{display}}">
-        <image  bindtap='sty_background' class='checkbox_v' src="{{checkbox[index]}}" data-index="{{index}}"></image>
+        <image class='checkbox_v' src="{{checkbox[index]}}" ></image>
       </view>
     <view class="centerArea">
         <image src="/image/girl.png" mode="aspectFit" wx:if="{{item.gender == 1}}"></image>
@@ -24,11 +24,11 @@
    <view style="height: 200rpx;background: #eee;text-align: center; font-size: 26rpx;" > </view>
   </scroll-view>
   <view class="alertWrap">
-    <view class="leftAlert"  wx:if="{{display}}"  >  
-		<image bindtap='all_choice' src='{{checkboxall}}'></image>
+    <view class="leftAlert"  wx:if="{{display}}"  bindtap='all_choice' >  
+		<image src='{{checkboxall}}'></image>
       <view>全选</view>
     </view>
-    <view class="rightAlert" bindtap="alertStudent">
+    <view class="rightAlert {{collectionId.length> 0 ? 'opacityNum': ''}}" bindtap="alertStudent">
       <image src="/image/clock.png"></image>
       <view>提醒</view>
     </view>
