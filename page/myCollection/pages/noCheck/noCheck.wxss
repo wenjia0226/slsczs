@@ -3,6 +3,11 @@
   background: #eee;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
  
 }
 .itemWraper {
@@ -12,7 +17,8 @@
   padding: 15rpx;
 }
 .leftArea {
-  width: 50rpx;
+  display: flex;
+  align-items: flex-start;
   padding-left: 15rpx;
 }
 .leftArea image {

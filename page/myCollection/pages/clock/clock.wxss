@@ -1,6 +1,10 @@
 /* noCheck/noCheck.wxss */
 .mainWrapper{
-  
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   background: #eee;
 }
 .itemWraper {
@@ -8,9 +12,11 @@
   background: #fff;
   margin: 20rpx 0;
   padding: 15rpx;
+  box-sizing: border-box;
 }
 .leftArea {
-  width: 50rpx;
+  display: flex;
+  align-items: flex-start;
   padding-left: 15rpx;
 }
 .leftArea image {
@@ -51,10 +57,21 @@ padding: 5rpx 20rpx;
 background: #eee;
 border-radius: 20rpx;
 margin: 5rpx;
+display: flex;
+height: 30rpx;
+align-items: center;
 }
 .active{
   background: #5391FC;
   color: #fff;
+}
+.rightA {
+  width: 30rpx;
+  padding-right: 10rpx;
+}
+.rightA image {
+  width: 30rpx;
+  height: 30rpx;
 }
 
 /* 下面提框 */

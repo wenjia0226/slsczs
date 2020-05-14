@@ -2,7 +2,7 @@
   <view >
     <scroll-view scroll-y height="500rpx">
     <view class="itemWraper" wx:for="{{childrenList}}"  bindtap='sty_background' data-index="{{index}}" data-id="{{item.id}}">
-      <view class="leftArea" data-id="{{item.id}}" bindtap="CheckStudent"  wx:if="{{display}}">
+      <view class="leftArea" data-id="{{item.id}}">
         <image   class='checkbox_v' src="{{checkbox[index]}}" ></image>
       </view>
       <view class="centerArea">
@@ -15,11 +15,12 @@
         <view class="time" wx:if="{{item.lastTime == null}}"> 最近检测时间：<text style="color: red;">未检测</text></view>
       </view>
     </view>
-    <view style="height: 200rpx;background: #eee;text-align: center; font-size: 26rpx;" > </view>
+   <view style="height: 200rpx;background: #eee;text-align: center; font-size: 26rpx;" wx:if="{{childrenList.length}}"></view>
+  <view wx:if="{{childrenList.length == 0}}" style="height: 200rpx;background: #eee;text-align: center; font-size: 26rpx;padding-top: 100rpx;letter-spacing: 5rpx"> 暂无需要提醒的孩子</view>
     </scroll-view>
   </view>
   <view class="alertWrap">
-    <view class="leftAlert"  wx:if="{{display}}" bindtap='all_choice' >  
+    <view class="leftAlert" bindtap='all_choice' >  
 		<image  src='{{checkboxall}}'></image>
       <view>全选</view>
     </view>

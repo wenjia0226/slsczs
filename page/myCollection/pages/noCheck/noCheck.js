@@ -7,10 +7,12 @@ Page({
     checkbox: [],
     collectionId: [],
     listCollection: [],
-    display: false,
     checkboxall: "/image/nocheck.png",
   },
   onShow() {
+    this.getChildren();
+  },
+  getChildren() {
     let that = this;
     let url = app.globalData.URL + "undetected", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
@@ -28,7 +30,6 @@ Page({
             that.data.checkbox.push('/image/nocheck.png')
           }
           that.setData({
-            display: !that.data.display,
             checkbox: that.data.checkbox
           })
         }
@@ -102,7 +103,7 @@ Page({
       })
       return;
     }
-    let url = app.globalData.URL + "remindUndetected", data = { id: [617] };
+    let url = app.globalData.URL + "remindUndetected", data = { id: this.data.collectionId };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
@@ -118,15 +119,13 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          for (var i = 0; i < that.data.childrenList.length; i++) {
-            that.data.checkbox[i] = ('/image/nocheck.png')
-          }
+          
           that.data.checkboxall = "/image/nocheck.png";
           that.setData({
-            checkbox: that.data.checkbox,
-            checkboxall: that.data.checkboxall,
-            collectionId: []
+            collectionId: [],
+            checkboxall: '/image/nocheck.png'
           })
+          this.getChildren();
         }
        
       })

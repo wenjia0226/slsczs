@@ -4,7 +4,7 @@ function getPieOption(chart, good, mild, moderate, serious) {
   var option = {
     tooltip: {
       show: true,
-      formatter: "{a} <br/>{b} : {c} ({d}%)"
+      formatter: "{b} : {c} ({d}%)"
     },
     legend: {
       orient: 'vertical',

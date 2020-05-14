@@ -6,10 +6,12 @@ Page({
     checkbox: [],
     collectionId: [],
     listCollection: [],
-    display: false,
     checkboxall: "/image/nocheck.png",
   },
   onShow() {
+    this.getChildren();
+  },
+  getChildren() {
     let that = this;
     let url = app.globalData.URL + "decline", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
@@ -93,7 +95,6 @@ Page({
   //提醒学生
   alertStudent() {
     let that = this;
-    console.log(this.data.collectionId);
     if (that.data.collectionId.length <= 0) {
       wx.showModal({
         title: '',
@@ -102,7 +103,7 @@ Page({
       return;
     }
     // 写死的， 光小量
-    let url = app.globalData.URL + "remindDecline", data = { id: [617] };
+    let url = app.globalData.URL + "remindDecline", data = { id: this.data.collectionId };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
@@ -119,16 +120,12 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          for (var i = 0; i < that.data.childrenList.length; i++) {
-            that.data.checkbox[i] = ('/image/nocheck.png')
-          }
-          that.data.checkboxall = "/image/nocheck.png";
-          that.setData({
-            checkbox: that.data.checkbox,
-            checkboxall: that.data.checkboxall,
-            collectionId: []
+          that.setData({         
+            collectionId: [],
+            checkboxall: '/image/nocheck.png'
           })
         }
+        this.getChildren();
       })
     }
   }

@@ -5,10 +5,12 @@ Page({
     checkbox: [],
     collectionId: [],
     listCollection: [],
-    display: false,
     checkboxall: "/image/nocheck.png"
   },
   onShow() {
+    this.getChildren();
+  },
+  getChildren() {
     let that = this;
     let url = app.globalData.URL + "untask", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
@@ -17,6 +19,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
+        console.log(res)
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data
@@ -25,7 +28,6 @@ Page({
             that.data.checkbox.push('/image/nocheck.png')
           }
           that.setData({
-            display: !that.data.display,
             checkbox: that.data.checkbox
           })
         }
@@ -98,7 +100,7 @@ Page({
       })
       return;
     }
-    let url = app.globalData.URL + "remindUntask", data = { id: [617] };
+    let url = app.globalData.URL + "remindUntask", data = { id: this.data.collectionId };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
@@ -118,12 +120,11 @@ Page({
           for (var i = 0; i < that.data.childrenList.length; i++) {
             that.data.checkbox[i] = ('/image/nocheck.png')
           }
-          that.data.checkboxall = "/image/nocheck.png";
           that.setData({
-            checkbox: that.data.checkbox,
-            checkboxall: that.data.checkboxall,
-            collectionId: []
+            collectionId: [],
+            checkboxall: '/image/nocheck.png'
           })
+          this.getChildren();
         }
       })
     }

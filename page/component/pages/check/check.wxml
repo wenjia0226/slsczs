@@ -5,14 +5,16 @@
       <image mode='aspectFit' binderror="errImg" src="https://www.guangliangkongjian.com/images/biaozhun.png" style="width:{{scaleWidth}}px;height:{{scaleHeight}}px" bindload="imgload"></image>
   </view>
     <view class="warning">
-     <view style="color:red">*</view>
-     <view>
-      将1元硬币或尺子至于屏幕图案上，点击放大或缩小按钮， 调整屏幕上图案到真实大小（硬币的直径为2.5厘米）
-    </view>
+     <view >校准步骤：</view>
+     <view>1,将尺子至于屏幕中的刻度尺上</view>
+     <view>2,点击放大或缩小按钮,调整屏幕刻度尺长度至2.5厘米</view>
+     <view>3,点击校准完成按钮,进行下一步操作</view>
     </view>
     <view class="btn">
         <view class="btncon" bindtap="biggerImg"><image src="/image/zeng.png" mode="aspectFit"></image> </view>
         <view class="btncon" bindtap="smallImg"> <image src="/image/jian.png" mode="aspectFit"></image></view>
     </view>
-    <view class="checkfinish" bindtap="gotocheck">校准完成</view>
+    <view class="checkFWrap">
+      <view class="checkfinish" bindtap="gotocheck">校准完成</view>
+    </view>
 </view>
