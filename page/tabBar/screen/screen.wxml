@@ -69,9 +69,9 @@
       <view class="btnWrap">
         <image src="https://www.guangliangkongjian.com/images/loginblue.png"></image>
       </view>
-      <!-- <view class="guanzhuWrap">
+      <view class="guanzhuWrap">
         <view bindtap="followBtn" class="guanzhu">关注公众号</view> 
-      </view> -->
+      </view>
     </view>
   </view>
 

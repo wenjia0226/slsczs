@@ -26,23 +26,19 @@ function getPieOption(chart, good, mild, moderate, serious) {
           }
         },
       data: [{
-        // value: good,
-        value: 4,
+        value: good,
         name: '良好'
       },
       {
-        // value: mild,
-        value: 5,
+        value: mild,
         name: '轻度不良'
       },
       {
-        // value: moderate,
-        value: 6,
+       value: moderate,
         name: '中度不良'
       },
       {
-        // value: serious,
-        value: 3,
+        value: serious,
         name: '重度不良'
       }
       ]
@@ -70,6 +66,7 @@ Page({
       })
       app.wxRequest(url, data, (res) => {
         if (res.data.status == 200) {
+          console.log(res)
           res ? res = res.data.data : '';
           that.setData({
             undetected: res.undetected,

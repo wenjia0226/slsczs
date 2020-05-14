@@ -6,7 +6,7 @@
   top: 0;  
   display: flex;
   flex-direction: column;
-  background: #5F0CE6
+  background: linear-gradient(to bottom, #5e16ef, #4f9ffb)
 }
 .inputBox {
   width: 100%;

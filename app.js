@@ -74,7 +74,7 @@ App({
         success: res => {
           let statusBarHeight = res.statusBarHeight,
             navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
-            navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
+            navHeight = statusBarHeight + menuButtonObject.height;//导航高度
           this.globalData.wz =  menuButtonObject.height / 2;
           this.globalData.navHeight = navHeight;
           this.globalData.navTop = navTop;
