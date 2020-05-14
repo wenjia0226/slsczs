@@ -66,7 +66,7 @@ Page({
       })
       app.wxRequest(url, data, (res) => {
         if (res.data.status == 200) {
-          console.log(res)
+          // console.log(res)
           res ? res = res.data.data : '';
           that.setData({
             undetected: res.undetected,

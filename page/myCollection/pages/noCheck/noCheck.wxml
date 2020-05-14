@@ -15,8 +15,8 @@
         <view class="time" wx:if="{{item.lastTime == null}}"> 最近检测时间：<text style="color: red;">未检测</text></view>
       </view>
     </view>
-   <view style="height: 200rpx;background: #eee;text-align: center; font-size: 26rpx;" wx:if="{{childrenList.length}}"></view>
-  <view wx:if="{{childrenList.length == 0}}" style="height: 200rpx;background: #eee;text-align: center; font-size: 26rpx;padding-top: 100rpx;letter-spacing: 5rpx"> 暂无需要提醒的孩子</view>
+   <view style="height: 200rpx; background: #fff;text-align: center; font-size: 26rpx;" wx:if="{{childrenList.length}}"></view>
+  <view wx:if="{{childrenList.length == 0}}" style="height: 200rpx;text-align: center; font-size: 26rpx;padding-top: 100rpx;letter-spacing: 5rpx;"> 暂无需要提醒的孩子</view>
     </scroll-view>
   </view>
   <view class="alertWrap">

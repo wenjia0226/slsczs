@@ -63,6 +63,8 @@
   display: flex;
   align-items: center;
   font-size: 36rpx;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
 }
 .leftAlert image {
   width: 50rpx;

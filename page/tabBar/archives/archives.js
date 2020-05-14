@@ -308,14 +308,12 @@ Page({
     this.getArchiveList();
   },
   changeTab(e) {
-    
     this.setData({
       isSelect: e.currentTarget.dataset.type
     })
   },
   //轮播图切换
   swiperChange(e) {
-    console.log(e.detail.current, 9999)
     this.setData({
       isSelect: e.detail.current
     })
