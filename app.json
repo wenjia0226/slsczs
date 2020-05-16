@@ -1,10 +1,17 @@
 {
   "pages": [
+    
+    "page/tabBar/my/my",
+    "serious/serious",
     "page/tabBar/screen/screen",
-    "page/tabBar/archives/archives",
-    "page/tabBar/my/my",  
-    "nicheng/nicheng",
     "shopDetail/shopDetail",
+    "page/tabBar/exchange/exchange",
+ 
+    "page/tabBar/archives/archives",
+   
+   
+    "nicheng/nicheng",
+    
     "shopSearch/shopSearch",
     "jiesuan/jiesuan"  
   ],
@@ -27,6 +34,12 @@
         "text": "我的",
         "iconPath": "/image/my.png",
         "selectedIconPath": "/image/myactive.png"
+      },
+      {
+        "pagePath": "page/tabBar/exchange/exchange",
+        "text": "兑换",
+        "iconPath": "/image/exchange.png",
+        "selectedIconPath": "/image/exchange.png"
       }
       
     ],
@@ -60,8 +73,10 @@
         "pages/clock/clock",
         "pages/noCheck/noCheck",
         "pages/down/down",
-        "pages/webview/webview"
-
+        "pages/webview/webview",
+        "pages/middle/middle",
+        "pages/moderate/moderate",
+        "pages/serious/serious"
       ]
     }, {
       "root": "page/mainFunction",

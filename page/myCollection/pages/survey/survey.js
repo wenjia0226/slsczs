@@ -27,24 +27,45 @@ function getPieOption(chart, good, mild, moderate, serious) {
         },
       data: [{
         value: good,
-        name: '良好'
+        name: '良好',
+        url: ''
       },
       {
         value: mild,
-        name: '轻度不良'
+        name: '轻度不良',
+        url: 'mild'
       },
       {
        value: moderate,
-        name: '中度不良'
+        name: '中度不良',
+        url: 'moderate'
       },
       {
         value: serious,
-        name: '重度不良'
+        name: '重度不良',
+        url: 'serious'
       }
       ]
     }]
   }
   chart.setOption(option);
+  chart.on('click', function(param) {
+    let type = param.data.url;
+    let that = this;
+    if (type == 'mild') {
+       wx.navigateTo({
+         url: '/page/myCollection/pages/middle/middle?type=mild',
+       })
+    } else if (type == 'moderate') {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/moderate/moderate?type=moderate',
+      })
+    } else if (type == 'serious') {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/serious/serious?type=serious',
+      })
+    }
+  })
   return chart;
 }
 Page({

@@ -34,6 +34,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
+}
+.sightArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .downArea {
   width: 50rpx;
@@ -46,20 +53,22 @@
 .name {
   font-size: 34rpx;
   font-weight: 600;
+  width: 140rpx;
+  text-align: center;
+}
+.lastTime {
+  font-size: 26rpx;
+  text-align: center;
 }
 .lastTimeSight {
   display: flex;
-  border-bottom: 1rpx dotted #000;
   margin: 10rpx 0;
-  font-size: 24rpx;
+  font-size: 26rpx;
   padding-bottom: 10rpx;
   font-weight: bold;
 }
-.lastTimeSight:nth-of-type(2n + 1) {
-  border:none;
-}
 .title {
-  font-size: 24rpx;
+  font-size: 28rpx;
   text-align: center;
 }
 .lastTimeSight image{

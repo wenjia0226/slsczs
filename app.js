@@ -90,14 +90,14 @@ App({
   },
   globalData: {
     userInfo: null,
-    navHeight: '',
+    navHeight: '', 
     navTop: '',
     windowHeight: '',
     height: '',
     wz:'',
     menuHeight: '',
-    URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
-    //URL: 'http://192.168.100.199:8080/lightspace/xcx/'
+    //URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
+    URL: 'http://192.168.100.199:8080/lightspace/xcx/'
   },
   wxRequest(url, data, callback, errFun) {
     wx.request({

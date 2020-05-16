@@ -42,6 +42,12 @@ Page({
         wx.navigateTo({
           url: '/page/myCollection/pages/survey/survey'
         })
+      }else {
+        wx.showToast({
+          title: '账号或密码错误',
+          icon: 'none',
+          duration: 2000
+        })
       }
     }, (err) => {
       console.log(err)

@@ -45,7 +45,7 @@
     </view>
   </view> -->
   <view class="canvasTitle">
-    视力概况分布表
+    视力概况分布图
   </view>
   <view class="pi">
   <ec-canvas id="mychart-dom-bar" class='mychart-bar'  width="100%" height="100%" canvas-id="c" ec="{{ec3}}"></ec-canvas>

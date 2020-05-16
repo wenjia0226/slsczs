@@ -94,14 +94,10 @@ Page({
     }
   },
   onLoad() {
-    this.setData({
-      detectType: wx.getStorageSync('detectType')
-    })
-    if (!this.data.noUpdate) {
-      if (!this.data.flag) {
-        this.setData({
-          flag: true
-        })
+    if (wx.getStorageSync('reuploadFlag')) {
+      this.setData({
+        detectType: wx.getStorageSync('detectType')
+      })
         wx.showLoading({
           title: '加载中...',
         })
@@ -121,6 +117,7 @@ Page({
           openId: wx.getStorageSync('openId')
         };
         app.wxRequest(url, data, (res) => {
+          wx.setStorageSync('reuploadFlag', false)
           if(res.data.status == 10224) {
             wx.showLoading({
               title: res.data.msg,
@@ -137,7 +134,6 @@ Page({
           console.log(err)
         })
       }
-    } 
   },
    go(e) {
      let type = e.currentTarget.dataset.type;

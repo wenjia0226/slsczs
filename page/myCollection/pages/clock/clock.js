@@ -19,7 +19,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data
@@ -110,7 +110,6 @@ Page({
         that.setData({
           collectionId: []
         })
-        console.log(res)
         if (res.data.status == 200) {
           wx.showToast({
             title: '提醒成功',

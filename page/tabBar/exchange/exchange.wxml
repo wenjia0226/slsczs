@@ -21,10 +21,10 @@
     <!-- 轮播图 -->
     <view class="swiperWrap">
       <swiper indicator-dots="{{indicatorDots}}"
-        autoplay= 'true' class="swiperInner">
+        autoplay= 'true' class="swiperInner" wx:for="{{swiperList}}">
         <block>
           <swiper-item class="swiperItem">
-            <image src="/image/exchangeSwiper.png" ></image>
+            <image src="{{item.path}}" ></image>
           </swiper-item>
         </block>
       </swiper>

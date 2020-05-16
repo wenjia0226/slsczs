@@ -13,7 +13,8 @@ Page({
     flag: false,
     hideWarn: {},
     isShow: true,
-    showModalStatus: false
+    showModalStatus: false,  //关注公众号标志位
+    reuploadFlag: false  //  重复上传标志位
   },
   //关注公众号
   followBtn() {
@@ -223,9 +224,11 @@ Page({
   goJozhun(e) {
     if(!this.data.flag) {
       this.setData({
-        flag: true
+        flag: true,
+        reuploadFlag: true
       })
       wx.setStorageSync('detectType', e.currentTarget.dataset.detecttype);
+      wx.setStorageSync('reuploadFlag',  this.data.reuploadFlag);
       if (wx.getStorageSync('phone')) {
         if(wx.getStorageSync('studentId') !== 2) {
         if (this.data.childrenList.length == 0) {

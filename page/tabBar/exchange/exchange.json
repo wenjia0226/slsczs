@@ -1,7 +1,4 @@
 {
   "navigationStyle": "custom",
-  "component": true,
-    "usingComponents": {
-      
-    }
+  "enablePullDownRefresh": true
 }

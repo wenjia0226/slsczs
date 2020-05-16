@@ -2,25 +2,22 @@
 const app = getApp();
 Page({
   data: {
-   childrenList: [],
+    childrenList: [],
     checkbox: [],
     collectionId: [],
     listCollection: [],
     checkboxall: "/image/nocheck.png",
   },
-  onShow() {
-    this.getChildren();
-  },
-  getChildren() {
+  onLoad: function (options) {
     let that = this;
-    let url = app.globalData.URL + "decline", data = { openId: wx.getStorageSync('openId') };
-    //如果已经授权过
+    let type = options.type;
+    let url = app.globalData.URL + 'studentByType', data = { openId: wx.getStorageSync('openId'), type: type };
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data
@@ -36,6 +33,7 @@ Page({
       })
     }
   },
+
   // 单选多选
   sty_background: function (e) {
     let index = e.currentTarget.dataset.index;
@@ -60,11 +58,11 @@ Page({
       collectionId: that.data.collectionId
     })
     // 全选按钮
-    if (this.data.collectionId.length  !== that.data.checkbox.length) {
+    if (this.data.collectionId.length !== that.data.checkbox.length) {
       this.setData({
         checkboxall: '/image/nocheck.png'
       })
-    }else {
+    } else {
       this.setData({
         checkboxall: '/image/checked.png'
       })
@@ -91,42 +89,5 @@ Page({
       checkboxall: that.data.checkboxall,
       collectionId: that.data.collectionId
     })
-  },
-  //提醒学生
-  alertStudent() {
-    let that = this;
-    if (that.data.collectionId.length <= 0) {
-      wx.showModal({
-        title: '',
-        content: '请先选择学生',
-      })
-      return;
-    }
-    // 写死的， 光小量
-    let url = app.globalData.URL + "remindDecline", data = { id: this.data.collectionId };
-    //如果已经授权过
-    if (wx.getStorageSync('phone')) {
-      wx.showLoading({
-        title: '加载中...'
-      })
-      app.wxRequest(url, data, (res) => {
-        that.setData({
-          collectionId: []
-        })
-        console.log(res)
-        if (res.data.status == 200) {
-          wx.showToast({
-            title: '提醒成功',
-            icon: 'success',
-            duration: 2000
-          })
-          that.setData({         
-            collectionId: [],
-            checkboxall: '/image/nocheck.png'
-          })
-        }
-        this.getChildren();
-      })
-    }
   }
 })

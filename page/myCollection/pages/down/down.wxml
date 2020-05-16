@@ -12,7 +12,8 @@
       <view class="name">{{item.name}}</view>
       <view class="downArea"><image src="/image/down.png"></image></view>
       <view class="sightArea">
-        <view class="title">裸眼视力</view>
+        <view class="title" wx:if="{{item.type == 1}}">裸眼视力</view>
+        <view class="title" wx:if="{{item.type == 2}}">戴镜视力</view>
         <view class="lastTimeSight" >
           <image src="/image/right.png"></image>
           <view>{{item.old.visionRight}}</view>

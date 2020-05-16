@@ -1,41 +1,47 @@
 <view class="mainWrapper">
 <scroll-view scroll-y height="100%">
-  <view class="itemWraper" wx:for="{{childrenList}}"  bindtap='sty_background' data-index="{{index}}"  data-id="{{item.id}}">
-    <view class="leftArea">
-      <image class='checkbox_v' src="{{checkbox[index]}}" ></image>
-    </view>
+  <view class="itemWraper" wx:for="{{childrenList}}" wx:if="childrenList.length"  bindtap='sty_background' data-index="{{index}}"  data-id="{{item.id}}">
+    <!-- <view class="leftArea" data-id="{{item.id}}">
+        <image  class='checkbox_v' src="{{checkbox[index]}}"></image>
+      </view> -->
     <view class="centerArea">
-        <image src="/image/girl.png" mode="aspectFit" wx:if="{{item.gender == 1}}"></image>
-        <image src="/image/boy.png" mode="aspectFit"  wx:if="{{item.gender == 0}}"></image>
-      <view class="name">{{item.name}}</view>
+      <image src="/image/girl.png" mode="aspectFit" wx:if="{{item.gender == 1}}"></image>
+      <image src="/image/boy.png" mode="aspectFit"  wx:if="{{item.gender == 0}}"></image>
     </view>
-    <view class="rightArea" >
-      <view class="time" wx:for="{{item.taskList}}"  wx:for-item="task">
-         <view class="clockItem {{task.success == 1 ? 'active': ''}}"> 
-         <view wx:if="{{task.success}}" class="rightA"><image src="/image/zhengque.png"></image></view>
-         <view>  {{task.title}}</view>
+    <view class="rightArea">
+      <view class="name">{{item.name}}</view>
+      <!-- <view class="downArea"><image src="/image/down.png"></image></view> -->
+      <view class="sightArea">
+        <view class="title" wx:if="{{item.screeningType == 1}}">裸眼视力</view>
+        <view class="title" wx:if="{{item.screeningType == 2}}">戴镜视力</view>
+        <view class="lastTimeSight" >
+          <image src="/image/right.png"></image>
+          <view>{{item.right}}</view>
+          <image src="/image/left.png"></image>
+          <view>{{item.left}}</view>
         </view>
-          <!-- <view class="clockItem">三个“一”读写姿势</view>
-         <view class="clockItem">营养均衡</view>
-          <view class="clockItem">遵守20-20-20法则</view>
-         <view class="clockItem">睡眠充足</view>
-          <view class="clockItem">使用科学的学习光源</view>
-         <view class="clockItem">定期自检</view> -->
+        <view class="lastTime">检测时间: {{item.time}}</view>
+        <!-- <view class="lastTimeSight" >
+          <image src="/image/right.png"></image>
+          <view>{{item.new.visionRight}}</view>
+          <image src="/image/left.png"></image>
+          <view>{{item.new.visionLeft}}</view>
+        </view> -->
       </view>
     </view>
   </view>
-  <view style="height: 200rpx; background: #fff;text-align: center; font-size: 26rpx;" wx:if="{{childrenList.length}}"></view>
+ <view style="height: 200rpx; background: #fff;text-align: center; font-size: 26rpx;" wx:if="{{childrenList.length}}"></view>
   <view wx:if="{{childrenList.length == 0}}" style="height: 200rpx;text-align: center; font-size: 26rpx;padding-top: 100rpx;letter-spacing: 5rpx;"> 暂无需要提醒的孩子</view>
   </scroll-view>
   <view class="alertWrap">
-    <view class="leftAlert"  bindtap='all_choice' >  
-		<image src='{{checkboxall}}'></image>
+    <!-- <view class="leftAlert"  bindtap='all_choice' >  
+		<image  src='{{checkboxall}}'></image>
       <view>全选</view>
-    </view>
-    <view class="rightAlert {{collectionId.length> 0 ? 'opacityNum': ''}}" bindtap="alertStudent">
+    </view> -->
+    <!-- <view class="rightAlert {{collectionId.length> 0 ? 'opacityNum': ''}}" bindtap="alertStudent">
       <image src="/image/clock.png"></image>
       <view>提醒</view>
-    </view>
+    </view> -->
   </view>
 </view>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
