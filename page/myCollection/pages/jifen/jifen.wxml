@@ -5,6 +5,20 @@
       <view class="gl">规则</view>
       <image src="/image/righticon.png" mode="aspectFit"></image>
     </view>
+    <!-- 如果请求到孩子 -->
+    <view  class="topwap">
+      <swiper  class='u-wrp-bnr' current="{{currentIdex}}"previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
+        <block wx:if="{{childrenList.length}}">
+          <swiper-item class="swiperItem" data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="id" bindtap="getItem" >
+            <view class="portrait {{index == currentIndex ? 'active': ''}}" >
+              <image src="/image/boy.png"  mode="aspectFit" wx:if="{{ item.gender == 0}}"></image>
+              <image src="/image/girl.png"  mode="aspectFit"  wx:if="{{ item.gender == 1}}"></image>       
+            </view>
+            <view class="name">{{item.name}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
     <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
     <view class="show"  wx:if="{{show}}">
       <view class="quxiao" bindtap="hide">
@@ -14,7 +28,6 @@
       <view class="txt"> 1、每日首次完成“裸眼检测”或者“戴镜检测”，获得3个爱眼币。</view>
       <view class="txt"> 2、每日完成全部爱眼计划的打卡，会获得2个爱眼币。</view>
       <view class="txt"> 3、爱眼币可用来兑换商品。</view>
-      <view class="txt"> 4、爱眼币兑换时间以月为单位，月末清零</view>
     </view>
       <view class="total"> {{balance}}</view>
       <view class="des" >
@@ -22,30 +35,31 @@
         <view>爱眼币</view>
       </view>
       <view class="numWrap">
-        <view clas="get" >
-          <view class="getNum">{{income}}</view>
+        <view class="get">
           <view class="huo">
              <image src="/image/jifen.png" mode="aspectFit"></image>
             <text>获取</text>
           </view>
+           <view class="getNum">{{income}}</view>
         </view>
-         <view clas="get">
-          <view class="getNum">{{expenditure}}</view>
+         <view class="get">
           <view class="huo">
              <image src="/image/xiaofei.png" mode="aspectFit"></image>
             <text>消费</text>
           </view>
+          <view class="getNum">{{expenditure}}</view>
         </view>
       </view>
       <!-- 积分明细 -->
-      <view class="detail {{type == 0? 'active': ''}}"  data-type="0" bindtap="switch">
+      <view class="detail {{type == 0? 'activeGet': ''}}"  data-type="0" bindtap="switch">
           明细
       </view>
-      <view class="getdetail {{type == 1? 'active': ''}}" data-type="1" bindtap="switch">
+      <view class="getdetail {{type == 1? 'activeGet': ''}}" data-type="1" bindtap="switch">
           领取
       </view>
   </view>
   <view class="centerWrap" style="height: 300rpx" wx:if="{{type == 0}}">
+  <block wx:if="{{jifenList.length}}">
     <scroll-view scroll-y  style="height: 100%;">
       <view class="itemWrap" wx:for="{{jifenList}}">
         <view class="leftitem">
@@ -56,10 +70,13 @@
         <view class="rightitem daijinquan"  wx:if="{{item.state == 1}}"> + {{item.integral}}</view>
       </view>
     </scroll-view>
+    </block>
+    <block wx:else>
+    <view class="itemWrap" style="justify-content:center;font-size: 30rpx">暂无明细</view>
+    </block>
   </view>
   <view wx:if="{{type == 1}}" class="centerWrap" style="height: 300rpx;" >
      <view class="itemWrap" style="justify-content: center">
-     
      <view class="lingqu">暂无领取记录</view>
         <!-- <view class="leftitem">
           <view>{{item.detailed}}</view>

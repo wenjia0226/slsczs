@@ -9,8 +9,81 @@
   flex-direction: column;
   background: #F7F8F8;
 }
+ .topwap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    position: relative;
+    height: 240rpx;
+  }
+  .portrait {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .smaller {
+    width: 130rpx;
+  }
+  .portrait > image{
+    height: 140rpx;
+  }
+  .name{
+    padding: 20rpx 0;
+    color: #fff;
+  }
+.u-wrp-bnr {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+.swiperItem {
+  width: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.addChild {
+   height: 300rpx ;
+  width: 220rpx !important;
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.u-img-slide {
+  width: 100%;
+  height: inherit;
+}
+.active {
+  transform:  scale(1.1);
+  /* transform: translate(100%, 0px) translateZ(0px); */
+  transition: all 0.2s ease-in 0s;
+  z-index: 20;
+  margin-top: 20rpx;
+}
+.time {
+  text-align: center;
+  font-size: 24rpx;
+  color: #eee;
+  width: 100%;
+  padding: 5rpx;
+}
+.lastTime {
+  position: relative;
+  bottom: -150rpx;
+  z-index: 999;
+  color: red;
+}
 .headerWrap{
-  height: 450rpx;
   background: #5391FC;
   position:relative;
 }
@@ -97,12 +170,17 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: 100rpx;
+  padding-bottom: 50rpx;
+}
+.get {
+  display: flex;
+  align-items: center;
 }
 .getNum {
-  font-size: 40rpx;
+  font-size: 46rpx;
   color: orange;
   text-align: center;
+  padding: 0 15rpx;
 }
 .huo {
   display: flex;
@@ -119,7 +197,7 @@
 .detail {
   position: absolute;
   left: 15%;
-  bottom: -10%;
+  bottom: -40rpx;
   width: 200rpx;
   height: 80rpx;
   border-radius: 50rpx;
@@ -133,7 +211,7 @@
 .getdetail {
   position: absolute;
   right: 15%;
-  bottom: -10%;
+  bottom: -40rpx;
   width: 200rpx;
   height: 80rpx;
   border-radius: 50rpx;
@@ -144,7 +222,7 @@
   color: #fff;
   letter-spacing: 3rpx;
 }
-.active {
+.activeGet {
   background: #FF9B00;
 }
 .centerWrap{

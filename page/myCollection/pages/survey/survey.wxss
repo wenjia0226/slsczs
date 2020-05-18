@@ -26,11 +26,12 @@
   font-size: 34rpx;
 }
 .rightWrap {
-  width: 30rpx;
+  width:40rpx;
+  height: 30rpx;
 }
 .rightWrap > image{
-   width: 24rpx;
-   height: 24rpx;
+   width: 30rpx;
+   height: 30rpx;
 }
  .canvasTitle {
    padding: 30rpx;

@@ -1,5 +1,5 @@
 <view  class="main">
-    <swiper class="headerWrapper"  circular="{{true}}" current="0" previous-margin="20rpx" next-margin="20rpx"   bindchange="handleChange" wx:if="{{navList.length}}" 	>
+    <swiper class="headerWrapper"  circular="{{true}}" current="0" previous-margin="20rpx" next-margin="20rpx"   bindchange="handleChange" wx:if="{{navList.length}}">
       <block wx:for="{{navList}}" wx:key="id" wx:if="{{navList}}">
         <swiper-item>
           <view class="swiperwrap">
