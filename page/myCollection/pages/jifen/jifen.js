@@ -66,6 +66,19 @@ Page({
       })
     }
   },
+  // 点击头像确定当前孩子的积分情况
+  getItem(e) {
+    let that = this;
+    this.setData({
+      currentIndex: e.currentTarget.dataset.index
+    })
+    console.log(this.data.currentIndex)
+    let student = this.data.childrenList.filter((item, index) => { if (index == that.data.currentIndex) return item });
+    that.setData({
+      currentStudentId: student[0].id
+    })
+    this.currentStudentCode();
+  },
   //确定当前孩子具体是哪个
   activeNav: function (e) {
     let that = this;

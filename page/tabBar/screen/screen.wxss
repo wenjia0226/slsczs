@@ -97,6 +97,7 @@ swiper {
   .name{
     padding: 20rpx 0;
     color: #fff;
+    height: 40rpx;
   }
 /* 轮播 */
 .u-wrp-bnr {

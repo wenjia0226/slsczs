@@ -7,10 +7,10 @@
     </view>
     <!-- 如果请求到孩子 -->
     <view  class="topwap">
-      <swiper  class='u-wrp-bnr' current="{{currentIdex}}"previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
+      <swiper  class='u-wrp-bnr' current="{{currentIndex}}" previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
         <block wx:if="{{childrenList.length}}">
-          <swiper-item class="swiperItem" data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="id" bindtap="getItem" >
-            <view class="portrait {{index == currentIndex ? 'active': ''}}" >
+          <swiper-item class="swiperItem " data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="id" bindtap="getItem" >
+            <view class="portrait {{index == currentIndex ? 'active': ''}}">
               <image src="/image/boy.png"  mode="aspectFit" wx:if="{{ item.gender == 0}}"></image>
               <image src="/image/girl.png"  mode="aspectFit"  wx:if="{{ item.gender == 1}}"></image>       
             </view>

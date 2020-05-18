@@ -16,7 +16,7 @@
     align-items: center; 
     flex-direction: column;
     position: relative;
-    height: 240rpx;
+    height: 250rpx;
   }
   .portrait {
     width: 150rpx;
@@ -33,6 +33,7 @@
   }
   .portrait > image{
     height: 140rpx;
+    width: 140rpx;
   }
   .name{
     padding: 20rpx 0;
@@ -64,7 +65,7 @@
   height: inherit;
 }
 .active {
-  transform:  scale(1.1);
+  transform:  scale(1.1, 1.1);
   /* transform: translate(100%, 0px) translateZ(0px); */
   transition: all 0.2s ease-in 0s;
   z-index: 20;
