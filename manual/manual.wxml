@@ -1,0 +1,7 @@
+<!--manual/manual.wxml-->
+<view class="mainWrap">
+  <view class="label">姓名</view>
+  <view>
+    <input value = "{{name}}" placeholder="请输入姓名"></input>
+  </view>
+</view>

@@ -1,83 +1,82 @@
 <view class="main" catchtouchmove='prevent'>
 <!-- 轮播图 -->
+<scroll-view scroll-y style="height: 100%;">
   <view class="swiperWrap">
     <swiper indicator-dots="{{indicatorDots}}"
-      autoplay= 'true' class="swiperInner">
+      autoplay= 'true' class="swiperInner" >
       <block>
-        <swiper-item class="swiperItem">
-          <image src="/image/01.png" ></image>
+        <swiper-item class="swiperItem" wx:for="{{pictures}}">
+          <image src="{{item}}" ></image>
         </swiper-item>
       </block>
     </swiper>
   </view>
    <view class="detailWrap">
-      <view class="txt">防蓝光儿童眼镜 型号9018</view>
+      <view class="txt">{{name}}</view>
       <view class="bi">
         <image src="/image/bi.png"></image>
-        <text>450</text>
+        <text>{{integral}}</text>
       </view>
    </view>
    <!-- 规格选择 -->
-   <view class="sizeWrap">
+   <view class="sizeWrap" bindtap="showSizeChange">
       <text> 选择</text>
-      <text class="sizeWrap" >请选择规格</text>
+      <text class="sizeWrap">请选择规格</text>
    </view>
-   
    <!-- 图文详情 -->
    <view class="wordWrap">
       <view> ------  图文详情  ------</view>
    </view>
-   <view class="imgWrap">123
+   <view class="imgWrap">
+      <image src="{{details}}"></image>
    </view>
     <!-- 猜你喜欢 -->
    <view class="wordWrap">
       <view> ------  猜你喜欢  ------</view>
    </view>
    <view class="listWrap">
-      <view class="itemWrap">
+      <view class="itemWrap" wx:for="{{productList}}">
         <view  class="itemTop">
-          <image src="/image/shop.png" mode=""></image>
+          <image src="{{item.pictures[0]}}" mode=""></image>
         </view>
-        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
+        <view class="itemCenter">{{item.name}}</view>
         <view class="itemBottom">
           <view class="jinbi">
             <image src="/image/bi.png" mode ="aspectFit"></image>
-            <view class="money">20</view>
-          </view>
-          <view class="exchangeBtn">兑换</view>
-        </view>
-      </view>
-      <view class="itemWrap">
-        <view  class="itemTop">
-          <image src="/image/shop.png"></image>
-        </view>
-        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
-        <view class="itemBottom">
-          <view class="jinbi">
-            <image src="/image/bi.png"  mode ="aspectFit"></image>
-            <view class="money">20</view>
-          </view>
-          <view class="exchangeBtn">兑换</view>
-        </view>
-      </view>
-      <view class="itemWrap">
-        <view  class="itemTop">
-          <image src="/image/shop.png" mode=""></image>
-        </view>
-        <view class="itemCenter">小巧便捷10000毫安移动电源</view>
-        <view class="itemBottom">
-          <view class="jinbi">
-            <image src="/image/bi.png" mode ="aspectFit"></image>
-            <view class="money">20</view>
+            <view class="money">{{item.integral}}</view>
           </view>
           <view class="exchangeBtn">兑换</view>
         </view>
       </view>
    </view>
+   </scroll-view>
    <view class="exchangeNow">
-      <view class="exNow" bindtap="showAdd">立即兑换</view>
+      <view class="exNow" bindtap="showSizeChange">立即兑换</view>
    </view>
-   <!-- 蒙层 -->
+   <!-- 规格选择 -->
+    <view class="bg2" wx:if="{{showGuiGe}}"  bindtap="hideGuige"></view>
+    <view class="show"  wx:if="{{showGuiGe}}" >
+    <view class="price">
+        <view wx:if="{{selectedId == item.id}}" wx:for="{{specificationsList}}">{{item.integral}}</view>
+        <view class="quxiaoBtn" bindtap="hideGuige">
+          <image src="/image/quxiao2.png"></image>
+        </view>
+    </view>
+        <view class="sizeName"> 型号</view>
+        <view class="sizeCon">
+        <text class="GuigeName  {{item.id == selectedId ? 'selectedActive': '' }}"  data-id="{{item.id}}" bindtap="selectGuige" wx:for="{{specificationsList}}">{{item.name}}</text>
+        </view>
+         <view class="numWrap"> 
+           <view class="numTitle">数量</view>
+           <view class="btnWrap">
+           <view class="addBtn {{number == 0 ? 'disableReduce': ''}}" bindtap="reduce"> -</view>
+           <view class="num ">{{number}}</view>
+          <view class="addBtn" bindtap="add">+</view>
+           </view>
+         </view>
+         <view class="confimBtn" bindtap="goToJieSuan">确定</view>
+    </view>
+   <!-- 蒙层
   <view class="bg2" wx:if="{{isShow}}"  bindtap="hide"></view>
   <view class="show"  wx:if="{{isShow}}">
     <view class="firstItem">
@@ -96,7 +95,7 @@
     <view class="item" style="justify-content: space-between">
       <view class="size">数量</view>
       <view class="reduceWrap">
-        <view class=" common" data-type="0" bindtap="changeNum">-</view>
+        <view class="common" data-type="0" bindtap="changeNum">-</view>
         <view class="number common">{{num}}</view>
         <view class=" common" data-type="1" bindtap="changeNum">+</view>
       </view>
@@ -104,7 +103,7 @@
     <view class="exchangeNow">
       <view class="exNow" >立即兑换</view>
    </view>
-  </view>
+  </view> -->
 </view>
 
 

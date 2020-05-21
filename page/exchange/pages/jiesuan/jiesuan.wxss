@@ -136,6 +136,7 @@
   flex:1;
   height: 100%;
   align-items: flex-end;
+  justify-content: flex-end;
 }
 .biWrap {
   width: 50rpx;
@@ -150,7 +151,7 @@
   height: 30rpx;
 }
 .biMony {
-  font-size: 40rpx;
+  font-size: 30rpx;
   color: red;
 }
 .buyner {
@@ -182,8 +183,9 @@
 .totalTitle {
   width: 70%;
   color: red;
-  height: 100%;
-  line-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .addBtn {
   flex: 1;

@@ -1,9 +1,5 @@
 // page/exchange//pages/jiesuan/jiesuan.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     type: 1,
     inputValue: '',
@@ -16,7 +12,6 @@ Page({
   },
   // 设置类型配送方式
   addBg (e) {
-    console.log(e);
     if(e.currentTarget.dataset.type == 0) {
       this.setData({
         type: 0
@@ -43,7 +38,8 @@ Page({
                 cityName: res.cityName,
                 countyName: res.countyName,
                 detailInfo: res.detailInfo,
-                telNumber: res.telNumber
+                telNumber: res.telNumber,
+                
               })
               
             }
@@ -52,7 +48,6 @@ Page({
 
         } else {
           if (res.authSetting['scope.address'] == false) {
-            console.log("222")
             wx.openSetting({
               success(res) {
                 console.log(res.authSetting)
@@ -60,7 +55,6 @@ Page({
               }
             })
           } else {
-            console.log("eee")
             wx.chooseAddress({
               success(res) {
                 that.setData({

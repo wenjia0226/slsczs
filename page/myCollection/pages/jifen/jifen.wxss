@@ -142,7 +142,7 @@
 .gonglue  image {
   height: 40rpx;
   width: 40rpx;
-  margin: 0 10rpx 0 20rpx;
+  padding-right: 10rpx;
 }
 .total {
   font-size: 66rpx;

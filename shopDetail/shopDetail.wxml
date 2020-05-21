@@ -1,5 +1,6 @@
 <view class="main" catchtouchmove='prevent'>
 <!-- 轮播图 -->
+<scroll-view scroll-y style="height: 100%;">
   <view class="swiperWrap">
     <swiper indicator-dots="{{indicatorDots}}"
       autoplay= 'true' class="swiperInner">
@@ -74,9 +75,11 @@
         </view>
       </view>
    </view>
+   </scroll-view>
    <view class="exchangeNow">
       <view class="exNow" bindtap="showAdd">立即兑换</view>
    </view>
+
    <!-- 蒙层 -->
   <view class="bg2" wx:if="{{isShow}}"  bindtap="hide"></view>
   <view class="show"  wx:if="{{isShow}}">

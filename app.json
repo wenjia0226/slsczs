@@ -1,9 +1,11 @@
 {
   "pages": [
-    "page/tabBar/my/my",
+    
+    "page/tabBar/exchange/exchange",
+   "manual/manual",
     "page/tabBar/screen/screen",
     "shopDetail/shopDetail",
-    "page/tabBar/exchange/exchange",
+    "page/tabBar/my/my",
     "page/tabBar/archives/archives",
     "nicheng/nicheng",
     "shopSearch/shopSearch",
@@ -33,7 +35,7 @@
         "pagePath": "page/tabBar/exchange/exchange",
         "text": "兑换",
         "iconPath": "/image/exchange.png",
-        "selectedIconPath": "/image/exchange.png"
+        "selectedIconPath": "/image/exchangeChecked.png"
       }
       
     ],

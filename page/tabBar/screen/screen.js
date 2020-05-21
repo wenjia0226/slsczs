@@ -152,6 +152,8 @@ Page({
       wx.showModal({
         title: '添加孩子',
         content: '是否进行扫码添加孩子？',
+        cancelText: "手动添加",
+        confirmText: "扫码添加", 
         success(res) {
           if (res.confirm) {
             wx.scanCode({  //扫码
@@ -205,10 +207,13 @@ Page({
                 })
               }
             })
-          } else if (res.cancel) {
+          } else if (res.cancel) {  // 跳转到手动添加
             console.log('用户点击取消');
             that.setData({
               currentIndex: that.data.childrenList.length - 2
+            })
+            wx.navigateTo({
+              url: '/manual/manual',
             })
           }
         }

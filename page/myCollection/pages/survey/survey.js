@@ -10,7 +10,8 @@ function getPieOption(chart, good, mild, moderate, serious) {
       orient: 'vertical',
       left: 'right', 
       selectedMode: false,
-      data: ["良好", "轻度不良", "中度不良", "重度不良"]
+      // data: ["良好", "轻度", "中度", "重度"]
+      data: ['良好' + '(' + good + ')', '轻度' + '(' + mild + ')', '中度' + '(' + moderate + ')', '重度' + '(' + serious + ')']
     },
     color: ['#0793ff', '#ffaa07', '#ff0724', '#6f0427'],
     calculable: true,
@@ -18,7 +19,7 @@ function getPieOption(chart, good, mild, moderate, serious) {
       name: '视力概况',
       type: 'pie',
       center: ['50%', '50%'],
-      radius: 100,
+      radius: 90,
         emphasis: {
           label: {
             show: true,
@@ -27,22 +28,22 @@ function getPieOption(chart, good, mild, moderate, serious) {
         },
       data: [{
         value: good,
-        name: '良好',
+        name: '良好' + '('+good +')',
         url: ''
       },
       {
         value: mild,
-        name: '轻度不良',
+        name: '轻度' + '(' + mild + ')',
         url: 'mild'
       },
       {
        value: moderate,
-        name: '中度不良',
+        name: '中度' + '(' + moderate + ')',
         url: 'moderate'
       },
       {
         value: serious,
-        name: '重度不良',
+        name: '重度' + '(' + serious + ')',
         url: 'serious'
       }
       ]
@@ -87,7 +88,6 @@ Page({
       })
       app.wxRequest(url, data, (res) => {
         if (res.data.status == 200) {
-          // console.log(res)
           res ? res = res.data.data : '';
           that.setData({
             undetected: res.undetected,

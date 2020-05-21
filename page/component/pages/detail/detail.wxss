@@ -84,9 +84,11 @@
   align-items: center;
   border:15rpx solid #C4D1FF;
   margin: 30rpx;
+  padding: 20rpx;
 }
 .title {
   color: #999;
+  font-size: 30rpx;
 }
 .bigNum {
   font-size: 36rpx;

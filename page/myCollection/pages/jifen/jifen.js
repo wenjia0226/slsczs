@@ -72,7 +72,6 @@ Page({
     this.setData({
       currentIndex: e.currentTarget.dataset.index
     })
-    console.log(this.data.currentIndex)
     let student = this.data.childrenList.filter((item, index) => { if (index == that.data.currentIndex) return item });
     that.setData({
       currentStudentId: student[0].id

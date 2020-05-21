@@ -3,7 +3,7 @@
   <view class="headerWrap">
     <view class="gonglue"  bindtap='hideview'>
       <view class="gl">规则</view>
-      <image src="/image/righticon.png" mode="aspectFit"></image>
+      <image src="/image/righticon3.png" mode="aspectFit"></image>
     </view>
     <!-- 如果请求到孩子 -->
     <view  class="topwap">
