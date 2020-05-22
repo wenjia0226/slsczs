@@ -38,7 +38,7 @@
         <view class="itemCenter">{{item.name}}</view>
         <view class="itemBottom">
           <view class="jinbi">
-            <image src="/image/bi.png" mode ="aspectFit"></image>
+            <image src="{{item.details}}" mode ="aspectFit"></image>
             <view class="money">{{item.integral}}</view>
           </view>
           <view class="exchangeBtn"   >兑换</view>

@@ -19,7 +19,6 @@ Page({
     total: ''
   },
   handleBuynner(e) {
-    console.log(e)
     this.setData({
       inputValue: e.detail.value
     })
@@ -80,28 +79,36 @@ Page({
     }
    
     app.wxRequest(url, data, (res) => {
-      console.log(res)
-      this.setData({
-        number: 0,
-        delivryType: 1,
-        contacts: '',
-        phone: '',
-        address: '',
-        remark: '',
-        total: 0,
-        userName: '',
-        provinceName: '',
-        cityName: '',
-        countyName: '',
-        detailInfo: '',
-        telNumber: '',
-        remark: '',
-        sizeNumber: 0,
-        selectedName: ''
-      })
-      var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign": res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
-      //发起支付
-      that.pay(param);
+      // console.log(res)
+      if(res.data.status == 200) {
+        this.setData({
+          number: 0,
+          delivryType: 1,
+          contacts: '',
+          phone: '',
+          address: '',
+          remark: '',
+          total: 0,
+          userName: '',
+          provinceName: '',
+          cityName: '',
+          countyName: '',
+          detailInfo: '',
+          telNumber: '',
+          remark: '',
+          sizeNumber: 0,
+          selectedName: ''
+        })
+        var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign": res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
+        //发起支付
+        that.pay(param);
+      }else if(res.data.status == 10230) {
+        wx.showToast({
+          title: res.data.msg,
+          image: '/image/quxiao2.png'
+        })
+        return;
+      }
     }, (err) => {
       console.log("向后台发送数据失败")
     })
@@ -120,6 +127,9 @@ Page({
       success: function (res) {
         console.log("success");
         console.log(res);
+        wx.navigateTo({
+          url: '/page/myCollection/pages/jifen/jifen',
+        })
       },
       fail: function (res) {
         console.log("fail")

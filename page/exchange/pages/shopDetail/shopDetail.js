@@ -33,7 +33,8 @@ Page({
         name: res.data.data.name,
         integral: res.data.data.integral,
         details: res.data.data.details,
-        selectedId: res.data.data.specificationsList[0].id
+        selectedId: res.data.data.specificationsList[0].id,
+        number: 1
       })
       let specificationsList = res.data.data.specificationsList;
       let selected = specificationsList.filter((item) => {

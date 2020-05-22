@@ -1,11 +1,11 @@
 {
   "pages": [
-    
+    "page/tabBar/my/my",
     "page/tabBar/exchange/exchange",
-   "manual/manual",
+    "manual/manual",
     "page/tabBar/screen/screen",
     "shopDetail/shopDetail",
-    "page/tabBar/my/my",
+    
     "page/tabBar/archives/archives",
     "nicheng/nicheng",
     "shopSearch/shopSearch",
