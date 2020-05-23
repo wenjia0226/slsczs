@@ -1,10 +1,11 @@
 {
   "pages": [
+    "page/tabBar/screen/screen",
     "page/tabBar/exchange/exchange",
     "page/tabBar/my/my",
   
     "manual/manual",
-    "page/tabBar/screen/screen",
+
     "shopDetail/shopDetail",
     
     "page/tabBar/archives/archives",
@@ -26,17 +27,18 @@
         "iconPath": "/image/da.png",
         "selectedIconPath": "/image/daactive.png"
       },
-      {
-        "pagePath": "page/tabBar/my/my",
-        "text": "我的",
-        "iconPath": "/image/my.png",
-        "selectedIconPath": "/image/myactive.png"
-      },
+     
       {
         "pagePath": "page/tabBar/exchange/exchange",
         "text": "兑换",
         "iconPath": "/image/exchange.png",
         "selectedIconPath": "/image/exchangeChecked.png"
+      },
+      {
+        "pagePath": "page/tabBar/my/my",
+        "text": "我的",
+        "iconPath": "/image/my.png",
+        "selectedIconPath": "/image/myactive.png"
       }
       
     ],
