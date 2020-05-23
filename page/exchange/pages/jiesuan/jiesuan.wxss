@@ -89,6 +89,9 @@
  background: #0073E9;
 }
 /* 学校信息 */
+.ads {
+  padding-left: 40rpx;
+}
 .schoolWrap {
   background: #fff;
   padding: 5rpx 30rpx;

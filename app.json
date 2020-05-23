@@ -1,7 +1,8 @@
 {
   "pages": [
-    "page/tabBar/my/my",
     "page/tabBar/exchange/exchange",
+    "page/tabBar/my/my",
+  
     "manual/manual",
     "page/tabBar/screen/screen",
     "shopDetail/shopDetail",

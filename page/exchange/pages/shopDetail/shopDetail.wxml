@@ -28,16 +28,16 @@
       <view> ------  图文详情  ------</view>
    </view>
    <view class="imgWrap">
-      <image src="{{details}}"></image>
+      <image src="{{details}}" mode="widthFix"></image>
    </view>
     <!-- 猜你喜欢 -->
    <view class="wordWrap">
       <view> ------  猜你喜欢  ------</view>
    </view>
    <view class="listWrap">
-      <view class="itemWrap" wx:for="{{productList}}">
+      <view class="itemWrap" wx:for="{{productList}}" data-id="{{item.id}}" bindtap="gotoDetail">
         <view  class="itemTop">
-          <image src="{{item.pictures[0]}}" mode=""></image>
+          <image src="{{item.pictures[0]}}"></image>
         </view>
         <view class="itemCenter">{{item.name}}</view>
         <view class="itemBottom">
@@ -49,6 +49,7 @@
         </view>
       </view>
    </view>
+   <view class="black"></view>
    </scroll-view>
    <view class="exchangeNow">
       <view class="exNow" bindtap="showSizeChange">立即兑换</view>
@@ -67,14 +68,16 @@
         <text class="GuigeName  {{item.id == selectedId ? 'selectedActive': '' }}"  data-id="{{item.id}}" bindtap="selectGuige" wx:for="{{specificationsList}}">{{item.name}}</text>
         </view>
          <view class="numWrap"> 
-           <view class="numTitle">数量</view>
+           <view class="numTitle" >数量 <text > (库存 {{stock}})</text></view>
            <view class="btnWrap">
            <view class="addBtn {{number == 0 ? 'disableReduce': ''}}" bindtap="reduce"> -</view>
            <view class="num ">{{number}}</view>
-          <view class="addBtn" bindtap="add">+</view>
+          <view class="addBtn " bindtap="add">+</view>
            </view>
          </view>
-         <view class="confimBtn" bindtap="goToJieSuan">确定</view>
+         <view class="confimBtn" bindtap="goToJieSuan">
+            <view class="exNow">立即兑换</view>
+         </view>
     </view>
    <!-- 蒙层
   <view class="bg2" wx:if="{{isShow}}"  bindtap="hide"></view>

@@ -1,48 +1,48 @@
 <!--page/tabBar/exchange/exchange.wxml-->
-<view class="main" style="margin-top: {{navTop}}px">
+<view class="main" >
     <!-- 搜索框 -->
     <view class="searchWrap">
-      <view class="searchInner"  style="height: {{height}}px" bindtap="gotoSearch">
-      <view class="searchImg"> 
+      <view class="searchInner" bindtap="gotoSearch">
+        <view class="searchImg"> 
           <image src="/image/search.png" mode="aspectFit"></image>
         </view>
         <view class="searchTxt"> 搜索</view>
       </view>
     </view>
     <!-- 切换 -->
-    <view class="scrollWrap">
+    <!-- <view class="scrollWrap">
     <scroll-view scroll-x>
         <view class="exchange">每月抢兑</view>
         <view class="exchange">0元兑换</view>
         <view class="exchange">好物</view>
         <view class="exchange">好物</view>
       </scroll-view>
-    </view>
+    </view> -->
     <!-- 轮播图 -->
     <view class="swiperWrap">
-      <!-- <swiper indicator-dots="{{indicatorDots}}"
-        autoplay= 'true' class="swiperInner" wx:for="{{swiperList}}">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay= 'true' class="swiperInner">
         <block>
-          <swiper-item class="swiperItem">
+          <swiper-item class="swiperItem"  wx:for="{{swiperList}}">
             <image src="{{item.path}}" ></image>
           </swiper-item>
         </block>
-      </swiper> -->
+      </swiper>
     </view>
-    <!-- 列表 -->
+    <!-- 列表 --> 
     <view class="listWrap">
       <view class="itemWrap" wx:for="{{productList}}" data-id="{{item.id}}" bindtap="gotoDetail">
         <view  class="itemTop">
-          <image src="/image/shop.png" mode=""></image>
+          <image src="{{item.pictures[0]}}" mode=""></image>
         </view>
         <view class="itemCenter">{{item.name}}</view>
         <view class="itemBottom">
           <view class="jinbi">
-            <image src="{{item.details}}" mode ="aspectFit"></image>
+            <image src="/image/bi.png" mode ="aspectFit"></image>
             <view class="money">{{item.integral}}</view>
           </view>
-          <view class="exchangeBtn"   >兑换</view>
+          <view class="exchangeBtn">兑换</view>
         </view>
       </view>
-   </view>
+    </view>
 </view>

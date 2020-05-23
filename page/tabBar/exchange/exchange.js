@@ -4,7 +4,7 @@ Page({
     navTop: app.globalData.navTop,
     height: app.globalData.menuHeight,
     page: 1,
-    pageSize: 1,
+    pageSize: 9,
     hasMoreData: true,
     swiperList: [],
     productList: []
@@ -25,6 +25,10 @@ Page({
     this.getInfo(); //首页轮播图
   },
   onShow() {
+    this.setData({
+      page: 1,
+      productList: []
+    })
     this.productList()
   },
   //商品列表
@@ -32,21 +36,21 @@ Page({
     let that = this;
     let url = app.globalData.URL + "productList", data = {page: this.data.page};
     app.wxRequest(url, data, (res) => {
-      console.log(res)
+      // console.log(res)
       if (res.data.status == 200) {
           var contentlist = res.data.data;
-        // if (that.data.page == 1) {
-        //   contentlist = []
-        // }
-        // console.log(contentlist)
+          var productList = that.data.productList;
+          if (that.data.page == 1) {
+            productList = []
+          }
         var productList = that.data.productList;
           if (contentlist.length <= that.data.pageSize) {                                                                                                           that.setData({
               hasMoreData: false,
-              productList: contentlist.concat(productList),
+              productList: productList.concat(contentlist),
             })
           } else {
             that.setData({
-              productList: contentlist.concat(productList),
+              productList: productList.concat(contentlist),
               hasMoreData: true,
               page: that.data.page + 1
             })

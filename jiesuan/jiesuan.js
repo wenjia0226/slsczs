@@ -29,7 +29,6 @@ Page({
       success(res) {
         console.log("vres.authSetting['scope.address']：", res.authSetting['scope.address'])
         if (res.authSetting['scope.address']) {
-          console.log("111")
           wx.chooseAddress({
             success(res) {
               that.setData({

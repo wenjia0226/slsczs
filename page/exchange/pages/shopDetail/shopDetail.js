@@ -11,10 +11,13 @@ Page({
     productList: [],
     name: '',
     integral: '',
-    details: '',
+    picture: '',
     showGuiGe: false,
     selectedId: '',
     number: 1,
+    stock: 0,
+    disabledAdd: 0,
+    details: ''
   },
   onShow() {
     let id = wx.getStorageSync('productId');
@@ -24,7 +27,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "productDetils", data = { id: id };
     app.wxRequest(url, data, (res) => {
-      //  console.log(res)
+      // console.log(res)
       that.setData({
         specificationsList: res.data.data.specificationsList,
         selectedProduct: res.data.data.specificationsList[0],
@@ -33,9 +36,12 @@ Page({
         name: res.data.data.name,
         integral: res.data.data.integral,
         details: res.data.data.details,
+        picture: res.data.data.pictures[0],
         selectedId: res.data.data.specificationsList[0].id,
+        stock: res.data.data.specificationsList[0].stock,
         number: 1
       })
+      wx.setStorageSync('jiesuanPicture', that.data.picture)
       let specificationsList = res.data.data.specificationsList;
       let selected = specificationsList.filter((item) => {
         if (item.id == that.data.selectedId) {
@@ -43,7 +49,6 @@ Page({
         }
       })
       wx.setStorageSync('selectedName', selected[0].name);
-      console.log(selected)
       this.setData({
         integral: selected[0].integral
       })
@@ -121,23 +126,39 @@ Page({
     })
     wx.setStorageSync('selectedName', selected[0].name);
     this.setData({
-      integral: selected[0].integral
+      integral: selected[0].integral,
+      stock: selected[0].stock
     })
     wx.setStorageSync('integral', this.data.integral);
   
   },
-  //点击数量增加
+  //点击数量减少
   reduce() {
     if(this.data.number >=1) {
       this.setData({
-        number: this.data.number - 1
+        number: this.data.number - 1,
+        disabledAdd: 0
       })
     }
-    
   },
   add() {
-    this.setData({
-      number: this.data.number + 1
+    if (this.data.number < this.data.stock && !this.data.disabledAdd) {
+      this.setData({
+        number: this.data.number + 1
+      })
+    }else {
+      this.setData({
+        disabledAdd: 1
+      })
+    }
+   
+  },
+  // 猜你喜欢 兑换跳转
+  gotoDetail(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.setStorageSync('productId', id)
+    wx.navigateTo({
+      url: '/page/exchange/pages/shopDetail/shopDetail'
     })
-  }
+  },
 })

@@ -14,7 +14,7 @@ Page({
     sizeNumber: '',
     shopName: '',
     selectedName: '',
-    details: '',
+    picture: '',
     integral: '',
     total: ''
   },
@@ -40,7 +40,8 @@ Page({
       shopName: wx.getStorageSync('shopName'),
       selectedName: wx.getStorageSync('selectedName'),
       integral: wx.getStorageSync('integral'),
-      total: wx.getStorageSync('sizeNumber') * wx.getStorageSync('integral')
+      total: wx.getStorageSync('sizeNumber') * wx.getStorageSync('integral'),
+      picture: wx.getStorageSync('jiesuanPicture')
     })
   },
   //提交订单
@@ -105,7 +106,8 @@ Page({
       }else if(res.data.status == 10230) {
         wx.showToast({
           title: res.data.msg,
-          image: '/image/quxiao2.png'
+          image: '/image/quxiao2.png',
+          duration: 1000
         })
         return;
       }
@@ -125,8 +127,8 @@ Page({
       signType: param.signType,
       paySign: param.paySign,
       success: function (res) {
-        console.log("success");
-        console.log(res);
+        // console.log("success");
+        // console.log(res);
         wx.navigateTo({
           url: '/page/myCollection/pages/jifen/jifen',
         })
@@ -158,7 +160,6 @@ Page({
     let that = this;
     wx.getSetting({
       success(res) {
-        console.log("vres.authSetting['scope.address']：", res.authSetting['scope.address'])
         if (res.authSetting['scope.address']) {
           wx.chooseAddress({
             success(res) {

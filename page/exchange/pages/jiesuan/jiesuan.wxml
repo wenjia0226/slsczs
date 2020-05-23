@@ -10,9 +10,10 @@
   </view>
   <view class="infoWrap"  wx:if="{{type == 1}}">
     <view class="itemTwo" style="border-right: 2px dotted #F4F4F4">
-      <input placeholder="请选择收货地址" style="text-align:center" wx:if="{{!userName}}"/>
+      <!-- <input placeholder="请选择收货地址" style="text-align:center" wx:if="{{!userName}}"/> -->
+     <view class="ads" wx:if="{{!userName}}">请选择收货地址</view>
       <view wx:if="{{userName}}" style="display: flex;align-items: center">
-        <view class="leftArea"><image src="/image/address.png" mode="aspectFill"></image></view>
+        <view class="leftArea"><image src="{{detail}}" mode="aspectFill"></image></view>
         <view class="rightArea">
         <view class="userInfo">{{userName}} :{{telNumber}}</view>
         <view class="addressInfo">
@@ -44,7 +45,7 @@
   <!-- 商品信息 -->
   <view class="shopInfoWrap">
     <view class="leftImg">
-      <image src="/image/01.png"></image>
+      <image src="{{picture}}"></image>
     </view>
     <view class="centerInfo">
       <view class="cTop">{{shopName}} </view>

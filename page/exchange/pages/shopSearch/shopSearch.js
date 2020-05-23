@@ -1,9 +1,66 @@
-// page/exchange//pages/shopSearch/shopSearch.js
+
+const app = getApp();
 Page({
   data: {
     focus: false,
     inputValue: '',
-    searchValue: ''
+    searchValue: '',
+    navTop: app.globalData.navTop,
+    height: app.globalData.menuHeight,
+    page: 1,
+    pageSize: 9,
+    hasMoreData: true,
+    swiperList: [],
+    productList: [],
+    page: 1
+  },
+  searchInput(e) {
+    this.setData({
+      searchValue: e.detail.value,
+    })
+  },
+  onShow() {
+    this.setData({
+      page: 1,
+      productList: []
+    })
+  },
+  search() {
+    let that = this;
+    let url = app.globalData.URL + "findProduct", data = { page: this.data.page, name: this.data.searchValue };
+    app.wxRequest(url, data, (res) => {
+       console.log(res)
+      if (res.data.status == 200) {
+        var contentlist = res.data.data;
+        var productList = that.data.productList;
+        if (that.data.page == 1) {
+          productList = []
+        }
+        if (contentlist.length <= that.data.pageSize) {
+          that.setData({
+            hasMoreData: false,
+            productList: productList.concat(contentlist),
+            page: 1
+          })
+        } else {
+          that.setData({
+            productList: productList.concat(contentlist),
+            hasMoreData: true,
+            page: that.data.page + 1
+          })
+        }
+      }else if(res.data.status == 10231) {
+        wx.showModal({
+          title: res.data.msg,
+          content: '',
+        })
+      } else {
+        wx.showToast({
+          title: '出现异常',
+          icon: 'none'
+        })
+      }
+    })
   },
   bindButtonTap: function () {
     this.setData({
@@ -14,5 +71,65 @@ Page({
     this.setData({
       searchValue: ''
     })
-  }
-})
+    this.search();
+  },
+  gotoDetail(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.setStorageSync('productId', id)
+    wx.navigateTo({
+      url: '/page/exchange/pages/shopDetail/shopDetail'
+    })
+  },
+  //商品列表
+  // productList() {
+  //   let that = this;
+  //   let url = app.globalData.URL + "productList", data = { page: this.data.page };
+  //   app.wxRequest(url, data, (res) => {
+  //     console.log(res)
+  //     if (res.data.status == 200) {
+  //       var contentlist = res.data.data;
+  //       // if (that.data.page == 1) {
+  //       //   contentlist = []
+  //       // }
+  //       // console.log(contentlist)
+  //       var productList = that.data.productList;
+  //       if (contentlist.length <= that.data.pageSize) {
+  //         that.setData({
+  //           hasMoreData: false,
+  //           productList: contentlist.concat(productList),
+  //         })
+  //       } else {
+  //         that.setData({
+  //           productList: contentlist.concat(productList),
+  //           hasMoreData: true,
+  //           page: that.data.page + 1
+  //         })
+  //       }
+  //     } else if(res.data.status == 10231) {
+  //       wx.showModal({
+  //         title: res.data.msg,
+  //         content: '',
+  //       })
+  //     } else {
+  //       wx.showToast({
+  //         title: '出现异常',
+  //         icon: 'none'
+  //       })
+  //     }
+  //   })
+
+  // },
+  onPullDownRefresh: function () {
+    this.data.page = 1;
+    this.search();
+  },
+  onReachBottom: function () {
+    if (this.data.hasMoreData) {
+      this.search();
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
+  },
+}) 
