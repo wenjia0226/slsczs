@@ -7,7 +7,16 @@ Page({
     pageSize: 9,
     hasMoreData: true,
     swiperList: [],
-    productList: []
+    productList: [],
+    current: 0
+  },
+  // 商品轮播
+  swiperChange: function (e) {
+    if (e.detail.source == 'touch') {
+      this.setData({
+        current: e.detail.current
+      })
+    }
   },
   gotoSearch() {
     wx.navigateTo({
@@ -65,8 +74,16 @@ Page({
 
   },
   onPullDownRefresh: function () {
-    this.data.page = 1;
-    this.productList();
+    // console.log('onPullDonwFresh')
+    let that = this;
+    wx.stopPullDownRefresh();
+    setTimeout(function () {
+      this.setData({
+        productList: []
+      })
+      this.data.page = 1;
+      this.productList();
+    }, 500);
   },
   onReachBottom: function () {
     if (this.data.hasMoreData) {
@@ -82,39 +99,15 @@ Page({
     let that = this;
     let url = app.globalData.URL + "rotationPicList",data = {};
     //如果已经授权过
-    // console.log(wx.getStorageSync('phone'))
-    if (1) {
+    if (wx.getStorageSync('phone')) {
       wx.showLoading({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        // console.log(res)
+        console.log(res)
         that.setData({
           swiperList: res.data.data
         })
-        // if (res.data.status == 200) {
-        //     if (that.data.page == 1) {
-        //       contentlistTem = []
-        //     }
-        //     var contentlist = res.data.data;
-        //     if (contentlist.length < that.data.pageSize) {
-        //       that.setData({
-        //         hasMoreData: false,
-        //         contentlistTem: contentlist
-        //       })
-        //     } else {
-        //       that.setData({
-        //         contentlist: contentlistTem.concat(contentlist),
-        //         hasMoreData: true,
-        //         page: that.data.page + 1
-        //       })
-        //     }
-        //   } else {
-        //     wx.showToast({
-        //       title: '出现异常',
-        //       icon: 'none'
-        //     })
-        //   }
       })
     }
   }

@@ -5,11 +5,12 @@
     <swiper indicator-dots="{{indicatorDots}}"
       autoplay= 'true' class="swiperInner" >
       <block>
-        <swiper-item class="swiperItem" wx:for="{{pictures}}">
+        <swiper-item class="swiperItem" wx:for="{{pictures}}" data-id="{{item.productId}}" bindtap="gotoDetail">
           <image src="{{item}}" ></image>
         </swiper-item>
       </block>
     </swiper>
+      <view class="imageCount">{{current+1}}/{{pictures.length}}</view>
   </view>
    <view class="detailWrap">
       <view class="txt">{{name}}</view>
@@ -72,7 +73,7 @@
            <view class="btnWrap">
            <view class="addBtn {{number == 0 ? 'disableReduce': ''}}" bindtap="reduce"> -</view>
            <view class="num ">{{number}}</view>
-          <view class="addBtn " bindtap="add">+</view>
+          <view class="addBtn {{number == stock ? 'disableReduce ': '' }}" bindtap="add">+</view>
            </view>
          </view>
          <view class="confimBtn" bindtap="goToJieSuan">

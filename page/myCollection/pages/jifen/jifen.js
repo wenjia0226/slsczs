@@ -19,7 +19,7 @@ Page({
   },
   onShow: function (options) {
     if(wx.getStorageSync('phone')) {
-    this.getChildrenList(); 
+    this.getChildrenList();
     }
   },
   // 获取当前学生的积分情况
@@ -56,8 +56,10 @@ Page({
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data,
-            currentStudentId: res.data.data[0].id
+            currentStudentId: res.data.data[0].id,
+            currentIndex: 0
           })
+          
           this.currentStudentCode();
         }
         if (res.data.status == 10220) {

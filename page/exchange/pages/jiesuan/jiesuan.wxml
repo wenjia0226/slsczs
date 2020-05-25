@@ -8,7 +8,7 @@
       <input value="{{telNumber}}" placeholder="请填写手机号" style="text-align:center" bindinput ="bindPhone"/>
     </view>
   </view>
-  <view class="infoWrap"  wx:if="{{type == 1}}">
+  <view class="infoWrap"  wx:if="{{type == 1}}" bindtap="getAddress">
     <view class="itemTwo" style="border-right: 2px dotted #F4F4F4">
       <!-- <input placeholder="请选择收货地址" style="text-align:center" wx:if="{{!userName}}"/> -->
      <view class="ads" wx:if="{{!userName}}">请选择收货地址</view>
@@ -21,9 +21,8 @@
         </view>
        </view>
       </view>
-
     </view>
-    <view class="rightIconWrap" bindtap="getAddress">
+    <view class="rightIconWrap" >
       <image src="/image/righticon2.png" ></image>
     </view>
   </view>

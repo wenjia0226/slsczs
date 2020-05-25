@@ -2,16 +2,9 @@
   "pages": [
     "page/tabBar/screen/screen",
     "page/tabBar/exchange/exchange",
-    "page/tabBar/my/my",
-  
-    "manual/manual",
-
-    "shopDetail/shopDetail",
-    
+    "page/tabBar/my/my", 
     "page/tabBar/archives/archives",
-    "nicheng/nicheng",
-    "shopSearch/shopSearch",
-    "jiesuan/jiesuan"  
+    "nicheng/nicheng"
   ],
   "tabBar": {
     "list": [

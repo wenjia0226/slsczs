@@ -82,24 +82,7 @@ Page({
     app.wxRequest(url, data, (res) => {
       // console.log(res)
       if(res.data.status == 200) {
-        this.setData({
-          number: 0,
-          delivryType: 1,
-          contacts: '',
-          phone: '',
-          address: '',
-          remark: '',
-          total: 0,
-          userName: '',
-          provinceName: '',
-          cityName: '',
-          countyName: '',
-          detailInfo: '',
-          telNumber: '',
-          remark: '',
-          sizeNumber: 0,
-          selectedName: ''
-        })
+       
         var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign": res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
         //发起支付
         that.pay(param);
@@ -127,8 +110,26 @@ Page({
       signType: param.signType,
       paySign: param.paySign,
       success: function (res) {
-        // console.log("success");
-        // console.log(res);
+         console.log("success");
+         console.log(res);
+          this.setData({
+          number: 0,
+          delivryType: 1,
+          contacts: '',
+          phone: '',
+          address: '',
+          remark: '',
+          total: 0,
+          userName: '',
+          provinceName: '',
+          cityName: '',
+          countyName: '',
+          detailInfo: '',
+          telNumber: '',
+          remark: '',
+          sizeNumber: 0,
+          selectedName: ''
+        })
         wx.navigateTo({
           url: '/page/myCollection/pages/jifen/jifen',
         })

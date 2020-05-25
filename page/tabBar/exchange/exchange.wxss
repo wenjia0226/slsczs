@@ -68,6 +68,7 @@
 /* 轮播图 */
 .swiperWrap {
   height:calc(42.7vw);
+  position: relative;
 }
 .swiperInner {
   height: 100%;
@@ -75,13 +76,25 @@
 .swiperItem {
   width: 100%;
   height: 100%;
- 
+  position: relative;
 }
 .swiperItem >image {
   width: 100%;
   height: 100%;
 }
-
+.imageCount {
+  width: 80rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  line-height: 58rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 26rpx;
+  position: absolute;
+  right: 26rpx;
+  bottom: 20rpx;
+  background:rgba(95, 93, 93, 0.6);
+}
 /* 商品列表 */
 .listOutWrap {
   flex: 1;

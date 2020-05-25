@@ -17,7 +17,16 @@ Page({
     number: 1,
     stock: 0,
     disabledAdd: 0,
-    details: ''
+    details: '',
+    current: 0
+  },
+  // 商品轮播
+  swiperChange: function (e) {
+    if (e.detail.source == 'touch') {
+      this.setData({
+        current: e.detail.current
+      })
+    }
   },
   onShow() {
     let id = wx.getStorageSync('productId');

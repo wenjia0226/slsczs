@@ -9,25 +9,17 @@
         <view class="searchTxt"> 搜索</view>
       </view>
     </view>
-    <!-- 切换 -->
-    <!-- <view class="scrollWrap">
-    <scroll-view scroll-x>
-        <view class="exchange">每月抢兑</view>
-        <view class="exchange">0元兑换</view>
-        <view class="exchange">好物</view>
-        <view class="exchange">好物</view>
-      </scroll-view>
-    </view> -->
     <!-- 轮播图 -->
     <view class="swiperWrap">
-      <swiper indicator-dots="{{indicatorDots}}"
+      <swiper bindchange="swiperChange"
         autoplay= 'true' class="swiperInner">
         <block>
-          <swiper-item class="swiperItem"  wx:for="{{swiperList}}">
+          <swiper-item class="swiperItem"  wx:for="{{swiperList}}" data-id="{{item.productId}}" bindtap="gotoDetail">
             <image src="{{item.path}}" ></image>
           </swiper-item>
         </block>
       </swiper>
+      <view class="imageCount">{{current+1}}/{{swiperList.length}}</view>
     </view>
     <!-- 列表 --> 
     <view class="listWrap">
