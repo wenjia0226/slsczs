@@ -30,36 +30,6 @@ Page({
     let url = app.globalData.URL + "findProduct", data = { page: this.data.page, name: this.data.searchValue };
     app.wxRequest(url, data, (res) => {
        console.log(res)
-      // if (res.data.status == 200) {
-      //   var contentlist = res.data.data;
-      //   var productList = that.data.productList;
-      //   if (that.data.page == 1) {
-      //     productList = []
-      //   }
-      //   if (contentlist.length <= that.data.pageSize) {
-      //     that.setData({
-      //       hasMoreData: false,
-      //       productList: productList.concat(contentlist),
-      //       page: 1
-      //     })
-      //   } else {
-      //     that.setData({
-      //       productList: productList.concat(contentlist),
-      //       hasMoreData: true,
-      //       page: that.data.page + 1
-      //     })
-      //   }
-      // }else if(res.data.status == 10231) {
-      //   wx.showModal({
-      //     title: res.data.msg,
-      //     content: '',
-      //   })
-      // } else {
-      //   wx.showToast({
-      //     title: '出现异常',
-      //     icon: 'none'
-      //   })
-      // }
       if (res.data.status == 200) {
         var contentlist = res.data.data;
         var productList = that.data.productList;

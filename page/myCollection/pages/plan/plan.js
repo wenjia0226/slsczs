@@ -28,7 +28,6 @@ Page({
     })
   },
   downImage(url, name) {
-    console.log(url)
     wx.downloadFile({
       url: url,
       success: function (res) {
@@ -95,23 +94,43 @@ Page({
     })
   },
   onShow: function () {
-    this.getList();
+    if(wx.getStorageSync('phone')) {
+      if (wx.getStorageSync('studentId')) {
+        this.getList();
+      }else {
+        wx.showToast({
+          title: '请先选择学生',
+        })
+      }
+      
+    }else {
+      wx.navigateTo({
+        url: '/nicheng/nicheng'
+      })
+    }
+    
   },  
   getList() {
-    wx.showLoading({
-      title: '加载中...',
-    })
-    let that = this;
-    let url = app.globalData.URL + 'xcxTaskList', data = {
-      studentId: wx.getStorageSync('studentId')
-    };
-    app.wxRequest(url, data, (res) => {
-      // console.log(res)
-      that.setData({
-        taskList: res.data.data
+    if (wx.getStorageSync('studentId')) {
+      wx.showLoading({
+        title: '加载中...',
       })
-    }, (err) => {
-      console.log(err)
-    })  
+      let that = this;
+      let url = app.globalData.URL + 'xcxTaskList', data = {
+        studentId: wx.getStorageSync('studentId')
+      };
+      app.wxRequest(url, data, (res) => {
+        //  console.log(res)
+        that.setData({
+          taskList: res.data.data
+        })
+      }, (err) => {
+        console.log(err)
+      })  
+    }else {
+      wx.showToast({
+        title: '请先选择孩子',
+      })
+    }
   }
 })

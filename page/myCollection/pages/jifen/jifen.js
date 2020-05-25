@@ -18,9 +18,7 @@ Page({
     hasMoreData: true
   },
   onShow: function (options) {
-    if(wx.getStorageSync('phone')) {
-    this.getChildrenList();
-    }
+    this.getChildrenList(); 
   },
   // 获取当前学生的积分情况
   currentStudentCode() {
@@ -56,11 +54,24 @@ Page({
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data,
-            currentStudentId: res.data.data[0].id,
-            currentIndex: 0
           })
-          
-          this.currentStudentCode();
+          let childrenList = res.data.data;
+          let id = childrenList.filter((item) => {
+            if(item.id == wx.getStorageSync('studentId')) {
+              return item.id
+            }
+          })
+          let crIndex;
+          childrenList.filter((item, index) => {
+            if (item.id == wx.getStorageSync('studentId')) {
+              crIndex = index;
+            }
+          })
+          that.setData({
+            currentIndex: crIndex,
+            currentStudentId: id
+           
+          })
         }
         if (res.data.status == 10220) {
           that.setData({
@@ -115,11 +126,11 @@ Page({
     })
     // 切换状态，更新内容
     if(this.data.type == 0) {
+      console.log(5)
       this.currentStudentCode();
     }else {
       this.getLingquList();
-    }
-       
+    }    
   },
   // // 下拉刷新
   onPullDownRefresh: function () {

@@ -112,7 +112,7 @@ Page({
       success: function (res) {
          console.log("success");
          console.log(res);
-          this.setData({
+          that.setData({
           number: 0,
           delivryType: 1,
           contacts: '',
@@ -130,9 +130,7 @@ Page({
           sizeNumber: 0,
           selectedName: ''
         })
-        wx.navigateTo({
-          url: '/page/myCollection/pages/jifen/jifen',
-        })
+       
       },
       fail: function (res) {
         console.log("fail")
@@ -141,6 +139,9 @@ Page({
       complete: function (res) {
         console.log("complete");
         console.log(res)
+        wx.navigateTo({
+          url: '/page/myCollection/pages/jifen/jifen',
+        })
       }
     })
   },

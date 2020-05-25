@@ -9,10 +9,10 @@
         <view class="searchTxt"> 搜索</view>
       </view>
     </view>
-    <!-- 轮播图 -->
+    <!-- 轮播图 --> 
     <view class="swiperWrap">
       <swiper bindchange="swiperChange"
-        autoplay= 'true' class="swiperInner">
+        autoplay= 'true'  circular="{{}}"class="swiperInner">
         <block>
           <swiper-item class="swiperItem"  wx:for="{{swiperList}}" data-id="{{item.productId}}" bindtap="gotoDetail">
             <image src="{{item.path}}" ></image>
