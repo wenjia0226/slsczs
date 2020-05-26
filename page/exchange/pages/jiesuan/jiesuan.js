@@ -47,6 +47,24 @@ Page({
   //提交订单
   submitOrder() {
     let that = this;
+    if (this.data.type == 1) {
+      if (this.data.provinceName == '') {
+        wx.showModal({
+          title: '请先选择收获地址',
+          content: '',
+        })
+        return;
+      }
+    }
+    if (this.data.type == 2) {
+      if (this.data.phone == '' || this.data.userName == '') {
+        wx.showModal({
+          title: '请填写自取人姓名电话',
+          content: '',
+        })
+        return;
+      }
+    }
     let url = app.globalData.URL + "addOrder";
     let address = this.data.provinceName + this.data.cityName + this.data.countyName +this.data.detailInfo;
     let data = {
@@ -60,49 +78,76 @@ Page({
       remark: this.data.inputValue,
       openId: wx.getStorageSync('openId')
     };
-    if(this.data.type == 1) {
-      if (this.data.provinceName == '') {
-        wx.showModal({
-          title: '请先选择收获地址',
-          content: '',
-        })
-        return;
+    
+   if(that.data.type == 1) {
+     wx.showModal({
+       title: '温馨提示',
+       content: '您确认支付' + that.data.total +  '个爱眼币' + '及运费10元吗？',
+       showCancel: true,//是否显示取消按钮  false 不显示
+       cancelText: "取消支付",//更改取消
+       confirmText: "确认支付",
+       success(res) {
+         if (res.confirm) {
+           console.log('用户点击确定')
+            app.wxRequest(url, data, (res) => {
+            console.log(res)
+            if(res.data.status == 200) {
+              var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign":                res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
+              //发起支付
+              that.pay(param);
+            }else if(res.data.status == 10230) {
+              wx.showToast({
+                title: res.data.msg,
+                image: '/image/quxiao2.png',
+                duration: 1000
+              })
+              return;
+            }
+          }, (err) => {
+            console.log("向后台发送数据失败")
+          })
+       } else if (res.cancel) {
+          console.log('用户点击取消')
+       }
       }
-    }
-    if(this.data.type == 2) {
-      if (this.data.phone == '' || this.data.userName == '') {
-        wx.showModal({
-          title: '请填写自取人姓名电话',
-          content: '',
-        })
-        return;
-      }
-    }
-   
-    app.wxRequest(url, data, (res) => {
-      // console.log(res)
-      if(res.data.status == 200) {
-       
-        var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign": res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
-        //发起支付
-        that.pay(param);
-      }else if(res.data.status == 10230) {
-        wx.showToast({
-          title: res.data.msg,
-          image: '/image/quxiao2.png',
-          duration: 1000
-        })
-        return;
-      }
-    }, (err) => {
-      console.log("向后台发送数据失败")
-    })
+    })  
+   }else if(that.data.type == 2) { // 在校自取
+     wx.showModal({
+       title: '温馨提示',
+       content: '您确认支付'+that.data.total+'个爱眼币吗？',
+       showCancel: true,//是否显示取消按钮  false 不显示
+       cancelText: "取消支付",//更改取消
+       confirmText: "确认支付",
+       success(res) {
+         if (res.confirm) {
+           console.log('用户点击确定')
+           app.wxRequest(url, data, (res) => {
+             console.log(res)
+             if (res.data.status == 200) {
+               wx.navigateTo({
+                 url: '/page/myCollection/pages/jifen/jifen',
+               })
+             } else if (res.data.status == 10230) {
+               wx.showToast({
+                 title: res.data.msg,
+                 image: '/image/quxiao2.png',
+                 duration: 1000
+               })
+             }
+           }, (err) => {
+             console.log("向后台发送数据失败")
+           })
+         } else if (res.cancel) {
+           console.log('用户点击取消')
+         }
+       }
+     })   
+     
+   }
   },
   //支付
   pay: function (param) {
     var that = this;
-    console.log("发起支付")
-    console.log(param)
     wx.requestPayment({
       timeStamp: param.timeStamp,
       nonceStr: param.nonceStr,
@@ -130,7 +175,9 @@ Page({
           sizeNumber: 0,
           selectedName: ''
         })
-       
+        wx.navigateTo({
+          url: '/page/myCollection/pages/jifen/jifen',
+        })
       },
       fail: function (res) {
         console.log("fail")
@@ -139,9 +186,7 @@ Page({
       complete: function (res) {
         console.log("complete");
         console.log(res)
-        wx.navigateTo({
-          url: '/page/myCollection/pages/jifen/jifen',
-        })
+       
       }
     })
   },

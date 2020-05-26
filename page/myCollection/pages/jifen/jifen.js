@@ -30,6 +30,7 @@ Page({
       let url = app.globalData.URL + 'integralList', data = {
         studentId: this.data.currentStudentId
       };
+      console.log(this.data.currentStudentId)
       app.wxRequest(url, data, (res) => {
         that.setData({
           jifenList: res.data.data.data,
@@ -56,9 +57,9 @@ Page({
             childrenList: res.data.data,
           })
           let childrenList = res.data.data;
-          let id = childrenList.filter((item) => {
+          let item = childrenList.filter((item) => {
             if(item.id == wx.getStorageSync('studentId')) {
-              return item.id
+              return item
             }
           })
           let crIndex;
@@ -69,9 +70,10 @@ Page({
           })
           that.setData({
             currentIndex: crIndex,
-            currentStudentId: id
+            currentStudentId: item[0].id
            
           })
+          that.currentStudentCode();
         }
         if (res.data.status == 10220) {
           that.setData({
@@ -126,7 +128,6 @@ Page({
     })
     // 切换状态，更新内容
     if(this.data.type == 0) {
-      console.log(5)
       this.currentStudentCode();
     }else {
       this.getLingquList();
@@ -156,7 +157,6 @@ Page({
       })
       app.wxRequest(url, data, (res) => {
         if (res.data.status == 200) {
-          if (res.data.status == 200) {
             var resCurrent= res.data.data;
             // if (that.data.page == 1) {
             //   receiveList = []
@@ -180,7 +180,6 @@ Page({
               icon: 'none'
             })
           }
-        }
       })
     }
   },
@@ -202,37 +201,68 @@ Page({
     })
   },
   handleDelete(e) {
-    let deleteId = e.currentTarget.dataset.id;
+  
     let that = this;
-    wx.showLoading({
-      title: '加载中...'
-    })
-    let url = app.globalData.URL + "display", data = { id: deleteId }
-    app.wxRequest(url, data, (res) => {
-      if (res.data.status == 200) {
-          this.data.page = 1;
-          that.setData({
-            receiveList: []
+    wx.showModal({
+      title: '温馨提示',
+      content: '您确定要删除该条记录吗？',
+      showCancel: true,//是否显示取消按钮  false 不显示
+      cancelText: "取消",//更改取消
+      confirmText: "确认",
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '加载中...'
           })
-          that.getLingquList();
+          let deleteId = e.currentTarget.dataset.id;
+          let url = app.globalData.URL + "display", data = { id: deleteId }
+          app.wxRequest(url, data, (res) => {
+            console.log(res)
+            if (res.data.status == 200) {
+              that.data.page = 1;
+              that.setData({
+                receiveList: []
+              })
+              that.getLingquList();
+            }
+          }) 
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
         }
-    }) 
+      }
+    })
   },
   handleConfirm(e) {
-    let confirmId = e.currentTarget.dataset.id;
+   
     let that = this;
-    wx.showLoading({
-      title: '加载中...'
-    })
-    let url = app.globalData.URL + "confirmReceipt", data = {id: confirmId}
-    app.wxRequest(url, data, (res) => {
-        if(res.data.status == 200) {
-          that.setData({
-            receiveList: []
+    wx.showModal({
+      title: '温馨提示',
+      content: '您确定要确认收货吗？',
+      showCancel: true,//是否显示取消按钮  false 不显示
+      cancelText: "取消",//更改取消
+      confirmText: "确认",
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '加载中...'
           })
-          this.data.page = 1;
-          that.getLingquList();
+          let confirmId = e.currentTarget.dataset.id;
+          let url = app.globalData.URL + "confirmReceipt", data = { id: confirmId }
+          app.wxRequest(url, data, (res) => {
+            console.log(res)
+            if (res.data.status == 200) {
+              that.setData({
+                receiveList: []
+              })
+              that.data.page = 1;
+              that.getLingquList();
+            }
+          })  
+        } else if (res.cancel) {
+          console.log('用户点击取消')
         }
-    })  
+      }
+    })
   }
 })

@@ -2,6 +2,20 @@
 <view class="mainWrap">
   <view class="label">姓名</view>
   <view>
-    <input value = "{{name}}" placeholder="请输入姓名"></input>
+    <input  class="nameInnerWrap" value = "{{name}}" placeholder="请输入姓名" bindinput="handleNameInput"></input>
   </view>
+  <!-- 性别 -->
+   <view class="label">性别</view>
+   <view class="sexWrapper">
+    <view class="sexBox selectedActive">
+      <image src="/image/male.png"></image> 
+      <text>男</text>
+    </view>
+     <view class="sexBox ">
+      <image src="/image/female.png"></image> 
+      <text>女</text>
+    </view>
+   </view>
+    <!-- 出生日期 -->
+    <view class="label">出生日期</view>
 </view>

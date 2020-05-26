@@ -27,6 +27,7 @@ Page({
   search() {
     let that = this;
     // 点击搜索按钮，将之前搜索到的内容清空
+    if(that.data.searchValue !== '') {
     let url = app.globalData.URL + "findProduct", data = { page: this.data.page, name: this.data.searchValue };
     app.wxRequest(url, data, (res) => {
        console.log(res)
@@ -64,6 +65,11 @@ Page({
         })
       }
     })
+    }else {
+      wx.showToast({
+        title: '请输入搜索内容',
+      })
+    }
   },
   bindButtonTap: function () {
     this.setData({
