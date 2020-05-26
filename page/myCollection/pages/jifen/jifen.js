@@ -30,8 +30,8 @@ Page({
       let url = app.globalData.URL + 'integralList', data = {
         studentId: this.data.currentStudentId
       };
-      console.log(this.data.currentStudentId)
       app.wxRequest(url, data, (res) => {
+        // console.log(res)
         that.setData({
           jifenList: res.data.data.data,
           balance: res.data.data.balance,
@@ -90,20 +90,12 @@ Page({
     let that = this;
     this.setData({
       currentIndex: e.currentTarget.dataset.index,
-      receiveList: [],
       page: 1
     })
     let student = this.data.childrenList.filter((item, index) => { if (index == that.data.currentIndex) return item });
     that.setData({
       currentStudentId: student[0].id
-    })
-    // 头像切换， 更新对应的内容
-    if(this.data.type == 0) {
-      this.currentStudentCode();
-    }else if(this.data.type == 1) {
-      this.getLingquList();
-    }
-   
+    }) 
   },
   //确定当前孩子具体是哪个
   activeNav: function (e) {
@@ -116,7 +108,19 @@ Page({
       that.setData({
         currentStudentId: student[0].id
       })
-      this.currentStudentCode();
+      if(this.data.type == 0) {
+        this.setData({
+         jifenList: []
+        })
+        this.currentStudentCode();
+      }else if(this.data.type == 1) {
+        this.currentStudentCode();
+        this.setData({
+          page: 1,
+          receiveList: []
+        })
+        this.getLingquList();
+      }
     }
   },
   //切换 明细 领取
@@ -124,19 +128,29 @@ Page({
     let that = this;
     this.setData({
       type: e.currentTarget.dataset.type,
-      receiveList: []
+      receiveList: [],
+     
     })
     // 切换状态，更新内容
     if(this.data.type == 0) {
-      this.currentStudentCode();
+      this.setData({
+        page: 1
+      })
+      this.currentStudentCode(); //获取积分情况
     }else {
       this.getLingquList();
     }    
   },
   // // 下拉刷新
   onPullDownRefresh: function () {
-    this.data.page = 1;
-    this.getLingquList();
+    let that = this;
+    wx.stopPullDownRefresh();
+    setTimeout(function () {
+     this.setData({
+       page: 1
+     })
+      this.getLingquList();
+    }, 500);
   },
   onReachBottom: function () {
     if (this.data.hasMoreData) {
@@ -147,6 +161,7 @@ Page({
       })
     }
   },
+  // 领取
   getLingquList() {
     let that = this;
     let url = app.globalData.URL + "orderByStudent", data = { studentId: this.data.currentStudentId, page: this.data.page };
@@ -201,7 +216,6 @@ Page({
     })
   },
   handleDelete(e) {
-  
     let that = this;
     wx.showModal({
       title: '温馨提示',
@@ -234,7 +248,6 @@ Page({
     })
   },
   handleConfirm(e) {
-   
     let that = this;
     wx.showModal({
       title: '温馨提示',

@@ -2,7 +2,7 @@
 const app = getApp();
 Page({
   data: {
-    type: 1,
+    type: 2,
     inputValue: '',
     userName: '',// 联系人
     telNumber: '', //电话
@@ -57,10 +57,15 @@ Page({
       }
     }
     if (this.data.type == 2) {
-      if (this.data.phone == '' || this.data.userName == '') {
+      if (this.data.userName == '' || this.data.telNumber == '') {
+          wx.showModal({
+            content: '请填写自取人姓名电话',
+          })
+        return;    
+      }
+      if (this.data.telNumber.length !== 11) {
         wx.showModal({
-          title: '请填写自取人姓名电话',
-          content: '',
+          content: '请输入正确的手机号',
         })
         return;
       }
@@ -126,6 +131,24 @@ Page({
              if (res.data.status == 200) {
                wx.navigateTo({
                  url: '/page/myCollection/pages/jifen/jifen',
+               })
+               that.setData({
+                 number: 0,
+                 delivryType: 1,
+                 contacts: '',
+                 phone: '',
+                 address: '',
+                 remark: '',
+                 total: 0,
+                 userName: '',
+                 provinceName: '',
+                 cityName: '',
+                 countyName: '',
+                 detailInfo: '',
+                 telNumber: '',
+                 remark: '',
+                 sizeNumber: 0,
+                 selectedName: ''
                })
              } else if (res.data.status == 10230) {
                wx.showToast({

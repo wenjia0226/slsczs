@@ -1,13 +1,11 @@
 {
   "pages": [
-    
     "page/tabBar/screen/screen",
     "page/tabBar/my/my",
     "page/tabBar/exchange/exchange",
-  
     "page/tabBar/archives/archives",
-    "nicheng/nicheng",
-    "manual/manual"
+    "manual/manual",
+    "nicheng/nicheng"
   ],
   "tabBar": {
     "list": [

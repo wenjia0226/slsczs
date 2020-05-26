@@ -1,3 +1,30 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@wenjia0226 
+wenjia0226
+/
+slsczs
+1
+00
+ Code
+ Issues 0
+ Pull requests 0 Actions
+ Projects 0
+ Wiki
+ Security 0
+ Insights
+ Settings
+slsczs/page/myCollection/pages/jifen/jifen.wxml
+@wenjia0226 wenjia0226 '12'
+f4b22d8 4 days ago
+96 lines (96 sloc)  4.4 KB
+  
 <!--pages/jifen/jifen.wxml-->
 <view class="main">
   <view class="headerWrap">
@@ -76,8 +103,9 @@
     </block>
   </view>
   <view wx:if="{{type == 1}}" class="centerWrap" style="height: 300rpx;" >
-     <view class="itemWrapRecieve" style="justify-content: center"  wx:if="{{receiveList.length == 0}}">暂无领取记录</view>
-     <view class="itemWrapRecieve"  wx:for="{{receiveList}}">
+    <view class="itemWrapRecieve" style="justify-content: center"  wx:if="{{receiveList.length == 0}}">暂无领取记录</view>
+    <scroll-view scroll-y  style="height: 100%;">
+      <view class="itemWrapRecieve"  wx:for="{{receiveList}}">
         <view class="getLeftWrap">
             <image src="{{item.pic}}"></image>
         </view>
@@ -92,5 +120,6 @@
           <!-- <text class="status" style="background: #fff" wx:if="{{item.status == '待发货'}}"></text> -->
         </view>
       </view>
+    </scroll-view>
   </view>
 </view>
