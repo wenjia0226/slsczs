@@ -6,6 +6,24 @@
   top: 0;
   bottom: 0;
 }
+/* 修改 */
+.modifyWrap {
+   margin: 10rpx 5%;
+  display: flex;
+  justify-content: flex-end;
+}
+.editWrap {
+  margin: 10rpx 5%;
+  display: flex;
+  justify-content: space-between;
+}
+.modify {
+ padding: 10rpx 30rpx;
+ border-radius: 16rpx;
+ font-size: 28rpx;
+  background:#6682e8; 
+  color: #fff;
+}
 .touxiangWrap {
   padding: 50rpx 0;
   display: flex;
@@ -82,4 +100,15 @@
 .selectedActive {
   background: #6682e8;
   color: #fff;
+}
+
+/* // 修改出生日期 */
+.section{
+  flex: 1;
+  background: #f7f8fa;
+}
+.remindDate {
+  font-size: 24rpx;
+  color: red;
+  padding: 10rpx 20rpx;
 }

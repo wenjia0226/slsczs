@@ -13,6 +13,7 @@ Page({
       openId: wx.getStorageSync('openId')
     };
     app.wxRequest(url, data, (res) => {
+      console.log(res.data.data)
       that.setData({
         childrenList: res.data.data
        })

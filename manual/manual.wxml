@@ -7,11 +7,11 @@
   <!-- 性别 -->
    <view class="label">性别</view>
    <view class="sexWrapper">
-    <view class="sexBox selectedActive">
+    <view class="sexBox {{gender == 0? 'selectedActive': ''}} " data-type="0" bindtap="selectSex">
       <image src="/image/male.png"></image> 
       <text>男</text>
     </view>
-     <view class="sexBox ">
+     <view class="sexBox {{gender == 1? 'selectedActive': ''}} " data-type="1"  bindtap="selectSex">
       <image src="/image/female.png"></image> 
       <text>女</text>
     </view>
@@ -26,7 +26,7 @@
           </view>
         </picker>
       </view>
-    <view class="btnWrap">
+    <view class="btnWrap" bindtap="saveStudent">
       <view class="addBtn">确认添加</view>
     </view>
 </view>

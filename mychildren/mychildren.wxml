@@ -1,0 +1,113 @@
+<!--pages/user/user.wxml-->
+<view class="main">
+<view class="modifyWrap" wx:if="{{displayInfo}}"> 
+    <text class="modify" bindtap="showModify">修改</text>
+  </view>
+  <view class="editWrap" wx:if="{{!displayInfo}}"> 
+    <text class="cancel" bindtap="showModify" >取消</text>
+    <text class="finish" bindtap="fininshModify" >完成</text>
+  </view>
+  <view class="touxiangWrap">
+    <view class="touxiang">
+      <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == 0}}"></image>
+      <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == 1}}"></image>
+    </view>
+  </view>
+  <view class="centerWrap" wx:if="{{displayInfo}}">
+    <view class="itemWrap">
+      <text class="name" decode="{{true}}">姓名 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <input class="inputInner"  disabled placeholder="请输入姓名" value="{{name}}"></input>
+    </view>
+    <view class="itemWrap">
+    <text class="name" decode="{{true}}">性别 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+    <view class="sexWrapper">
+      <view class="sexBox {{gender == 0 ? 'selectedActive': ''}}">
+        <image src="/image/male.png"></image> 
+        <text>男</text>
+      </view>
+      <view class="sexBox {{gender == 1 ? 'selectedActive': ''}}">
+        <image src="/image/female.png"></image> 
+        <text>女</text>
+      </view>
+    </view>
+   </view>
+    <view class="itemWrap">
+      <label class="name">所在学校</label>
+      <input class="inputInner"disabled  value="{{schoolName}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">所在班级</label>
+      <input class="inputInner" disabled  value="{{classesName}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">出生日期</label>
+      <input class="inputInner" disabled  value="{{birthday}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">站姿身高</label>
+      <input class="inputInner" disabled value="{{height}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">坐姿身高</label>
+      <input class="inputInner" disabled value="{{sittingHeight}}"></input>
+    </view>
+     <view class="itemWrap">
+      <label class="name">椅子高度</label>
+      <input class="inputInner" disabled  value="{{chairHeight}}"></input>
+    </view>  
+  </view>
+   <!-- 编辑 -->
+   <view class="centerWrap" wx:if="{{!displayInfo}}">
+    <view class="itemWrap">
+      <text class="name" decode="{{true}}">姓名 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <input class="inputInner"  placeholder="请输入姓名" value="{{name}}"></input>
+    </view>
+    <view class="itemWrap">
+    <text class="name" decode="{{true}}">性别 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+    <view class="sexWrapper">
+      <view class="sexBox {{gender == 0 ? 'selectedActive': ''}}"  data-type="0" bindtap="selectSex">
+        <image src="/image/male.png"></image> 
+        <text>男</text>
+      </view>
+      <view class="sexBox {{gender == 1 ? 'selectedActive': ''}}" data-type="1"  bindtap="selectSex">
+        <image src="/image/female.png"></image> 
+        <text>女</text>
+      </view>
+    </view>
+   </view>
+    <!-- <view class="itemWrap">
+      <label class="name">所在学校</label>
+      <input class="inputInner"disabled  placeholder="请输入姓名" value="{{schoolName}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">所在班级</label>
+      <input class="inputInner" disabled placeholder="请输入姓名" value="{{classesName}}"></input>
+    </view> -->
+    <view class="itemWrap">
+      <label class="name">出生日期</label>
+      <!-- 出生日期 -->
+      <view class="section">
+        <picker mode="date" value="{{date}}"  bindchange="bindDateChange">
+          <view class="picker remindDate">
+          <text class="" wx:if="{{show}}">请选择出生日期</text>
+          <text wx:if="{{!show}}">{{date}}</text>
+          </view>
+        </picker>
+      </view>
+      <!-- <input class="inputInner" disabled placeholder="请输入姓名" value="{{birthday}}"></input> -->
+    </view>
+    <view class="itemWrap">
+      <label class="name">站姿身高</label>
+      <input class="inputInner"  placeholder="请输入站姿身高" value="{{height}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">坐姿身高</label>
+      <input class="inputInner"  placeholder="请输入坐姿身高" value="{{sittingHeight}}"></input>
+    </view>
+     <view class="itemWrap">
+      <label class="name">椅子高度</label>
+      <input class="inputInner"  placeholder="请输入椅子高度" value="{{chairHeight}}"></input>
+    </view>
+     
+  </view>
+</view>

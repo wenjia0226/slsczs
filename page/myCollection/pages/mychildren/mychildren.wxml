@@ -1,5 +1,9 @@
 <!--pages/user/user.wxml-->
 <view class="main">
+
+  <view> 
+    <view>修改</view>
+  </view>
   <view class="touxiangWrap">
     <view class="touxiang">
       <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == 0}}"></image>
@@ -7,10 +11,48 @@
     </view>
   </view>
   <view class="centerWrap">
-    <view class="name common">
-    姓名： {{name}}
+    <view class="itemWrap">
+      <text class="name" decode="{{true}}">姓名 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <input class="inputInner"  disabled placeholder="请输入姓名" value="{{name}}"></input>
     </view>
-    <view class="name common">
+    <view class="itemWrap">
+    <text class="name" decode="{{true}}">性别 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+    <view class="sexWrapper">
+      <view class="sexBox {{gender == 0 ? 'selectedActive': ''}}">
+        <image src="/image/male.png"></image> 
+        <text>男</text>
+      </view>
+      <view class="sexBox {{gender == 1 ? 'selectedActive': ''}}">
+        <image src="/image/female.png"></image> 
+        <text>女</text>
+      </view>
+    </view>
+   </view>
+    <view class="itemWrap">
+      <label class="name">所在学校</label>
+      <input class="inputInner"disabled  placeholder="请输入姓名" value="{{schoolName}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">所在班级</label>
+      <input class="inputInner" disabled placeholder="请输入姓名" value="{{classesName}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">出生日期</label>
+      <input class="inputInner" disabled placeholder="请输入姓名" value="{{birthday}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">站姿身高</label>
+      <input class="inputInner" disabled placeholder="请输入姓名" value="{{height}}"></input>
+    </view>
+    <view class="itemWrap">
+      <label class="name">坐姿身高</label>
+      <input class="inputInner" disabled placeholder="请输入姓名" value="{{sittingHeight}}"></input>
+    </view>
+     <view class="itemWrap">
+      <label class="name">椅子高度</label>
+      <input class="inputInner" disabled placeholder="请输入姓名" value="{{chairHeight}}"></input>
+    </view>
+    <!-- <view class="name common">
     学校： {{schoolName}}
     </view>
     <view class="name common">
@@ -18,17 +60,7 @@
     </view>
     <view class="name common">
     出生日期： {{birthday}}
-    </view>
-     <!-- <view class="sex common">
-      <text>性别：</text>
-      <radio-group>
-      <radio bindcahnge="radioChange" checked="true">
-          <text>男</text>
-        </radio>
-        <radio indcahnge="radioChange">
-          <text>女</text>
-        </radio>
-      </radio-group>
     </view> -->
+     
   </view>
 </view>

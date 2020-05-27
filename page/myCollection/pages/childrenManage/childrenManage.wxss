@@ -42,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:40rpx ;
+  margin:10rpx ;
 }
 .logo_img{
   height: 140rpx;
@@ -67,13 +67,14 @@
 }
 .del {
   width: 100%;
-  background:#FCD440;
-  border-radius: 10rpx;
-  height: 60rpx;
-  text-align: center;
-  line-height: 60rpx;
+  display: flex;
+  justify-content: flex-end;
   color: #fff;
-  margin: 10rpx;
+  margin: 20rpx;
+}
+.del image {
+  width: 30rpx;
+  height: 30rpx;
 }
 .add {
   height: 100rpx;
@@ -86,4 +87,31 @@
 }
 .addC {
  width: 46%;
+}
+/* 信息迁移 */
+.detailWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  justify-content: space-between
+}
+.remove {
+  padding: 5rpx 25rpx;
+  background: #0025fd;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+
+}
+.toDetailBox {
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+.toDetailBox image {
+  width: 30rpx;
+  height: 30rpx;
 }

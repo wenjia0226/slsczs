@@ -6,7 +6,10 @@ Page({
     schoolName: '',
     classesName: '',
     birthday: '',
-    gender: 0
+    gender: 0,
+    sittingHeight: '',
+    height: '',
+    chairHeight: ''
   },
   onLoad: function (options) {
     wx.showLoading({
@@ -24,7 +27,10 @@ Page({
         schoolName: res.data.data.schoolName,
         classesName: res.data.data.classesName,
         birthday: res.data.data.birthday,
-        gender:  res.data.data.gender
+        gender:  res.data.data.gender,
+        sittingHeight: res.data.data.sittingHeight,
+        height: res.data.data.height,
+        chairHeight: res.data.data.chairHeight
       })
     }, (err) => {
       console.log(err)

@@ -1,52 +1,18 @@
-/* pages/user/user.wxss */
+/* childrenInfo/childrenInfo.wxss */
 .main {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  margin: 0 4%;
 }
-.touxiangWrap {
-  padding: 50rpx 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.touxiang {
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 50%;
-  background:#fff;
-   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.touxiang image {
-  width: 100%;
-  height: 100%;
-}
-.centerWrap {
-  box-sizing: border-box;
-  padding: 0 5%;
-
-}
-.common {
-  padding: 20rpx;
-  border-bottom: 2rpx dotted #333;
-  font-size: 28rpx;
-}
-.sex {
-  display: flex;
-}
-/* 新添加 */
 .itemWrap {
   display: flex;
-  margin: 40rpx 0;
 }
 .name {
   font-size: 30rpx;
   margin: 0 20rpx;
-  font-weight: bold;
 }
 .inputInner {
   flex: 1;
@@ -80,6 +46,6 @@
   padding: 0 10rpx;
 }
 .selectedActive {
-  background: #6682e8;
+  background: #3e65e4;
   color: #fff;
 }

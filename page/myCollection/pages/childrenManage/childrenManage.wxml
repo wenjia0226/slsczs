@@ -4,16 +4,26 @@
 <scroll-view scroll-y>
 <view class="itemContainer">
   <view class="swiperwrap" wx:for="{{childrenList}}" wx:if="{{index !== childrenList.length}}" >
+    <view class="del" data-del="{{item.id}}" bindtap="deleteChild">
+      <image src="/image/delete.png"></image>
+    </view>
     <view class="logo">
       <!-- <image src="/image/icon.png" data-id="{{item.id}}" bindtap="gotoChildrenDetail" mode="aspectFit" class="logo_img"></image> -->
-       <image src="/image/boy.png" data-id="{{item.id}}" wx:if="{{item.gender == 0}}" bindtap="gotoChildrenDetail" mode="aspectFit" class="logo_img"></image>
-       <image src="/image/girl.png" data-id="{{item.id}}" wx:if="{{item.gender == 1}}" bindtap="gotoChildrenDetail" mode="aspectFit" class="logo_img"></image>
+       <image src="/image/boy.png"wx:if="{{item.gender == 0}}"mode="aspectFit" class="logo_img"></image>
+       <image src="/image/girl.png" wx:if="{{item.gender == 1}}"  mode="aspectFit" class="logo_img"></image>
     </view>
     <view class ="text">
         <view class="name">姓名：{{item.name}}</view>
         <view class="born">出生日期：{{item.birthday}}</view>
     </view>
-    <view class="del" data-del="{{item.id}}" bindtap="deleteChild">删除</view>
+    <view class="detailWrapper">
+      <view class="remove" wx:if="{{item.schoolName == '社会'}}">信息迁移</view>
+      <view class="toDetailBox" data-id="{{item.id}}"   bindtap="gotoChildrenDetail" >
+        <text>详情</text>
+
+        <image src="/image/righticon3.png"></image>
+      </view>
+    </view>
   </view>
   <view class="swiperwrap" bindtap="gotoAddChild" style="background: #F8F8F8;" else>
     <image src="/image/zengjia.png" mode="aspectFit" style="width: 150rpx;"></image>
