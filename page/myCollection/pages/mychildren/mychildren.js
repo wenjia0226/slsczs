@@ -2,14 +2,26 @@
 const app = getApp();
 Page({
   data: {
-    name: [],
+    name: '',
     schoolName: '',
     classesName: '',
     birthday: '',
     gender: 0,
     sittingHeight: '',
     height: '',
-    chairHeight: ''
+    chairHeight: '',
+    displayInfo: true,
+    date: '',
+    show: true,
+    studentId: '',
+    resetGender: '',
+    resetName: '',
+    resetBirthday: '',
+    resetHeight: '',
+    resetChairHeight: '',
+    resetSittingHeight: '',
+    resetDate: ''
+    
   },
   onLoad: function (options) {
     wx.showLoading({
@@ -17,8 +29,11 @@ Page({
     })
     let that = this;
     let studentId = options.id;
+    this.setData({
+      studentId: options.id
+    })
     let url = app.globalData.URL + 'findStudent', data = {
-      studentId
+      studentId: studentId
     };
     app.wxRequest(url, data, (res) => {
       console.log(res)
@@ -30,31 +45,82 @@ Page({
         gender:  res.data.data.gender,
         sittingHeight: res.data.data.sittingHeight,
         height: res.data.data.height,
-        chairHeight: res.data.data.chairHeight
+        chairHeight: res.data.data.chairHeight,
+        date: res.data.data.date,
+        resetName: res.data.data.name,
+        resetBirthday: res.data.data.birthday,
+        resetGender: res.data.data.gender,
+        resetSittingHeight: res.data.data.sittingHeight,
+        resetHeight: res.data.data.height,
+        resetChairHeight: res.data.data.chairHeight,
+        resetDate: res.data.data.date,
+
       })
     }, (err) => {
       console.log(err)
     })
-    // wx.request({
-    //   url: 'http://192.168.2.201:8080/lightspace/xcx/findStudent',
-    //   method: 'post',
-    //   data:{
-    //     studentId
-    //   },
-    //   header: {
-    //     "Content-Type": "application/x-www-form-urlencoded"
-    //   },
-    //   success(res) {
-    //     that.setData({
-    //       name: res.data.data.name,
-    //       schoolName: res.data.data.schoolName,
-    //       classesName: res.data.data.classesName,
-    //       birthday: res.data.data.birthday
-    //     })
-    //   },
-    //   fail(err) {
-    //     console.log(err)
-    //   }
-    // })
+  },
+  showModify() {
+    let that = this;
+    this.setData({
+      displayInfo: !that.data.displayInfo
+    })
+  },
+  bindDateChange: function (e) {
+    this.setData({
+      resetBirthday: e.detail.value
+    })
+  },
+  //修改站姿身高
+  changeChairHeight(e) {
+    console.log(e.detail.value)
+    this.setData({
+      resetChairHeight: e.detail.value
+    })
+  },
+  //修改站姿身高
+  changeHeight(e) {
+    this.setData({
+      resetHeight: e.detail.value
+    })
+  },
+  //修改坐姿身高
+  changeSitHeight(e) {
+    this.setData({
+      resetSittingHeight: e.detail.value
+    })
+  },
+  // 修改姓名
+  handleNameInput(e) {
+    this.setData({
+      resetName: e.detail.value
+    })
+  },
+  //修改性别
+  selectSex(e) {
+    this.setData({
+      resetGender: e.currentTarget.dataset.type
+    })
+  },
+  fininshModify() {
+    let that = this;
+    let url = app.globalData.URL + "perfectStudent",
+      data = {
+        id: this.data.studentId,
+        name: this.data.resetName,
+        birthday: this.data.resetBirthday,
+        gender: this.data.resetGender,
+        height: this.data.resetHeight,
+        chairHeight: this.data.resetChairHeight,
+        sittingHeight: this.data.resetSittingHeight
+      };
+    app.wxRequest(url, data, (res) => {
+      console.log(res)
+      if (res.data.status == 200) {
+        wx.navigateTo({
+          url: '/page/myCollection/pages/childrenManage/childrenManage'
+        })
+      }
+    })
   }
 })

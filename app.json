@@ -1,7 +1,8 @@
 {
   "pages": [
-   "mychildren/mychildren",
     "page/tabBar/my/my",
+   "mychildren/mychildren",
+   
     
     "page/tabBar/screen/screen",
     "page/tabBar/exchange/exchange",

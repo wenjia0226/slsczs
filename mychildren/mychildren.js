@@ -12,7 +12,8 @@ Page({
     chairHeight: '',
     displayInfo: true,
     date: '',
-    show: true
+    show: true,
+    studentId: ''
   },
   onLoad: function (options) {
     wx.showLoading({
@@ -20,6 +21,9 @@ Page({
     })
     let that = this;
     let studentId = options.id;
+    this.setData({
+      studentId: options.id
+    })
     let url = app.globalData.URL + 'findStudent', data = {
       studentId: 617
     };
@@ -62,11 +66,12 @@ Page({
     let that = this;
     let url = app.globalData.URL + "perfectStudent",
       data = {
+        // id: this.data.studentId,
+        id: 617,
         name: this.data.name,
         birthday: this.data.date,
         gender: this.data.gender,
         height: this.data.height,
-        weight: this.data.weight,	
         chairHeight: this.data.chairHeight,
         sittingHeight: this.data.sittingHeight
       };
