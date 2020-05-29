@@ -8,18 +8,76 @@ Page({
     wx.showLoading({
       title: '加载中...',
     })
+    this.getChildrenList();
+  },
+  getChildrenList() {
     let that = this;
     let url = app.globalData.URL + 'childrenList', data = {
       openId: wx.getStorageSync('openId')
     };
     app.wxRequest(url, data, (res) => {
-      console.log(res.data.data)
+      console.log(res)
       that.setData({
         childrenList: res.data.data
-       })
+      })
     }, (err) => {
       console.log(err)
     })
+  },
+  //信息移植
+  removeInfo(e) {
+    console.log(e)
+   
+    console.log(removeStuId)
+    wx
+  },
+  // 跳转到添加孩子页面
+  removeInfo(e) {
+    let that = this;
+    let removeStuId = e.currentTarget.dataset.id;
+    if (wx.getStorageSync('phone')) {
+      wx.showModal({
+        title: '迁移孩子',
+        content: '您确定要迁移孩子吗？',
+        cancelText: "取消",
+        confirmText: "确定",
+        success(res) {
+          if (res.confirm) {
+            wx.scanCode({  //扫码
+              success(res) {
+                var str = res.path;
+                let stuId = str.split('=')[1];  
+                let openId = wx.getStorageSync('openId');
+                let url = app.globalData.URL + 'transplantStudent', data = {
+                  newId: stuId,
+                  oldId: removeStuId,
+                  openId: wx.getStorageSync('openId')
+                };
+                wx.showLoading({
+                  title: '加载中...',
+                })
+                app.wxRequest(url, data, (res) => {
+                  console.log(res, 123)
+                  
+                  that.getChildrenList();
+                }, (err) => {
+                  console.log(err)
+                })
+              }
+            })
+          } else if (res.cancel) {  // 跳转到手动添加
+            wx.switchTab({
+              url: '/page/myCollection/pages/chidrenManage/chidrenManage'
+            })
+          }
+        }
+      })
+      // 如果没登录跳转到登录页
+    } else {
+      wx.navigateTo({
+        url: '/nicheng/nicheng'
+      })
+    }
   },
   //孩子详情
   gotoChildrenDetail(e) {

@@ -4,6 +4,10 @@
 <scroll-view scroll-y>
 <view class="itemContainer">
   <view class="swiperwrap" wx:for="{{childrenList}}" wx:if="{{index !== childrenList.length}}" >
+  <view class="differ">
+    <image src="/image/she.png" wx:if="{{item.schoolName == '社会'}}"></image>
+    <image src="/image/guan.png" wx:if="{{item.schoolName !== '社会'}}"></image>
+  </view>
     <view class="del" data-del="{{item.id}}" bindtap="deleteChild">
       <image src="/image/delete.png"></image>
     </view>
@@ -17,7 +21,7 @@
         <view class="born">出生日期：{{item.birthday}}</view>
     </view>
     <view class="detailWrapper">
-      <view class="remove" wx:if="{{item.schoolName == '社会'}}">信息迁移</view>
+      <view class="remove" wx:if="{{item.schoolName == '社会'}}" data-id="{{item.id}}" bindtap="removeInfo">信息迁移</view>
       <view class="toDetailBox" data-id="{{item.id}}"   bindtap="gotoChildrenDetail" >
         <text>详情</text>
 
