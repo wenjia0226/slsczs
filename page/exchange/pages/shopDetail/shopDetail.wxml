@@ -10,7 +10,7 @@
         </swiper-item>
       </block>
     </swiper>
-      <view class="imageCount">{{current+1}}/{{pictures.length}}</view>
+    <view class="imageCount">{{current+1}}/{{pictures.length}}</view>
   </view>
    <view class="detailWrap">
       <view class="txt">{{name}}</view>
