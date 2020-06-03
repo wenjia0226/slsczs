@@ -1,14 +1,13 @@
 {
   "pages": [
-    "page/tabBar/my/my",
-   "mychildren/mychildren",
-   
-    
+    "ranking/ranking",
+    "nicheng/nicheng",
     "page/tabBar/screen/screen",
     "page/tabBar/exchange/exchange",
     "page/tabBar/archives/archives",
-  "manual/manual",
-    "nicheng/nicheng",
+    "page/tabBar/my/my",
+    "mychildren/mychildren", 
+    "manual/manual",
     "childrenInfo/childrenInfo"
   ],
   "tabBar": {
@@ -73,7 +72,8 @@
         "pages/webview/webview",
         "pages/middle/middle",
         "pages/moderate/moderate",
-        "pages/serious/serious"
+        "pages/serious/serious",
+        "pages/ranking/ranking"
       ]
     }, {
       "root": "page/mainFunction",

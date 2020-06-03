@@ -12,7 +12,7 @@
     <!-- 轮播图 --> 
     <view class="swiperWrap">
       <swiper bindchange="swiperChange"
-        autoplay= 'true'  circular="{{}}"class="swiperInner">
+        autoplay= 'true'  circular="true" class="swiperInner">
         <block>
           <swiper-item class="swiperItem"  wx:for="{{swiperList}}" data-id="{{item.productId}}" bindtap="gotoDetail">
             <image src="{{item.path}}" ></image>

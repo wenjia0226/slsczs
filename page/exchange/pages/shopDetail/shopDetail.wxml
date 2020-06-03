@@ -80,34 +80,6 @@
             <view class="exNow">立即兑换</view>
          </view>
     </view>
-   <!-- 蒙层
-  <view class="bg2" wx:if="{{isShow}}"  bindtap="hide"></view>
-  <view class="show"  wx:if="{{isShow}}">
-    <view class="firstItem">
-      <view class="shopImg">
-        <image src="/image/01.png" mode="aspectFit"></image>
-      </view>
-      <view class="biWrap">
-        <image src="/image/bi.png" mode="aspectFit"></image>
-      </view>
-      <view class="money">450</view>
-    </view>
-    <view class="item">
-      <view class="size">规格</view>
-      <view class="checked">默认</view>
-    </view>
-    <view class="item" style="justify-content: space-between">
-      <view class="size">数量</view>
-      <view class="reduceWrap">
-        <view class="common" data-type="0" bindtap="changeNum">-</view>
-        <view class="number common">{{num}}</view>
-        <view class=" common" data-type="1" bindtap="changeNum">+</view>
-      </view>
-    </view>
-    <view class="exchangeNow">
-      <view class="exNow" >立即兑换</view>
-   </view>
-  </view> -->
 </view>
 
 

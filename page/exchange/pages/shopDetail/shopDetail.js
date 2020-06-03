@@ -36,7 +36,6 @@ Page({
     let that = this;
     let url = app.globalData.URL + "productDetils", data = { id: id };
     app.wxRequest(url, data, (res) => {
-      // console.log(res)
       that.setData({
         specificationsList: res.data.data.specificationsList,
         selectedProduct: res.data.data.specificationsList[0],
@@ -48,8 +47,10 @@ Page({
         picture: res.data.data.pictures[0],
         selectedId: res.data.data.specificationsList[0].id,
         stock: res.data.data.specificationsList[0].stock,
+        freight: res.data.data.specificationsList[0].freight,
         number: 1
       })
+      wx.setStorageSync('freight', that.data.freight);
       wx.setStorageSync('jiesuanPicture', that.data.picture)
       let specificationsList = res.data.data.specificationsList;
       let selected = specificationsList.filter((item) => {
@@ -57,7 +58,6 @@ Page({
           return item
         }
       })
-      wx.setStorageSync('selectedName', selected[0].name);
       this.setData({
         integral: selected[0].integral
       })

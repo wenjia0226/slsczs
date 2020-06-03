@@ -12,11 +12,9 @@ Page({
   },
   // 商品轮播
   swiperChange: function (e) {
-    if (e.detail.source == 'touch') {
-      this.setData({
-        current: e.detail.current
-      })
-    }
+    this.setData({
+      current: e.detail.current
+    })
   },
   gotoSearch() {
     wx.navigateTo({

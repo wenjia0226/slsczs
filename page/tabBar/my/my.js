@@ -138,6 +138,15 @@ Page({
      this.gotoLogin()
     }
   },
+  gotoRank() {
+    if (this.data.phone) {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/ranking/ranking'
+      })
+    } else {
+      this.gotoLogin()
+    }
+  },
   goToBao() {
     if (wx.getStorageSync('phone')) {
       wx.navigateTo({

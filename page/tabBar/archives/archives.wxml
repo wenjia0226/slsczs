@@ -49,7 +49,7 @@
         </scroll-view>
         </swiper-item>
         <swiper-item style="margin-bottom: 30rpx;height: 100%" wx:if="{{dataList.length == 0}}">       
-            <view class="nodangan">暂无档案信息</view>
+            <view class="nodangan">暂无档案信息 {{dataList.length}}</view>
         </swiper-item>
       </block>
       <block >
@@ -59,11 +59,11 @@
           </view>
         </swiper-item>
         <swiper-item wx:if="{{picList.length == 0}}">
-          <view class="nodangan">暂无档案信息</view>
+          <view class="nodangan">近7天无检测记录，请尽快检测</view>
         </swiper-item>
       </block>
       <!-- 戴镜 -->
-      <block >
+      <block>
         <swiper-item wx:if="{{weardataList.length}}">
           <scroll-view scroll-y style="height: 100%" >
           <view class="list" wx:for="{{weardataList}}" wx:key="id">
@@ -96,7 +96,7 @@
           </view>
         </swiper-item>
         <swiper-item wx:if="{{wearpicList.length == 0}}">
-          <view class="nodangan">暂无档案信息</view>
+            <view class="nodangan">近7天无检测记录，请尽快检测</view>
         </swiper-item>
       </block>
     </swiper>
@@ -104,4 +104,3 @@
      <view class="nodangan">请先在筛查页添加或者选择孩子！！！</view>
     </block>  
 </view>
-

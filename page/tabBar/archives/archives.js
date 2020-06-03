@@ -64,7 +64,7 @@ Page({
   data: {
     navList: [
     ],
-    dataList: [],
+    dataList: [{ id: 908, studentId: 731, classId: 49, className: "五年级三班", schoolId: 56 }, { id: 869, studentId: 731, classId: 49, className: "五年级三班", schoolId: 56}],
     picList: [],
     weardataList: [],
     wearpicList: [],
@@ -133,7 +133,7 @@ Page({
     }
   },
   //请求数据
-  onShow() {
+  onLoad() {
     if (wx.getStorageSync('detectType') == 0) {
       this.setData({
         isSelect: 0
@@ -163,7 +163,7 @@ Page({
         openId: wx.getStorageSync('openId')
       };
       app.wxRequest(url, data, (res) => { 
-        //  console.log(res)
+        console.log(res, 123)
         //如果孩子不为空
         if(res.data.data !== null) {
           that.setData({
@@ -229,20 +229,10 @@ Page({
          
           //某个人列表赋值
           that.init_one(xData, leftData, rightData) 
-        }else {
-          that.setData({
-            dataList: [],
-            picList: []
-          })
         }
         if (wearxData.length && wearleftData.length && wearrightData.length ){
           that.init_two(wearxData, wearleftData, wearrightData)
-        }else {  //如果孩子为空
-        that.setData({
-          weardataList: [],
-          wearpicList: []
-        })
-      } 
+        }
       }else {  //如果孩子为空
         that.setData({
           navList: [],

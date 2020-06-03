@@ -16,7 +16,8 @@ Page({
     selectedName: '',
     picture: '',
     integral: '',
-    total: ''
+    total: '',
+    freight: 0
   },
   handleBuynner(e) {
     this.setData({
@@ -41,7 +42,8 @@ Page({
       selectedName: wx.getStorageSync('selectedName'),
       integral: wx.getStorageSync('integral'),
       total: wx.getStorageSync('sizeNumber') * wx.getStorageSync('integral'),
-      picture: wx.getStorageSync('jiesuanPicture')
+      picture: wx.getStorageSync('jiesuanPicture'),
+      freight: wx.getStorageSync('freight')
     })
   },
   //提交订单

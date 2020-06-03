@@ -61,7 +61,7 @@
    <!-- 运费 -->
   <view class="dliverWrap" wx:if="{{type == 1}}">
     <view class="dliverTitle">运费</view>
-    <view class="dliverMoney">￥10 元</view>
+    <view class="dliverMoney">￥{{freight}}元</view>
   </view>
   <!-- 买家留言 -->
   <view class="buyner">
