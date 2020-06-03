@@ -2,10 +2,10 @@
 <!-- 轮播图 -->
 <scroll-view scroll-y style="height: 100%;">
   <view class="swiperWrap">
-    <swiper indicator-dots="{{indicatorDots}}"
-      autoplay= 'true' class="swiperInner" >
+    <swiper  bindchange="swiperChange"
+        autoplay= 'true'  circular="true"  class="swiperInner">
       <block>
-        <swiper-item class="swiperItem" wx:for="{{pictures}}" data-id="{{item.productId}}" bindtap="gotoDetail">
+        <swiper-item class="swiperItem" wx:for="{{pictures}}" >
           <image src="{{item}}" ></image>
         </swiper-item>
       </block>
