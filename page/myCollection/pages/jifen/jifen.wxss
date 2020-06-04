@@ -18,22 +18,21 @@
     position: relative;
     height: 250rpx;
   }
-  .portrait {
-    width: 150rpx;
-    height: 150rpx;
+ .portrait {
+    width: 200rpx;
+    height: 200rpx;
     border-radius: 50%;
-    background: #fff;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  .portrait > image{
+    height: 100%;
+    width: 100%;
+  }
   .smaller {
     width: 130rpx;
-  }
-  .portrait > image{
-    height: 140rpx;
-    width: 140rpx;
   }
   .name{
     padding: 20rpx 0;
@@ -46,16 +45,17 @@
   position: relative;
 }
 .swiperItem {
-  width: 160rpx;
+  width: 200rpx;
+  height: 200rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .addChild {
-   height: 300rpx ;
+  height: 300rpx ;
   width: 220rpx !important;
-   display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -4,8 +4,8 @@ Page({
   data: {
     type: 2,
     inputValue: '',
-    userName: '',// 联系人
-    telNumber: '', //电话
+    userName: '12',// 联系人
+    telNumber: '18311192425', //电话
     provinceName: '',
     cityName: '',
     countyName: '',
@@ -17,7 +17,8 @@ Page({
     picture: '',
     integral: '',
     total: '',
-    freight: 0
+    freight: 0,
+    productType: 2,
   },
   handleBuynner(e) {
     this.setData({
@@ -43,34 +44,41 @@ Page({
       integral: wx.getStorageSync('integral'),
       total: wx.getStorageSync('sizeNumber') * wx.getStorageSync('integral'),
       picture: wx.getStorageSync('jiesuanPicture'),
-      freight: wx.getStorageSync('freight')
+      freight: wx.getStorageSync('freight'),
+      productType: wx.getStorageSync('productType')
     })
   },
   //提交订单
   submitOrder() {
     let that = this;
-    if (this.data.type == 1) {
-      if (this.data.provinceName == '') {
-        wx.showModal({
-          title: '请先选择收获地址',
-          content: '',
-        })
-        return;
-      }
-    }
-    if (this.data.type == 2) {
-      if (this.data.userName == '' || this.data.telNumber == '') {
+    if(that.data.productType == 2) {
+      if (this.data.type == 1) {
+        if (this.data.provinceName == '') {
           wx.showModal({
-            content: '请填写自取人姓名电话',
+            title: '请先选择收获地址',
+            content: '',
           })
-        return;    
+          return;
+        }
       }
-      if (this.data.telNumber.length !== 11) {
-        wx.showModal({
-          content: '请输入正确的手机号',
-        })
-        return;
+      if (this.data.type == 2) {
+        if (this.data.userName == '' || this.data.telNumber == '') {
+            wx.showModal({
+              content: '请填写自取人姓名电话',
+            })
+          return;    
+        }
+        if (this.data.telNumber.length !== 11) {
+          wx.showModal({
+            content: '请输入正确的手机号',
+          })
+          return;
+        }
       }
+    }else if(that.data.productType == 1) {  // productType 1 是服务 2，是商品
+      that.setData({
+        type: 3
+      })
     }
     let url = app.globalData.URL + "addOrder";
     let address = this.data.provinceName + this.data.cityName + this.data.countyName +this.data.detailInfo;
@@ -95,7 +103,6 @@ Page({
        confirmText: "确认支付",
        success(res) {
          if (res.confirm) {
-           console.log('用户点击确定')
             app.wxRequest(url, data, (res) => {
             console.log(res)
             if(res.data.status == 200) {
@@ -118,7 +125,7 @@ Page({
        }
       }
     })  
-   }else if(that.data.type == 2) { // 在校自取
+   }else if(that.data.type == 2 || that.data.type == 3) { // 在校自取
      wx.showModal({
        title: '温馨提示',
        content: '您确认支付'+that.data.total+'个爱眼币吗？',
@@ -127,7 +134,6 @@ Page({
        confirmText: "确认支付",
        success(res) {
          if (res.confirm) {
-           console.log('用户点击确定')
            app.wxRequest(url, data, (res) => {
              console.log(res)
              if (res.data.status == 200) {
@@ -136,7 +142,7 @@ Page({
                })
                that.setData({
                  number: 0,
-                 delivryType: 1,
+                 delivryType: that.data.type,
                  contacts: '',
                  phone: '',
                  address: '',
@@ -166,8 +172,7 @@ Page({
            console.log('用户点击取消')
          }
        }
-     })   
-     
+     })    
    }
   },
   //支付

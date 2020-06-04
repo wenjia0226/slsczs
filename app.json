@@ -1,10 +1,10 @@
 {
   "pages": [
     "ranking/ranking",
-    "nicheng/nicheng",
     "page/tabBar/screen/screen",
     "page/tabBar/exchange/exchange",
     "page/tabBar/archives/archives",
+    "nicheng/nicheng",
     "page/tabBar/my/my",
     "mychildren/mychildren", 
     "manual/manual",
@@ -27,7 +27,7 @@
      
       {
         "pagePath": "page/tabBar/exchange/exchange",
-        "text": "兑换",
+        "text": "护眼城",
         "iconPath": "/image/exchange.png",
         "selectedIconPath": "/image/exchangeChecked.png"
       },
@@ -56,6 +56,7 @@
     {
       "root": "page/myCollection/",
       "pages": [
+        "pages/code/code",
         "pages/plan/plan",
         "pages/jifen/jifen",
         "pages/childrenManage/childrenManage",

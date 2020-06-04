@@ -1,66 +1,38 @@
 // page/myCollection//pages/ranking/ranking.js
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    height: app.globalData.height * 2 + 20,
+    navbarData: {
+      title: '爱眼币排行榜',
+      studentId: '',
+      firstObj: {},
+      secondObj: {},
+      thirdObj: {},
+      fourList: [],
+      integtalRanking: [],
+      myIntegral: 0,
+      myRanking: 0
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    let that = this;
+    let url = app.globalData.URL + 'integralRanking', data = {
+      studentId: wx.getStorageSync('studentId')
+    };
+    app.wxRequest(url, data, (res) => {
+      //  console.log(res)
+      if(res.data.status == 200) {
+        that.setData({
+          firstObj: res.data.data.integtalRanking[0],
+          secondObj: res.data.data.integtalRanking[1],
+          thirdObj: res.data.data.integtalRanking[2],
+          integtalRanking: res.data.data.integtalRanking.slice(3),
+          myRanking: res.data.data.myRanking,
+          myIntegral: res.data.data.myIntegral
+        })
+        console.log(that.data.integtalRanking)
+      }
+    }) 
   }
 })

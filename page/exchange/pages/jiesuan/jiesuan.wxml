@@ -1,6 +1,6 @@
 <view class="main">
 <!-- 配送信息 -->
-  <view class="infoWrap" wx:if="{{type == 2}}">
+  <view class="infoWrap" wx:if="{{type == 2 ||type == 3}}">
     <view class="itemOne" style="border-right: 2px dotted #F4F4F4">
       <input  value="{{userName}}" placeholder="请填写联系人" style="text-align:center" bindinput="bindKeyInput"/>
     </view>
@@ -32,8 +32,11 @@
   <!-- 配送方式 -->
   <view class="dliverWrap">
     <view style="width: 50%">配送方式</view>
-    <view class="choice {{type == 2? 'active': ''}}" data-type="2" bindtap="addBg">在校自取</view>
-    <view class="choice {{type == 1? 'active': ''}}" data-type="1" bindtap="addBg">快递配送</view>
+    <view class="choice {{type == 2? 'active': ''}}" data-type="2" bindtap="addBg" wx:if="{{productType == 2}}">在校自取</view>
+    <view class="choice {{type == 1? 'active': ''}}" data-type="1" bindtap="addBg" wx:if="{{productType == 2}}">快递配送</view>
+    <view class="goShop" data-type="1" bindtap="addBg" wx:if="{{productType == 1}}">
+      <text class="choice active">到店体验</text>
+    </view>
   </view>
   <!-- 学校信息 -->
   <view class="schoolWrap" wx:if="{{type == 0}}">
@@ -59,7 +62,7 @@
     </view>
    </view>
    <!-- 运费 -->
-  <view class="dliverWrap" wx:if="{{type == 1}}">
+  <view class="dliverWrap" wx:if="{{ productType == 2  && type == 1}}">
     <view class="dliverTitle">运费</view>
     <view class="dliverMoney">￥{{freight}}元</view>
   </view>

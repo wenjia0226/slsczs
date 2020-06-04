@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container page">
+  <view class="panel">
+    <view class="header">
+    体验码
+    </view>
+    <!-- <view class="barcode">
+      <view class="barnum">{{code}}</view>
+      <canvas canvas-id="barcode" />
+    </view> -->
+    <view class="qrcode">
+      <canvas canvas-id="qrcode" />
+    </view>
+  </view>
+  <view class="warning">
+      <view>请向店员出示此码</view>
+    </view>
+    <view class="warning">
+      <view>体验地址： 三友眼镜视光中心店</view>
+    </view>
+</view>

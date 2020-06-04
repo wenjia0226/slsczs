@@ -64,7 +64,8 @@ Page({
   data: {
     navList: [
     ],
-    dataList: [{ id: 908, studentId: 731, classId: 49, className: "五年级三班", schoolId: 56 }, { id: 869, studentId: 731, classId: 49, className: "五年级三班", schoolId: 56}],
+    myIntegral: 0,
+    dataList: [],
     picList: [],
     weardataList: [],
     wearpicList: [],
@@ -81,6 +82,26 @@ Page({
       lazyLoad: true
     }
   },
+  //请求数据
+  onShow() {
+    if (wx.getStorageSync('detectType') == 0) {
+      this.setData({
+        isSelect: 0
+      })
+    } else {
+      this.setData({
+        isSelect: 2
+      })
+    }
+    if (wx.getStorageSync('studentId')) {
+      this.setData({
+        stId: wx.getStorageSync('studentId')
+      })
+    } else {
+      this.getChildrenList();
+    }
+    this.getArchiveList()
+  },
   getChildrenList() {
     let that = this;
     let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
@@ -90,7 +111,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        //  console.log(res)
+         console.log(res)
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data
@@ -132,26 +153,7 @@ Page({
       })
     }
   },
-  //请求数据
-  onLoad() {
-    if (wx.getStorageSync('detectType') == 0) {
-      this.setData({
-        isSelect: 0
-      })
-    }else {
-      this.setData({
-        isSelect: 2
-      })
-    }
-    if (wx.getStorageSync('studentId')) {
-      this.setData({
-        stId: wx.getStorageSync('studentId')
-      })
-    }else {
-      this.getChildrenList();
-    }
-    this.getArchiveList()
-    },
+
   //获取档案列表
   getArchiveList() {
     if(wx.getStorageSync('phone')) {
@@ -163,7 +165,7 @@ Page({
         openId: wx.getStorageSync('openId')
       };
       app.wxRequest(url, data, (res) => { 
-        console.log(res, 123)
+        // console.log(res, 123)
         //如果孩子不为空
         if(res.data.data !== null) {
           that.setData({

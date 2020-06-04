@@ -31,7 +31,7 @@ Page({
         studentId: this.data.currentStudentId
       };
       app.wxRequest(url, data, (res) => {
-        // console.log(res)
+        //  console.log(res)
         that.setData({
           jifenList: res.data.data.data,
           balance: res.data.data.balance,
@@ -42,6 +42,12 @@ Page({
         console.log(err)
       })
     }
+  },
+  handleGetCode(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/page/myCollection/pages/code/code?id=' + id
+    })
   },
   getChildrenList() {
     let that = this;

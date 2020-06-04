@@ -22,7 +22,7 @@
   display: block;
 }
 .biaoti {
-  font-size: 36rpx;
+  font-size: 32rpx;
   color:#fff;
   /* position: absolute;
   bottom: 0rpx;

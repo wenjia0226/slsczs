@@ -1,1 +1,124 @@
-/* page/myCollection//pages/ranking/ranking.wxss */
+.main {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.back {
+  font-size: 30rpx;
+  color: #fff;
+}
+.bg {
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -999; */
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 480rpx;
+}
+/* 排行白色标题 */
+.headerWrap {
+  position: absolute;
+  top: 180px;
+  left: 20rpx;
+  right: 20rpx;
+  height: 80px;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 16rpx 16rpx 0 0 ;
+  background: #fff;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.header_left {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.rank {
+  font-size: 32rpx;
+  color: #3072FF;
+  font-weight: bold;
+}
+.title {
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+.header_left:nth-of-type(2n + 1) {
+  border-right: 1rpx dotted rgba(0, 0, 0, 0.623);
+}
+ /* 排行标题栏 */
+ .centerWrap {
+   margin-left: 20rpx;
+   margin-right: 20rpx;
+   flex: 1;
+ }
+ .centerTitle {
+   padding:30rpx 10rpx 20rpx 10rpx;
+   display: flex;
+   font-size: 30rpx;
+   margin-bottom: 10rpx;
+ }
+ .rankNum {
+   width: 16%;
+   text-align: center;
+ }
+ .name {
+   width: 20%;
+  text-align: center;
+ }
+ .school {
+   flex: 1;
+   text-align: center;
+ }
+ .money {
+   width: 20%;
+   text-align: center;
+ }
+ .rankImg {
+   width: 16%;
+  text-align: center;
+   
+ }
+ .rankItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #fff;
+  padding: 20rpx 10rpx;
+  margin-bottom: 10rpx;
+ }
+ .rankImg > image {
+   width: 50rpx;
+   height: 70rpx;
+ }
+ .firstBg {
+  background: #FF6E75;
+ }
+ .secondBg {
+   background: #FFC547;
+ }
+ .thirdBg {
+   background: #6FBDFF;
+ }
+ .four {
+   color: #000;
+   border-bottom: 1rpx dotted #000;
+ }
+ .rankLower {
+   color: #3072FF;
+   font-size: 32rpx;
+ }

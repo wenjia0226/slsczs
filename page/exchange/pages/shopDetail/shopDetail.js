@@ -90,9 +90,6 @@ Page({
       number: 1
     })
   },
-  prevent() {
-    return;
-  },
   changeNum(e) {
       if (e.currentTarget.dataset.type == 0) {
         if(this.data.num > 0){
@@ -132,6 +129,7 @@ Page({
       }
     })
     wx.setStorageSync('selectedName', selected[0].name);
+    wx.setStorageSync('productType', selected[0].productType)
     this.setData({
       integral: selected[0].integral,
       stock: selected[0].stock

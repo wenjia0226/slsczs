@@ -1,2 +1,57 @@
-<!--page/myCollection//pages/ranking/ranking.wxml-->
-<text>page/myCollection//pages/ranking/ranking.wxml</text>
+<!--pages/detail/detail.wxml-->
+<view class="main">
+  <image src="/image/winning.png" class="bg" style="height:{{height + 200}}px"></image>
+  <nav-bar navbar-data='{{navbarData}}' > </nav-bar>
+  <view class="headerWrap">
+    <view class="header_left">
+      <view class="rank">{{myRanking}}</view>
+      <view class= "title">我的排名</view>
+    </view>
+    <view class="header_left">
+      <view class="rank">{{myIntegral}}</view>
+      <view class= "title">爱眼币</view>
+    </view>
+  </view>
+  <view class="centerWrap">
+    <scroll-view scroll-y style="height: 100%" >
+      <view class="centerTitle">
+        <view class="rankNum">排名</view>
+        <view class="name">姓名</view>
+        <view class="school">学校</view>
+        <view class="money">爱眼币</view>
+      </view>
+      <view class="rankItem firstBg">
+        <view class="rankImg">
+          <image src="/image/first.png"></image>
+        </view>
+        <view class="name">{{firstObj.studentName}}</view>
+        <view class="school">{{firstObj.schoolName}}</view>
+        <view class="money">{{firstObj.sum}}</view>
+      </view>
+      <view class="rankItem secondBg">
+        <view class="rankImg">
+          <image src="/image/second.png"></image>
+        </view>
+        <view class="name">{{secondObj.studentName}}</view>
+        <view class="school">{{secondObj.schoolName}}</view>
+        <view class="money">{{secondObj.sum}}</view>
+      </view>
+      <view class="rankItem thirdBg">
+        <view class="rankImg">
+          <image src="/image/third.png"></image>
+        </view>
+        <view class="name">{{thirdObj.studentName}}</view>
+        <view class="school">{{thirdObj.schoolName}}</view>
+        <view class="money">{{thirdObj.sum}}</view>
+      </view>
+      <view class="rankItem four" wx:for="{{integtalRanking}}">
+        <view class="rankImg rankLower">
+          {{index + 4}}
+        </view>
+        <view class="name">{{item.studentName}}</view>
+        <view class="school">{{item.schoolName}}</view>
+        <view class="money">{{item.sum}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

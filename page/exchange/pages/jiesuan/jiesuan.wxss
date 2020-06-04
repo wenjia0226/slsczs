@@ -85,6 +85,10 @@
   border-radius: 20rpx;
   background: #D4D4D4;
 }
+.goShop {
+  width:100%;
+  text-align: right;
+}
 .active {
  background: #0073E9;
 }

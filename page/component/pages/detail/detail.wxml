@@ -1,7 +1,7 @@
 <!--pages/detail/detail.wxml-->
 <view class="main">
   <image src="/image/bg2.png" class="bg" style="height:{{height + 200}}px"></image>
-  <nav-bar navbar-data='{{navbarData}}'  style="height: {{height}}px"> </nav-bar>
+  <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
   <view class="headerTop" style="height: 200px">
     <view class="left">
       <view> 姓名:{{studentName}}</view>
