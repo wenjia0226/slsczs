@@ -19,7 +19,7 @@
     <!-- 出生日期 -->
       <view class="section">
         <view class="label">出生日期</view>
-        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <picker mode="date" value="{{date}}"  bindchange="bindDateChange">
           <view class="picker">
           <text wx:if="{{show}}">请选择出生日期</text>
           <text wx:if="{{!show}}">{{date}}</text>

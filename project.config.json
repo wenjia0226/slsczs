@@ -71,16 +71,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "page/tabBar/screen/screen",
 					"pathName": "page/tabBar/screen/screen",
-					"query": "scene=617",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/myCollection/pages/childrenManage/childrenManage",
-					"pathName": "page/tabBar/my/my",
 					"query": "scene=617",
 					"scene": null
 				}

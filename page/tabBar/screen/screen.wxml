@@ -51,7 +51,7 @@
           </swiper-item>
         </block>
        <block  wx:if="{{childrenList.length == 0}}">
-         <swiper-item class="swiperItem">
+         <swiper-item class="swiperItemBefore">
             <view class="smPortrait">
                <image src="/image/jia2.png" class="u-img-slide" mode="aspectFit" bindtap="gotoAddChild"></image>
             </view>

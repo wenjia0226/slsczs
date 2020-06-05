@@ -20,29 +20,33 @@ Page({
     resetHeight: '',
     resetChairHeight: '',
     resetSittingHeight: '',
-    resetDate: ''
-    
+    resetDate: '',
+    myIntegral: '',
+    studentId: ''
   },
   onLoad: function (options) {
     wx.showLoading({
       title: '加载中...',
     })
-    let that = this;
-    let studentId = options.id;
+    
     this.setData({
       studentId: options.id
     })
+    console.log(this.data.studentId)
+    this.getStudenInfo();
+  },
+  getStudenInfo() {
+    let that = this;
     let url = app.globalData.URL + 'findStudent', data = {
-      studentId: studentId
+      studentId: this.data.studentId
     };
     app.wxRequest(url, data, (res) => {
-      console.log(res)
       that.setData({
         name: res.data.data.name,
         schoolName: res.data.data.schoolName,
         classesName: res.data.data.classesName,
         birthday: res.data.data.birthday,
-        gender:  res.data.data.gender,
+        gender: res.data.data.gender,
         sittingHeight: res.data.data.sittingHeight,
         height: res.data.data.height,
         chairHeight: res.data.data.chairHeight,
@@ -54,7 +58,7 @@ Page({
         resetHeight: res.data.data.height,
         resetChairHeight: res.data.data.chairHeight,
         resetDate: res.data.data.date,
-
+        myIntegral: res.data.data.myIntegral
       })
     }, (err) => {
       console.log(err)
@@ -67,13 +71,14 @@ Page({
     })
   },
   bindDateChange: function (e) {
+    var dateOld = e.detail.value;
+    var dateNew = dateOld.replace(/-/g, '/');
     this.setData({
-      resetBirthday: e.detail.value
+      resetBirthday: dateNew
     })
   },
   //修改站姿身高
   changeChairHeight(e) {
-    console.log(e.detail.value)
     this.setData({
       resetChairHeight: e.detail.value
     })
@@ -115,11 +120,18 @@ Page({
         sittingHeight: this.data.resetSittingHeight
       };
     app.wxRequest(url, data, (res) => {
-      console.log(res)
+      //  console.log(res)
       if (res.data.status == 200) {
-        wx.navigateTo({
-          url: '/page/myCollection/pages/childrenManage/childrenManage'
+        wx.showToast({
+          title: '修改成功',
         })
+        this.setData({
+          displayInfo: !that.data.displayInfo
+        })
+        this.getStudenInfo();
+        // wx.navigateTo({
+        //   url: '/page/myCollection/pages/childrenManage/childrenManage'
+        // })
       }
     })
   }

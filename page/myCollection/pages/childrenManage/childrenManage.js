@@ -26,13 +26,6 @@ Page({
   },
   //信息移植
   removeInfo(e) {
-    console.log(e)
-   
-    console.log(removeStuId)
-    wx
-  },
-  // 跳转到添加孩子页面
-  removeInfo(e) {
     let that = this;
     let removeStuId = e.currentTarget.dataset.id;
     if (wx.getStorageSync('phone')) {
@@ -192,13 +185,12 @@ Page({
                 })
               }
             })
-          } else if (res.cancel) {  // 跳转到手动添加
-            console.log('用户点击取消');
+          } else if (res.cancel) {  // 跳转到手动添
             that.setData({
               currentIndex: that.data.childrenList.length - 2
             })
             wx.navigateTo({
-              url: '/manual/manual',
+              url: '/manualTwo/manualTwo',
             })
           }
         }

@@ -1,12 +1,12 @@
 {
   "pages": [
     "page/tabBar/screen/screen",
-    "page/tabBar/exchange/exchange",
     "page/tabBar/archives/archives",
     "page/tabBar/my/my",
-    "nicheng/nicheng",
     "mychildren/mychildren", 
     "manual/manual",
+    "manualTwo/manualTwo",
+    "nicheng/nicheng",
     "childrenInfo/childrenInfo"
   ],
   "tabBar": {
@@ -22,13 +22,6 @@
         "text": "档案",
         "iconPath": "/image/da.png",
         "selectedIconPath": "/image/daactive.png"
-      },
-     
-      {
-        "pagePath": "page/tabBar/exchange/exchange",
-        "text": "护眼城",
-        "iconPath": "/image/exchange.png",
-        "selectedIconPath": "/image/exchangeChecked.png"
       },
       {
         "pagePath": "page/tabBar/my/my",

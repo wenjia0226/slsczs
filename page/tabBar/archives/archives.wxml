@@ -64,7 +64,7 @@
         </scroll-view>
         </swiper-item>
         <swiper-item style="margin-bottom: 30rpx;height: 100%" wx:if="{{dataList.length == 0}}">       
-            <view class="nodangan">暂无档案信息 {{dataList.length}}</view>
+            <view class="nodangan">暂无档案信息</view>
         </swiper-item>
       </block>
       <block >

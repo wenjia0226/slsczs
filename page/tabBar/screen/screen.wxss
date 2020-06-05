@@ -122,6 +122,13 @@ swiper {
   justify-content: flex-start;
   align-items: center;
 }
+.swiperItemBefore {
+  width: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .addChild {
   height: 300rpx ;
   width: 220rpx !important;

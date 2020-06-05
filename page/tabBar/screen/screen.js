@@ -60,7 +60,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data
@@ -214,9 +214,7 @@ Page({
               }
             })
           } else if (res.cancel) {  // 跳转到手动添加
-            console.log('用户点击取消');
-           
-            wx.navigateTo({
+             wx.navigateTo({
               url: '/manual/manual',
             })
           }

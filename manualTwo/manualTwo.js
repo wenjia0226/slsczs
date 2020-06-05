@@ -5,14 +5,14 @@ Page({
     date: '2010/01/01',
     show: true,
     gender: 0,
-    name: ''
+    name: '',
   },
   onShow: function () {
 
   },
-  handleNameInput(e){
+  handleNameInput(e) {
     this.setData({
-      name:e.detail.value 
+      name: e.detail.value
     })
   },
   bindDateChange: function (e) {
@@ -20,8 +20,9 @@ Page({
       date: e.detail.value,
       show: false
     })
+
     var dateOld = this.data.date;
-    var  dateNew  =  dateOld.replace(/-/g,  '/');
+    var dateNew = dateOld.replace(/-/g, '/');
     this.setData({
       date: dateNew
     })
@@ -33,17 +34,18 @@ Page({
   },
   saveStudent() {
     let that = this;
-    let url = app.globalData.URL + "registerStudent", 
-    data = {openId: wx.getStorageSync('openId'),
-     name: this.data.name,
-    birthday: this.data.date,
-    gender: this.data.gender
-     };
+    let url = app.globalData.URL + "registerStudent",
+      data = {
+        openId: wx.getStorageSync('openId'),
+        name: this.data.name,
+        birthday: this.data.date,
+        gender: this.data.gender
+      };
     app.wxRequest(url, data, (res) => {
-      console.log(res)
-      if(res.data.status == 200) {
-        wx.switchTab({
-          url: '/page/tabBar/screen/screen'
+      // console.log(res)
+      if (res.data.status == 200) {
+        wx.navigateTo({
+          url: '/page/myCollection/pages/childrenManage/childrenManage'
         })
       }
     }

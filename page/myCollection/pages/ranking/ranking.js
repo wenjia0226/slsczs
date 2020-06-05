@@ -18,10 +18,10 @@ Page({
   onLoad: function (options) {
     let that = this;
     let url = app.globalData.URL + 'integralRanking', data = {
-      studentId: wx.getStorageSync('studentId')
+      studentId: wx.getStorageSync('selectRankStu')
     };
     app.wxRequest(url, data, (res) => {
-      //  console.log(res)
+      // console.log(res)
       if(res.data.status == 200) {
         that.setData({
           firstObj: res.data.data.integtalRanking[0],

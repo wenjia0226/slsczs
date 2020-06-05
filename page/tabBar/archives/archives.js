@@ -111,7 +111,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-         console.log(res)
+        //  console.log(res)
         if (res.data.status == 200) {
           that.setData({
             childrenList: res.data.data
@@ -165,7 +165,7 @@ Page({
         openId: wx.getStorageSync('openId')
       };
       app.wxRequest(url, data, (res) => { 
-        // console.log(res, 123)
+        //  console.log(res, 123)
         //如果孩子不为空
         if(res.data.data !== null) {
           that.setData({
@@ -181,6 +181,7 @@ Page({
           that.setData({
             navList: currentStu
           })
+
           if(currentStu.length) {
             let picList = currentStu.map((item) => {
               return item.picList

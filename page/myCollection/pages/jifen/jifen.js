@@ -79,6 +79,7 @@ Page({
               crIndex = index;
             }
           })
+          wx.setStorageSync('selectRankStu', wx.getStorageSync('studentId'))
           that.setData({
             currentIndex: crIndex,
             currentStudentId: item[0].id
@@ -107,6 +108,8 @@ Page({
     that.setData({
       currentStudentId: student[0].id
     }) 
+
+    wx.setStorageSync('selectRankStu', student[0].id)
   },
   //确定当前孩子具体是哪个
   activeNav: function (e) {
@@ -119,6 +122,8 @@ Page({
       that.setData({
         currentStudentId: student[0].id
       })
+   
+      wx.setStorageSync('selectRankStu', student[0].id)
       if(this.data.type == 0) {
         this.setData({
          jifenList: []
@@ -140,7 +145,6 @@ Page({
     this.setData({
       type: e.currentTarget.dataset.type,
       receiveList: [],
-     
     })
     // 切换状态，更新内容
     if(this.data.type == 0) {

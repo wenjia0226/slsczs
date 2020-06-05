@@ -78,7 +78,7 @@
       </view>
     </view>
   </view>
-  <view class="listWrap" style="margin: 10rpx 5%;">
+  <!-- <view class="listWrap" style="margin: 10rpx 5%;">
     <official-account></official-account>
-  </view>
+  </view> -->
 </view>
