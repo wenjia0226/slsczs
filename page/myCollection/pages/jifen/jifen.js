@@ -20,6 +20,11 @@ Page({
   onShow: function (options) {
     this.getChildrenList(); 
   },
+  gotoRank() {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/ranking/ranking'
+      })
+  },
   // 获取当前学生的积分情况
   currentStudentCode() {
     if (this.data.currentStudentId !== '') {

@@ -1,6 +1,6 @@
 <!--pages/detail/detail.wxml-->
 <view class="main">
-  <image src="/image/winning.png" class="bg" style="height:{{height + 200}}px"></image>
+  <image src="https://www.guangliangkongjian.com/images/bg_rank.jpg" class="bg" style="height:{{height + 200}}px"></image>
   <nav-bar navbar-data='{{navbarData}}' > </nav-bar>
   <view class="headerWrap">
     <view class="header_left">

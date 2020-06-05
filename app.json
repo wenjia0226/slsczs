@@ -1,6 +1,5 @@
 {
   "pages": [
-    "ranking/ranking",
     "page/tabBar/screen/screen",
     "page/tabBar/exchange/exchange",
     "page/tabBar/archives/archives",

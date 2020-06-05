@@ -16,7 +16,7 @@
     align-items: center; 
     flex-direction: column;
     position: relative;
-    height: 250rpx;
+    height: 350rpx;
   }
  .portrait {
     width: 200rpx;
@@ -153,6 +153,7 @@
 .des {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 20rpx 0;
   color: #fff;
 }
@@ -161,8 +162,15 @@
   width: 50rpx;
   margin: 0 20rpx 
 }
-.des view {
+.loveBi {
   font-size: 36rpx;
+  padding: 0 30rpx; 
+}
+.seeRank {
+  margin: 0 10rpx;
+  font-size: 24rpx;
+  text-decoration: underline;
+  color: #000;
 }
 .centerWrap {
   flex: 1;

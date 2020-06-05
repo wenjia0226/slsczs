@@ -1,8 +1,9 @@
 <!--pages/jifen/jifen.wxml-->
 <view class="main">
   <view class="headerWrap">
-    <view class="gonglue"  bindtap='hideview'>
-      <view class="gl">规则</view>
+    <view class="gonglue" >
+      <!-- <view>  排行榜 <image src="/image/rank.png"></image></view> -->
+      <view class="gl"  bindtap='hideview'>规则 </view>
       <image src="/image/righticon3.png" mode="aspectFit"></image>
     </view>
     <!-- 如果请求到孩子 -->
@@ -44,9 +45,10 @@
       <view class="txt"> 3、爱眼币可用来兑换商品。</view>
     </view>
       <view class="total"> {{balance}}</view>
-      <view class="des" >
+      <view class="des">
         <image src="/image/jifen.png" mode="aspectFit"></image>
-        <view>爱眼币</view>
+        <view class="loveBi">爱眼币</view>
+        <view class="seeRank" bindtap="gotoRank">查看排行榜</view>
       </view>
       <view class="numWrap">
         <view class="get">

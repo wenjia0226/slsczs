@@ -43,12 +43,12 @@
     </view> 
   </view>
   <view class="listWrap">
-  <view class="item" bindtap="gotoRank">
+  <!-- <view class="item" bindtap="gotoRank">
         <view class="mychild">爱眼币排行榜</view>
         <view class="titleRight">
           <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
         </view>
-      </view>
+      </view> -->
     <view class="item" bindtap="gotoJiFen">
         <view class="mychild">我的爱眼币</view>
         <view class="titleRight">

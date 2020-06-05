@@ -31,7 +31,6 @@ Page({
           myRanking: res.data.data.myRanking,
           myIntegral: res.data.data.myIntegral
         })
-        console.log(that.data.integtalRanking)
       }
     }) 
   }
