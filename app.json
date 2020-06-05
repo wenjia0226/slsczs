@@ -3,8 +3,8 @@
     "page/tabBar/screen/screen",
     "page/tabBar/exchange/exchange",
     "page/tabBar/archives/archives",
-    "nicheng/nicheng",
     "page/tabBar/my/my",
+    "nicheng/nicheng",
     "mychildren/mychildren", 
     "manual/manual",
     "childrenInfo/childrenInfo"

@@ -86,50 +86,130 @@ Page({
       url: '/page/myCollection/pages/mychildren/mychildren?id=' + id,
     })
   },
- //添加孩子
-  gotoAddChild() {
-   let that = this;
-   if (wx.getStorageSync('phone')) {
-     wx.showModal({
-       title: '添加孩子',
-       content: '是否进行扫码添加孩子？',
-       success(res) {
-         if (res.confirm) {
-           wx.scanCode({  //扫码
-             success(res) {
-               var str = res.path;
-               let stuId = str.split('=')[1];
-               wx.setStorageSync("studentId", stuId);
-               //获取到学生id后添加孩子
-               let openId = wx.getStorageSync('openId');
-               let url = app.globalData.URL + 'binding', data = {
-                 studentId: stuId,
-                 openId: wx.getStorageSync('openId')
-               };
-               wx.showLoading({
-                 title: '加载中...',
-               })
-               app.wxRequest(url, data, (res) => {
-                 that.setData({
-                     childrenList: res.data.data
-                   })
+//  //添加孩子
+//   gotoAddChild() {
+//    let that = this;
+//    if (wx.getStorageSync('phone')) {
+//      wx.showModal({
+//        title: '添加孩子',
+//        content: '是否进行扫码添加孩子？',
+//        success(res) {
+//          if (res.confirm) {
+//            wx.scanCode({  //扫码
+//              success(res) {
+//                var str = res.path;
+//                let stuId = str.split('=')[1];
+//                wx.setStorageSync("studentId", stuId);
+//                //获取到学生id后添加孩子
+//                let openId = wx.getStorageSync('openId');
+//                let url = app.globalData.URL + 'binding', data = {
+//                  studentId: stuId,
+//                  openId: wx.getStorageSync('openId')
+//                };
+//                wx.showLoading({
+//                  title: '加载中...',
+//                })
+//                app.wxRequest(url, data, (res) => {
+//                  that.setData({
+//                      childrenList: res.data.data
+//                    })
                   
-               }, (err) => {
-                 console.log(err)
-               })
-             }
-           })
-         } else if (res.cancel) {
+//                }, (err) => {
+//                  console.log(err)
+//                })
+//              }
+//            })
+//          } else if (res.cancel) {
            
-         }
-       }
-     })
-   } else {
-     wx.navigateTo({
-       url: '/nicheng/nicheng'
-     })
-   }
- },
+//          }
+//        }
+//      })
+//    } else {
+//      wx.navigateTo({
+//        url: '/nicheng/nicheng'
+//      })
+//    }
+//  },
+  // 跳转到添加孩子页面
+  gotoAddChild() {
+    let that = this;
+    if (wx.getStorageSync('phone')) {
+      wx.showModal({
+        title: '添加孩子',
+        content: '是否进行扫码添加孩子？',
+        cancelText: "手动添加",
+        confirmText: "扫码添加",
+        success(res) {
+          if (res.confirm) {
+            wx.scanCode({  //扫码
+              success(res) {
+                var str = res.path;
+                let stuId = str.split('=')[1];
+                //获取到学生id后添加孩子
+                wx.setStorageSync('studentId', stuId);
+                let openId = wx.getStorageSync('openId');
+                let url = app.globalData.URL + 'binding', data = {
+                  studentId: stuId,
+                  openId: wx.getStorageSync('openId')
+                };
+                wx.showLoading({
+                  title: '加载中...',
+                })
+                app.wxRequest(url, data, (res) => {
+                  that.setData({
+                    childrenList: res.data.data
+                  })
+                  that.data.childrenList.push({
+                    age: 8,
+                    birthday: "2019-04-01",
+                    chairHeight: "60",
+                    classesId: 42,
+                    classesName: "二（3）班",
+                    correct: 0,
+                    description: "",
+                    gender: 1,
+                    height: "125",
+                    id: 2,
+                    name: "新增",
+                    nature: "无",
+                    parentPhone: "18311192425",
+                    regionId: 1,
+                    regionName: "唐山",
+                    schoolId: 50,
+                    schoolName: "唐山市师范附属小学",
+                    sittingHeight: "105.0",
+                    weight: "22.34"
+                  })
+                  that.setData({
+                    childrenList: res.data.data
+                  })
+                  // wx.setStorageSync('childLength', that.data.childrenList.length)
+                  wx.switchTab({
+                    url: '/page/tabBar/screen/screen'
+                  })
+                }, (err) => {
+                  console.log(err)
+                })
+              }
+            })
+          } else if (res.cancel) {  // 跳转到手动添加
+            console.log('用户点击取消');
+            that.setData({
+              currentIndex: that.data.childrenList.length - 2
+            })
+            wx.navigateTo({
+              url: '/manual/manual',
+            })
+          }
+        }
+      })
+      // 如果没登录跳转到登录页
+    } else {
+      wx.navigateTo({
+        url: '/nicheng/nicheng'
+      })
+    }
+  },
   //删除孩子
   deleteChild(e){
     let studentId = e.currentTarget.dataset.del;

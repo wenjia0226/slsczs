@@ -1,5 +1,5 @@
 <!--screen.wxml-->
- <image src="/image/bg2.png" class="bg" style="height: {{height + 240}}px"></image>
+ <image src="/image/bg2.png" class="bg" style="height: {{height + 280}}px"></image>
   <view class="main" style="margin-top: {{height}}px">
   <view  class="warning" animation="{{hideWarn}}" wx:if="{{isShow}}">
     <view class="text">
@@ -19,8 +19,8 @@
     </view>
   </view>
   <!-- 如果请求到孩子 -->
-    <view  class="topwap" style="height:250px">
-      <swiper  class='u-wrp-bnr' current="{{currentIndex}}"   previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav" data-info="{{item}}">
+    <view  class="topwap">
+      <swiper  class='u-wrp-bnr' current="{{currentIndex}}"   previous-margin="240rpx" next-margin="240rpx"  bindchange="activeNav">
         <block wx:if="{{childrenList.length}}">
           <swiper-item class="swiperItem" data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="id" bindtap="getItem" >
             <view class="portrait {{index == currentIndex ? 'active': ''}}" >
@@ -50,7 +50,6 @@
             <view class="name" wx:if="{{index == childrenList.length -1}}" style="color:#5f0ce6"></view>
           </swiper-item>
         </block>
-      </swiper>
        <block  wx:if="{{childrenList.length == 0}}">
          <swiper-item class="swiperItem">
             <view class="smPortrait">
@@ -59,6 +58,7 @@
             <view class="name"  style="color:#5f0ce6"></view>
           </swiper-item>
         </block>
+      </swiper>
     </view>
    <view class="centerwrap">
     <view class="daijingWrap" bindtap="goJozhun" data-detectType = "0">

@@ -16,10 +16,15 @@ Page({
     })
   },
   bindDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value,
       show: false
+    })
+   
+    var dateOld = this.data.date;
+    var  dateNew  =  dateOld.replace(/-/g,  '/');
+    this.setData({
+      date: dateNew
     })
   },
   selectSex(e) {

@@ -105,7 +105,7 @@ swiper {
   }
   
   .name{
-    padding: 20rpx 0;
+    padding: 5rpx 0;
     color: #fff;
     height: 40rpx;
   }
@@ -119,15 +119,15 @@ swiper {
   width: 160rpx;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .addChild {
-   height: 300rpx ;
+  height: 300rpx ;
   width: 220rpx !important;
-   display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .u-img-slide {
