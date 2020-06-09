@@ -35,8 +35,14 @@
         <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
       </view>
     </view> 
-    <view class="item" bindtap="gotoPlan">
+     <view class="item" bindtap="gotoPlan">
       <view class="mychild">爱眼打卡</view>
+       <view class="titleRight">
+        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="item" bindtap="gotoAnswer">
+      <view class="mychild">爱眼答题</view>
        <view class="titleRight">
         <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
       </view>
@@ -81,4 +87,5 @@
   <!-- <view class="listWrap" style="margin: 10rpx 5%;">
     <official-account></official-account>
   </view> -->
+  
 </view>

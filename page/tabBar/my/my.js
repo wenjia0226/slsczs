@@ -49,6 +49,15 @@ Page({
       this.gotoLogin();
     }
   },
+  gotoAnswer() {
+    if (wx.getStorageSync('phone')) {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/answer/answer'
+      })
+    } else {
+      this.gotoLogin();
+    }
+  },
   OneMoreGet() {
     let data = { openId: wx.getStorageSync('openId') };
     let url = app.globalData.URL + 'signin';

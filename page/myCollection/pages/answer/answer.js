@@ -1,4 +1,4 @@
-// childrenInfo/childrenInfo.js
+// page/myCollection//pages/answer/answer.js
 Page({
 
   /**

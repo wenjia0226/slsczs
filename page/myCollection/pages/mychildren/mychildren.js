@@ -32,7 +32,6 @@ Page({
     this.setData({
       studentId: options.id
     })
-    console.log(this.data.studentId)
     this.getStudenInfo();
   },
   getStudenInfo() {

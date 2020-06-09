@@ -4,8 +4,8 @@ Page({
   data: {
     type: 2,
     inputValue: '',
-    userName: '12',// 联系人
-    telNumber: '18311192425', //电话
+    userName: '',// 联系人
+    telNumber: '', //电话
     provinceName: '',
     cityName: '',
     countyName: '',
@@ -19,6 +19,7 @@ Page({
     total: '',
     freight: 0,
     productType: 2,
+    showRemind: false
   },
   handleBuynner(e) {
     this.setData({
@@ -104,17 +105,20 @@ Page({
        success(res) {
          if (res.confirm) {
             app.wxRequest(url, data, (res) => {
-            console.log(res)
+            // console.log(res)
             if(res.data.status == 200) {
               var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign":                res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
               //发起支付
               that.pay(param);
             }else if(res.data.status == 10230) {
-              wx.showToast({
-                title: res.data.msg,
-                image: '/image/quxiao2.png',
-                duration: 1000
+              that.setData({
+                showRemind: true
               })
+              setTimeout(function() {
+                that.setData({
+                  showRemind: false
+                })
+              }, 1500)
               return;
             }
           }, (err) => {
@@ -135,7 +139,7 @@ Page({
        success(res) {
          if (res.confirm) {
            app.wxRequest(url, data, (res) => {
-             console.log(res)
+            //  console.log(res)
              if (res.data.status == 200) {
                wx.navigateTo({
                  url: '/page/myCollection/pages/jifen/jifen',
@@ -159,14 +163,19 @@ Page({
                  selectedName: ''
                })
              } else if (res.data.status == 10230) {
-               wx.showToast({
-                 title: res.data.msg,
-                 image: '/image/quxiao2.png',
-                 duration: 1000
-               })
+                that.setData({
+                  showRemind: true
+                })
+                setTimeout(function () {
+                  that.setData({
+                    showRemind: false
+                  })
+                }, 1500)
              }
            }, (err) => {
              console.log("向后台发送数据失败")
+           }, () => {
+             wx.hideLoading()
            })
          } else if (res.cancel) {
            console.log('用户点击取消')
@@ -185,8 +194,8 @@ Page({
       signType: param.signType,
       paySign: param.paySign,
       success: function (res) {
-         console.log("success");
-         console.log(res);
+        //  console.log("success");
+        //  console.log(res);
           that.setData({
           number: 0,
           delivryType: 1,

@@ -35,7 +35,7 @@
         <view class="born">出生日期：{{item.birthday}}</view>
     </view>
     <view class="detailWrapper">
-      <view class="remove" wx:if="{{item.schoolName == '社会'}}" data-id="{{item.id}}" bindtap="removeInfo">信息迁移</view>
+      <view class="remove" wx:if="{{item.schoolName == '社会'}}" data-id="{{item.id}}" bindtap="hideview">信息迁移</view>
       <view class="toDetailBox" data-id="{{item.id}}"   bindtap="gotoChildrenDetail" >
         <text>详情</text>
 
@@ -47,9 +47,15 @@
     <image src="/image/zengjia.png" mode="aspectFit" style="width: 150rpx;"></image>
   </view>
   </view>
-  <!-- 添加孩子 -->
-  <!-- <view class="swiperwrap addC" bindtap="gotoAddChild" style="background: #F8F8F8;">
-    <image src="/image/zengjia.png" mode="aspectFit" style="width: 150rpx;"></image>
-  </view> -->
+
+  <!-- 信息迁移蒙层 -->
+  <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
+    <view class="show"  wx:if="{{show}}">
+      <view class="txt warning"> 温馨提醒</view>
+      <view class="txt"> 1、信息迁移会将孩子名下所有“检测记录”，“打卡记录”和所有“爱眼币”迁移到目标孩子名下</view>
+      <view class="txt"> 2、此操作可将手动添加的孩子通过扫码方式改成扫码孩子，让您的孩子归结到所在学校名下，参与排座等功能中去</view>
+      <view class="txt"> 3、本操作不可恢复，请确认无误后进行操作</view>
+      <view class="iknow" bindtap="removeInfo">我知道了</view>
+    </view>
   </scroll-view>
 </view>

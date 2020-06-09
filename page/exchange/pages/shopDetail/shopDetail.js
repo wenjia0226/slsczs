@@ -34,6 +34,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "productDetils", data = { id: id };
     app.wxRequest(url, data, (res) => {
+      // console.log(res)
       that.setData({
         specificationsList: res.data.data.specificationsList,
         selectedProduct: res.data.data.specificationsList[0],
@@ -60,6 +61,7 @@ Page({
         integral: selected[0].integral
       })
       wx.setStorageSync('integral', selected[0].integral)
+      wx.setStorageSync('selectedName', selected[0].name);
     })
   },
   goToJieSuan() {
@@ -108,6 +110,8 @@ Page({
     this.setData({
       showGuiGe: true
     })
+    console.log(this.data.specificationsList[0])
+    wx.setStorageSync('productType', this.data.specificationsList[0].productType);
   },
   hideGuige() {
     this.setData({
@@ -129,7 +133,8 @@ Page({
       }
     })
     wx.setStorageSync('selectedName', selected[0].name);
-    wx.setStorageSync('productType', selected[0].productType)
+    wx.setStorageSync('productType', selected[0].productType);
+    wx.setStorageSync('freight', selected[0].freight);
     this.setData({
       integral: selected[0].integral,
       stock: selected[0].stock

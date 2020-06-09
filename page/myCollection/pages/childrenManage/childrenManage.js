@@ -2,7 +2,8 @@
 const app = getApp();
 Page({
   data: {
-    childrenList: []
+    childrenList: [],
+    show: false
   },
   onShow: function (options) { 
     wx.showLoading({
@@ -26,6 +27,9 @@ Page({
   },
   //信息移植
   removeInfo(e) {
+    this.setData({
+      show: false
+    })
     let that = this;
     let removeStuId = e.currentTarget.dataset.id;
     if (wx.getStorageSync('phone')) {
@@ -79,50 +83,17 @@ Page({
       url: '/page/myCollection/pages/mychildren/mychildren?id=' + id,
     })
   },
-//  //添加孩子
-//   gotoAddChild() {
-//    let that = this;
-//    if (wx.getStorageSync('phone')) {
-//      wx.showModal({
-//        title: '添加孩子',
-//        content: '是否进行扫码添加孩子？',
-//        success(res) {
-//          if (res.confirm) {
-//            wx.scanCode({  //扫码
-//              success(res) {
-//                var str = res.path;
-//                let stuId = str.split('=')[1];
-//                wx.setStorageSync("studentId", stuId);
-//                //获取到学生id后添加孩子
-//                let openId = wx.getStorageSync('openId');
-//                let url = app.globalData.URL + 'binding', data = {
-//                  studentId: stuId,
-//                  openId: wx.getStorageSync('openId')
-//                };
-//                wx.showLoading({
-//                  title: '加载中...',
-//                })
-//                app.wxRequest(url, data, (res) => {
-//                  that.setData({
-//                      childrenList: res.data.data
-//                    })
-                  
-//                }, (err) => {
-//                  console.log(err)
-//                })
-//              }
-//            })
-//          } else if (res.cancel) {
-           
-//          }
-//        }
-//      })
-//    } else {
-//      wx.navigateTo({
-//        url: '/nicheng/nicheng'
-//      })
-//    }
-//  },
+  // 蒙层
+  hideview() {
+    this.setData({
+      show: true
+    })
+  },
+  hide() {
+    this.setData({
+      show: false
+    })
+  },
   // 跳转到添加孩子页面
   gotoAddChild() {
     let that = this;

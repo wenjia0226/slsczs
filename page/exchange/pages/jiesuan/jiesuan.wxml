@@ -78,8 +78,11 @@
       <view class="biWrap">
         <image src="/image/bi.png"></image>
       </view>
-      <view class="biMony"> {{total}} <text wx:if="{{type == 1}}">(运费: 10元)</text></view>
+      <view class="biMony"> {{total}} <text wx:if="{{type == 1}}">(运费: ￥{{freight}}元)</text></view>
     </view>
     <view class="addBtn" bindtap="submitOrder"> 提交</view>
+  </view>
+  <view class="remindBox" wx:if="{{showRemind}}">
+    您的爱眼币不足
   </view>
 </view>

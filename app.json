@@ -1,13 +1,16 @@
 {
   "pages": [
+    "startanswer/startanswer",
+    "page/tabBar/my/my",
+    "page/tabBar/exchange/exchange",
+    "answer/answer",
     "page/tabBar/screen/screen",
     "page/tabBar/archives/archives",
-    "page/tabBar/my/my",
+    
     "mychildren/mychildren", 
     "manual/manual",
     "manualTwo/manualTwo",
-    "nicheng/nicheng",
-    "childrenInfo/childrenInfo"
+    "nicheng/nicheng"
   ],
   "tabBar": {
     "list": [
@@ -22,6 +25,13 @@
         "text": "档案",
         "iconPath": "/image/da.png",
         "selectedIconPath": "/image/daactive.png"
+        
+      },
+      {
+        "pagePath": "page/tabBar/exchange/exchange",
+        "text": "护眼城",
+        "iconPath": "/image/exchange.png",
+        "selectedIconPath": "/image/exchangeChecked.png"
       },
       {
         "pagePath": "page/tabBar/my/my",
@@ -66,7 +76,8 @@
         "pages/middle/middle",
         "pages/moderate/moderate",
         "pages/serious/serious",
-        "pages/ranking/ranking"
+        "pages/ranking/ranking",
+        "pages/answer/answer"
       ]
     }, {
       "root": "page/mainFunction",
