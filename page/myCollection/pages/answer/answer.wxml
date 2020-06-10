@@ -1,13 +1,16 @@
 <!--answer/answer.wxml-->
 <view class="main">
-  <view>
-    <image src="/image/"></image>
+  <view class="ImgWrap">
+    <image src="{{pic}}"></image>
   </view>
   <view class="title">
-    2020006一答到底
+    {{title}}
+  </view>
+  <view class="subtitle">
+    {{subtitle}}
   </view>
   <view class="content">
-    茫茫的视光专业知识，您知道多少？ 光亮空间邀请您来冲关，回答专业难题，掌握专业知识，挑战成功，你就是睛英中的精英！还能积累爱眼币，迎娶好礼，快来参加！
+  {{introduction}}
   </view>
   <view class="start" bindtap="gotoStart">
     开始答题

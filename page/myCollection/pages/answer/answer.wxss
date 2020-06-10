@@ -7,15 +7,28 @@
   bottom: 0;
   
 }
+.ImgWrap {
+  width: 100%;
+  height:calc(100vw);
+}
+.ImgWrap image {
+  width: 100%;
+  height: 100%;
+}
 .title {
   margin: 20rpx;
   font-size: 36rpx;
   font-weight: bold;
 }
+.subtitle {
+  font-size: 28rpx;
+  color: #eee;
+  margin: 20rpx;
+}
 .content {
   margin: 20rpx;
   font-size: 28rpx;
-  text-indent: 2;
+  text-indent: 50rpx;
 }
 .start {
   width: 100%;
@@ -27,4 +40,5 @@
   text-align: center;
   position: fixed;
   bottom: 0;
+  box-sizing: border-box;
 }

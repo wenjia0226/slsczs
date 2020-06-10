@@ -1,5 +1,5 @@
 <view class="mainWrap">
- <view class=" titleWrap">
+  <view class=" titleWrap">
     <view class="leftBg">coopervison</view>
     <view class="rightBg"></view>
   </view>
@@ -8,26 +8,45 @@
       <view class="titleBox">
         <text class="first">{{num + 1}}</text> of <text class="second">5</text> <text style="font-size: 30rpx;" wx:if="{{num == 4}}">(多选)</text>
       </view>
-      <!-- <view class="getBi">获得爱眼币</view> -->
     </view>
-    <view class="itemWrap"  >
+    <view class="itemWrap" wx:if="{{num !== 4}}">
       <view class="itemTitle">{{current.title}}</view>
       <view class="itemOption {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}"  data-answer="{{index}}" bindtap="getAnswer">
         {{item.content}}
       </view>
     </view>
-    
-    <view class="rightWrap" wx:if="{{onceclick}}">
+    <view class="itemWrap" wx:if="{{num == 4}}">
+      <view class="itemTitle">{{current.title}}</view>
+      <view class="itemOption {{item.beforeselected ? 'choose': ''}} {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}"  data-answer="{{index}}" bindtap="getAnswer">
+        {{item.content}}
+      </view>
+    </view>
+    <view class="finishAn" bindtap="finishAnswer" wx:if="{{num == 4}}">
+      完成答题
+    </view>
+    <view class="rightWrap" wx:if="{{onceclick && num !== 4}}">
       <view>
-         <text class="circular"></text>
-         <text class="correctAnswer">正确答案：{{current.options[current.keyStr].content}}</text>
+        <text class="circular"></text>
+        <text class="correctAnswer">正确答案：{{current.options[current.keyStr].content}}</text>
       </view>
       <view>
         <text class="explain">解释： {{current.explain}}</text>
       </view>
     </view>
-  </view>  
-  <view class="start" bindtap="gotoNext">
+    <view class="rightWrap" wx:if="{{onceclick && num == 4}}">
+      <view>
+        <text class="circular"></text>
+        <text class="correctAnswer" wx:for="{{keyStrDulp}}">正确答案</text>
+      </view>
+      <view>
+        <text class="explain">解释： {{current.explain}}</text>
+      </view>
+    </view>
+  </view> 
+  <view class="start {{onceclick ? 'nextBg': ''}}" bindtap="gotoNext" wx:if="{{num !== 4}}">
     下一题
+  </view>
+  <view class="start {{onceclick ?  'nextBg': ''}}" bindtap="gotoNext" wx:if="{{num == 4}}">
+    查看结果
   </view>
 </view>

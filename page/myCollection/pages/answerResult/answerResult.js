@@ -1,4 +1,5 @@
 // answerResult/answerResult.js
+const app = getApp();
 Page({
 
   data: {
@@ -12,6 +13,20 @@ Page({
       nickName: wx.getStorageSync('nickName'),
       rightAnswer: wx.getStorageSync('rightAnswer')
     })
+    let that = this;
+    let url = app.globalData.URL + 'answerSubmit';
+    let data = {
+      studentId: wx.getStorageSync('studentId'),
+      number: this.data.rightAnswer
+    }
+    wx.showLoading({
+      title: '加载中...',
+    })
+    app.wxRequest(url, data, (res) => {
+      if (res.data.status == 200) {
+        console.log(res)
+      }
+    }) 
   },
   gotoShopping() {
     wx.switchTab({

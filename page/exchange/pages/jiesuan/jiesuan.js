@@ -98,7 +98,7 @@ Page({
    if(that.data.type == 1) {
      wx.showModal({
        title: '温馨提示',
-       content: '您确认支付' + that.data.total +  '个爱眼币' + '及运费10元吗？',
+       content: '您确认支付' + that.data.total + '个爱眼币' + '及运费 ' + that.data.freight +'元吗？',
        showCancel: true,//是否显示取消按钮  false 不显示
        cancelText: "取消支付",//更改取消
        confirmText: "确认支付",

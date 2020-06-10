@@ -7,6 +7,7 @@ Page({
     index: 0,
     options: [],
     keyStr: '',
+    keyStrDulp: [],
     wrong: false,
     onceclick: false,
     num: 0,
@@ -14,28 +15,29 @@ Page({
     rightNumber: 0//答题正确
   },
   gotoNext() {
-    if(this.data.num < 4) {
-      this.setData({
-        onceclick: false
-      })
-      this.setData({
-        num: this.data.num + 1
-      })
-      let that = this;
-      that.setData({
-        current: that.data.anserList[that.data.num],
-        keyStr: that.data.anserList[that.data.num].keyStr,
-        options: that.data.anserList[that.data.num].options,
-      })
-    }else {
-      wx.showToast({
-        title: '答题结束',
-      })
-      wx.navigateTo({
-        url: '/page/myCollection/pages/answerResult/answerResult?rightNumber=' + this.data.rightNumber ,
-      })
+    if(this.data.onceclick) {
+      if(this.data.num < 4) {
+        this.setData({
+          onceclick: false
+        })
+        this.setData({
+          num: this.data.num + 1
+        })
+        let that = this;
+        that.setData({
+          current: that.data.anserList[that.data.num],
+          keyStr: that.data.anserList[that.data.num].keyStr,
+          options: that.data.anserList[that.data.num].options,
+        })
+      }else {
+        wx.showToast({
+          title: '答题结束',
+        })
+        wx.navigateTo({
+          url: '/page/myCollection/pages/answerResult/answerResult?rightNumber=' + this.data.rightNumber ,
+        })
+      }
     }
-   
   },
   onShow() {
     wx.setStorageSync('rightAnswer', 0)
@@ -48,7 +50,7 @@ Page({
     })
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
-        // console.log(res)
+         console.log(res)
         that.setData({
           anserList: res.data.data,
           current: res.data.data[that.data.num],
@@ -87,38 +89,55 @@ Page({
       })
       }
     } else if (this.data.current.type == '多选题') {
-      if(!this.data.onceclick) {
-          //多选
-          let options = this.data.current.options;
-          let keyStr = this.data.current.keyStr;
-          let dulpling = keyStr.match(/\d+/g);
-          dulpling.forEach((item) => {
-            if (index == Number(item)) {
-              options[index].selected = true;
-              this.setData({
-                dulNum: that.data.dulNum + 1
-              })
-            } else {
-              options[index].wrongSelected = true;
-              this.setData({
-                dulNum: that.data.dulNum - 1
-              })
-            }
-          })
+        let options = this.data.current.options;
+        options[index].beforeselected = !options[index].beforeselected;
           this.setData({
             options: options
           })
-          if (dulpling.length == this.data.dulNum) {
-            this.setData({
-              rightNumber: that.data.rightNumber + 1,
-              dulNum: 0
-            })
-            wx.setStorageSync('rightAnswer', this.data.rightNumber)
-            this.setData({
-              onceclick: true
-            })
-          } 
-        } 
        }
+      },
+  finishAnswer() {
+      //多选
+      let  that =this;
+      let options = this.data.current.options;
+      let arr = [];
+      for(let i = 0; i < options.length; i++) {
+        if(options[i].beforeselected) {
+          arr.push(i)
+        }
       }
+      let keyStr = this.data.current.keyStr;
+      let dulpling = keyStr.match(/\d+/g);
+      this.setData({
+        keyStrDulp: dulpling
+      })
+      arr.forEach((item) => {
+        options[item].wrongSelected = true;
+      })
+      dulpling.forEach((item) => {
+        options[item].selected = true;
+        
+      })
+      options.forEach((item) => {
+        if(item.beforeselected) {
+          item.beforeselected = false;
+        }
+      })
+      this.setData({
+        options: options
+      })
+      let newArr = arr.map((item) => {
+        return item.toString()
+      })
+  
+    if (JSON.stringify(dulpling) == JSON.stringify(newArr)) {
+        this.setData({
+          rightNumber: that.data.rightNumber + 1
+        })
+      }
+        wx.setStorageSync('rightAnswer', this.data.rightNumber)
+        this.setData({
+          onceclick: true
+        })
+  }
 })
