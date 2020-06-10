@@ -36,7 +36,8 @@
     <view class="rightWrap" wx:if="{{onceclick && num == 4}}">
       <view>
         <text class="circular"></text>
-        <text class="correctAnswer" wx:for="{{keyStrDulp}}">正确答案</text>
+        <view class="correctAnswer">正确答案</view>
+        <view class="corrAnswer" wx:for="{{keyStrDulp}}">{{options[item].content}}</view>
       </view>
       <view>
         <text class="explain">解释： {{current.explain}}</text>

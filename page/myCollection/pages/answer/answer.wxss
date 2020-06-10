@@ -22,7 +22,7 @@
 }
 .subtitle {
   font-size: 28rpx;
-  color: #eee;
+  color: #9b9b9b;
   margin: 20rpx;
 }
 .content {

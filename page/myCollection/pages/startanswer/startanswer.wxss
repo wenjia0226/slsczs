@@ -53,9 +53,9 @@
 .first {
   font-size: 40rpx;
   font-weight: bold;
-  color: #bed7e9;
+  color: #5083eb;
   padding: 5rpx;
-  border-bottom: 1rpx solid #bed7e9;
+  border-bottom: 3rpx solid #bed7e9;
   margin: 5rpx 0;
 }
 .getBi {
@@ -70,7 +70,7 @@
 }
 .itemOption {
   padding: 20rpx 50rpx;
-  border: 2rpx solid #f4f9f7;
+  border: 2rpx solid #9b9b9b;
   margin: 20rpx 0;
   text-align: center;
 }
@@ -128,4 +128,7 @@
 .choose {
   background: #5083eb;
   color: #fff;
+}
+.corrAnswer {
+  font-size: 30rpx;
 }

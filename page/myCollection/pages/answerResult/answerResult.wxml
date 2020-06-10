@@ -4,7 +4,7 @@
   <image class="titleImg" src="{{avatarUrl}}"></image>
   <view class="nameWrap">亲爱的 <text class="name">{{nickName}}</text></view>
   <view class="centerWrap">
-    <view class="conItem">本次您共答对{{rightAnswer}}到题</view>
+    <view class="conItem">本次您共答对{{rightAnswer}}道题</view>
     <view class="conItem">获得{{rightAnswer}}个爱眼币</view>
   </view>
   <view class="see" bindtap="gotoShopping"> 
