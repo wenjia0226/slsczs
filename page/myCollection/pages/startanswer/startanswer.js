@@ -48,7 +48,7 @@ Page({
     })
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
-        console.log(res)
+        // console.log(res)
         that.setData({
           anserList: res.data.data,
           current: res.data.data[that.data.num],
@@ -87,28 +87,38 @@ Page({
       })
       }
     } else if (this.data.current.type == '多选题') {
-        //多选
-        let options = this.data.current.options;
-        let keyStr = this.data.current.keyStr;
-        let dulpling = keyStr.match(/\d+/g);
-         dulpling.forEach((item) => {
-           if (index == item) {
-             options[index].selected = true;
-             this.data.dulNum = this.data.dulNum + 1;
-           } else {
-             options[index].wrongSelected = true;
-           }
-         })
-      console.log(dulpling.length, this.data.dulNum)
-      if (dulpling.length == this.data.dulNum) {
-             this.setData({
-               rightNumber: that.data.rightNumber + 1,
-               dulNum: 0,
-               options: options
-             })
-             wx.setStorageSync('rightAnswer', this.data.rightNumber)
-           } 
-         }
-       
+      if(!this.data.onceclick) {
+          //多选
+          let options = this.data.current.options;
+          let keyStr = this.data.current.keyStr;
+          let dulpling = keyStr.match(/\d+/g);
+          dulpling.forEach((item) => {
+            if (index == Number(item)) {
+              options[index].selected = true;
+              this.setData({
+                dulNum: that.data.dulNum + 1
+              })
+            } else {
+              options[index].wrongSelected = true;
+              this.setData({
+                dulNum: that.data.dulNum - 1
+              })
+            }
+          })
+          this.setData({
+            options: options
+          })
+          if (dulpling.length == this.data.dulNum) {
+            this.setData({
+              rightNumber: that.data.rightNumber + 1,
+              dulNum: 0
+            })
+            wx.setStorageSync('rightAnswer', this.data.rightNumber)
+            this.setData({
+              onceclick: true
+            })
+          } 
+        } 
+       }
       }
 })

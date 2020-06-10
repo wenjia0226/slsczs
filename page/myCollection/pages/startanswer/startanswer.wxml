@@ -6,13 +6,13 @@
   <view class="innerWrap">
     <view class="partOne">
       <view class="titleBox">
-        <text class="first">{{num + 1}}</text> of <text class="second">5</text>
+        <text class="first">{{num + 1}}</text> of <text class="second">5</text> <text style="font-size: 30rpx;" wx:if="{{num == 4}}">(多选)</text>
       </view>
       <!-- <view class="getBi">获得爱眼币</view> -->
     </view>
     <view class="itemWrap"  >
       <view class="itemTitle">{{current.title}}</view>
-      <view class="itemOption {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}" data-answer="{{index}}" bindtap="getAnswer">
+      <view class="itemOption {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}"  data-answer="{{index}}" bindtap="getAnswer">
         {{item.content}}
       </view>
     </view>

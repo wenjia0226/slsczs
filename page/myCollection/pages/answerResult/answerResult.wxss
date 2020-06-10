@@ -46,3 +46,8 @@
   border-radius: 40rpx;
   text-align: center;
 }
+.getResult {
+  padding: 10rpx 20rpx;
+  background: red;
+  border-radius: 30rpx;
+}
