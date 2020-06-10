@@ -10,7 +10,8 @@ Page({
     wrong: false,
     onceclick: false,
     num: 0,
-    rightNumber: 0
+    dulNum: 0,
+    rightNumber: 0//答题正确
   },
   gotoNext() {
     if(this.data.num < 4) {
@@ -31,12 +32,13 @@ Page({
         title: '答题结束',
       })
       wx.navigateTo({
-        url: '/answerResult/answerResult?rightNumber=' + this.data.rightNumber ,
+        url: '/page/myCollection/pages/answerResult/answerResult?rightNumber=' + this.data.rightNumber ,
       })
     }
    
   },
   onShow() {
+    wx.setStorageSync('rightAnswer', 0)
     let that = this;
     let url = app.globalData.URL + 'answerList';
     let data = {
@@ -73,9 +75,10 @@ Page({
       })
       if (index == Number(this.data.current.keyStr)) {
         options[index].selected = true;
-        that.setData({
+        this.setData({
           rightNumber: that.data.rightNumber + 1
         })
+        wx.setStorageSync('rightAnswer', this.data.rightNumber)
       }else {
         options[index].wrongSelected = true;
       }
@@ -91,14 +94,21 @@ Page({
          dulpling.forEach((item) => {
            if (index == item) {
              options[index].selected = true;
+             this.data.dulNum = this.data.dulNum + 1;
            } else {
              options[index].wrongSelected = true;
            }
          })
+      console.log(dulpling.length, this.data.dulNum)
+      if (dulpling.length == this.data.dulNum) {
+             this.setData({
+               rightNumber: that.data.rightNumber + 1,
+               dulNum: 0,
+               options: options
+             })
+             wx.setStorageSync('rightAnswer', this.data.rightNumber)
+           } 
+         }
        
-        this.setData({
-          options: options
-        })
       }
-    }
 })

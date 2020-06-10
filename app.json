@@ -1,12 +1,11 @@
 {
   "pages": [
-    "startanswer/startanswer",
+  
     "page/tabBar/my/my",
     "page/tabBar/exchange/exchange",
-    "answer/answer",
+ 
     "page/tabBar/screen/screen",
     "page/tabBar/archives/archives",
-    
     "mychildren/mychildren", 
     "manual/manual",
     "manualTwo/manualTwo",
@@ -64,7 +63,6 @@
         "pages/childrenManage/childrenManage",
         "pages/mychildren/mychildren",
         "pages/corparation/corparation",
-        "pages/user/user",
         "pages/reportList/reportList",
         "pages/reportDetail/reportDetail",
         "pages/teacherLogin/teacherLogin",
