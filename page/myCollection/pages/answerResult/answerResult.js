@@ -24,10 +24,10 @@ Page({
       title: '加载中...',
     })
     app.wxRequest(url, data, (res) => {
-      console.log(res)
+      // console.log(res)
       if (res.data.status == 200) {
        that.setData({
-         msg: '恭喜您获得'+ that.data.number + '个爱眼币'
+         msg: '恭喜您获得' + that.data.rightAnswer + '个爱眼币'
        })
       }else {
         that.setData({

@@ -30,8 +30,6 @@ Page({
   },
   onLoad: function (options) {
     this.getInfo(); //首页轮播图
-  },
-  onShow() {
     this.setData({
       page: 1,
       productList: []

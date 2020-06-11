@@ -1,9 +1,10 @@
 {
   "pages": [
-    "page/tabBar/archives/archives",
     "page/tabBar/my/my",
-    "page/tabBar/exchange/exchange",
     "page/tabBar/screen/screen",
+    "page/tabBar/archives/archives",
+   
+    "page/tabBar/exchange/exchange",
     "mychildren/mychildren", 
     "manual/manual",
     "manualTwo/manualTwo",
@@ -73,7 +74,9 @@
         "pages/moderate/moderate",
         "pages/serious/serious",
         "pages/ranking/ranking",
-        "pages/answer/answer"
+        "pages/answer/answer", 
+        "pages/answerResult/answerResult",
+        "pages/startanswer/startanswer"
       ]
     }, {
       "root": "page/mainFunction",

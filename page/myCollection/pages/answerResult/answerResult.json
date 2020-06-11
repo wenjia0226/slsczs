@@ -1,5 +1,3 @@
 {
-  "navigationBarTitleText": "一答到底",
-  "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#000"
+  "navigationStyle": "custom"
 }

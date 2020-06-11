@@ -14,7 +14,8 @@ Page({
     dulNum: 0,
     rightNumber: 0,//答题正确
     optionList: ['A', 'B', 'C', 'D'],
-    selectedArr: []
+    selectedArr: [],
+    submitAnswer: false
   },
   gotoNext() {
     if(this.data.onceclick) {
@@ -99,6 +100,10 @@ Page({
        }
       },
   finishAnswer() {
+    if (!this.data.submitAnswer) {
+      this.setData({
+        submitAnswer: true
+      })
       //多选
       let  that =this;
       let options = this.data.current.options;
@@ -107,6 +112,13 @@ Page({
         if(options[i].beforeselected) {
           arr.push(i)
         }
+      }
+      if(!arr.length) {
+        wx.showModal({
+          title: '',
+          content: '请先选择答案'
+        })
+        return;
       }
       this.setData({
         selectedArr: arr
@@ -144,5 +156,6 @@ Page({
         this.setData({
           onceclick: true
         })
+    }
   }
 })

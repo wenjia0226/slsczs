@@ -117,12 +117,22 @@ Page({
       id: delId,
       type: type
     };
-    app.wxRequest(url, data, (res) => {
-      // console.log(res)
-      if(res.data.status == 200) {
-        that.getArchiveList()
+    wx.showModal({
+      title: '删除孩子',
+      content: '删除档案记录后将无法恢复，是否进行删除？',
+      success(res) {
+        if (res.confirm) {
+          app.wxRequest(url, data, (res) => {
+             console.log(res)
+            if (res.data.status == 200) {
+              that.getArchiveList()
+            }
+          })
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
       }
-    })
+    })    
   },
   getChildrenList() {
     let that = this;

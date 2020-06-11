@@ -11,38 +11,40 @@
     </view>
     <view class="itemWrap" wx:if="{{num !== 4}}">
       <view class="itemTitle">{{current.title}}</view>
-      <view class="itemOption {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}"  data-answer="{{index}}" bindtap="getAnswer">
-        {{optionList[index]}} : {{item.content}}
+      <view class=" itemBox " wx:for="{{options}}"  >
+        <view class="choice"> {{optionList[index]}} </view>
+        <view class="itemOption {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" data-answer="{{index}}" bindtap="getAnswer">{{item.content}}</view>
       </view>
     </view>
     <view class="itemWrap" wx:if="{{num == 4}}">
       <view class="itemTitle">{{current.title}}</view>
-      <view class="itemOption {{item.beforeselected ? 'choose': ''}} {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}"  data-answer="{{index}}" bindtap="getAnswer">
-        {{optionList[index]}} : {{item.content}}
+       <view class=" itemBox " wx:for="{{options}}">
+        <view class="choice"> {{optionList[index]}}</view>
+        <view class="itemOption {{item.beforeselected ? 'choose': ''}} {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" bindtap="getAnswer"  data-answer="{{index}}">{{item.content}}</view>
       </view>
     </view>
-    <view class="finishAn" bindtap="finishAnswer" wx:if="{{num == 4}}">
+    <view class="finishAn {{submitAnswer ? 'bgNocheck': ''}}" bindtap="finishAnswer" wx:if="{{num == 4}}">
       完成答题
     </view>
     <view class="rightWrap" wx:if="{{onceclick && num !== 4}}">
-      <view>
+      <view class="bottomWrap">
         <text class="circular"></text>
-        <text class="correctAnswer">正确答案：{{optionList[current.keyStr]}}</text>
+        <text class="correctAnswer" decode="{{true}}">正确答案:&nbsp;&nbsp;{{optionList[current.keyStr]}}</text>
       </view>
       <view>
-        <text class="explain">解释： {{current.explain}}</text>
+        <text class="explain" decode="{{true}}">解释:&nbsp;&nbsp;{{current.explain}}</text>
       </view>
     </view>
     <view class="rightWrap" wx:if="{{onceclick && num == 4}}">
-      <view>
+      <view  class="bottomWrap">
         <text class="circular"></text>
         <text class="correctAnswer">正确答案:</text>
-        <text class="corrAnswer" wx:for="{{keyStrDulp}}">{{optionList[item]}}</text>
+        <text class="corrAnswer"  decode="{{true}}" wx:for="{{keyStrDulp}}">&nbsp;&nbsp;{{optionList[item]}}&nbsp;&nbsp;</text>
       </view>
        <view>
         <text class="circular"></text>
         <text class="correctAnswer">您的选择:</text>
-        <text class="corrAnswer" wx:for="{{selectedArr}}">{{optionList[item]}}</text>
+        <text class="corrAnswer" wx:for="{{selectedArr}}"  decode="{{true}}">&nbsp;&nbsp;{{optionList[item]}}&nbsp;&nbsp;</text>
       </view>
       <view>
         <text class="explain">解释： {{current.explain}}</text>

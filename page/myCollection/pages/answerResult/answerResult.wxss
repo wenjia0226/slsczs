@@ -37,6 +37,7 @@
 }
 .conItem {
   padding: 10rpx;
+  text-align: center;
 }
 .see {
   margin: 40rpx 0;

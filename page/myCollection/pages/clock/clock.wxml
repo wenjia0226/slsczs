@@ -15,12 +15,6 @@
          <view wx:if="{{task.success}}" class="rightA"><image src="/image/zhengque.png"></image></view>
          <view>  {{task.title}}</view>
         </view>
-          <!-- <view class="clockItem">三个“一”读写姿势</view>
-         <view class="clockItem">营养均衡</view>
-          <view class="clockItem">遵守20-20-20法则</view>
-         <view class="clockItem">睡眠充足</view>
-          <view class="clockItem">使用科学的学习光源</view>
-         <view class="clockItem">定期自检</view> -->
       </view>
     </view>
   </view>

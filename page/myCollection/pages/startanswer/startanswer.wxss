@@ -69,11 +69,25 @@
   font-size: 30rpx;
   margin: 30rpx 0 60rpx;
 }
+.itemBox {
+  display: flex;
+  align-items: center;
+}
 .itemOption {
-  padding: 20rpx 50rpx;
+  padding: 10rpx;
   border: 2rpx solid #9b9b9b;
   margin: 20rpx 0;
-  text-align: center;
+  display: flex;
+  width:100%;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.bottomWrap {
+  display: flex;
+  align-items: center;
+}
+.choice {
+   padding: 0 20rpx;
 }
 .start {
   width: 100%;
@@ -112,6 +126,9 @@
   border-radius: 50%;
   background: #8bc931;
   margin: 10rpx 20rpx 10rpx 0;
+}
+.bgNocheck {
+ background: #9b9b9b
 }
 .rightWrap {
   margin: 50rpx 0;
