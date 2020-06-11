@@ -32,6 +32,12 @@ Page({
           keyStr: that.data.anserList[that.data.num].keyStr,
           options: that.data.anserList[that.data.num].options,
         })
+        if (that.data.current.explain == null) {
+          that.data.current.explain = " 暂无"
+        }
+        that.setData({
+          current: that.data.current
+        })
       }else {
         wx.showToast({
           title: '答题结束',
@@ -59,6 +65,12 @@ Page({
           current: res.data.data[that.data.num],
           keyStr: res.data.data.keyStr,
           options: res.data.data[that.data.num].options,
+        })
+        if (that.data.current.explain == null) {
+          that.data.current.explain = " 暂无"
+        }
+        that.setData({
+          current: that.data.current
         })
       }
     })  
