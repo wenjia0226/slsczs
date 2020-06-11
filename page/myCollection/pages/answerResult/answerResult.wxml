@@ -8,7 +8,7 @@
     <view class="conItem">获得{{rightAnswer}}个爱眼币</view>
   </view>
   <view class="see" bindtap="gotoShopping"> 
-      兑换
+      进入护眼城
   </view>
   <view class="see" bindtap="gotoIndex"> 
       回到首页

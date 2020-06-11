@@ -12,13 +12,13 @@
     <view class="itemWrap" wx:if="{{num !== 4}}">
       <view class="itemTitle">{{current.title}}</view>
       <view class="itemOption {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}"  data-answer="{{index}}" bindtap="getAnswer">
-        {{item.content}}
+        {{optionList[index]}} : {{item.content}}
       </view>
     </view>
     <view class="itemWrap" wx:if="{{num == 4}}">
       <view class="itemTitle">{{current.title}}</view>
       <view class="itemOption {{item.beforeselected ? 'choose': ''}} {{item.selected ? 'right': ''}} {{item.wrongSelected? 'wrong': ''}}" wx:for="{{options}}"  data-answer="{{index}}" bindtap="getAnswer">
-        {{item.content}}
+        {{optionList[index]}} : {{item.content}}
       </view>
     </view>
     <view class="finishAn" bindtap="finishAnswer" wx:if="{{num == 4}}">
@@ -27,7 +27,7 @@
     <view class="rightWrap" wx:if="{{onceclick && num !== 4}}">
       <view>
         <text class="circular"></text>
-        <text class="correctAnswer">正确答案：{{current.options[current.keyStr].content}}</text>
+        <text class="correctAnswer">正确答案：{{optionList[current.keyStr]}}</text>
       </view>
       <view>
         <text class="explain">解释： {{current.explain}}</text>
@@ -36,8 +36,13 @@
     <view class="rightWrap" wx:if="{{onceclick && num == 4}}">
       <view>
         <text class="circular"></text>
-        <view class="correctAnswer">正确答案</view>
-        <view class="corrAnswer" wx:for="{{keyStrDulp}}">{{options[item].content}}</view>
+        <text class="correctAnswer">正确答案:</text>
+        <text class="corrAnswer" wx:for="{{keyStrDulp}}">{{optionList[item]}}</text>
+      </view>
+       <view>
+        <text class="circular"></text>
+        <text class="correctAnswer">您的选择:</text>
+        <text class="corrAnswer" wx:for="{{selectedArr}}">{{optionList[item]}}</text>
       </view>
       <view>
         <text class="explain">解释： {{current.explain}}</text>

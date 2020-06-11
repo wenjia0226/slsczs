@@ -12,7 +12,9 @@ Page({
     onceclick: false,
     num: 0,
     dulNum: 0,
-    rightNumber: 0//答题正确
+    rightNumber: 0,//答题正确
+    optionList: ['A', 'B', 'C', 'D'],
+    selectedArr: []
   },
   gotoNext() {
     if(this.data.onceclick) {
@@ -106,6 +108,9 @@ Page({
           arr.push(i)
         }
       }
+      this.setData({
+        selectedArr: arr
+      })
       let keyStr = this.data.current.keyStr;
       let dulpling = keyStr.match(/\d+/g);
       this.setData({
