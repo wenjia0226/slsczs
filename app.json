@@ -1,11 +1,9 @@
 {
   "pages": [
-  
+    "page/tabBar/archives/archives",
     "page/tabBar/my/my",
     "page/tabBar/exchange/exchange",
- 
     "page/tabBar/screen/screen",
-    "page/tabBar/archives/archives",
     "mychildren/mychildren", 
     "manual/manual",
     "manualTwo/manualTwo",

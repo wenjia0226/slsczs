@@ -40,6 +40,7 @@ Page({
       studentId: this.data.studentId
     };
     app.wxRequest(url, data, (res) => {
+      console.log(res)
       that.setData({
         name: res.data.data.name,
         schoolName: res.data.data.schoolName,

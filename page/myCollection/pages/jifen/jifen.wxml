@@ -13,20 +13,20 @@
           <swiper-item class="swiperItem " data-id="{{item.id}}" data-index="{{index}}"  wx:for="{{childrenList}}" wx:key="id" bindtap="getItem" >
             <view class="portrait {{index == currentIndex ? 'active': ''}}">
               <!-- 男孩及段位 -->
-              <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 300 >=item.myIntegral > 0}}"></image>
-                <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{item.gender == 0 && 600 >=item.myIntegral > 300}}"></image>
-                  <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 900 >=item.myIntegral > 600}}"></image>
-                    <image src="https://www.guangliangkongjian.com/images/b4.pngg"  mode="aspectFit" wx:if="{{ item.gender == 0 && 1200 >=item.myIntegral > 900}}"></image>
-                      <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{item.gender == 0 && 1500 >=item.myIntegral > 1200}}"></image>
-                        <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 49999 >=item.myIntegral > 1500}}"></image>
+              <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 300 >=item.myIntegral && item.myIntegral >= 0}}"></image>
+                <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{item.gender == 0 && 600 >=item.myIntegral && item.myIntegral> 300}}"></image>
+                  <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 900 >=item.myIntegral && item.myIntegral> 600}}"></image>
+                    <image src="https://www.guangliangkongjian.com/images/b4.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 1200 >=item.myIntegral && item.myIntegral> 900}}"></image>
+                      <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{item.gender == 0 && 1500 >=item.myIntegral && item.myIntegral> 1200}}"></image>
+                        <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 49999 >=item.myIntegral && item.myIntegral> 1500}}"></image>
                           <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{ item.gender == 0 &&item.myIntegral >= 50000}}"></image>
                <!-- 女孩及段位 -->
-              <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 300 >=item.myIntegral > 0}}"></image>
-                <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 600 >=item.myIntegral > 300}}"></image>
-                  <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 900 >=item.myIntegral > 600}}"></image>
-                    <image src="https://www.guangliangkongjian.com/images/g4.pngg"  mode="aspectFit" wx:if="{{item.gender == 1 && 1200 >=item.myIntegral > 900}}"></image>
-                      <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 1500 >=item.myIntegral > 1200}}"></image>
-                        <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 49999 >=item.myIntegral > 1500}}"></image>
+              <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 300 >=item.myIntegral && item.myIntegral>= 0}}"></image>
+                <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 600 >=item.myIntegral && item.myIntegral> 300}}"></image>
+                  <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 900 >=item.myIntegral && item.myIntegral> 600}}"></image>
+                    <image src="https://www.guangliangkongjian.com/images/g4.png"  mode="aspectFit" wx:if="{{item.gender == 1 && 1200 >=item.myIntegral && item.myIntegral> 900}}"></image>
+                      <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 1500 >=item.myIntegral && item.myIntegral> 1200}}"></image>
+                        <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{ item.gender == 1 && 49999 >=item.myIntegral && item.myIntegral> 1500}}"></image>
                           <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{item.gender == 1 &&item.myIntegral >= 50000}}"></image>      
             </view>
             <view class="name">{{item.name}}</view>

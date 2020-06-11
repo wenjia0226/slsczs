@@ -5,7 +5,8 @@ Page({
   data: {
     avatarUrl:'',
     nickName: '',
-    rightAnswer: 0
+    rightAnswer: 0,
+    msg: ''
   },
   onLoad(options) {
     this.setData({
@@ -23,8 +24,15 @@ Page({
       title: '加载中...',
     })
     app.wxRequest(url, data, (res) => {
+      console.log(res)
       if (res.data.status == 200) {
-        console.log(res)
+       that.setData({
+         msg: '恭喜您获得'+ that.data.number + '个爱眼币'
+       })
+      }else {
+        that.setData({
+          msg: res.data.msg
+        })
       }
     }) 
   },

@@ -46,16 +46,16 @@
   width: 40%;
 }
 .rightCon {
-  width: 150rpx;
-  height: 150rpx;
-  background: #fff;
+  width: 200rpx;
+  height: 200rpx;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .rightCon image {
-  width: 140rpx;
+  width: 100%;
+  height: 100%;
 }
 .active {
   border:15rpx solid #3e65e4 !important;

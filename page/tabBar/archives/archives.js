@@ -102,6 +102,28 @@ Page({
     }
     this.getArchiveList()
   },
+  //删除档案
+  deleteItem(e) {
+    let delId = e.currentTarget.dataset.id;
+    let delType = e.currentTarget.dataset.type;
+    let type;
+    if(delType == 'luo') {
+       type = 1
+    }else {
+      type = 2
+    }
+    let that = this;
+    let url = app.globalData.URL + 'deleteScreening', data = {
+      id: delId,
+      type: type
+    };
+    app.wxRequest(url, data, (res) => {
+      // console.log(res)
+      if(res.data.status == 200) {
+        that.getArchiveList()
+      }
+    })
+  },
   getChildrenList() {
     let that = this;
     let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
@@ -165,7 +187,6 @@ Page({
         openId: wx.getStorageSync('openId')
       };
       app.wxRequest(url, data, (res) => { 
-        //  console.log(res, 123)
         //如果孩子不为空
         if(res.data.data !== null) {
           that.setData({
@@ -181,7 +202,6 @@ Page({
           that.setData({
             navList: currentStu
           })
-
           if(currentStu.length) {
             let picList = currentStu.map((item) => {
               return item.picList

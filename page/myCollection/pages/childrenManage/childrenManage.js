@@ -21,6 +21,16 @@ Page({
       that.setData({
         childrenList: res.data.data
       })
+      let childrenList = res.data.data;
+      childrenList.forEach((item) => {
+        if (item.myIntegral == null) {
+          item.myIntegral = 0
+        }
+      })
+      that.setData({
+        childrenList: childrenList
+      })
+      
     }, (err) => {
       console.log(err)
     })

@@ -91,6 +91,16 @@ Page({
           that.setData({
             childrenList: that.data.childrenList
           })
+         
+        let childrenList = res.data.data;
+         childrenList.forEach((item) => {
+           if (item.myIntegral == null) {
+             item.myIntegral = 0
+           }
+         })
+          that.setData({
+            childrenList: childrenList
+          })
         that.data.childrenList.forEach((item, index) => {
            if(item.id == wx.getStorageSync('studentId')) {
              that.setData({

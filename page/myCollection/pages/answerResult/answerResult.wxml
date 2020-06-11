@@ -5,12 +5,12 @@
   <view class="nameWrap">亲爱的 <text class="name">{{nickName}}</text></view>
   <view class="centerWrap">
     <view class="conItem">本次您共答对{{rightAnswer}}道题</view>
-    <view class="conItem">获得{{rightAnswer}}个爱眼币</view>
+    <view class="conItem">{{msg}}</view>
   </view>
   <view class="see" bindtap="gotoShopping"> 
       进入护眼城
   </view>
-  <view class="see" bindtap="gotoIndex"> 
+  <view class="home" bindtap="gotoIndex"> 
       回到首页
   </view>
 </view>

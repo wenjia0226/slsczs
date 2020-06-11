@@ -42,7 +42,7 @@ Page({
    
     app.wxRequest(url, data, (res) => {
       res.data.data ? res = res.data.data : '';
-      // console.log(res)
+      console.log(res)
       that.setData({
         studentName: res.studentName,
         vision5Left: res.vision5Left,
@@ -56,7 +56,9 @@ Page({
         date: res.date,
         gender: res.gender,
         processLeftList: res.processLeftList,
-        processRightList: res.processRightList
+        processRightList: res.processRightList,
+        myIntegral: res.myIntegral
+
       })
     }, (err) => {
       console.log(err)

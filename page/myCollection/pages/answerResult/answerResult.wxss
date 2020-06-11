@@ -47,6 +47,15 @@
   text-align: center;
   width: 100%;
 }
+.home {
+  margin: 40rpx 0;
+  padding: 20rpx 30rpx;
+  color: #9e9e9e;
+  border-radius: 40rpx;
+  border: 2rpx solid #9e9e9e;
+  text-align: center;
+  width: 100%;
+}
 .getResult {
   padding: 10rpx 20rpx;
   background: red;

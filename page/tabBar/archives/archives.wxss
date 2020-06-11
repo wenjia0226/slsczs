@@ -42,8 +42,8 @@
   border-radius: 15rpx;
   display: flex;
   align-items: center;
-  
 }
+
 .logo {
     width: 200rpx;
     height: 200rpx;
@@ -80,20 +80,37 @@
 .list {
   margin: 20rpx 0;
   border-radius: 20rpx;
-  
+  display:flex;
+}
+.outerItems {
+  display: flex; 
+  flex: 1;
+  margin: 0 4% 20rpx;
+  background: #fff;
+  border-radius:  15rpx;
 }
 .items {
+  flex: 1;
   display: flex;
   align-items: center;
   font-size: 30rpx;
   line-height: 30rpx;
   background: #fff;
-  margin: 0 5% 20rpx;
+
+  position: relative;
+}
+.delWrap {
+  width: 40rpx;
+  height: 100%;
   border-radius:  15rpx;
- 
+  padding: 10rpx;
+}
+.delWrap image {
+  width: 40rpx;
+  height: 40rpx;
 }
 .item {
-  width: 33%;
+  flex:1;
   text-align: center;
   padding: 8rpx 0;
 }
