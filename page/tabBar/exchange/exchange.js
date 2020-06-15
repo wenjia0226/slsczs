@@ -23,9 +23,8 @@ Page({
   },
   gotoDetail(e) {
     let id = e.currentTarget.dataset.id;
-    wx.setStorageSync('productId', id)
     wx.navigateTo({
-      url: '/page/exchange/pages/shopDetail/shopDetail'
+      url: '/page/exchange/pages/shopDetail/shopDetail?produtId=' + id
     })
   },
   onLoad: function (options) {
@@ -41,7 +40,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "productList", data = {page: this.data.page};
     app.wxRequest(url, data, (res) => {
-      // console.log(res)
+       //console.log(res)
       if (res.data.status == 200) {
           var contentlist = res.data.data;
           var productList = that.data.productList;
@@ -49,7 +48,7 @@ Page({
             productList = []
           }
         var productList = that.data.productList;
-          if (contentlist.length <= that.data.pageSize) {                                                                                                           that.setData({
+          if (contentlist.length <= that.data.pageSize) {                                                                  that.setData({
               hasMoreData: false,
               productList: productList.concat(contentlist),
             })
@@ -100,7 +99,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        // console.log(res)
+        //  console.log(res)
         that.setData({
           swiperList: res.data.data
         })

@@ -18,7 +18,8 @@ Page({
     stock: 0,
     disabledAdd: 0,
     details: '',
-    current: 0
+    current: 0,
+    productType: 1
   },
   // 商品轮播
   swiperChange: function (e) {
@@ -26,15 +27,15 @@ Page({
       current: e.detail.current
     })
   },
-  onShow() {
-    let id = wx.getStorageSync('productId');
+  onLoad(options) {
+    let id = options.produtId;
     this.getProductDetail(id)
   },
   getProductDetail(id) {
     let that = this;
     let url = app.globalData.URL + "productDetils", data = { id: id };
     app.wxRequest(url, data, (res) => {
-      // console.log(res)
+      //  console.log(res)
       that.setData({
         specificationsList: res.data.data.specificationsList,
         selectedProduct: res.data.data.specificationsList[0],
@@ -110,14 +111,16 @@ Page({
     this.setData({
       showGuiGe: true
     })
-    console.log(this.data.specificationsList[0])
     wx.setStorageSync('productType', this.data.specificationsList[0].productType);
+    this.setData({
+      productType: this.data.specificationsList[0].productType
+    })
   },
   hideGuige() {
     this.setData({
       showGuiGe: false,
-      selectedId: this.data.specificationsList[0].id,
-      number: 1
+      // selectedId: this.data.specificationsList[0].id,
+      // number: 1
     })
   },
   selectGuige(e) {
@@ -137,14 +140,15 @@ Page({
     wx.setStorageSync('freight', selected[0].freight);
     this.setData({
       integral: selected[0].integral,
-      stock: selected[0].stock
+      stock: selected[0].stock,
+      productType: selected[0].productType
     })
     wx.setStorageSync('integral', this.data.integral);
   
   },
   //点击数量减少
   reduce() {
-    if(this.data.number >=1) {
+    if(this.data.number >=1 && this.data.productType !== 1) {
       this.setData({
         number: this.data.number - 1,
         disabledAdd: 0
@@ -152,7 +156,7 @@ Page({
     }
   },
   add() {
-    if (this.data.number < this.data.stock && !this.data.disabledAdd) {
+    if (this.data.number < this.data.stock && !this.data.disabledAdd && this.data.productType !== 1) {
       this.setData({
         number: this.data.number + 1
       })
@@ -166,9 +170,8 @@ Page({
   // 猜你喜欢 兑换跳转
   gotoDetail(e) {
     let id = e.currentTarget.dataset.id;
-    wx.setStorageSync('productId', id)
     wx.navigateTo({
-      url: '/page/exchange/pages/shopDetail/shopDetail'
+      url: '/page/exchange/pages/shopDetail/shopDetail?produtId='+ id
     })
   },
 })

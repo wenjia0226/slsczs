@@ -1,10 +1,5 @@
 /* my.wxss */
 .main {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   background: #eee;
 }
 .headerWrap{
@@ -91,7 +86,7 @@
   font-size: 24rpx;
 }
 .listWrap {
-  margin: 10rpx 0;
+  /* margin: 10rpx 0; */
 
 }
 .login{

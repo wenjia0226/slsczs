@@ -130,7 +130,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        //  console.log(res)
+      //  console.log(res)
         if (res.data.status == 200) {
           that.setData({
             showModalStatus: false

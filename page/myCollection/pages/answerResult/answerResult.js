@@ -6,7 +6,18 @@ Page({
     avatarUrl:'',
     nickName: '',
     rightAnswer: 0,
-    msg: ''
+    msg: '',
+    showCongratulation: false
+  },
+  voidRight() {
+    const rightContext = wx.createInnerAudioContext();
+    rightContext.autoplay = true
+    rightContext.src = '/image/win.mp3'
+    rightContext.onPlay(() => {
+    })
+    rightContext.onError((res) => {
+      console.log(res.errMsg)
+    })
   },
   onLoad(options) {
     this.setData({
@@ -26,8 +37,10 @@ Page({
     app.wxRequest(url, data, (res) => {
       // console.log(res)
       if (res.data.status == 200) {
+        that.voidRight();
        that.setData({
-         msg: '恭喜您获得' + that.data.rightAnswer + '个爱眼币'
+         msg: '恭喜您获得' + that.data.rightAnswer + '个爱眼币',
+         showCongratulation: true
        })
       }else {
         that.setData({
@@ -45,7 +58,20 @@ Page({
     wx.switchTab({
       url: '/page/tabBar/screen/screen',
     })
-  }
+  },
+  gotobi() {
+    wx.navigateTo({
+      url: '/page/myCollection/pages/jifen/jifen'
+    })
+    this.setData({
+      showCongratulation: false
+    })
+  },
+  hideview() {
+    this.setData({
+      showCongratulation: false
+    })
+  },
 
   
 })

@@ -201,7 +201,6 @@ swiper {
 /* 模态框 */
 .drawer_box {  
   width: 600rpx;  
-  height: 400rpx;
   /* overflow: hidden;   */
   position: absolute;  
   top: 50%;  
@@ -233,6 +232,7 @@ swiper {
 .guanzhuWrap {
   display: flex;
   justify-content: center;
+  margin-bottom: 20rpx;
 }
 .guanzhu {
   font-size: 30rpx;
@@ -243,4 +243,9 @@ swiper {
   width: 30%;
   text-align: center;
   letter-spacing: 5rpx;
+}
+.wraningBox {
+  margin: 20rpx 8%;
+  font-size: 24rpx;
+  line-height: 40rpx;
 }

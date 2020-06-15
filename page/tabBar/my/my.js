@@ -311,6 +311,35 @@ Page({
       })
     }
   },
+  goClert() {
+    if (wx.getStorageSync('phone')) {
+      let that = this;
+      let url = app.globalData.URL + 'chkClert';
+      let data = {
+        openId: wx.getStorageSync('openId')
+      }
+      wx.showLoading({
+        title: '加载中...',
+      })
+      app.wxRequest(url, data, (res) => {
+
+        console.log(res)
+        if (res.data.status == 200) {
+          wx.navigateTo({
+            url: '/page/myCollection/pages/clertPage/clertPage'
+          })
+        } else if (res.data.status == 10227) {
+          wx.navigateTo({
+            url: '/page/myCollection/pages/clertLogin/clertLogin'
+          })
+        }
+      }, (err) => {
+        console.log(err)
+      })
+    } else {
+      this.gotoLogin();
+    }
+  }
   //登录
   // getPhone(code, encryptedData, iv) {
   //   console.log(that.data.code, 999)

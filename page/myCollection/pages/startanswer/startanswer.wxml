@@ -1,6 +1,8 @@
 <view class="mainWrap">
   <view class=" titleWrap">
-    <view class="leftBg">coopervison</view>
+    <view class="leftBg">
+      <image src="/image/logo.png" mode="aspectFit"></image>
+    </view>
     <view class="rightBg"></view>
   </view>
   <view class="innerWrap">

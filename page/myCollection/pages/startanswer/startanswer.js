@@ -12,7 +12,7 @@ Page({
     onceclick: false,
     num: 0,
     dulNum: 0,
-    rightNumber: 0,//答题正确
+    rightNumber: 0,//答题正确 
     optionList: ['A', 'B', 'C', 'D'],
     selectedArr: [],
     submitAnswer: false
@@ -48,7 +48,7 @@ Page({
       }
     }
   },
-  onShow() {
+  onLoad() {
     wx.setStorageSync('rightAnswer', 0)
     let that = this;
     let url = app.globalData.URL + 'answerList';
@@ -59,7 +59,7 @@ Page({
     })
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
-         console.log(res)
+        //  console.log(res)
         that.setData({
           anserList: res.data.data,
           current: res.data.data[that.data.num],
@@ -104,11 +104,13 @@ Page({
       })
       }
     } else if (this.data.current.type == '多选题') {
+      if(!this.data.submitAnswer) {
         let options = this.data.current.options;
         options[index].beforeselected = !options[index].beforeselected;
-          this.setData({
-            options: options
-          })
+        this.setData({
+          options: options
+        })
+      } 
        }
       },
   finishAnswer() {

@@ -1,0 +1,55 @@
+/* page/myCollection//pages/clertPage/clertPage.wxss */
+.mainWrap {
+  background: #f7f8fa;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.centerWrap {
+  flex: 1;
+  overflow: hidden;
+}
+.itemWrap {
+ margin: 20rpx 5%;
+ border-radius: 10rpx;
+}
+.item {
+  padding:  16rpx 10rpx;
+  background: #fff;
+ 
+  box-sizing: border-box;
+  font-size: 26rpx;
+  display: flex;
+}
+.size {
+  width: 200rpx;
+  padding-left: 20rpx;
+  display: inline-block;
+}
+.name {
+  flex:1;
+}
+.bottomWrap {
+  height: 120rpx;
+}
+.scanWrap {
+  position: fixed;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.scanBox {
+  width: 60%;
+  background: #1ea8ff;
+  padding: 16rpx;
+  box-sizing: border-box;
+  border-radius:  36rpx;
+  text-align: center;
+  color: #fff;
+}

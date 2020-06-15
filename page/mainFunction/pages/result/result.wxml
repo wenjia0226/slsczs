@@ -6,9 +6,7 @@
   <view class="congratulaition"  wx:if="{{showCongratulation}}">
     <image src="/image/cg.png" mode="aspectFit"></image>
   </view>
-  <view class="titleWrap">
-    获得 <text class="number">3个</text> 爱眼币
-    </view>
+    <view class="titleWrap">获得 <text class="number">3个</text> 爱眼币</view>
     <view class="flowerWrap">
       <image src="/image/flower2.png"  class="flower"mode="aspectFit"></image>
       <image src="/image/eyes.png" class="eye" mode="aspectFit"></image>

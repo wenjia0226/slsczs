@@ -84,6 +84,14 @@
       </view>
     </view>
   </view>
+  <view class="listWrap" >
+    <view class="item" bindtap="goClert">
+      <view class="mychild">我是店员</view>
+       <view class="titleRight">
+        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
   <!-- <view class="listWrap" style="margin: 10rpx 5%;">
     <official-account></official-account>
   </view> -->

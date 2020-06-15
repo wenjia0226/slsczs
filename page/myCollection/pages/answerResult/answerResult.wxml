@@ -1,5 +1,22 @@
 <!--answerResult/answerResult.wxml-->
 <view class="mainWrap">
+ <!-- 爱眼答题恭喜页面 -->
+<view class="bg2"  wx:if="{{showCongratulation}}"></view>
+<view class="show"  wx:if="{{showCongratulation}}">
+  <view class="congratulaition"  wx:if="{{showCongratulation}}">
+    <image src="/image/cg.png" mode="aspectFit"></image>
+  </view>
+    <view class="biWrap">{{msg}}</view>
+    <view class="flowerWrap">
+      <image src="/image/flower2.png"  class="flower"mode="aspectFit"></image>
+      <image src="/image/eyes.png" class="eye" mode="aspectFit"></image>
+    </view>
+    <view class="buttonWrap">
+      <view class="see" bindtap='hideview'> 我知道了</view>
+      <view class="see seeMore" bindtap="gotobi"> 去看看</view>
+    </view>
+</view>
+
 <view class="titleWrap">
   <image class="titleImg" src="{{avatarUrl}}"></image>
   <view class="nameWrap">亲爱的 <text class="name">{{nickName}}</text></view>
@@ -7,9 +24,9 @@
     <view class="conItem">本次您共答对{{rightAnswer}}道题</view>
     <view class="conItem">{{msg}}</view>
   </view>
-  <view class="see" bindtap="gotoShopping"> 
+  <!-- <view class="see" bindtap="gotoShopping"> 
       进入护眼城
-  </view>
+  </view> -->
   <view class="home" bindtap="gotoIndex"> 
       回到首页
   </view>

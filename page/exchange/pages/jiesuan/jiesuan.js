@@ -32,9 +32,13 @@ Page({
     })
   },
   bindPhone(e) {
+    let value = this.validateNumber(e.detail.value);
     this.setData({
-      telNumber: e.detail.value
+      telNumber: value
     })
+  },
+  validateNumber(val) {
+    return val.replace(/\D/g, '')
   },
   onShow() {
     this.setData({

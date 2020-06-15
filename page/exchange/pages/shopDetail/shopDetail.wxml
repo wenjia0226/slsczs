@@ -59,22 +59,23 @@
     <view class="bg2" wx:if="{{showGuiGe}}"  bindtap="hideGuige"></view>
     <view class="show"  wx:if="{{showGuiGe}}" >
     <view class="price">
-        <view wx:if="{{selectedId == item.id}}" wx:for="{{specificationsList}}"> <image src="/image/bi.png" style="width: 30rpx;height: 30rpx;margin: 0 10rpx"></image>{{item.integral}}</view>
+        <view wx:if="{{selectedId == item.id}}" wx:for="{{specificationsList}}"> 
+        <image src="/image/bi.png" style="width: 30rpx;height: 30rpx;margin: 0 10rpx"></image>{{item.integral}}</view>
         <view class="quxiaoBtn" bindtap="hideGuige">
           <image src="/image/quxiao2.png"></image>
         </view>
-    </view>
+        </view>
         <view class="sizeName"> 型号</view>
         <view class="sizeCon">
-        <text class="GuigeName  {{item.id == selectedId ? 'selectedActive': '' }}"  data-id="{{item.id}}" bindtap="selectGuige" wx:for="{{specificationsList}}">{{item.name}}</text>
+          <text class="GuigeName  {{item.id == selectedId ? 'selectedActive': '' }}"  data-id="{{item.id}}" bindtap="selectGuige" wx:for="{{specificationsList}}">{{item.name}}</text>
         </view>
-         <view class="numWrap"> 
+        <view class="numWrap"> 
            <view class="numTitle" >数量 <text > (库存 {{stock}})</text></view>
            <view class="btnWrap">
-           <view class="addBtn {{number == 0 ? 'disableReduce': ''}}" bindtap="reduce"> -</view>
+           <view class="addBtn {{number == 0 ? 'disableReduce': ''}} {{productType == 1 ? 'disableReduce': ''}}" bindtap="reduce"> -</view>
            <view class="num ">{{number}}</view>
-          <view class="addBtn {{number == stock ? 'disableReduce ': '' }}" bindtap="add">+</view>
-           </view>
+          <view class="addBtn {{number == stock ? 'disableReduce ': '' }}  {{productType == 1 ? 'disableReduce': ''}}" bindtap="add">+</view>
+        </view>
          </view>
          <view class="confimBtn" bindtap="goToJieSuan">
             <view class="exNow">立即兑换</view>

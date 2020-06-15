@@ -5,7 +5,7 @@
       <input  value="{{userName}}" placeholder="请填写联系人" style="text-align:center" bindinput="bindKeyInput"/>
     </view>
     <view class="itemOne" style="flex: 1">
-      <input value="{{telNumber}}" placeholder="请填写手机号" style="text-align:center" bindinput ="bindPhone"/>
+      <input value="{{telNumber}}" placeholder="请填写手机号"  type="text" style="text-align:center" bindinput ="bindPhone"/>
     </view>
   </view>
   <view class="infoWrap"  wx:if="{{type == 1}}" bindtap="getAddress">

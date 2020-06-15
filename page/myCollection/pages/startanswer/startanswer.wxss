@@ -36,15 +36,19 @@
 }
 .leftBg {
   width: 50%;
-  padding: 20rpx;
   border: 2rpx solid #f6fbf9; 
-  height: 40rpx;
-  line-height: 40rpx;
+  height: 100rpx;
   border-bottom: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leftBg > image {
+  width: 100%;
+  height: calc(50%)
 }
 .rightBg {
   flex: 1;
-  padding: 20rpx;
   border-bottom: 2rpx solid #f6fbf9;
   background: #f8fdfe;
 }

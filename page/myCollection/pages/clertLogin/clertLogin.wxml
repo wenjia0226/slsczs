@@ -1,0 +1,21 @@
+<image src="/image/bg2.png" class="bg" style="height:{{height + 200}}px"></image>
+  <nav-bar navbar-data='{{navbarData}}'  style="height: {{height}}px"> </nav-bar>
+<view class="container">
+  <view class="login-icon"> 
+    <image class="login-img" src="/image/teacherLogin.png"></image>
+  </view>
+  <view class="teacher-login"> 店员登录</view>
+  <view class="login-form">
+    <view class="inputView">
+      <label class="loginLab"><image src="/image/user.png"></image> <view>账号</view></label>
+      <input class ="inputText" value="{{phone}}" bindinput="phoneInput"></input>
+    </view>
+    <view class="inputView">
+      <label class="loginLab"><image src="/image/password.png"></image> <view>密码</view></label>
+      <input class ="inputText" value="{{password1}}" bindinput="passwordInput"></input>
+    </view>
+  <view>
+   <view class="singIn" bindtap="teacherLogin">登录</view>
+  </view>
+  </view>
+</view>
