@@ -1,6 +1,6 @@
 <view class="mainWrap"> 
   <view class="centerWrap">
-      <view class="itemWrap"  wx:for="{{productList}}">
+      <view class="itemWrap"  wx:for="{{productList}}" wx:if="{{productList.length}}">
         <view class="item">
         
           <text class="number">{{index +1}}</text>
@@ -27,8 +27,11 @@
        
         </view>
       </view>
+      <view  class="noData" wx:if="{{!productList.length}}">
+        暂无数据
+      </view>
   </view>
-  <view class="bottomWrap">
+  <view class="bottomWrap"  >
    <view class="scanWrap" bindtap="getScanList">
     <view  class="scanBox">
       扫一扫

@@ -46,6 +46,10 @@ Page({
           url: '/page/myCollection/pages/answerResult/answerResult?rightNumber=' + this.data.rightNumber ,
         })
       }
+    } else {
+      wx.showToast({
+          title: '请先选择答案',
+        })
     }
   },
   onLoad() {
@@ -104,19 +108,47 @@ Page({
       })
       }
     } else if (this.data.current.type == '多选题') {
-      if(!this.data.submitAnswer) {
         let options = this.data.current.options;
         options[index].beforeselected = !options[index].beforeselected;
         this.setData({
           options: options
         })
-      } 
+       let sub =  options.filter((item) => {
+          if(item.beforeselected) {
+            return item
+          }
+        })
+       if(sub.length) {
+         this.setData({
+           submitAnswer: true
+         })
+       }else {
+         this.setData({
+           submitAnswer: false
+         })
        }
-      },
+    }
+  },
   finishAnswer() {
-    if (!this.data.submitAnswer) {
+    if (!this.data.submitAnswer && !this.data.selectedArr.length) {
+      let that = this;
+      let options = this.data.current.options;
+      let firstArr = [];
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].beforeselected) {
+          firstArr.push(i)
+        }
+      }
+      if (!firstArr.length) {
+        wx.showModal({
+          title: '',
+          content: '请先选择答案'
+        })
+        return;
+      }
+    }else if (this.data.submitAnswer) {
       this.setData({
-        submitAnswer: true
+        submitAnswer: false
       })
       //多选
       let  that =this;
@@ -126,13 +158,6 @@ Page({
         if(options[i].beforeselected) {
           arr.push(i)
         }
-      }
-      if(!arr.length) {
-        wx.showModal({
-          title: '',
-          content: '请先选择答案'
-        })
-        return;
       }
       this.setData({
         selectedArr: arr

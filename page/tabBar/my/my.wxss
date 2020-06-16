@@ -1,6 +1,11 @@
 /* my.wxss */
 .main {
   background: #eee;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 .headerWrap{
   height: 200rpx;
@@ -27,7 +32,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding:  0 20rpx;
+  padding:  0 10rpx;
 }
 .userinfo-avatar {
   height: 150rpx;
@@ -86,7 +91,7 @@
   font-size: 24rpx;
 }
 .listWrap {
-  /* margin: 10rpx 0; */
+  margin: 10rpx 0;
 
 }
 .login{
@@ -95,7 +100,7 @@
 }
 /* 底部 */
 .item {
-  padding: 20rpx;
+  padding: 10rpx;
   color: #333;
   display: flex;
   margin: 0 5%;

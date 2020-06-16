@@ -30,7 +30,7 @@ Page({
     if(that.data.searchValue !== '') {
     let url = app.globalData.URL + "findProduct", data = { page: this.data.page, name: this.data.searchValue };
     app.wxRequest(url, data, (res) => {
-       console.log(res)
+      //  console.log(res)
       if (res.data.status == 200) {
         var contentlist = res.data.data;
         var productList = that.data.productList;

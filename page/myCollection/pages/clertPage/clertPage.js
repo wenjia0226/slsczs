@@ -8,7 +8,7 @@ Page({
     pageSize: 9,
     hasMoreData: true,
   },
-  onShow() {
+  onLoad() {
     this.productList();
   },
   onPullDownRefresh: function () {
@@ -17,9 +17,9 @@ Page({
     wx.stopPullDownRefresh();
     setTimeout(function () {
       that.setData({
-        productList: []
+        productList: [],
+        page: 1
       })
-      that.data.page = 1;
       that.productList();
     }, 500);
   },
@@ -42,7 +42,7 @@ Page({
           title: '加载中...'
         })
         app.wxRequest(url, data, (res) => {
-          // console.log(res)
+           console.log(res)
           if (res.data.status == 200) {
             that.setData({
               productList: [],
@@ -67,6 +67,7 @@ Page({
         if (that.data.page == 1) {
           productList = []
         }
+        console.log(productList, 999)
         var productList = that.data.productList;
         if (contentlist.length <= that.data.pageSize) {
           that.setData({
