@@ -24,11 +24,7 @@ Page({
     }, 500);
   },
   onReachBottom: function () {
-    console.log(this.data.page, this.data.hasMoreData)
     if (this.data.hasMoreData) {
-      this.setData({
-        page: this.data.page + 1
-      })
       this.productList();
     } else {
       wx.showToast({
@@ -37,33 +33,26 @@ Page({
     }
   },
   getScanList() {
-    let that = this;
-    wx.showModal({
-      title: '体验码',
-      content: '确认现在体验吗？',
-      cancelText: "取消",
-      confirmText: "确定",
+    let that =this;
+    wx.scanCode({  //扫码
       success(res) {
-        if (res.confirm) {
-          wx.scanCode({  //扫码
-            success(res) {
-              console.log(res)
-              let id = res.result;
-              let url = app.globalData.URL + "clertSanningCode", data = {id: id, openId: wx.getStorageSync('openId') };
-                wx.showLoading({
-                  title: '加载中...'
-                })
-                app.wxRequest(url, data, (res) => {
-                  console.log(res)
-                  if(res.data.status == 200) {
-                    that.productList();
-                  }
-                })
-            }
-          })
-        }
+        let id = res.result;
+        let url = app.globalData.URL + "clertSanningCode", data = { id: id, openId: wx.getStorageSync('openId') };
+        wx.showLoading({
+          title: '加载中...'
+        })
+        app.wxRequest(url, data, (res) => {
+          // console.log(res)
+          if (res.data.status == 200) {
+            that.setData({
+              productList: [],
+              page: 1
+            })
+            that.productList();
+          }
+        })
       }
-    })   
+    }) 
   },
   productList() {
     let that = this;

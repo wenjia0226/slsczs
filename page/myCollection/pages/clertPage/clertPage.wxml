@@ -1,25 +1,32 @@
 <view class="mainWrap"> 
   <view class="centerWrap">
-    <scroll-view scroll-y style="height: 100%">
       <view class="itemWrap"  wx:for="{{productList}}">
         <view class="item">
+        
+          <text class="number">{{index +1}}</text>
           <text class="size"> 商品名称:</text>
           <text class="name">{{item.productName}}</text>
+           <view class="imgWrap"  wx:if="{{index == 0}}"> <image src="/image/new.png"></image></view>
+         
         </view>
-        <view class="item">
+        <view class="item ">
+         <text class="number coWhite">{{index +1}}</text>
           <text class="size"> 规格:</text>
           <text class="name">{{item.specificationsName}}</text>
+         
         </view>
         <view class="item">
+         <text class="number coWhite">{{index +1}}</text>
           <text class="size"> 兑换孩子:</text>
           <text class="name">{{item.studentName}}</text>
         </view>
         <view class="item">
+         <text class="number coWhite">{{index +1}}</text>
           <text class="size"> 体验时间:</text>
-          <text class="name">{{item.genTime}}</text>
+          <text class="name bggrey">{{item.genTime}}</text>
+       
         </view>
       </view>
-    </scroll-view>
   </view>
   <view class="bottomWrap">
    <view class="scanWrap" bindtap="getScanList">

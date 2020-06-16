@@ -69,7 +69,7 @@ Page({
 
   },
   onPullDownRefresh: function () {
-    // console.log('onPullDonwFresh')
+    console.log('onPullDonwFresh')
     let that = this;
     wx.stopPullDownRefresh();
     setTimeout(function () {
