@@ -15,7 +15,8 @@ Page({
     rightNumber: 0,//答题正确 
     optionList: ['A', 'B', 'C', 'D'],
     selectedArr: [],
-    submitAnswer: false
+    submitAnswer: false,
+    dulChoose: []
   },
   gotoNext() {
     if(this.data.onceclick) {
@@ -47,9 +48,17 @@ Page({
         })
       }
     } else {
-      wx.showToast({
+      console.log(this.data.dulChoose)
+      if (!this.data.dulChoose.length) {
+        wx.showToast({
           title: '请先选择答案',
         })
+      }else {
+        wx.showToast({
+          title: '点击完成答题',
+        })
+      }
+     
     }
   },
   onLoad() {
@@ -111,8 +120,10 @@ Page({
         let options = this.data.current.options;
         options[index].beforeselected = !options[index].beforeselected;
         this.setData({
-          options: options
+          options: options,
+          dulChoose: options
         })
+      console.log(this.data.dulChoose,888)
        let sub =  options.filter((item) => {
           if(item.beforeselected) {
             return item
