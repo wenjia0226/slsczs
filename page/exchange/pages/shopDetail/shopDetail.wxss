@@ -187,9 +187,15 @@
   width: 100%;
 }
 .itemCenter {
+  background: #fff;
   padding: 10rpx 20rpx;
   font-size: 24rpx;
-  background: #fff;
+  display: flex;
+  justify-content: space-between
+}
+.bunner {
+  font-size: 24rpx;
+  color: grey;
 }
 .itemBottom {
   display: flex;

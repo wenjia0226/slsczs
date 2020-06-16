@@ -15,7 +15,10 @@
         <view  class="itemTop">
           <image src="{{item.pictures[0]}}" mode=""></image>
         </view>
-        <view class="itemCenter">{{item.name}}</view>
+        <view class="itemCenter">
+          <view> {{item.name}}</view>
+          <view class="bunner">{{item.buyNumber}}人兑换</view>
+        </view>
         <view class="itemBottom">
           <view class="jinbi">
             <image src="/image/bi.png" mode ="aspectFit"></image>

@@ -40,7 +40,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "productList", data = {page: this.data.page};
     app.wxRequest(url, data, (res) => {
-       //console.log(res)
+      //  console.log(res)
       if (res.data.status == 200) {
           var contentlist = res.data.data;
           var productList = that.data.productList;

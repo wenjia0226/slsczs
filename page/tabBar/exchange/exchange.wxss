@@ -121,7 +121,14 @@
 .itemCenter {
   padding: 10rpx 20rpx;
   font-size: 24rpx;
+  display: flex;
+  justify-content: space-between
 }
+.bunner {
+  font-size: 24rpx;
+  color: grey;
+}
+
 .itemBottom {
   display: flex;
   height: 50rpx;
@@ -132,7 +139,6 @@
  
 }
 .jinbi {
-  width:160rpx;
   height: 100%;
   display: flex;
   box-sizing: border-box;
