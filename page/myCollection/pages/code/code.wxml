@@ -16,6 +16,6 @@
       <view>请向店员出示此码</view>
     </view>
     <view class="warning">
-      <view>体验地址： 三友眼镜视光中心店</view>
+      <view>体验地址： {{partnership}}</view>
     </view>
 </view>

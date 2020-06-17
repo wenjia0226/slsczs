@@ -222,3 +222,41 @@
   line-height: 10vh;
 
 }
+/* // 提示框 */
+.remBox {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 30%;
+  width: 60vw;
+  margin-left: 20vw;
+  background: rgba(0, 0, 0, .5);
+  padding: 10rpx 0;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  letter-spacing: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.remTitle {
+  font-size: 36rpx;
+  padding: 10rpx;
+}
+.remCon {
+  font-size: 26rpx;
+  line-height: 30rpx;
+  padding: 10rpx;
+}
+.remBtn {
+  width: 80%;
+  background: #0073E9;
+  border-radius: 30rpx;
+  margin: 20rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 10rpx;
+}

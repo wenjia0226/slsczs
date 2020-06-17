@@ -19,7 +19,8 @@ Page({
     total: '',
     freight: 0,
     productType: 2,
-    showRemind: false
+    showRemind: false,
+    showWarning: false
   },
   handleBuynner(e) {
     this.setData({
@@ -133,7 +134,7 @@ Page({
        }
       }
     })  
-   }else if(that.data.type == 2 || that.data.type == 3) { // 在校自取
+   }else if(that.data.type == 2 || that.data.type == 3) { // 在校自取 和服务类型
      wx.showModal({
        title: '温馨提示',
        content: '您确认支付'+that.data.total+'个爱眼币吗？',
@@ -145,9 +146,19 @@ Page({
            app.wxRequest(url, data, (res) => {
             //  console.log(res)
              if (res.data.status == 200) {
-               wx.navigateTo({
-                 url: '/page/myCollection/pages/jifen/jifen',
-               })
+            
+               if(that.data.type == 3) {  //如果是服务类型，
+                 // 页面跳转做装备
+                 wx.setStorageSync('partnership', res.data.data.partnership)
+                 that.setData({
+                   orderId: res.data.data.orderId,
+                   showWarning: true
+                 })
+               } else if(that.data.type == 2) {
+                 wx.navigateTo({
+                   url: '/page/myCollection/pages/jifen/jifen'
+                 })
+               }
                that.setData({
                  number: 0,
                  delivryType: that.data.type,
@@ -187,6 +198,15 @@ Page({
        }
      })    
    }
+  },
+  // 服务类型跳转到
+  gotoCode() {
+     wx.navigateTo({
+        url: '/page/myCollection/pages/code/code?id=' + this.data.orderId,
+      })
+    this.setData({
+      showWarning: false
+    })
   },
   //支付
   pay: function (param) {

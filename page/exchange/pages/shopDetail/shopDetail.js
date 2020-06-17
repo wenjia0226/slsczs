@@ -20,7 +20,8 @@ Page({
     details: '',
     current: 0,
     productType: 1,
-    buyNumber: 0
+    buyNumber: 0,
+    disPlayBuyer: 2
   },
   // 商品轮播
   swiperChange: function (e) {
@@ -36,7 +37,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "productDetils", data = { id: id };
     app.wxRequest(url, data, (res) => {
-      console.log(res)
+      // console.log(res)
       that.setData({
         specificationsList: res.data.data.specificationsList,
         selectedProduct: res.data.data.specificationsList[0],
@@ -50,7 +51,8 @@ Page({
         stock: res.data.data.specificationsList[0].stock,
         freight: res.data.data.specificationsList[0].freight,
         number: 1,
-        buyNumber: res.data.data.buyNumber
+        buyNumber: res.data.data.buyNumber,
+        disPlayBuyer: res.data.data.disPlayBuyer
       })
       wx.setStorageSync('freight', that.data.freight);
       wx.setStorageSync('jiesuanPicture', that.data.picture)

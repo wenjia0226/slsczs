@@ -69,10 +69,7 @@
   width: 100%;
   text-align:left !important;
   padding: 0 !important;
- 
-
 }
-
 .rightQian{
    width: 200rpx;
    height: 100%;
@@ -152,4 +149,31 @@ button { background-color: #fff;}
   width: 100% !important;
   text-align: left;
   padding-left: 20rpx;
+}
+
+/* 新修改样式 */
+.centerBox {
+  margin: 30rpx;
+  display: flex;
+  flex-flow:row wrap;
+}
+.centerItem {
+  padding: 20rpx;
+  width: 33%;
+  height: calc(100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-sizing: border-box;
+
+}
+.centerItem image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.itemTitle {
+  font-size: 26rpx;
+  padding: 20rpx;
 }

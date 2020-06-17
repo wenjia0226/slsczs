@@ -2,7 +2,7 @@
   <nav-bar navbar-data='{{navbarData}}'  style="height: {{height}}px"> </nav-bar>
 <view class="container">
   <view class="login-icon"> 
-    <image class="login-img" src="/image/teacherLogin.png"></image>
+    <image class="login-img" src="/image/clertLogin.png"></image>
   </view>
   <view class="teacher-login"> 店员登录</view>
   <view class="login-form">

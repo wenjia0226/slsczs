@@ -17,7 +17,7 @@
       <view class="bi">
         <image src="/image/bi.png"></image>
         <text>{{integral}}</text>
-        <view class="bunner">{{buyNumber}}人兑换</view>
+        <view class="bunner" wx:if="{{disPlayBuyer == 1}}">{{buyNumber}}人兑换</view>
       </view>
    </view>
    <!-- 规格选择 -->
@@ -43,7 +43,7 @@
         </view>
         <view class="itemCenter">
           <view> {{item.name}}</view>
-          <view class="bunner">{{item.buyNumber}}人兑换</view>
+          <view class="bunner" wx:if="{{item.disPlayBuyer == 1}}">{{item.buyNumber}}人兑换</view>
         </view>
         <view class="itemBottom">
           <view class="jinbi">

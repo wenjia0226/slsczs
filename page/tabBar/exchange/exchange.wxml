@@ -29,7 +29,7 @@
         </view>
         <view class="itemCenter">
           <view> {{item.name}}</view>
-          <view class="bunner">{{item.buyNumber}}人兑换</view>
+          <view class="bunner" wx:if="{{item.disPlayBuyer == 1}}">{{item.buyNumber}}人兑换</view>
         </view>
         <view class="itemBottom">
           <view class="jinbi">

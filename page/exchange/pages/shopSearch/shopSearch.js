@@ -82,10 +82,9 @@ Page({
     })
   },
   gotoDetail(e) {
-    let id = e.currentTarget.dataset.id;
-    wx.setStorageSync('productId', id)
+    let produtId = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/exchange/pages/shopDetail/shopDetail'
+      url: '/page/exchange/pages/shopDetail/shopDetail?produtId=' + produtId
     })
   },
   onPullDownRefresh: function () {

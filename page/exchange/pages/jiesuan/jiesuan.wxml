@@ -85,4 +85,10 @@
   <view class="remindBox" wx:if="{{showRemind}}">
     您的爱眼币不足
   </view>
+  <view class="remBox" wx:if="{{showWarning}}">
+      <view class="remTitle">提示</view>
+      <view class="remCon">您刚刚兑换了服务类型的体验，请到店使用体验码，享受服务。</view>
+      <view class="remCon">请前往"我的爱眼币"中的"领取"列表中点击查看</view>
+      <view class="remBtn" bindtap="gotoCode">我知道了</view>
+  </view>
 </view>
