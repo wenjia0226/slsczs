@@ -8,14 +8,18 @@ Page({
     income: '',
     state: '',
     type: 0,
+    integralType: 1,
+    integralPage: 1,
     show: false,
     currentIndex: 0,
     currentStudentId: '',
     childrenList: [],
     receiveList: [],
     page: 1,
-    pageSize: 10,
-    hasMoreData: true
+    pageSize:5,
+    integralPageSize: 5,
+    hasMoreData: true,
+    integralHasMoreData: true
   },
   onShow: function (options) {
     this.getChildrenList(); 
@@ -33,16 +37,41 @@ Page({
       })
       let that = this;
       let url = app.globalData.URL + 'integralList', data = {
-        studentId: this.data.currentStudentId
+        studentId: this.data.currentStudentId,
+        integralType: this.data.integralType,
+        integralPage: this.data.integralPage
       };
       app.wxRequest(url, data, (res) => {
-        // console.log(res)
+        //  console.log(res)
         that.setData({
-          jifenList: res.data.data.data,
           balance: res.data.data.balance,
           income: res.data.data.income,
           expenditure: res.data.data.expenditure
         })
+        if (res.data.status == 200) {
+          var resIntegarlCurrent = res.data.data.data;
+          var jifenList = that.data.jifenList;
+          if (that.data.integralPage == 1) {
+            jifenList = []
+          }
+          if (resIntegarlCurrent.length < that.data.integralPageSize) {
+            that.setData({
+              integralHasMoreData: false,
+              jifenList:jifenList.concat(resIntegarlCurrent),
+            })
+          } else {
+            that.setData({
+              jifenList: jifenList.concat(resIntegarlCurrent),
+              integralHasMoreData: true,
+              integralPage: that.data.integralPage + 1
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '出现异常',
+            icon: 'none'
+          })
+        }
       }, (err) => {
         console.log(err)
       })
@@ -101,15 +130,24 @@ Page({
   getItem(e) {
     let that = this;
     this.setData({
-      currentIndex: e.currentTarget.dataset.index,
-      page: 1
+      currentIndex: e.currentTarget.dataset.index
     })
     let student = this.data.childrenList.filter((item, index) => { if (index == that.data.currentIndex) return item });
     that.setData({
       currentStudentId: student[0].id
     }) 
-
     wx.setStorageSync('selectRankStu', student[0].id)
+    if(this.data.type == 0) {
+      this.setData({
+        integralPage: 1
+      })
+      this.currentStudentCode();
+    }else {
+      this.setData({
+        page: 1
+      })
+      this.getLingquList();
+    }
   },
   //确定当前孩子具体是哪个
   activeNav: function (e) {
@@ -126,7 +164,8 @@ Page({
       wx.setStorageSync('selectRankStu', student[0].id)
       if(this.data.type == 0) {
         this.setData({
-         jifenList: []
+         jifenList: [],
+         integralPage: 1
         })
         this.currentStudentCode();
       }else if(this.data.type == 1) {
@@ -144,37 +183,68 @@ Page({
     let that = this;
     this.setData({
       type: e.currentTarget.dataset.type,
-      receiveList: [],
+      jifenList: [],
     })
     // 切换状态，更新内容
     if(this.data.type == 0) {
       this.setData({
-        page: 1
+        integralPage: 1,
+        jifenList: []
       })
       this.currentStudentCode(); //获取积分情况
     }else {
+      this.setData({
+        page: 1,
+        receiveList: []
+      })
       this.getLingquList();
     }    
   },
   // // 下拉刷新
   onPullDownRefresh: function () {
-    let that = this;
-    wx.stopPullDownRefresh();
-    setTimeout(function () {
-     this.setData({
-       page: 1
-     })
-      this.getLingquList();
-    }, 500);
+    if(this.data.type == 1) {
+      let that = this;
+      wx.stopPullDownRefresh();
+      setTimeout(function () {
+        this.setData({
+          page: 1
+        })
+        this.getLingquList();
+      }, 500);
+    } else if(this.data.type == 0) {
+      let that = this;
+      wx.stopPullDownRefresh();
+      setTimeout(function () {
+        this.setData({
+          integralType: 1
+        })
+        this.currentStudentCode();
+      }, 500);
+    }
+    
   },
   onReachBottom: function () {
-    if (this.data.hasMoreData) {
-      this.getLingquList();
-    } else {
-      wx.showToast({
-        title: '没有更多数据',
-      })
+    if(this.data.type == 1) {
+      if (this.data.hasMoreData) {
+        this.getLingquList();
+      } else {
+        wx.showToast({
+          title: '没有更多数据',
+        })
+      }
+    }else if(this.data.type == 0) {
+      if (this.data.integralHasMoreData) {
+        this.setData({
+          integralType: 2
+        })
+        this.currentStudentCode();
+      } else {
+        wx.showToast({
+          title: '没有更多数据',
+        })
+      }
     }
+    
   },
   // 领取
   getLingquList() {
@@ -186,20 +256,21 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
+        // console.log(res)
         if (res.data.status == 200) {
             var resCurrent= res.data.data;
-            // if (that.data.page == 1) {
-            //   receiveList = []
-            // }
-           
-            if (resCurrent.length < 10) {
+          let receiveList =  that.data.receiveList;
+            if (that.data.page == 1) {
+              receiveList = []
+            }
+            if (resCurrent.length < this.data.pageSize) {
               that.setData({
                 hasMoreData: false,
-                receiveList: that.data.receiveList.concat(resCurrent),
+                receiveList: receiveList.concat(resCurrent),
               })
             } else {
               that.setData({
-                receiveList: that.data.receiveList.concat(resCurrent),
+                receiveList: receiveList.concat(resCurrent),
                 hasMoreData: true,
                 page: that.data.page + 1
               })

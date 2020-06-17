@@ -76,7 +76,7 @@
   </view>
   <view class="centerWrap" style="height: 300rpx" wx:if="{{type == 0}}">
   <block wx:if="{{jifenList.length}}">
-    <scroll-view scroll-y  style="height: 100%;">
+    <!-- <scroll-view scroll-y  style="height: 100%;"> -->
       <view class="itemWrap" wx:for="{{jifenList}}">
         <view class="leftitem">
           <view>{{item.detailed}}</view>
@@ -85,7 +85,7 @@
         <view class="rightitem"  wx:if="{{item.state == 0}}"> - {{item.integral}}</view>
         <view class="rightitem daijinquan"  wx:if="{{item.state == 1}}"> + {{item.integral}}</view>
       </view>
-    </scroll-view>
+    <!-- </scroll-view> -->
     </block>
     <block wx:else>
     <view class="itemWrap" style="justify-content:center;font-size: 30rpx">暂无明细</view>
@@ -93,7 +93,7 @@
   </view>
   <view wx:if="{{type == 1}}" class="centerWrap" style="height: 300rpx;" >
     <view class="itemWrapRecieve" style="justify-content: center"  wx:if="{{receiveList.length == 0}}">暂无领取记录</view>
-    <scroll-view scroll-y  style="height: 100%;">
+   
       <view class="itemWrapRecieve"  wx:for="{{receiveList}}">
         <view class="getLeftWrap">
             <image src="{{item.pic}}"></image>
@@ -109,6 +109,6 @@
           <text class="status" style="background: #00C42A" wx:if="{{item.status == '待体验'}}" bindtap="handleGetCode" data-id="{{item.id}}"> 获取体验码</text>
         </view>
       </view>
-    </scroll-view>
+  
   </view>
 </view>
