@@ -1,1 +1,79 @@
-/* page/tabBar/eyeShow/eyeShow.wxss */
+/* page/eyeShow/eyeShow.wxss */
+.mainWrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+/* 头部 图片头像 */
+.imgWrap {
+  width: 100%;
+  height: calc(33%);
+  position: relative;
+}
+.imgWrap image {
+  width: 100%;
+  height: 100%;
+}
+.infoWrap {
+  display: flex;
+  align-items: center;
+ 
+}
+.name {
+  position: absolute;
+  right: 220rpx;
+  bottom: 10rpx;
+  letter-spacing: 5rpx;
+  color: #fff;
+}
+.infoWrap > image {
+ position: absolute;
+  bottom: -20rpx;
+  right: 50rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%；
+}
+/* 内容 */
+.centerWrap {
+  margin: 10rpx 3%;
+  box-sizing: border-box;
+}
+.centerItem {
+  display: flex;
+
+  align-items: center;
+}
+.leftPart {
+  width: 150rpx
+}
+.leftPart image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.rightPart {
+  flex: 1;
+  color: #185396
+}
+.centerContent {
+ display: flex;
+ font-size: 26rpx;
+}
+.leftConPart {
+   width: 150rpx
+}
+.rightConPart{
+  flex: 1
+}
+.word {
+  line-height: 40rpx;
+}
+.imgBox {
+  overflow: hidden;
+}
+.imgBox > image {
+  width: 45%;
+  margin: 1%;
+}

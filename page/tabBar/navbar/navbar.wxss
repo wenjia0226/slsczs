@@ -7,14 +7,17 @@
   bottom: 0;
   z-index: 9999999;
 }
+
 .inner {
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: center;
+  position: relative;
 }
 .titleWrap {
- padding: 0 30rpx;
- vertical-align: bottom;
+ left: 30rpx;
+ position: absolute;
 }
 .titleWrap image {
   width: 36rpx;
@@ -22,9 +25,5 @@
   display: block;
 }
 .biaoti {
-  font-size: 36rpx;
-  color:#fff;
-  /* position: absolute;
-  bottom: 0rpx;
-  left: 70rpx; */
+  font-size: 30rpx;
 }

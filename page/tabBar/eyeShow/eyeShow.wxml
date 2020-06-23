@@ -1,4 +1,39 @@
 <!--page/tabBar/eyeShow/eyeShow.wxml-->
 <view class="mainWrap">
-   <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
+  <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
+  <!-- 顶部头像图片 -->
+  <view class="imgWrap" style="margin-top: {{height}}px"> 
+    <image src="/image/banner.jpg"></image>
+    <view class="infoWrap">
+      <view class="name">我是xxx</view>
+      <image src="/image/girl.png"></image>
+    </view>
+  </view>
+ <!-- 内容 -->
+  <view class="centerWrap">
+    <view class="centerItem">
+      <view class="leftPart">
+        <image src="/image/girl.png"></image>
+      </view>
+      <view class="rightPart">
+          我是帅哥
+      </view>
+    </view>
+    <view class="centerContent">
+      <view class="leftConPart">
+      </view>
+      <view class="rightConPart">
+        <view class="word">
+          我是帅哥，人物评价 我是帅哥，人物评价 我是帅哥，人物评价 我是帅哥，人物评价
+        </view>
+        <view class="imgBox">
+          <image src="/image/01.jpg" mode="widthFix" ></image>
+          <image src="/image/01.jpg" mode="widthFix"></image>
+          <image src="/image/01.jpg" mode="widthFix"></image>
+        </view>
+      </view>
+     
+    </view> 
+  </view>
 </view>
+ 
