@@ -24,39 +24,45 @@
   </view>
   <view class="centerBox">
     <view class="centerItem"  bindtap="goToBao">
-      <image src="/image/dangan.png"></image>
+      <image  mode ="widthFix"  src="/image/dangan.png"></image>
       <view class="itemTitle">眼健康档案</view>
     </view>
+    <view class="centerItem"  bindtap="goToShai">
+      <image  mode ="widthFix"  src="/image/dangan.png"></image>
+      <view class="itemTitle">筛查档案</view>
+    </view>
     <view class="centerItem"  bindtap="gotMyChild">
-      <image src="/image/mychildren.png"></image>
+      <image  mode ="widthFix"  src="/image/mychildren.png"></image>
       <view class="itemTitle">我的孩子</view>
     </view>
     <view class="centerItem" bindtap="gotoPlan">
-      <image src="/image/record.png"></image>
+      <image  mode ="widthFix"  src="/image/record.png"></image>
       <view class="itemTitle">爱眼打卡</view>
     </view>
     <view class="centerItem" bindtap="gotoAnswer">
-      <image src="/image/dati.png"></image>
+      <image  mode ="widthFix"  src="/image/dati.png"></image>
       <view class="itemTitle">爱眼答题</view>
     </view>
     <view class="centerItem" bindtap="gotoJiFen">
-      <image src="/image/aiyanbi.png"></image>
+      <image  mode ="widthFix"  src="/image/aiyanbi.png"></image>
       <view class="itemTitle">我的爱眼币</view>
     </view>
-    <view class="centerItem" bindtap="onShareAppMessage">
-      <image src="/image/share.png"></image>
-      <view class="itemTitle">好友分享</view>
+    <view class="centerItem" style="background： red" >
+      <button open-type="share" style="padding: 0;line-height: 1;width:100%;border:none">
+        <image   mode ="widthFix" src="/image/share.png"></image>
+        <view class="itemTitle" style='font-size: 24rpx;font-weight: normal'>好友分享</view>
+      </button>
     </view>
     <view class="centerItem" bindtap="gotoshare">
-      <image src="/image/cooparation.png"></image>
+      <image  mode ="widthFix"  src="/image/cooparation.png"></image>
       <view class="itemTitle">合作机构</view>
     </view>
     <view class="centerItem" bindtap="goTeacher">
-      <image src="/image/teacher.png"></image>
+      <image  mode ="widthFix"  src="/image/teacher.png"></image>
       <view class="itemTitle">我是教师</view>
     </view>
     <view class="centerItem" bindtap="goClert">
-      <image src="/image/clert.png"></image>
+      <image  mode ="widthFix" src="/image/clert.png"></image>
       <view class="itemTitle">我是店员</view>
     </view>
   </view>

@@ -17,11 +17,11 @@ Page({
         })
       }
     })
-      this.setData({
-        phone: wx.getStorageSync('phone'),
-        avatarUrl: wx.getStorageSync('avatarUrl'),
-        nickName: wx.getStorageSync('nickName')
-      })
+    this.setData({
+      phone: wx.getStorageSync('phone'),
+      avatarUrl: wx.getStorageSync('avatarUrl'),
+      nickName: wx.getStorageSync('nickName')
+    })
   },
   getPhone() {
     let that = this;
@@ -46,6 +46,16 @@ Page({
     if(wx.getStorageSync('phone')) {
       this.OneMoreGet();
     }else {
+      this.gotoLogin();
+    }
+  },
+  goToShai() {
+    if (wx.getStorageSync('phone')) {
+      
+      wx.navigateTo({
+        url: '/page/myCollection/pages/archives/archives'
+      })
+    } else {
       this.gotoLogin();
     }
   },

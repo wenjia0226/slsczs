@@ -79,6 +79,8 @@ Page({
   },
   handleGetCode(e) {
     let id = e.currentTarget.dataset.id;
+    wx.setStorageSync('address', e.currentTarget.dataset.address);
+    wx.setStorageSync('partnership', e.currentTarget.dataset.partnership)
     wx.navigateTo({
       url: '/page/myCollection/pages/code/code?id=' + id
     })
@@ -256,7 +258,6 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        // console.log(res)
         if (res.data.status == 200) {
             var resCurrent= res.data.data;
           let receiveList =  that.data.receiveList;

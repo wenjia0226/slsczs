@@ -225,7 +225,7 @@
 /* // 提示框 */
 .remBox {
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 30%;
@@ -241,6 +241,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  z-index: 999;
 }
 .remTitle {
   font-size: 36rpx;

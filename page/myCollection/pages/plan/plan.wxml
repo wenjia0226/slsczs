@@ -30,6 +30,9 @@
          <view class="daka">已打卡</view>
        </view>
        <view class="btn noFininsh" wx:else data-id="{{taskList[0].id}}" bindtap="fininsh">打卡</view>
+        <view class=" camera" bindtap="gotoCamera">
+          <image src="/image/camera.png" mode="aspectFit"></image>
+        </view>
      </view>
   </view>
 

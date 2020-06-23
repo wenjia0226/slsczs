@@ -73,11 +73,11 @@ Page({
     let that = this;
     wx.stopPullDownRefresh();
     setTimeout(function () {
-      this.setData({
-        productList: []
+      that.setData({
+        productList: [],
+        page: 1
       })
-      this.data.page = 1;
-      this.productList();
+      that.productList();
     }, 500);
   },
   onReachBottom: function () {
@@ -99,7 +99,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        //  console.log(res)
+         console.log(res)
         that.setData({
           swiperList: res.data.data
         })

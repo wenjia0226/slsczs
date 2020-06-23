@@ -1,0 +1,4 @@
+<!--page/tabBar/eyeShow/eyeShow.wxml-->
+<view class="mainWrap">
+   <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
+</view>

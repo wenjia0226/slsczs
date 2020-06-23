@@ -150,6 +150,7 @@ Page({
                if(that.data.type == 3) {  //如果是服务类型，
                  // 页面跳转做装备
                  wx.setStorageSync('partnership', res.data.data.partnership)
+                 wx.setStorageSync('address', res.data.data.address)
                  that.setData({
                    orderId: res.data.data.orderId,
                    showWarning: true
@@ -201,6 +202,7 @@ Page({
   },
   // 服务类型跳转到
   gotoCode() {
+    console.log(1111)
      wx.navigateTo({
         url: '/page/myCollection/pages/code/code?id=' + this.data.orderId,
       })

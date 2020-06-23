@@ -132,16 +132,26 @@
 .left {
   text-align: left;
 }
+.shareWrap {
+  position: relative
+}
 .shareBtn {
-  background: #fff;
+  background: red;
   font-weight: normal;
   padding: 0;
   width: 100%;
   font-size: 30rpx;
-
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   }
 .shareing {
   padding: 10rpx 10rpx 10rpx 0; 
+}
+.btnWrap {
+  width: 100%;
 }
 .button::after {border: none}
 button { background-color: #fff;}
@@ -160,7 +170,6 @@ button { background-color: #fff;}
 .centerItem {
   padding: 20rpx;
   width: 33%;
-  height: calc(100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,9 +180,8 @@ button { background-color: #fff;}
 }
 .centerItem image {
   width: 50rpx;
-  height: 50rpx;
 }
 .itemTitle {
-  font-size: 26rpx;
-  padding: 20rpx;
+  font-size: 26rpx !important;
+  padding: 20rpx  !important;
 }

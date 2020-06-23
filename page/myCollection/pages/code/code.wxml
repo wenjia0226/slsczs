@@ -16,6 +16,6 @@
       <view>请向店员出示此码</view>
     </view>
     <view class="warning">
-      <view>体验地址： {{partnership}}</view>
+      <view>体验地址： {{address}}{{partnership}}</view>
     </view>
 </view>

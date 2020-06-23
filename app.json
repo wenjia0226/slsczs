@@ -1,10 +1,9 @@
 {
   "pages": [
+    "page/tabBar/eyeShow/eyeShow",
     "page/tabBar/my/my",
     "page/tabBar/screen/screen",
-    "page/tabBar/archives/archives",
     "page/tabBar/exchange/exchange",
- 
     "manual/manual",
     "manualTwo/manualTwo",
     "nicheng/nicheng"
@@ -12,21 +11,20 @@
   "tabBar": {
     "list": [
       {
+        "pagePath": "page/tabBar/exchange/exchange",
+        "text": "护眼城",
+        "iconPath": "/image/exchange.png",
+        "selectedIconPath": "/image/exchangeChecked.png"
+      },
+      {
         "pagePath": "page/tabBar/screen/screen",
         "text": "筛查",
         "iconPath": "/image/sc.png",
         "selectedIconPath": "/image/scactive.png"
       },
       {
-        "pagePath": "page/tabBar/archives/archives",
-        "text": "档案",
-        "iconPath": "/image/da.png",
-        "selectedIconPath": "/image/daactive.png"
-        
-      },
-      {
-        "pagePath": "page/tabBar/exchange/exchange",
-        "text": "护眼城",
+        "pagePath": "page/tabBar/eyeShow/eyeShow",
+        "text": "爱眼秀",
         "iconPath": "/image/exchange.png",
         "selectedIconPath": "/image/exchangeChecked.png"
       },
@@ -77,7 +75,8 @@
         "pages/answerResult/answerResult",
         "pages/startanswer/startanswer",
         "pages/clertLogin/clertLogin",
-        "pages/clertPage/clertPage"
+        "pages/clertPage/clertPage",
+        "pages/archives/archives"
       ]
     }, {
       "root": "page/mainFunction",
