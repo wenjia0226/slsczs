@@ -3,5 +3,6 @@
   "navigationBarTitleText": "black",
   "usingComponents": {
     "nav-bar": "../navbar/navbar"
-  }
+  },
+  "enablePullDownRefresh": true
 }

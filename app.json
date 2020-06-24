@@ -76,7 +76,9 @@
         "pages/startanswer/startanswer",
         "pages/clertLogin/clertLogin",
         "pages/clertPage/clertPage",
-        "pages/archives/archives"
+        "pages/archives/archives",
+        "pages/addContent/addContent",
+        "pages/myShow/myShow"
       ]
     }, {
       "root": "page/mainFunction",

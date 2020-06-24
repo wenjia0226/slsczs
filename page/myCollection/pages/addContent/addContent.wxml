@@ -1,0 +1,15 @@
+<!--page/myCollection//pages/addContent/addContent.wxml-->
+<view class="mainWrap">
+  <textarea placeholder="这一刻的想法..." value="{{textInput}}" class="inputWrap" bindinput="handleInput"></textarea>
+  <view class="imgWrap">
+    <view class="itemImg" bindtap="gotoCamera">
+      <image src="/image/add.png" mode="aspectFit"></image>
+    </view>
+     <view class="imgBox" wx:for="{{imgs}}">
+      <image src="{{item}}"  data-src="{{item}}"mode="widthFix" bindtap="previewImg"></image>
+    </view>
+  </view>
+  <view>
+    <view class="publish" bindtap="publishMessage">发布</view>
+  </view>
+</view>

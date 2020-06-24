@@ -34,7 +34,7 @@
   right: 50rpx;
   width: 150rpx;
   height: 150rpx;
-  border-radius: 50%；
+  border-radius: 50%;
 }
 /* 内容 */
 .centerWrap {
@@ -52,6 +52,7 @@
 .leftPart image {
   width: 120rpx;
   height: 120rpx;
+  border-radius: 50%;
 }
 .rightPart {
   flex: 1;
@@ -76,4 +77,30 @@
 .imgBox > image {
   width: 45%;
   margin: 1%;
+}
+/* //底部时间 点赞 */
+.itemBttom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16rpx 0;
+}
+.time {
+  font-size: 24rpx;
+  color: #d9d9d9;
+}
+.zanWrap {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 4rpx 16rpx;
+  background: #f0f0f0;
+  border-radius: 30rpx;
+}
+.zanWrap image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.num {
+  padding: 0 10rpx;
 }

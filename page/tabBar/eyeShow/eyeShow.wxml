@@ -5,18 +5,18 @@
   <view class="imgWrap" style="margin-top: {{height}}px"> 
     <image src="/image/banner.jpg"></image>
     <view class="infoWrap">
-      <view class="name">我是xxx</view>
-      <image src="/image/girl.png"></image>
+      <view class="name">我是{{nickName}}</view>
+      <image src="{{avatarUrl}}" bindtap="gotoMyShow"></image>
     </view>
   </view>
  <!-- 内容 -->
-  <view class="centerWrap">
+  <view class="centerWrap" wx:for="{{content}}">
     <view class="centerItem">
       <view class="leftPart">
-        <image src="/image/girl.png"></image>
+        <image src="{{item.avatarUrl}}"></image>
       </view>
       <view class="rightPart">
-          我是帅哥
+          {{item.nickName}}
       </view>
     </view>
     <view class="centerContent">
@@ -24,16 +24,36 @@
       </view>
       <view class="rightConPart">
         <view class="word">
-          我是帅哥，人物评价 我是帅哥，人物评价 我是帅哥，人物评价 我是帅哥，人物评价
+          {{item.contents}}
         </view>
-        <view class="imgBox">
-          <image src="/image/01.jpg" mode="widthFix" ></image>
-          <image src="/image/01.jpg" mode="widthFix"></image>
-          <image src="/image/01.jpg" mode="widthFix"></image>
+        <view class="imgBox">     
+          <block wx:for="{{item.path}}" wx:for-item="imgItem" wx:key="imgIndex">
+            <image src="{{imgItem}}"   mode="widthFix"></image>
+          </block>
+        </view>
+        <view class="itemBttom">
+        <view class="time">{{item.date}}</view>
+        <view class="zanWrap">
+          <image src="/image/unzan.png"></image>
+          <text class="num">12</text>
+          <text>赞</text>
         </view>
       </view>
+      </view>
      
-    </view> 
+    </view>
+    <!-- <view class="">
+      <view class="leftConPart">
+      </view>
+      <view class="itemBttom">
+        <view class="time">2019-12-10</view>
+        <view class="zanWrap">
+          <image src="/image/unzan.png"></image>
+          <text>12</text>
+          <text>赞</text>
+        </view>
+      </view>
+    </view> -->
   </view>
 </view>
  
