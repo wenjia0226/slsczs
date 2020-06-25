@@ -10,7 +10,18 @@ Page({
     nickName: '',
     page: 1,
     pageSize: 5,
-    content: []
+    content: [],
+    giveZan: false,
+    zanNum: 0,
+    chooseId: '',
+    animation: ''
+  },
+  onShow() {
+    this.setData({
+      avatarUrl: wx.getStorageSync('avatarUrl'),
+      nickName: wx.getStorageSync('nickName')
+    })
+    this.getXiuList();
   },
   onPullDownRefresh: function () {
     let that = this;
@@ -35,18 +46,14 @@ Page({
     let that = this;
     let url = app.globalData.URL + "momentsList",
       data = {
-        page: that.data.page
+        page: that.data.page,
+        openId: wx.getStorageSync('openId')
       };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
         title: '加载中...'
       })
-      // app.wxRequest(url, data, (res) => {
-      //   that.setData({
-      //     content: res.data.data
-      //   })
-      // })
       app.wxRequest(url, data, (res) => {
         console.log(res)
         if (res.data.status == 200) {
@@ -76,17 +83,98 @@ Page({
       })
     }
   },
-  onShow() {
-    this.setData({
-      avatarUrl: wx.getStorageSync('avatarUrl'),
-      nickName: wx.getStorageSync('nickName')
-    })
-    this.getXiuList();
-  },
+ 
   gotoMyShow() {
     wx.navigateTo({
       url: '/page/myCollection/pages/myShow/myShow',
     })
-  }
+  },
+  handleGiveZan(e) {
+    let isFabulous = e.currentTarget.dataset.isfabulous;
+    let id = e.currentTarget.dataset.chooseid;
+      if (isFabulous == 2) {  // 如果为2，未点过赞
+        this.setData({
+          choosedId: id
+        })
+        let that = this;
+        let url = app.globalData.URL + "fabulous",
+          data = {
+            id: id,
+            openId: wx.getStorageSync('openId'),
+            studentId: wx.getStorageSync('studentId')
+          };
+        //如果已经授权过
+        if (wx.getStorageSync('phone')) {
+          wx.showLoading({
+            title: '加载中...'
+          })
+          app.wxRequest(url, data, (res) => {
+            // console.log(res)
+            if (res.data.status == 200) {
+              let changeItem = res.data.data;
+              let arr = that.data.content.map((item) => item.id === changeItem.id ? changeItem : item)
+              that.setData({
+                content: arr
+              })
+            } else if (res.data.status == 10235) {
+              wx.showToast({
+                title: res.data.msg
+              })
+            }
+          })
+        }
+      }else  if(isFabulous == 1) {   // 已经点过赞
+        wx.showToast({
+          icon: 'none',
+          title: '您已经为该条消息点过赞啦',
+        })
+      }
+  },
+  flowerAnimation() {
+    this.animation = wx.createAnimation({
+      duration: 300, // 动画持续时间，单位 ms
+      timingFunction: 'linear', // 动画的效果
+      delay: 10, // 动画延迟时间，单位 ms
+      transformOrigin: '50% 50%' // 动画的中心点
+    })
+    setTimeout(function () {
+      this.animation.scale(1.5).step();
+      this.animation.scale(1.0).step();
+      this.setData({
+        animation: this.animation.export()
+      });
 
+    }.bind(this), 50);
+  },
+  getFlower(e){
+    let flowerId = e.currentTarget.dataset.flowerid;
+    let that = this;
+    that.flowerAnimation();  //花动画效果
+    let url = app.globalData.URL + "flowers",
+      data = {
+        id: flowerId,
+        openId: wx.getStorageSync('openId')
+      };
+    //如果已经授权过
+    if (wx.getStorageSync('phone')) {
+      wx.showLoading({
+        title: '加载中...'
+      })
+      app.wxRequest(url, data, (res) => {
+        if (res.data.status == 200) {
+          let flowerItem = res.data.data;
+          let arrFlower = that.data.content.map((item) => item.id === flowerItem.id ? flowerItem : item)
+          that.setData({
+            content: arrFlower
+          })
+
+        } else if (res.data.status == 10236) {
+          wx.showToast({
+            icon: 'none',
+            title: res.data.msg
+          })
+        }
+      })
+    }
+  }
 })

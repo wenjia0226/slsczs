@@ -1,2 +1,11 @@
 <!--page/myCollection//pages/myShow/myShow.wxml-->
-<text>page/myCollection//pages/myShow/myShow.wxml</text>
+<view class="mainWrap">
+    <view class="itemWrap">
+      <view class="leftPart">
+        <view class="time"> </view>
+      </view>
+      <view class="rightPart">
+        
+      </view>
+    </view>
+</view>

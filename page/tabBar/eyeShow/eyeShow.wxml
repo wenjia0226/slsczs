@@ -3,7 +3,7 @@
   <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
   <!-- 顶部头像图片 -->
   <view class="imgWrap" style="margin-top: {{height}}px"> 
-    <image src="/image/banner.jpg"></image>
+    <image src="/image/shop.png"></image>
     <view class="infoWrap">
       <view class="name">我是{{nickName}}</view>
       <image src="{{avatarUrl}}" bindtap="gotoMyShow"></image>
@@ -33,27 +33,21 @@
         </view>
         <view class="itemBttom">
         <view class="time">{{item.date}}</view>
-        <view class="zanWrap">
-          <image src="/image/unzan.png"></image>
-          <text class="num">12</text>
+        <view class="zanWrap" data-chooseId="{{item.id}}" data-isFabulous= "{{item.isFabulous}}" bindtap="handleGiveZan" >
+          <image   wx:if="{{item.isFabulous == 2}}" src="/image/unzan.png"></image> 
+            <image  wx:if="{{item.isFabulous == 1}}"  src="/image/zan.png"></image>
+          <text class="num">{{item.fabulous}}</text>
           <text>赞</text>
+        </view>
+         <view class="zanWrap" data-flowerId="{{item.id}}" bindtap="getFlower">
+          <image src="/image/flower.png" animation="{{animation}}"></image> 
+          <text class="num">{{item.flower}}</text>
+          <text>朵</text>
         </view>
       </view>
       </view>
      
     </view>
-    <!-- <view class="">
-      <view class="leftConPart">
-      </view>
-      <view class="itemBttom">
-        <view class="time">2019-12-10</view>
-        <view class="zanWrap">
-          <image src="/image/unzan.png"></image>
-          <text>12</text>
-          <text>赞</text>
-        </view>
-      </view>
-    </view> -->
   </view>
 </view>
  
