@@ -18,7 +18,7 @@ Page({
     changedFlower: '',
     flowerSelectedArr: []
   },
-  onShow() {
+  onLoad() {
     this.setData({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName'),
@@ -28,14 +28,26 @@ Page({
     this.getXiuList();
     this.flowerAnimation();
   },
+  // onPullDownRefresh: function () {
+  //   let that = this;
+  //   wx.stopPullDownRefresh();
+  //   setTimeout(function () {
+  //     that.setData({
+  //       page: 1
+  //     })
+  //     that.getXiuList();
+  //   }, 500);
+  // },
   onPullDownRefresh: function () {
+    console.log('onPullDonwFresh')
     let that = this;
     wx.stopPullDownRefresh();
     setTimeout(function () {
-      this.setData({
+      that.setData({
+        content: [],
         page: 1
       })
-      this.getXiuList();
+      that.getXiuList();
     }, 500);
   },
   onReachBottom: function () {

@@ -1,6 +1,7 @@
 {
   "navigationStyle": "custom",
   "navigationBarTitleText": "black",
+  "backgroundTextStyle": "dark",
   "usingComponents": {
     "nav-bar": "../navbar/navbar"
   },
