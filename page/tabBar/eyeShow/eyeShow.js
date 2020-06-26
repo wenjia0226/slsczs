@@ -167,9 +167,9 @@ Page({
     };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
-      wx.showLoading({
-        title: '加载中...'
-      })
+      // wx.showLoading({
+      //   title: '加载中...'
+      // })
       app.wxRequest(url, data, (res) => {
         // console.log(res)
         if (res.data.status == 200) {
@@ -183,10 +183,14 @@ Page({
           })
 
         } else if (res.data.status == 10236) {
-          wx.showToast({
+          setTimeout(() => {
+           wx.showToast({
             icon: 'none',
-            title: res.data.msg
+            title: '您今天的花已经送完啦',
           })
+          })
+          
+          
         }
       })
     }

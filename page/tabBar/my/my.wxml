@@ -28,7 +28,7 @@
       <view class="itemTitle">眼健康档案</view>
     </view>
     <view class="centerItem"  bindtap="goToShai">
-      <image  mode ="widthFix"  src="/image/dangan.png"></image>
+      <image  mode ="widthFix"  src="/image/myShai.png"></image>
       <view class="itemTitle">筛查档案</view>
     </view>
     <view class="centerItem"  bindtap="gotMyChild">

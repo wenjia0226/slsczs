@@ -4,7 +4,8 @@ Page({
   data: {
     textInput: '',
     imgs: [],
-    countNum: 0
+    countNum: 4,
+    uploadImg: 0
   },
   handleInput(e){
     this.setData({
@@ -19,13 +20,13 @@ Page({
       })
       return;
     }
-    if(this.data.countNum >= 0) {
+    if(this.data.countNum >= 0 && this.data.countNum <= 4) {
       let that = this;
       wx.chooseImage({
         count: that.data.countNum,
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
-        success: function (res) {
+        success: function (res) { 
           var tempFilePaths = res.tempFilePaths
           that.setData({
             imgs: that.data.imgs.concat(tempFilePaths)
@@ -79,24 +80,42 @@ Page({
               },
               success: function (res) {
                 that.setData({
-                  textInput: '',
-                  imgs: []
+                  uploadImg: that.data.uploadImg + 1
                 })
+                // console.log(that.data.uploadImg, imgs.length)
+                if (that.data.uploadImg == imgs.length) {
+                  // wx.showToast({
+                  //   title: '发布成功',
+                  //   icon: 'success'
+                  // })
+
+                  wx.navigateTo({
+                    url: '/page/myCollection/pages/myShow/myShow'
+                  })
+                  that.setData({
+                    textInput: '',
+                    imgs: [],
+                    uploadImg: 0
+                  })
+                }
               }
             })
+         
+          
           }
         }else {
           that.setData({
             textInput: ''
           })
+          // wx.showToast({
+          //   title: '发布成功',
+          //   icon: 'success'
+          // })
+          wx.navigateTo({
+            url: '/page/myCollection/pages/myShow/myShow'
+          })
         }
-        wx.showToast({
-          title: '发布成功',
-          icon: 'success'
-        })
-        wx.navigateTo({
-          url: '/page/myCollection/pages/myShow/myShow'
-        })
+       
       })
     }
   }

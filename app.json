@@ -1,8 +1,9 @@
 {
   "pages": [
+    "page/tabBar/screen/screen",
     "page/tabBar/eyeShow/eyeShow",
     "page/tabBar/my/my",
-    "page/tabBar/screen/screen",
+  
     "page/tabBar/exchange/exchange",
     "manual/manual",
     "manualTwo/manualTwo",
@@ -10,12 +11,6 @@
   ],
   "tabBar": {
     "list": [
-      {
-        "pagePath": "page/tabBar/exchange/exchange",
-        "text": "护眼城",
-        "iconPath": "/image/exchange.png",
-        "selectedIconPath": "/image/exchangeChecked.png"
-      },
       {
         "pagePath": "page/tabBar/screen/screen",
         "text": "筛查",
@@ -25,9 +20,16 @@
       {
         "pagePath": "page/tabBar/eyeShow/eyeShow",
         "text": "爱眼秀",
+        "iconPath": "/image/quan.png",
+        "selectedIconPath": "/image/quanChecked.png"
+      },
+      {
+        "pagePath": "page/tabBar/exchange/exchange",
+        "text": "护眼城",
         "iconPath": "/image/exchange.png",
         "selectedIconPath": "/image/exchangeChecked.png"
       },
+    
       {
         "pagePath": "page/tabBar/my/my",
         "text": "我的",

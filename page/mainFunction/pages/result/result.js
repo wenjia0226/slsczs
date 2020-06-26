@@ -154,8 +154,8 @@ Page({
        })
      } else if (type == 'archives') {
        let studentId = wx.getStorageSync('studentId');
-       wx.switchTab({
-         url: '/page/tabBar/archives/archives?studentId=' + studentId
+       wx.navigateTo({
+         url: '/page/myCollection/pages/archives/archives?studentId=' + studentId
        })
      }
    }

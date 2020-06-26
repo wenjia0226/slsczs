@@ -60,6 +60,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
+        console.log(res, 111)
         if (res.data.status == 200) {
           var resCurrent = res.data.data;
           let content = that.data.content;

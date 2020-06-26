@@ -6,7 +6,7 @@
     <image src="https://www.guangliangkongjian.com/images/rotation/20200608/1591603386458_222.jpg"></image>
     <view class="infoWrap">
       <view class="name">我是{{nickName}}</view>
-      <image src="{{avatarUrl}}" bindtap="goBack"></image>
+      <image src="{{avatarUrl}}" ></image>
     </view>
   </view>
  <!-- 内容 -->

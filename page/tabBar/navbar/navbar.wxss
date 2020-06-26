@@ -21,8 +21,8 @@
  position: absolute;
 }
 .titleWrap image {
-  width: 36rpx;
-  height: 36rpx;
+  width: 50rpx;
+  height: 50rpx;
   display: block;
 }
 .biaoti {
