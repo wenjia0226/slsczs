@@ -1,6 +1,7 @@
 <!--page/tabBar/eyeShow/eyeShow.wxml-->
-<view class="mainWrap">
+<view class="mainWrap" >
   <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
+  <view style="scrollTop: {{height}}px" >
   <!-- 顶部头像图片 -->
   <view class="imgWrap" style="margin-top: {{height}}px"> 
     <image src="/image/shop.png"></image>
@@ -10,7 +11,7 @@
     </view>
   </view>
  <!-- 内容 -->
-  <view class="centerWrap" wx:for="{{content}}">
+  <view class="centerWrap" wx:for="{{content}}">  
     <view class="centerItem">
       <view class="leftPart">
         <image src="{{item.avatarUrl}}"></image>
@@ -34,20 +35,22 @@
         <view class="itemBttom">
         <view class="time">{{item.date}}</view>
         <view class="zanWrap" data-chooseId="{{item.id}}" data-isFabulous= "{{item.isFabulous}}" bindtap="handleGiveZan" >
-          <image   wx:if="{{item.isFabulous == 2}}" src="/image/unzan.png"></image> 
+          <image wx:if="{{item.isFabulous == 2}}" src="/image/unzan.png"></image> 
             <image  wx:if="{{item.isFabulous == 1}}"  src="/image/zan.png"></image>
           <text class="num">{{item.fabulous}}</text>
           <text>赞</text>
         </view>
-         <view class="zanWrap" data-flowerId="{{item.id}}" bindtap="getFlower">
-          <image src="/image/flower.png" animation="{{animation}}"></image> 
-          <text class="num">{{item.flower}}</text>
+         <view class="zanWrap" data-flowerId="{{item.id}}" bindtap="getFlower" data-item="{{index}}">
+          <image src="/image/flower.png" 
+          animation="{{ flowerSelectedArr[0] == index ?animation: ''}}"></image> 
+          <text class="num">{{item.flower}} {{index}}</text>
           <text>朵</text>
         </view>
       </view>
       </view>
      
     </view>
+  </view>
   </view>
 </view>
  

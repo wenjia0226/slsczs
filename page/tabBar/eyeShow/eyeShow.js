@@ -14,12 +14,16 @@ Page({
     giveZan: false,
     zanNum: 0,
     chooseId: '',
-    animation: ''
+    animation: '',
+    changedFlower: '',
+    flowerSelectedArr: []
   },
   onShow() {
     this.setData({
       avatarUrl: wx.getStorageSync('avatarUrl'),
-      nickName: wx.getStorageSync('nickName')
+      nickName: wx.getStorageSync('nickName'),
+      page:1,
+      content: []
     })
     this.getXiuList();
   },
@@ -55,7 +59,6 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res)
         if (res.data.status == 200) {
           var resCurrent = res.data.data;
           let content = that.data.content;
@@ -134,35 +137,46 @@ Page({
     this.animation = wx.createAnimation({
       duration: 300, // 动画持续时间，单位 ms
       timingFunction: 'linear', // 动画的效果
-      delay: 10, // 动画延迟时间，单位 ms
+    //  delay: 10, // 动画延迟时间，单位 ms
       transformOrigin: '50% 50%' // 动画的中心点
     })
     setTimeout(function () {
       this.animation.scale(1.5).step();
       this.animation.scale(1.0).step();
       this.setData({
-        animation: this.animation.export()
+        animation: this.animation.export(),
+        flowerSelectedArr: []
       });
 
     }.bind(this), 50);
   },
   getFlower(e){
+    let flowerArr = [];
+    flowerArr.push(e.currentTarget.dataset.item);
+    this.setData({
+      flowerSelectedArr: flowerArr
+    }) //先声明个空数组，把每个点击的下标赋给新数组
+    console.log(this.data.flowerSelectedArr[0] ,888)
+    this.flowerAnimation();
     let flowerId = e.currentTarget.dataset.flowerid;
     let that = this;
-    that.flowerAnimation();  //花动画效果
     let url = app.globalData.URL + "flowers",
-      data = {
-        id: flowerId,
-        openId: wx.getStorageSync('openId')
-      };
+    data = {
+      id: flowerId,
+      openId: wx.getStorageSync('openId')
+    };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
+        console.log(res)
         if (res.data.status == 200) {
           let flowerItem = res.data.data;
+          that.setData({
+            changedFlower: flowerItem
+          })
           let arrFlower = that.data.content.map((item) => item.id === flowerItem.id ? flowerItem : item)
           that.setData({
             content: arrFlower

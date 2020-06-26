@@ -3,7 +3,8 @@ const app = getApp();
 Page({
   data: {
     textInput: '',
-    imgs: []
+    imgs: [],
+    countNum: 0
   },
   handleInput(e){
     this.setData({
@@ -18,18 +19,23 @@ Page({
       })
       return;
     }
-    let that = this;
-    wx.chooseImage({
-      count: 4,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths
-        that.setData({
-          imgs: that.data.imgs.concat(tempFilePaths)
-        })
-      }
-    })
+    if(this.data.countNum >= 0) {
+      let that = this;
+      wx.chooseImage({
+        count: that.data.countNum,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+        success: function (res) {
+          var tempFilePaths = res.tempFilePaths
+          that.setData({
+            imgs: that.data.imgs.concat(tempFilePaths)
+          })
+          that.setData({
+            countNum: 4 - that.data.imgs.length
+          })
+        }
+      })
+    }
   },
   previewImg(e) {
     var current = e.target.dataset.src;

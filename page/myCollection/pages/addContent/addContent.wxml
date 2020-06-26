@@ -2,11 +2,11 @@
 <view class="mainWrap">
   <textarea placeholder="这一刻的想法..." value="{{textInput}}" class="inputWrap" bindinput="handleInput"></textarea>
   <view class="imgWrap">
-    <view class="itemImg" bindtap="gotoCamera">
+    <view class="itemImg" bindtap="gotoCamera" wx:if="{{imgs.length < 4}}">
       <image src="/image/add.png" mode="aspectFit"></image>
     </view>
      <view class="imgBox" wx:for="{{imgs}}">
-      <image src="{{item}}"  data-src="{{item}}"mode="widthFix" bindtap="previewImg"></image>
+      <image src="{{item}}"  data-src="{{item}}" mode="aspectFill" bindtap="previewImg"></image>
     </view>
   </view>
   <view>

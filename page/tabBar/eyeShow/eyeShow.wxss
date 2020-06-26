@@ -6,6 +6,7 @@
   top: 0;
   bottom: 0;
 }
+
 /* 头部 图片头像 */
 .imgWrap {
   width: 100%;
