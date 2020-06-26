@@ -26,6 +26,7 @@ Page({
       content: []
     })
     this.getXiuList();
+    this.flowerAnimation();
   },
   onPullDownRefresh: function () {
     let that = this;
@@ -137,7 +138,7 @@ Page({
     this.animation = wx.createAnimation({
       duration: 300, // 动画持续时间，单位 ms
       timingFunction: 'linear', // 动画的效果
-    //  delay: 10, // 动画延迟时间，单位 ms
+      delay: 10, // 动画延迟时间，单位 ms
       transformOrigin: '50% 50%' // 动画的中心点
     })
     setTimeout(function () {
@@ -156,7 +157,6 @@ Page({
     this.setData({
       flowerSelectedArr: flowerArr
     }) //先声明个空数组，把每个点击的下标赋给新数组
-    console.log(this.data.flowerSelectedArr[0] ,888)
     this.flowerAnimation();
     let flowerId = e.currentTarget.dataset.flowerid;
     let that = this;
@@ -171,7 +171,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == 200) {
           let flowerItem = res.data.data;
           that.setData({

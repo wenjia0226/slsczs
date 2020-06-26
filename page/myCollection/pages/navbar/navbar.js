@@ -1,4 +1,3 @@
-// page/assembly/pages/navbar/navbar.js
 const app = getApp();
 Component({
 
@@ -19,5 +18,5 @@ Component({
       wx.navigateBack()
     }
   }
-  
+
 })

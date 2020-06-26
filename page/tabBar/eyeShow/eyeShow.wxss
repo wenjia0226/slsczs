@@ -10,8 +10,9 @@
 /* 头部 图片头像 */
 .imgWrap {
   width: 100%;
-  height: calc(33%);
+  height: calc(50vw);
   position: relative;
+  margin-bottom: 40rpx;
 }
 .imgWrap image {
   width: 100%;
@@ -20,7 +21,6 @@
 .infoWrap {
   display: flex;
   align-items: center;
- 
 }
 .name {
   position: absolute;
@@ -31,7 +31,7 @@
 }
 .infoWrap > image {
  position: absolute;
-  bottom: -20rpx;
+  bottom: -50rpx;
   right: 50rpx;
   width: 150rpx;
   height: 150rpx;
@@ -45,7 +45,6 @@
 }
 .centerItem {
   display: flex;
-
   align-items: center;
 }
 .leftPart {
@@ -72,6 +71,7 @@
 }
 .word {
   line-height: 40rpx;
+  margin-bottom: 10rpx;
 }
 .imgBox {
   overflow: hidden;

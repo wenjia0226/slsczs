@@ -1,6 +1,6 @@
 <!--page/myCollection//pages/addContent/addContent.wxml-->
 <view class="mainWrap">
-  <textarea placeholder="这一刻的想法..." value="{{textInput}}" class="inputWrap" bindinput="handleInput"></textarea>
+  <textarea placeholder="这一刻的想法..." value="{{textInput}}" maxlength="100" class="inputWrap" bindinput="handleInput"></textarea>
   <view class="imgWrap">
     <view class="itemImg" bindtap="gotoCamera" wx:if="{{imgs.length < 4}}">
       <image src="/image/add.png" mode="aspectFit"></image>

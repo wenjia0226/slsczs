@@ -65,27 +65,39 @@ Page({
       app.wxRequest(url, data, (res) => {
         let id = res.data.data;
         let imgs = this.data.imgs;
-        for (let i = 0; i < imgs.length; i++) {
-          wx.uploadFile({
-            url: app.globalData.URL + 'addTaskPic', //仅为示例，非真实的接口地址
-            filePath: imgs[i],
-            name: 'file',
-            formData: {
-              'id': id
-            },
-            header: {
-              "Content-Type": "multipart/form-data"//记得设置
-            },
-            success: function (res) {
-              that.setData({
-                textInput: '',
-                imgs: []
-              })
-            }
+        if(imgs.length) {
+          for (let i = 0; i < imgs.length; i++) {
+            wx.uploadFile({
+              url: app.globalData.URL + 'addTaskPic', //仅为示例，非真实的接口地址
+              filePath: imgs[i],
+              name: 'file',
+              formData: {
+                'id': id
+              },
+              header: {
+                "Content-Type": "multipart/form-data"//记得设置
+              },
+              success: function (res) {
+                that.setData({
+                  textInput: '',
+                  imgs: []
+                })
+              }
+            })
+          }
+        }else {
+          that.setData({
+            textInput: ''
           })
         }
+        wx.showToast({
+          title: '发布成功',
+          icon: 'success'
+        })
+        wx.navigateTo({
+          url: '/page/myCollection/pages/myShow/myShow'
+        })
       })
     }
-
   }
 })

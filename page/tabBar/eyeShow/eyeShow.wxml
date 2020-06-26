@@ -4,7 +4,7 @@
   <view style="scrollTop: {{height}}px" >
   <!-- 顶部头像图片 -->
   <view class="imgWrap" style="margin-top: {{height}}px"> 
-    <image src="/image/shop.png"></image>
+    <image src="https://www.guangliangkongjian.com/images/rotation/20200608/1591603386458_222.jpg"></image>
     <view class="infoWrap">
       <view class="name">我是{{nickName}}</view>
       <image src="{{avatarUrl}}" bindtap="gotoMyShow"></image>
@@ -29,7 +29,7 @@
         </view>
         <view class="imgBox">     
           <block wx:for="{{item.path}}" wx:for-item="imgItem" wx:key="imgIndex">
-            <image src="{{imgItem}}"   mode="widthFix"></image>
+            <image src="{{imgItem}}" mode="widthFix"></image>
           </block>
         </view>
         <view class="itemBttom">
@@ -43,7 +43,7 @@
          <view class="zanWrap" data-flowerId="{{item.id}}" bindtap="getFlower" data-item="{{index}}">
           <image src="/image/flower.png" 
           animation="{{ flowerSelectedArr[0] == index ?animation: ''}}"></image> 
-          <text class="num">{{item.flower}} {{index}}</text>
+          <text class="num">{{item.flower}}</text>
           <text>朵</text>
         </view>
       </view>
