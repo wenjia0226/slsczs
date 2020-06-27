@@ -1,4 +1,4 @@
-import * as echarts from "../../../common/ec-canvas/ec-canvas/echarts";
+import * as echarts from "../ec-canvas/echarts";
 const app = getApp();
 function getPieOption(chart, good, mild, moderate, serious) {
   var option = {

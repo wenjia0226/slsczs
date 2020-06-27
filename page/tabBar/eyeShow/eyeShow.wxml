@@ -4,7 +4,7 @@
   <view style="scrollTop: {{height}}px" >
   <!-- 顶部头像图片 -->
   <view class="imgWrap" style="margin-top: {{height}}px"> 
-    <image src="https://www.guangliangkongjian.com/images/rotation/20200608/1591603386458_222.jpg"></image>
+    <image src="{{bannerImg}}"></image>
     <view class="infoWrap">
       <view class="name">我是{{nickName}}</view>
       <image src="{{avatarUrl}}" bindtap="gotoMyShow"></image>

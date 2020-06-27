@@ -1,9 +1,0 @@
-
-{
-  "navigationBarTitleText": "",
-  "navigationBarBackgroundColor": "#eee",
-  "component": true,
-  "usingComponents": {
-    "ec-canvas": "/page/common/ec-canvas/ec-canvas/ec-canvas"
-  }
-}

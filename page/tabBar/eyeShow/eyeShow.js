@@ -16,7 +16,8 @@ Page({
     chooseId: '',
     animation: '',
     changedFlower: '',
-    flowerSelectedArr: []
+    flowerSelectedArr: [],
+    bannerImg: ''
   },
   onLoad() {
     this.setData({
@@ -25,19 +26,31 @@ Page({
       page:1,
       content: []
     })
+    this.getImg();
     this.getXiuList();
     this.flowerAnimation();
   },
-  // onPullDownRefresh: function () {
-  //   let that = this;
-  //   wx.stopPullDownRefresh();
-  //   setTimeout(function () {
-  //     that.setData({
-  //       page: 1
-  //     })
-  //     that.getXiuList();
-  //   }, 500);
-  // },
+  getImg() {
+    let that = this;
+    let url = app.globalData.URL + "configPic",
+      data = {
+        
+      };
+    //如果已经授权过
+    if (wx.getStorageSync('phone')) {
+      wx.showLoading({
+        title: '加载中...'
+      })
+      app.wxRequest(url, data, (res) => {
+        // console.log(res)
+        if (res.data.status == 200) {
+          that.setData({
+            bannerImg: res.data.data
+          })
+        }
+      })
+    }
+  },
   onPullDownRefresh: function () {
     console.log('onPullDonwFresh')
     let that = this;

@@ -1,4 +1,4 @@
-import * as echarts from '..//ec-canvas/echarts.js';
+import * as echarts from '../ec-canvas/echarts.js';
 const app = getApp();
 var xData = [], leftData, rightData;
 var wearxData = [], wearleftData, wearrightData;

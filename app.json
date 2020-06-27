@@ -3,7 +3,7 @@
     "page/tabBar/screen/screen",
     "page/tabBar/eyeShow/eyeShow",
     "page/tabBar/my/my",
-  
+    "page/tabBar/navbar/navbar",
     "page/tabBar/exchange/exchange",
     "manual/manual",
     "manualTwo/manualTwo",
@@ -21,7 +21,10 @@
         "pagePath": "page/tabBar/eyeShow/eyeShow",
         "text": "爱眼秀",
         "iconPath": "/image/quan.png",
-        "selectedIconPath": "/image/quanChecked.png"
+        "selectedIconPath": "/image/quanChecked.png",
+        "usingComponents": {
+          "nav-bar": "/page/tabBar/navbar/navbar"
+        }
       },
       {
         "pagePath": "page/tabBar/exchange/exchange",
@@ -38,6 +41,7 @@
       }
       
     ],
+    
     "color": "#000",
     "selectedColor": "#3e65e4"
   },
@@ -67,6 +71,7 @@
         "pages/survey/survey",
         "pages/clock/clock",
         "pages/noCheck/noCheck",
+        "pages/ec-canvas/ec-canvas",
         "pages/down/down",
         "pages/webview/webview",
         "pages/middle/middle",
@@ -80,7 +85,8 @@
         "pages/clertPage/clertPage",
         "pages/archives/archives",
         "pages/addContent/addContent",
-        "pages/myShow/myShow"
+        "pages/myShow/myShow",
+        "pages/navbar/navbar"
       ]
     }, {
       "root": "page/mainFunction",
