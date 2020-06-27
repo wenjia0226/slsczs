@@ -52,7 +52,7 @@ Page({
     }
   },
   onPullDownRefresh: function () {
-    console.log('onPullDonwFresh')
+    // console.log('onPullDonwFresh')
     let that = this;
     wx.stopPullDownRefresh();
     setTimeout(function () {
@@ -85,9 +85,11 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
+      
         if (res.data.status == 200) {
           var resCurrent = res.data.data;
           let content = that.data.content;
+         
           if (that.data.page == 1) {
             content = []
           }

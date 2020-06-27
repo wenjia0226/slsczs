@@ -29,7 +29,7 @@
         </view>
         <view class="imgBox">     
           <block wx:for="{{item.path}}" wx:for-item="imgItem" wx:key="imgIndex">
-            <image src="{{imgItem}}" mode="widthFix"></image>
+            <image src="{{imgItem}}" mode="aspectFill"></image>
           </block>
         </view>
         <view class="itemBttom">

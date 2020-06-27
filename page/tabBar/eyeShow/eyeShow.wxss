@@ -78,6 +78,7 @@
 }
 .imgBox > image {
   width: 45%;
+  height: calc(45vw);
   margin: 1%;
 }
 /* //底部时间 点赞 */

@@ -9,7 +9,7 @@ Page({
     isLogin: false,
     height: app.globalData.height * 2 + 20,
     navbarData: {
-      title: '店员登录'
+      title: ''
     }
   },
   // 获取输入账号 
