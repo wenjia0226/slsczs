@@ -6,14 +6,14 @@
   <view class="imgWrap" style="margin-top: {{height}}px"> 
     <image src="{{bannerImg}}"></image>
     <view class="infoWrap">
-      <view class="name" wx:if="{{nickName}}">我是{{nickName}}</view>
-      <view class="name" wx:if="{{!nickName}}">登录</view>
+      <view class="name" wx:if="{{nickName}}">{{nickName}}</view>
+      <view class="name" wx:if="{{!nickName}}" bindtap="gotoLogin" >登录</view>
       <image src="{{avatarUrl}}" wx:if="{{avatarUrl}}" bindtap="gotoMyShow"></image>
-      <image  class=" userinfo-avatar" src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image> 
+      <image  class=" userinfo-avatar" bindtap="gotoLogin"  src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image> 
     </view>
   </view>
  <!-- 内容 -->
-  <view class="centerWrap" wx:for="{{content}}" wx:if="{{content}}">  
+  <view class="centerWrap" wx:for="{{content}}" wx:if="{{ phone && content}}">  
     <view class="centerItem">
       <view class="leftPart">
         <image src="{{item.avatarUrl}}" ></image>
@@ -52,9 +52,14 @@
       </view>
     </view>
   </view>
-  <view class="centerWrap"  wx:if="{{content.length == 0}}">
+  <view class="centerWrap"  wx:if="{{!phone}}">
     <view class="noData">
-     请先登录，然后查看爱眼秀
+     请先登录
+    </view>
+  </view>
+  <view class="centerWrap"  wx:if="{{ phone && content.length == 0}}">
+    <view class="noData">
+      暂无爱眼秀
     </view>
   </view>
   </view>

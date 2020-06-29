@@ -59,11 +59,11 @@
     </view>
     <view class="centerItem" bindtap="goTeacher">
       <image  mode ="widthFix"  src="/image/teacher.png"></image>
-      <view class="itemTitle">我是教师</view>
+      <view class="itemTitle">教师端入口</view>
     </view>
     <view class="centerItem" bindtap="goClert">
       <image  mode ="widthFix" src="/image/clert.png"></image>
-      <view class="itemTitle">我是店员</view>
+      <view class="itemTitle">店员端入口</view>
     </view>
   </view>
   <!-- <view class="listWrap" >

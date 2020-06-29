@@ -16,7 +16,8 @@ Page({
     chooseId: '',
     animation: '',
     changedFlower: '',
-    flowerSelectedArr: []
+    flowerSelectedArr: [],
+    phone: wx.getStorageSync('phone')
   },
   onLoad() {
     this.setData({
@@ -28,6 +29,33 @@ Page({
     this.getImg();
     this.getXiuList();
     this.flowerAnimation();
+  },
+  delteItem(e){
+    let id = e.currentTarget.dataset.id;
+    let that = this;
+    let url = app.globalData.URL + "deleteMyMoments",
+      data = {
+        id: id
+      };
+    wx.showModal({
+      title: '删除爱眼秀',
+      content: '删除该条爱眼秀后将无法恢复，是否进行删除？',
+      success(res) {
+        if (res.confirm) {
+          app.wxRequest(url, data, (res) => {
+            console.log(res)
+            if (res.data.status == 200) {
+              that.setData({
+                page: 1
+              })
+              that.getXiuList();
+            }
+          })
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })
   },
   getImg() {
     let that = this;
@@ -97,7 +125,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        // console.log(res, 111)
+        console.log(res, 111)
         if (res.data.status == 200) {
           var resCurrent = res.data.data;
           let content = that.data.content;

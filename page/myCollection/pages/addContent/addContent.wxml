@@ -1,5 +1,6 @@
 <!--page/myCollection//pages/addContent/addContent.wxml-->
 <view class="mainWrap">
+  <view class="remin">内容优秀的爱眼秀会通过系统审核，放入爱眼秀首页。有机会获得更多的“点赞”和“小红花”，每10个点赞会获得1枚爱眼币，最多获得5枚爱眼币</view>
   <textarea placeholder="这一刻的想法..." value="{{textInput}}" maxlength="100" class="inputWrap" bindinput="handleInput"></textarea>
   <view class="imgWrap">
     <view class="itemImg" bindtap="gotoCamera" wx:if="{{imgs.length < 4}}">

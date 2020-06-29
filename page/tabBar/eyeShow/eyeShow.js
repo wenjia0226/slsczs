@@ -17,18 +17,25 @@ Page({
     animation: '',
     changedFlower: '',
     flowerSelectedArr: [],
-    bannerImg: ''
+    bannerImg: '',
+    phone: ''
   },
-  onLoad() {
+  onShow() {
     this.setData({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName'),
       page:1,
-      content: []
+      content: [],
+      phone: wx.getStorageSync('phone')
     })
     this.getImg();
     this.getXiuList();
     this.flowerAnimation();
+  },
+  gotoLogin() {
+    wx.navigateTo({
+      url: '/nicheng/nicheng'
+    })
   },
   //  预览
   previewImg(e) {
@@ -89,6 +96,8 @@ Page({
   },
   getXiuList() {
     let that = this;
+    if(wx.getStorageSync('phone')) {
+
     let url = app.globalData.URL + "momentsList",
       data = {
         page: that.data.page,
@@ -121,11 +130,12 @@ Page({
           }
         } else {
           wx.showToast({
-            title: '出现异常',
+            title: '',
             icon: 'none'
           })
         }
       })
+    }
   },
  
   gotoMyShow() {

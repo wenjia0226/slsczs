@@ -24,7 +24,10 @@
       </view>
       <view class="rightConPart">
         <view class="word">
-          {{item.contents}}
+           <view> {{item.contents}}</view>
+           <view class="deleteImg" data-id="{{item.id}}" bindtap="delteItem">
+              <image src="/image/delete.png"></image>
+            </view>
         </view>
         <view class="imgBox">     
            <block wx:for="{{item.path}}" wx:for-item="imgItem" wx:key="imgIndex">
@@ -48,6 +51,11 @@
       </view>
       </view>
      
+    </view>
+  </view>
+  <view class="centerWrap" wx:if="{{content.length == 0}}">
+    <view  class="noData">
+     您还没有发布爱眼秀,先去发布吧
     </view>
   </view>
   </view>

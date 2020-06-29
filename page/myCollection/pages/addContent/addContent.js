@@ -63,6 +63,7 @@ Page({
       wx.showLoading({
         title: '加载中...'
       })
+      if(that.data.textInput !== '' || that.data.imgs.length > 0) {
       app.wxRequest(url, data, (res) => {
         let id = res.data.data;
         let imgs = this.data.imgs;
@@ -111,6 +112,11 @@ Page({
         }
        
       })
+      } else {
+        wx.showToast({
+          title: '发布内容不能为空',
+        })
+      }
     }
   }
 })

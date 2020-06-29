@@ -74,7 +74,7 @@
           领取
       </view>
   </view>
-  <view class="centerWrap" style="height: 300rpx" wx:if="{{type == 0}}">
+  <view class="centerWrap" wx:if="{{type == 0}}">
   <block wx:if="{{jifenList.length}}">
     <!-- <scroll-view scroll-y  style="height: 100%;"> -->
       <view class="itemWrap" wx:for="{{jifenList}}">
@@ -91,7 +91,7 @@
     <view class="itemWrap" style="justify-content:center;font-size: 30rpx">暂无明细</view>
     </block>
   </view>
-  <view wx:if="{{type == 1}}" class="centerWrap" style="height: 300rpx;" >
+  <view wx:if="{{type == 1}}" class="centerWrap"  >
     <view class="itemWrapRecieve" style="justify-content: center"  wx:if="{{receiveList.length == 0}}">暂无领取记录</view>
    
       <view class="itemWrapRecieve"  wx:for="{{receiveList}}">
