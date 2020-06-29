@@ -79,6 +79,7 @@ Page({
                 "Content-Type": "multipart/form-data"//记得设置
               },
               success: function (res) {
+                console.log(res, 999)
                 that.setData({
                   uploadImg: that.data.uploadImg + 1
                 })
@@ -88,7 +89,6 @@ Page({
                   //   title: '发布成功',
                   //   icon: 'success'
                   // })
-
                   wx.navigateTo({
                     url: '/page/myCollection/pages/myShow/myShow'
                   })
@@ -100,17 +100,11 @@ Page({
                 }
               }
             })
-         
-          
           }
         }else {
           that.setData({
             textInput: ''
           })
-          // wx.showToast({
-          //   title: '发布成功',
-          //   icon: 'success'
-          // })
           wx.navigateTo({
             url: '/page/myCollection/pages/myShow/myShow'
           })

@@ -18,15 +18,52 @@ Page({
     changedFlower: '',
     flowerSelectedArr: []
   },
-  onShow() {
+  onLoad() {
     this.setData({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName'),
       page: 1,
       content: []
     })
+    this.getImg();
     this.getXiuList();
     this.flowerAnimation();
+  },
+  getImg() {
+    let that = this;
+    let url = app.globalData.URL + "configPic",
+      data = {
+
+      };
+    //如果已经授权
+    app.wxRequest(url, data, (res) => {
+      // console.log(res)
+      if (res.data.status == 200) {
+        that.setData({
+          bannerImg: res.data.data
+        })
+      }
+    })
+  },
+  //  预览
+  previewImg(e) {
+    var current = e.currentTarget.dataset.imgitem;
+    let id = e.currentTarget.dataset.id;
+    let imgBox = this.data.content.filter((item) => {
+      if (item.id == id) {
+        return item
+      }
+    })
+    wx.previewImage({
+      urls: imgBox[0].path,
+      current: current,
+      success: function (e) {
+        //  console.log('预览成功')
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
   },
   onPullDownRefresh: function () {
     let that = this;

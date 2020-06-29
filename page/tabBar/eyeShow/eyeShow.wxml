@@ -6,15 +6,17 @@
   <view class="imgWrap" style="margin-top: {{height}}px"> 
     <image src="{{bannerImg}}"></image>
     <view class="infoWrap">
-      <view class="name">我是{{nickName}}</view>
-      <image src="{{avatarUrl}}" bindtap="gotoMyShow"></image>
+      <view class="name" wx:if="{{nickName}}">我是{{nickName}}</view>
+      <view class="name" wx:if="{{!nickName}}">登录</view>
+      <image src="{{avatarUrl}}" wx:if="{{avatarUrl}}" bindtap="gotoMyShow"></image>
+      <image  class=" userinfo-avatar" src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image> 
     </view>
   </view>
  <!-- 内容 -->
-  <view class="centerWrap" wx:for="{{content}}">  
+  <view class="centerWrap" wx:for="{{content}}" wx:if="{{content}}">  
     <view class="centerItem">
       <view class="leftPart">
-        <image src="{{item.avatarUrl}}"></image>
+        <image src="{{item.avatarUrl}}" ></image>
       </view>
       <view class="rightPart">
           {{item.nickName}}
@@ -29,7 +31,7 @@
         </view>
         <view class="imgBox">     
           <block wx:for="{{item.path}}" wx:for-item="imgItem" wx:key="imgIndex">
-            <image src="{{imgItem}}" mode="aspectFill"></image>
+            <image src="{{imgItem}}" mode="aspectFill"  data-id="{{item.id}}" data-imgItem="{{imgItem}}" bindtap="previewImg"></image>
           </block>
         </view>
         <view class="itemBttom">
@@ -48,7 +50,11 @@
         </view>
       </view>
       </view>
-     
+    </view>
+  </view>
+  <view class="centerWrap"  wx:if="{{content.length == 0}}">
+    <view class="noData">
+     请先登录，然后查看爱眼秀
     </view>
   </view>
   </view>

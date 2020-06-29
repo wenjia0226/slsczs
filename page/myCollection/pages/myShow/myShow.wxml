@@ -3,10 +3,10 @@
   <view  >
   <!-- 顶部头像图片 -->
   <view class="imgWrap"> 
-    <image src="https://www.guangliangkongjian.com/images/rotation/20200608/1591603386458_222.jpg"></image>
+      <image src="{{bannerImg}}"></image>
     <view class="infoWrap">
       <view class="name">我是{{nickName}}</view>
-      <image src="{{avatarUrl}}" ></image>
+      <image src="{{avatarUrl}}"></image>
     </view>
   </view>
  <!-- 内容 -->
@@ -27,8 +27,8 @@
           {{item.contents}}
         </view>
         <view class="imgBox">     
-          <block wx:for="{{item.path}}" wx:for-item="imgItem" wx:key="imgIndex">
-            <image src="{{imgItem}}" mode="aspectFill"></image>
+           <block wx:for="{{item.path}}" wx:for-item="imgItem" wx:key="imgIndex">
+            <image src="{{imgItem}}" mode="aspectFill"  data-id="{{item.id}}" data-imgItem="{{imgItem}}" bindtap="previewImg"></image>
           </block>
         </view>
         <view class="itemBttom">

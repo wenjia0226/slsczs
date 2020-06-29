@@ -28,6 +28,7 @@
   bottom: 10rpx;
   letter-spacing: 5rpx;
   color: #fff;
+  z-index: 99
 }
 .infoWrap > image {
  position: absolute;
@@ -41,7 +42,7 @@
 .centerWrap {
   margin: 10rpx 3%;
   box-sizing: border-box;
-  border-bottom: 1rpx solid grey;
+  /* border-bottom: 1rpx solid grey; */
 }
 .centerItem {
   display: flex;
@@ -78,7 +79,7 @@
 }
 .imgBox > image {
   width: 45%;
-  height: calc(45vw);
+  height: calc(34vw);
   margin: 1%;
 }
 /* //底部时间 点赞 */
@@ -106,4 +107,18 @@
 }
 .num {
   padding: 0 10rpx;
+}
+.noData {
+  margin: 10rpx 5%;
+  text-align: center;
+  font-size: 30rpx;
+  border-bottom: none;
+}
+.bgWhite {
+  position: absolute;
+  right: 220rpx;
+  bottom: 10rpx;
+  letter-spacing: 5rpx;
+  background: #fff;
+  z-index: 9
 }
