@@ -28,7 +28,8 @@
   bottom: 10rpx;
   letter-spacing: 5rpx;
   color: #fff;
-  z-index: 99
+  z-index: 99;
+  font-size: 30rpx;
 }
 .infoWrap > image {
  position: absolute;

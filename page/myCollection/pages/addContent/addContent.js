@@ -5,7 +5,8 @@ Page({
     textInput: '',
     imgs: [],
     countNum: 4,
-    uploadImg: 0
+    uploadImg: 0,
+    pushBtn: false
   },
   handleInput(e){
     this.setData({
@@ -49,6 +50,10 @@ Page({
     })
   },
   publishMessage() {
+    if(!this.data.pushBtn) {
+      this.setData({
+        pushBtn:  true
+      })
     let that = this;
     let url = app.globalData.URL + "addTaskPic",
     data = { 
@@ -116,7 +121,11 @@ Page({
         wx.showToast({
           title: '发布内容不能为空',
         })
+        this.setData({
+          pushBtn: false
+        })
       }
     }
+  } 
   }
 })
