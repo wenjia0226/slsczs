@@ -1,17 +1,20 @@
 <!--pages/test/test.wxml-->
-<view class="testwrap"  wx:for="{{navList}}" wx:if="{{item.levelId == levelPre}}" wx:key="levelId">
+<view>
+<view class="wraningCxt">可以滑动至您认为合适的视力结果处开始</view>
+ <scroll-view  scroll-x="true" scroll-into-view="{{toview}}"  scroll-with-animation="true" style="white-space: nowrap;margin: 20rpx auto">
+    <view  class="chooseLevel" wx:for="{{selectNavList}}">
+      <view class="chooseItem {{chooseId == item.levelId ? 'selLevel': ''}}" id="{{item.levelId}}" data-chooseId="{{item.levelId}}" bindtap="selecteLevel">
+        <view class="leve5">{{item.levelName5}}</view>
+         <view class="levelNum">{{item.levelName}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="testwrap"  wx:for="{{navList}}" wx:if="{{item.levelId == levelPre}}" wx:key="levelId">
     <view class="num">{{item.showName}}</view>
     <view class="total">
       <view >正确：{{rightNum}}</view>
       <view>错误: {{wrongNum}}</view>
     </view>
-    <!-- 中间展示部分 -->
-    <!-- <view class="imgWrap" bindtouchstart="handletouchtart"   bindtouchmove="handletouchmove" bindtouchend="handletouchend" wx:for="{{item.path}}" wx:for-item="sheet" wx:key="id" wx:if="{{sheet.id == id}}">
-        <image src="/image/shibiao/{{sheet.src}}.png" data-info="{{sheet.answer}}"  style="width:{{scaleWidth}}rpx ;height:{{scaleHeight}}rpx"   bindload="imgLoad"></image>   
-    </view> 
-    <view class="imgWrap" wx:for="{{item.path}}" wx:for-item="sheet" wx:key="id" wx:if="{{sheet.id == id}}" >
-        <image src="/image/shibiao/{{sheet.src}}.png"  style="width:{{scaleWidth}}rpx ;height:{{scaleHeight}}rpx" bindload="imgLoad"  data-info ="{{sheet.answer}}"></image>
-    </view> -->
     <view class="imgWrap" wx:for="{{item.path}}" wx:for-item="sheet" wx:key="id" wx:if="{{sheet.id == id}}" >
         <image src="/image/shibiao/{{sheet.src}}.png" bindload="imgLoad" style="width:{{scaleWidth}}rpx ;height:{{scaleHeight}}rpx"   data-info ="{{sheet.answer}}"></image>
     </view>
@@ -26,4 +29,5 @@
       </view>
     </view>
     <view class="end" bindtap="gotoResult">结束右眼检测</view>
+  </view>
 </view>

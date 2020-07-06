@@ -18,19 +18,28 @@ Page({
     changedFlower: '',
     flowerSelectedArr: [],
     bannerImg: '',
-    phone: ''
+    phone: '',
+    prevImg: true
   },
   onShow() {
     this.setData({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName'),
-      page:1,
-      content: [],
       phone: wx.getStorageSync('phone')
     })
-    this.getImg();
-    this.getXiuList();
-    this.flowerAnimation();
+    if(this.data.prevImg) {
+      this.setData({
+        page: 1,
+        content: []
+      })  
+      this.getImg();
+      this.getXiuList();
+      this.flowerAnimation();
+     
+    }
+    this.setData({
+      prevImg: true
+    })
   },
   gotoLogin() {
     wx.navigateTo({
@@ -39,6 +48,7 @@ Page({
   },
   //  预览
   previewImg(e) {
+    let that = this;
     var current = e.currentTarget.dataset.imgitem;
     let id = e.currentTarget.dataset.id;
    let imgBox =  this.data.content.filter((item) => {
@@ -51,6 +61,9 @@ Page({
       current: current,
       success: function (e) {
       //  console.log('预览成功')
+       that.setData({
+         prevImg: false
+       })
       },
       fail: function(err) {
         console.log(err)
@@ -137,7 +150,6 @@ Page({
       })
     }
   },
- 
   gotoMyShow() {
     wx.navigateTo({
       url: '/page/myCollection/pages/myShow/myShow',

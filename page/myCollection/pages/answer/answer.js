@@ -24,7 +24,7 @@ Page({
     })
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
-        console.log(res)
+        // console.log(res)
         that.setData({
           details: res.data.data.details,
           introduction: res.data.data.introduction,

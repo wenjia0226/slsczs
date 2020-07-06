@@ -65,73 +65,9 @@
       <image  mode ="widthFix" src="/image/clert.png"></image>
       <view class="itemTitle">店员端入口</view>
     </view>
-  </view>
-  <!-- <view class="listWrap" >
-    <view class="item" bindtap="goToBao">
-      <view class="mychild">眼健康档案</view>
-       <view class="titleRight">
-        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-      </view>
-    </view>
-    <view class="item" bindtap="gotMyChild">
-      <view class="mychild">我的孩子</view>
-       <view class="titleRight">
-        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-      </view>
-    </view> 
-     <view class="item" bindtap="gotoPlan">
-      <view class="mychild">爱眼打卡</view>
-       <view class="titleRight">
-        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-      </view>
-    </view>
-    <view class="item" bindtap="gotoAnswer">
-      <view class="mychild">爱眼答题</view>
-       <view class="titleRight">
-        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-      </view>
-    </view> 
-  </view>
-  <view class="listWrap">
-    <view class="item" bindtap="gotoJiFen">
-        <view class="mychild">我的爱眼币</view>
-        <view class="titleRight">
-          <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-        </view>
-      </view>
-      <view class="item shareing">
-        <view class="mychild">
-           <button open-type="share"  class="shareBtn">好友分享 </button>
-        </view>
-        <view class="titleRight">
-          <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-        </view>
-      </view>
-       <view class="item " bindtap="gotoshare">
-        <view class="mychild">合作机构</view>
-        <view class="titleRight">
-          <image  mode="aspectFit"  size="mini"src="/image/righticon.png" mode="aspectFit"></image>
-        </view>
-      </view>
-  </view>
-  <view class="listWrap" >
-    <view class="item" bindtap="goTeacher">
-      <view class="mychild">我是教师</view>
-       <view class="titleRight">
-        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-      </view>
+     <view class="centerItem" bindtap="gotoPing">
+      <image  mode ="widthFix" src="/image/clert.png"></image>
+      <view class="itemTitle">视觉评估</view>
     </view>
   </view>
-  <view class="listWrap" >
-    <view class="item" bindtap="goClert">
-      <view class="mychild">我是店员</view>
-       <view class="titleRight">
-        <image  mode="aspectFit" src="/image/righticon.png" mode="aspectFit"></image>
-      </view>
-    </view>
-  </view> -->
-  <!-- <view class="listWrap" style="margin: 10rpx 5%;">
-    <official-account></official-account>
-  </view> -->
-  
 </view>

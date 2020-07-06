@@ -73,15 +73,14 @@ App({
       wx.getSystemInfo({
         success: res => {
           let statusBarHeight = res.statusBarHeight,
-            navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
-            navHeight = statusBarHeight + menuButtonObject.height;//导航高度
+          navTop = menuButtonObject.top,//胶囊按钮与顶部的距离            
+          navHeight = statusBarHeight + menuButtonObject.height;//导航高度
           this.globalData.wz =  menuButtonObject.height / 2;
           this.globalData.navHeight = navHeight;
           this.globalData.navTop = navTop;
           this.globalData.windowHeight = res.windowHeight;
           this.globalData.height = res.statusBarHeight;
           this.globalData.menuHeight = menuButtonObject.height;
-          // console.log(statusBarHeight, navTop, navHeight);
         },
         fail(err) {
           console.log(err);

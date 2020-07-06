@@ -16,14 +16,6 @@
       <view class="see" bindtap="gotobi"> 去看看</view>
     </view>
 </view>
-<!-- <modal class="modal" hidden="{{modalFlag}}"   no-cancel no-confirm bindconfirm="modalOk">
-    <view class="congratulaition">
-      <image src="/image/cg.png" mode="aspectFit"></image>
-    </view>
-    <view class="titleWrap">
-    获得 <text>3个</text>爱眼币
-    </view>  
-</modal> -->
   <view class="total" style="margin-top: {{height}}px">{{result}}</view>
   <view class="centerWrap">
        <view class="leftWrap">

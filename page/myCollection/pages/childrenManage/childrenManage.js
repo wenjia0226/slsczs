@@ -73,9 +73,9 @@ Page({
               }
             })
           } else if (res.cancel) {  // 跳转到手动添加
-            wx.switchTab({
-              url: '/page/myCollection/pages/chidrenManage/chidrenManage'
-            })
+            // wx.navigateTo({
+            //   url: '/page/myCollection/pages/chidrenManage/chidrenManage'
+            // })
           }
         }
       })

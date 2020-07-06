@@ -24,8 +24,18 @@ Page({
     list: [],
     flag: false,
     leftEyeRightNum: 0,
-    leftEyeWrongNum: 0
-     },
+    leftEyeWrongNum: 0,
+    chooseId: 's9',
+    toview: 's9'
+  },
+  selecteLevel(e) {
+    let that = this;
+    this.setData({
+      chooseId: e.currentTarget.dataset.chooseid,
+      toview: e.currentTarget.dataset.chooseid,
+      levelPre: Number(e.currentTarget.dataset.chooseid.substring(1))
+    })
+  },
   voidRight() {
     const rightContext = wx.createInnerAudioContext();
     rightContext.autoplay = true
@@ -517,15 +527,29 @@ Page({
       leftEyeWrongNum: wx.getStorageSync('LeftEyeWrongNum')
     })
     let url = app.globalData.URL + 'optotype', data = {};
-    app .wxRequest(url, data, (res) => {
-      // console.log(res.data.data)
+    app.wxRequest(url, data, (res) => {
       that.setData({
         navList: res.data.data
+      })
+      let newArr = [];
+      let navList = that.data.navList;
+      for (let i = 0; i < navList.length; i++) {
+        newArr.push({
+          levelId: 's' + navList[i].levelId,
+          levelName: navList[i].levelName,
+          levelName5: navList[i].levelName5
+        })
+      }
+
+      that.setData({
+        selectNavList: newArr,
+        toview: 's9'
       })
     }, (err) => {
       console.log(err)
     })
   },
+
   imgLoad: function (e) {
     var that = this;
     let scale = wx.getStorageSync('scale');

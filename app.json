@@ -1,8 +1,8 @@
 {
   "pages": [
     "page/tabBar/screen/screen",
-    "page/tabBar/eyeShow/eyeShow",
     "page/tabBar/my/my",
+    "page/tabBar/eyeShow/eyeShow",
     "page/tabBar/navbar/navbar",
     "page/tabBar/exchange/exchange",
     "manual/manual",
@@ -86,7 +86,8 @@
         "pages/archives/archives",
         "pages/addContent/addContent",
         "pages/myShow/myShow",
-        "pages/navbar/navbar"
+        "pages/navbar/navbar",
+        "pages/assessment/assessment"
       ]
     }, {
       "root": "page/mainFunction",

@@ -43,7 +43,7 @@ Page({
       success(res) {
         if (res.confirm) {
           app.wxRequest(url, data, (res) => {
-            console.log(res)
+            // console.log(res)
             if (res.data.status == 200) {
               that.setData({
                 page: 1

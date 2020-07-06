@@ -99,7 +99,6 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-       
         that.setData({
           swiperList: res.data.data
         })

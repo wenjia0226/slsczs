@@ -36,11 +36,11 @@ Page({
   },
   getStudenInfo() {
     let that = this;
-    let url = app.globalData.URL + 'findStudent', data = {
+    let url = app.globalData.URL + 'findStudent', data = {  
       studentId: this.data.studentId
     };
     app.wxRequest(url, data, (res) => {
-      console.log(res)
+      // console.log(res) 
       that.setData({
         name: res.data.data.name,
         schoolName: res.data.data.schoolName,

@@ -193,6 +193,15 @@ Page({
      this.gotoLogin()
     }
   },
+  gotoPing() {
+    if (this.data.phone) {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/assessment/assessment'
+      })
+    } else {
+      this.gotoLogin()
+    }
+  },
   gotoshare() {
     wx.navigateTo({
       url: '/page/myCollection/pages/corparation/corparation'
@@ -350,32 +359,5 @@ Page({
       this.gotoLogin();
     }
   }
-  //登录
-  // getPhone(code, encryptedData, iv) {
-  //   console.log(that.data.code, 999)
-  //   let that = this;
-  //   let url = app.globalData.URL + 'bindingPhone';
-  //   let data = {
-  //     encryptedData: encryptedData,
-  //     iv: iv,
-  //     code: code,
-  //     openId: wx.getStorageSync('openId')
-  //   };
-  //   wx.showLoading({
-  //     title: '加载中...',
-  //   })
-  //   app.wxRequest(url, data, (res) => {
-  //     if (res.data.status == 200) {
-  //     //  console.log(res)
-  //      that.setData({
-  //        phoneNum: res.data.data
-  //      })
-  //       wx.switchTab({
-  //         url: '/page/tabBar/my/my'
-  //       })
-  //     }
-  //   }, (err) => {
-  //     console.log(err)
-  //   })
-  // }
+  
 })
