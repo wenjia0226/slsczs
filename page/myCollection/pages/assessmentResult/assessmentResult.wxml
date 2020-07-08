@@ -1,0 +1,12 @@
+<!--page/myCollection//pages/assessmentResult/assessmentResult.wxml-->
+<view class="mainWrap">
+  <view class="resultWrap">
+   <view class="title">您的视觉评估分数为</view>
+   <view class="record">{{num}}</view>
+   <view class="result"> ({{result}})</view>
+   <view class="warning">
+     温馨提示：请重视您的视觉质量，尽快到专业的眼科机构进行再次筛查。
+   </view>
+    <view class="subAnswer" bindtap="gotoShai"> 返回首页</view>
+  </view>
+</view>

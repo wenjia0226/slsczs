@@ -87,7 +87,8 @@
         "pages/addContent/addContent",
         "pages/myShow/myShow",
         "pages/navbar/navbar",
-        "pages/assessment/assessment"
+        "pages/assessment/assessment",
+        "pages/assessmentResult/assessmentResult"
       ]
     }, {
       "root": "page/mainFunction",

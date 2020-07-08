@@ -17,7 +17,7 @@
   font-size: 24rpx;
 }
 .subAnswer {
-  width:80%;
+  width: 60%;
   padding: 20rpx;
   margin: 20rpx auto;
   border-radius: 40rpx;

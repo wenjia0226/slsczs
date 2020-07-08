@@ -43,9 +43,11 @@ Page({
       sum += sub[i].item
     }
     console.log(sum)
-     wx.navigateTo({
-       url: '/page/myCollection/pages/assessmentResult/assessmentResult?num=' + sum
-     })
+   
+    // wx.showModal({
+    //   title: '恭喜你获得' + sum + '分',
+    //   content: '近视有危害，请注意饮食和休息',
+    // })
   }
  
 })

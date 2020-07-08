@@ -1,9 +1,9 @@
 <!--pages/test/test.wxml-->
 <view>
 <view class="wraningCxt">可以滑动至您认为合适的视力结果处开始</view>
- <scroll-view  scroll-x="true" scroll-into-view="{{toview}}"  scroll-with-animation="true" style="white-space: nowrap;margin: 20rpx auto">
-    <view  class="chooseLevel" wx:for="{{selectNavList}}">
-      <view class="chooseItem {{chooseId == item.levelId ? 'selLevel': ''}}" id="{{item.levelId}}" data-chooseId="{{item.levelId}}" bindtap="selecteLevel">
+ <scroll-view  class="scrollBox" scroll-x="true" scroll-into-view="{{toview}}"  scroll-with-animation="true" style="white-space: nowrap;margin: 20rpx auto">
+    <view  class="chooseLevel  {{chooseId == item.levelId ? 'selLevel': ''}}" wx:for="{{selectNavList}}">
+      <view class="chooseItem" id="{{item.levelId}}" data-chooseId="{{item.levelId}}" bindtap="selecteLevel">
         <view class="leve5">{{item.levelName5}}</view>
          <view class="levelNum">{{item.levelName}}</view>
       </view>

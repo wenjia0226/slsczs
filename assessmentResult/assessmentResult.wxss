@@ -1,0 +1,41 @@
+/* assessmentResult/assessmentResult.wxss */
+.mainWrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #eee;
+}
+.resultWrap{
+  margin: 20rpx 5%;
+  background: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+  box-shadow: 0rpx 0rpx 5rpx  2rpx grey;
+  border-radius: 10rpx;
+}
+.title {
+  font-size: 30rpx;
+  font-weight: 500;
+  letter-spacing: 3rpx;
+}
+.record {
+  font-size: 56rpx;
+  font-weight: 900;
+  text-align: center;
+  margin: 30rpx 0  20rpx;
+}
+.result {
+  font-size: 30rpx;
+  color: grey;
+  text-align: center;
+  word-spacing: 5rpx;
+}
+.warning {
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: grey;
+  text-align: center;
+}
