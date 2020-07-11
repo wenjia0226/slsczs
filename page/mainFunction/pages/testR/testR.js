@@ -30,11 +30,15 @@ Page({
   },
   selecteLevel(e) {
     let that = this;
+    if(this.data.time == 0) {
     this.setData({
+      rightNum: 0,
+      wrongNum: 0,
       chooseId: e.currentTarget.dataset.chooseid,
       toview: e.currentTarget.dataset.chooseid,
       levelPre: Number(e.currentTarget.dataset.chooseid.substring(1))
     })
+    }
   },
   voidRight() {
     const rightContext = wx.createInnerAudioContext();
@@ -266,7 +270,6 @@ Page({
             right: 0,
             wrong: 0
           })
-          console.log(that.data.levelPre, 9999)
         } else if (that.data.wrong == 2) { //如果错误数量为2个就是这个等级
           that.setData({
             id: 1,

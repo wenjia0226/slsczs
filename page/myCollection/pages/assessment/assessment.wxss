@@ -1,6 +1,6 @@
 /* assessment/assessment.wxss */
 .itemBox {
-  margin: 10rpx;
+  margin: 10rpx 5%;
 }
 .itemTitle {
   font-size: 28rpx;

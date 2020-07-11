@@ -66,7 +66,7 @@
       <view class="itemTitle">店员端入口</view>
     </view>
      <view class="centerItem" bindtap="gotoPing">
-      <image  mode ="widthFix" src="/image/clert.png"></image>
+      <image  mode ="widthFix" src="/image/assessment.png"></image>
       <view class="itemTitle">视觉评估</view>
     </view>
   </view>

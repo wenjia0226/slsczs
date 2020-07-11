@@ -94,7 +94,6 @@ Page({
     let that = this;
     let url = app.globalData.URL + "rotationPicList",data = {};
     //如果已经授权过
-    if (wx.getStorageSync('phone')) {
       wx.showLoading({
         title: '加载中...'
       })
@@ -104,5 +103,4 @@ Page({
         })
       })
     }
-  }
 }) 

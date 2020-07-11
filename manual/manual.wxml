@@ -1,6 +1,13 @@
 <!--manual/manual.wxml-->
 <view class="mainWrap">
-  <view class="label">姓名</view>
+  <view class="label">所在地区</view>
+  <view class='nameInnerWrap'> 
+    <picker mode="multiSelector" bindchange="bindRegionChange" bindcolumnchange="bindRegionColumnChange" range='{{multiArray}}'>
+      <text wx:if="{{addressCity}}">{{addressCity[0]}} > {{addressCity[1]}} > {{addressCity[2]}}</text>
+      <text wx:else class='placeH'>点击选择地区</text>
+    </picker> 
+  </view>
+    <view class="label">姓名</view>
   <view>
     <input  class="nameInnerWrap" value = "{{name}}" placeholder="请输入姓名" bindinput="handleNameInput"></input>
   </view>
@@ -14,7 +21,7 @@
      <view class="sexBox {{gender == 1? 'selectedActive': ''}} " data-type="1"  bindtap="selectSex">
       <image src="/image/female.png"></image> 
       <text>女</text>
-    </view>
+    </view>  
    </view>
     <!-- 出生日期 -->
       <view class="section">

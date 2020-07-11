@@ -59,7 +59,7 @@
   </view>
   <view class="centerWrap"  wx:if="{{ phone && content.length == 0}}">
     <view class="noData">
-      暂无爱眼秀
+      快点击左上角相机按钮,上传你的爱眼秀吧！
     </view>
   </view>
   </view>

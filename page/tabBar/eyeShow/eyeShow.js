@@ -4,7 +4,7 @@ Page({
   data: {
     height: app.globalData.height * 2 + 20,
     navbarData: {
-      title: '爱眼秀',
+      title: '秀一秀',
     },
     avatarUrl: '',
     nickName: '',

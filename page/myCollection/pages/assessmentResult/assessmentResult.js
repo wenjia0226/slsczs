@@ -2,7 +2,8 @@
 Page({
   data: {
     num: 0,
-    result: ''
+    result: '',
+    sub: false
   },
   onLoad: function (options) {
     this.setData({
@@ -23,8 +24,14 @@ Page({
     }
   },
   gotoShai() {
-    wx.navigateTo({
-      url: '/page/tabBar/screen/screen',
-    })
+    if(!this.data.sub) {
+      this.setData({
+        sub: true
+      })
+      wx.switchTab({
+        url: '/page/tabBar/screen/screen',
+      })
+    }
+   
   }
 })

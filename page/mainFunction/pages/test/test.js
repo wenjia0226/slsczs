@@ -29,12 +29,15 @@ Page({
     toview: 's9'
   },
   selecteLevel(e) {
-    let that = this;
-    this.setData({
-      chooseId: e.currentTarget.dataset.chooseid,
-      toview: e.currentTarget.dataset.chooseid,
-      levelPre: Number(e.currentTarget.dataset.chooseid.substring(1))
-    })
+    if (this.data.time == 0) {
+      this.setData({
+        rightNum: 0,
+        wrongNum: 0,
+        chooseId: e.currentTarget.dataset.chooseid,
+        toview: e.currentTarget.dataset.chooseid,
+        levelPre: Number(e.currentTarget.dataset.chooseid.substring(1))
+      })
+    }
   },
   voidRight() {
     const rightContext = wx.createInnerAudioContext();

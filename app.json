@@ -1,11 +1,11 @@
 {
   "pages": [
     "page/tabBar/screen/screen",
+    "manual/manual",
     "page/tabBar/my/my",
     "page/tabBar/eyeShow/eyeShow",
     "page/tabBar/navbar/navbar",
     "page/tabBar/exchange/exchange",
-    "manual/manual",
     "manualTwo/manualTwo",
     "nicheng/nicheng"
   ],
@@ -19,7 +19,7 @@
       },
       {
         "pagePath": "page/tabBar/eyeShow/eyeShow",
-        "text": "爱眼秀",
+        "text": "秀一秀",
         "iconPath": "/image/quan.png",
         "selectedIconPath": "/image/quanChecked.png",
         "usingComponents": {
