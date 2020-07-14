@@ -259,7 +259,6 @@ Page({
           that.oneComponent = that.selectComponent('#mychart-one');
           that.twoComponent = that.selectComponent("#mychart-two");
         if (xData.length && leftData.length && rightData.length ) {
-         
           //某个人列表赋值
           that.init_one(xData, leftData, rightData) 
         }

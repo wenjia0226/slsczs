@@ -152,7 +152,6 @@ Page({
   },
   //picker确认选择地区
   bindRegionChange: function (e) {
-    console.log(e)
     // 因为在获取省中 北京只有一个选项，导致获取不了北京》北京》第一个
     if (e.detail.value[1] == null || e.detail.value[2] == null) { //如果只滚动了第一列则选取第一列的第一数据
       this.setData({

@@ -142,7 +142,7 @@ swiper {
   height: inherit;
 }
 .active {
-  transform:  scale(1.1);
+  transform:  scale(1.2);
   /* transform: translate(100%, 0px) translateZ(0px); */
   transition: all 0.2s ease-in 0s;
   z-index: 20;

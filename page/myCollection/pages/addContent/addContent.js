@@ -85,7 +85,7 @@ Page({
                 "Content-Type": "multipart/form-data"//记得设置
               },
               success: function (res) {
-                console.log(res, 999)
+                // console.log(res, 999)
                 that.setData({
                   uploadImg: that.data.uploadImg + 1
                 })

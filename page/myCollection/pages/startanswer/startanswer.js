@@ -123,7 +123,6 @@ Page({
           options: options,
           dulChoose: options
         })
-      console.log(this.data.dulChoose,888)
        let sub =  options.filter((item) => {
           if(item.beforeselected) {
             return item
