@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "",
-  "navigationBarBackgroundColor": "#5F1BE8"
+  "navigationBarBackgroundColor": "#5F1BE8",
+  "usingComponents": {
+    "tabbar": "../tabbarComponent/tabbar"
+  }
 }

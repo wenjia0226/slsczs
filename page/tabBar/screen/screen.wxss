@@ -66,7 +66,7 @@
   height: 60rpx;
 }
 swiper {
-  height: 400rpx !important;
+  height: 500rpx !important;
 }
  .topwap {
     width: 100%;
@@ -85,6 +85,7 @@ swiper {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 30rpx 0;
   }
   .portrait > image{
     height: 100%;
@@ -142,11 +143,11 @@ swiper {
   height: inherit;
 }
 .active {
-  transform:  scale(1.2);
+  transform:  scale(1.4);
   /* transform: translate(100%, 0px) translateZ(0px); */
   transition: all 0.2s ease-in 0s;
   z-index: 20;
-  margin-top: 20rpx;
+  margin-top: 30rpx;
 }
 .time {
   text-align: center;

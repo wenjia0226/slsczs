@@ -12,7 +12,11 @@ Page({
     hideWarn: {},
     isShow: true,
     showModalStatus: false,  //关注公众号标志位
-    reuploadFlag: false  //  重复上传标志位
+    reuploadFlag: false, //  重复上传标志位
+    tabbar: {}
+  },
+  onLoad() {
+    app.editTabbar();
   },
   //关注公众号
   followBtn() {

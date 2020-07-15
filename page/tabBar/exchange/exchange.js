@@ -8,7 +8,8 @@ Page({
     hasMoreData: true,
     swiperList: [],
     productList: [],
-    current: 0
+    current: 0,
+    tabbar: {}
   },
   // 商品轮播
   swiperChange: function (e) {
@@ -28,6 +29,7 @@ Page({
     })
   },
   onLoad: function (options) {
+    app.editTabbar();
     this.getInfo(); //首页轮播图
     this.setData({
       page: 1,

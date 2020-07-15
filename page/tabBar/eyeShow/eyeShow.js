@@ -19,9 +19,15 @@ Page({
     flowerSelectedArr: [],
     bannerImg: '',
     phone: '',
-    prevImg: true
+    prevImg: true,
+    tabbar: {}
+  },
+  onLoad() {
+    app.editTabbar();
+   
   },
   onShow() {
+    app.hidetabbar();
     this.setData({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName'),

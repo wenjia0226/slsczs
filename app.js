@@ -1,6 +1,8 @@
 //app.js
 App({
   onLaunch:  function () {
+    this.hidetabbar();
+    this.getSystemInfo();
     if (wx.canIUse('getUpdateManager')) {
       const updateManager = wx.getUpdateManager()
       updateManager.onCheckForUpdate(function (res) {
@@ -86,6 +88,24 @@ App({
           console.log(err);
         }
       })
+     
+  },
+  editTabbar: function () {
+    let tabbar = this.globalData.tabBar;
+    let currentPages = getCurrentPages();
+    let _this = currentPages[currentPages.length - 1];
+    let pagePath = _this.route;
+    (pagePath.indexOf('/') != 0) && (pagePath = '/' + pagePath);
+    for (let i in tabbar.list) {
+      tabbar.list[i].selected = false;
+      if (tabbar.list[i].pagePath == pagePath) {
+        tabbar.list[i].selected = true
+      }
+    }
+    console.log(pagePath);
+    _this.setData({
+      tabbar: tabbar
+    });
   },
   globalData: {
     userInfo: null,
@@ -95,8 +115,50 @@ App({
     height: '',
     wz:'',
     menuHeight: '',
-   URL: 'https://www.guangliangkongjian.com/lightspace/xcx/'
-   //URL: 'http://192.168.100.199:8080/lightspace/xcx/'
+   URL: 'https://www.guangliangkongjian.com/lightspace/xcx/',
+   //URL: 'http://192.168.100.199:8080/lightspace/xcx/',
+    systemInfo: null,//客户端设备信息
+    tabBar: {
+      "backgroundColor": "#ffffff",
+      "color": "#979795",
+      "selectedColor": "#1c1c1b",
+      "list": [
+        {
+          "pagePath": "/page/tabBar/index/index",
+          "text": "首页",
+          "iconPath": "/page/tabBar/tabbarComponent/icon/index.png",
+          "selectedIconPath": "/page/tabBar/tabbarComponent/icon/indexactive.png",
+        
+        },
+        {
+          "pagePath": "/page/tabBar/eyeShow/eyeShow",
+          "text": "秀一秀",
+          "iconPath": "/page/tabBar/tabbarComponent/icon/quan.png",
+          "selectedIconPath": "/page/tabBar/tabbarComponent/icon/quanChecked.png",
+         
+        },
+        {
+          "pagePath": "/page/tabBar/screen/screen",
+          "text": "筛查",
+          "iconPath": "/page/tabBar/tabbarComponent/icon/icon_release.png",
+          "isSpecial": true,
+        },
+        {
+          "pagePath": "/page/tabBar/exchange/exchange",
+          "text": "护眼城",
+          "iconPath": "/page/tabBar/tabbarComponent/icon/mail.png",
+          "selectedIconPath": "/page/tabBar/tabbarComponent/icon/mailactive.png",
+         
+        },
+        {
+          "pagePath": "/page/tabBar/my/my",
+          "text": "我的",
+          "iconPath": "/page/tabBar/tabbarComponent/icon/my.png",
+          "selectedIconPath": "/page/tabBar/tabbarComponent/icon/myactive.png",
+          
+        }
+      ],
+    }
   },
   wxRequest(url, data, callback, errFun) {
     wx.request({
@@ -116,5 +178,23 @@ App({
         wx.hideLoading()
       }
     })
+  },
+  //自己对wx.hideTabBar的一个封装
+  hidetabbar() {
+    wx.hideTabBar({
+      fail: function () {
+        setTimeout(function () { // 做了个延时重试一次，作为保底。
+          wx.hideTabBar()
+        }, 500)
+      }
+    });
+  },
+  getSystemInfo: function () {
+    let t = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        t.globalData.systemInfo = res;
+      }
+    });
   }
 })

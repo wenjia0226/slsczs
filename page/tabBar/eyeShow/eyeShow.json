@@ -3,7 +3,8 @@
   "navigationBarTitleText": "black",
   "backgroundTextStyle": "dark",
   "usingComponents": {
-    "nav-bar": "../navbar/navbar"
+    "nav-bar": "../navbar/navbar",
+    "tabbar": "../tabbarComponent/tabbar"
   },
   "enablePullDownRefresh": true
 }

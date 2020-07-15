@@ -6,7 +6,11 @@ Page({
     phoneNum: '',
     avatarUrl: '',
     nickName: '',
-    code: ''
+    code: '',
+    tabbar: {}
+  },
+  onLoad() {
+    app.editTabbar();
   },
   onShow() {
     this.getPhone();

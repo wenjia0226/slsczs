@@ -64,7 +64,7 @@ Page({
       if (res.data.status == 200) {
           wx.setStorageSync('phone', true);  //授权登录后
           wx.setStorageSync('openId', res.data.data.openId);
-          wx.switchTab({
+          wx.navigateTo({
             url: '/page/tabBar/screen/screen'
           })
         }

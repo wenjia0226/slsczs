@@ -13,7 +13,7 @@
     </view>
   </view>
  <!-- 内容 -->
-  <view class="centerWrap" wx:for="{{content}}" wx:if="{{ phone && content}}">  
+  <view class="centerWrap" wx:for="{{content}}" wx:if="{{ phone && content}}" :key="index">  
     <view class="centerItem">
       <view class="leftPart">
         <image src="{{item.avatarUrl}}" ></image>
@@ -63,5 +63,6 @@
     </view>
   </view>
   </view>
+  <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
  

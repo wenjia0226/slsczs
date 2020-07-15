@@ -70,4 +70,5 @@
       <view class="itemTitle">视觉评估</view>
     </view>
   </view>
+   <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>

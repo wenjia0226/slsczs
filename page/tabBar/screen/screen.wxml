@@ -1,7 +1,7 @@
 <!--screen.wxml-->
- <image src="/image/bg2.png" class="bg" style="height: {{height + 280}}px"></image>
+  <image src="/image/bg2.png" class="bg" style="height: {{height + 280}}px"></image>
   <view class="main" style="margin-top: {{height}}px">
-  <view  class="warning" animation="{{hideWarn}}" wx:if="{{isShow}}">
+    <view  class="warning" animation="{{hideWarn}}" wx:if="{{isShow}}">
     <view class="text">
       <view class="firstline">
         <text>点击</text>
@@ -68,13 +68,10 @@
       <image  src="https://www.guangliangkongjian.com/images/daijing.png"    mode="aspectFit"></image>
      </view>
    </view>
-   <!-- <view class="bottomwrap">
-   <official-account></official-account>
-  </view> -->
- 
+    <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
-<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+ <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
     <!--drawer content-->
     <view class="drawer_content">
       <view class="closeWrap">
