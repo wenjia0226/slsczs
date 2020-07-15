@@ -16,10 +16,6 @@
           点击登录
         </view>
       </view>
-      <!-- <view class="rightQian" bindtap="gotoQian">
-        <image src="/image/qiandao.png" mode="aspectFit"></image>
-        <view class="qiandao">每日签到</view>
-      </view> -->
     </view>
   </view>
   <view class="centerBox">

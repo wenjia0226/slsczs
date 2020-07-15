@@ -54,8 +54,8 @@
   padding: 6rpx; */
   position: fixed;
   bottom: 5rpx;
-  width: 160rpx;
-  height:160rpx;
+  width: 140rpx;
+  height:140rpx;
   border-radius: 50%;
   border-top: 2rpx solid #f2f2f3;
   background-color: #fff;

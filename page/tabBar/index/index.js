@@ -2,7 +2,8 @@
 const app = getApp();
 Page({
   data: {
-    tabbar: {}
+    tabbar: {},
+    height: app.globalData.navHeight
   },
   onLoad() {
     app.editTabbar();

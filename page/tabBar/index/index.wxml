@@ -46,8 +46,7 @@
     </view>
     <view class="itemWrap">
       <view class="leftBox" style="background:#62D7EC">
-        <image src="/image/quan.png"></image>
-      </view>
+      <image src="/image/quan.png"></image>                                                                                                    </view>
       <view class="rightBox">
         <view class="proTilte" >秀一秀</view>
         <view class="des">完成进度</view>

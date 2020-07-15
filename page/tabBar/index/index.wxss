@@ -6,15 +6,16 @@
   top: 0;
   bottom: 0;
   background: #F3F3F3;
+  display: flex;
+  flex-direction: column;
 }
-
 .topWrap {
-  background:red;
-  height: 200rpx;
+ background: -webkit-linear-gradient(bottom, #4db2fd, #5F1BE8);
+ flex: 1;
 }
  /* 中间部分 */
  .centerWrap {
-   margin: 20rpx 5%;
+   margin: 20rpx 5% 120rpx;
  }
  .time {
    font-size: 26rpx;
