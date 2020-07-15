@@ -2,6 +2,8 @@
   "pages": [
     "page/tabBar/index/index",
     "page/tabBar/screen/screen",
+    
+   
     "page/tabBar/eyeShow/eyeShow",
     "manual/manual",
     "page/tabBar/my/my",
@@ -23,7 +25,7 @@
         "pagePath": "page/tabBar/eyeShow/eyeShow",
         "text": "秀一秀",
         "iconPath": "page/tabBar/tabbarComponent/icon/quan.png",
-        "selectedIconPath": "page/tabBar/tabbarComponent/icon/quanChecked.png",
+        "selectedIconPath": "page/tabBar/tabbarComponent/icon/quanactive.png",
         "usingComponents": {
           "nav-bar": "page/tabBar/navbar/navbar"
           

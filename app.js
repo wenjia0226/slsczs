@@ -134,13 +134,13 @@ App({
           "pagePath": "/page/tabBar/eyeShow/eyeShow",
           "text": "秀一秀",
           "iconPath": "/page/tabBar/tabbarComponent/icon/quan.png",
-          "selectedIconPath": "/page/tabBar/tabbarComponent/icon/quanChecked.png",
+          "selectedIconPath": "/page/tabBar/tabbarComponent/icon/quanactive.png",
          
         },
         {
           "pagePath": "/page/tabBar/screen/screen",
           "text": "筛查",
-          "iconPath": "/page/tabBar/tabbarComponent/icon/icon_release.png",
+          "iconPath": "/page/tabBar/tabbarComponent/icon/sc.png",
           "isSpecial": true,
         },
         {

@@ -91,6 +91,10 @@ swiper {
     height: 100%;
     width: 100%;
   }
+  .u-img-slide {
+    width: 80rpx !important;
+    
+  }
   .smPortrait {
      width: 150rpx;
     height: 150rpx;
@@ -104,11 +108,22 @@ swiper {
     height: 100%;
     width: 100%;
   }
-  
+  .yindao {
+    width: 100rpx;
+    height: 100rpx;
+  }
+  .yindao >image {
+    width: 100%;
+  }
   .name{
     padding: 5rpx 0;
     color: #fff;
     height: 40rpx;
+  }
+  .addUser {
+    color: red;
+    font-size: 30rpx;
+    padding: 5rpx;
   }
 /* 轮播 */
 .u-wrp-bnr {
@@ -137,10 +152,6 @@ swiper {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-.u-img-slide {
-  width: 100%;
-  height: inherit;
 }
 .active {
   transform:  scale(1.4);

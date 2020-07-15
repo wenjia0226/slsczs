@@ -1,4 +1,62 @@
 <!--index.wxml-->
 <view class="mainWrap">
+  <view class="topWrap">
+    
+  </view>
+  <view class="centerWrap">
+    <view class="time"> 最近检测时间： 2020-04-2 12: 00</view>
+    <view class="itemWrap">
+      <view class="leftBox">
+        <image src="/image/eys.png"></image>
+      </view>
+      <view class="rightBox">
+        <view class="proTilte" >视力筛查</view>
+        <view class="des">完成进度</view>
+        <view class="numTotal">0/1</view>
+        <view class="rightGo">
+          <image src="/image/righticon.png" ></image>
+        </view>
+      </view>
+    </view>
+    <view class="itemWrap">
+      <view class="leftBox" style="background:#62D7EC">
+        <image src="/image/da.png"></image>
+      </view>
+      <view class="rightBox">
+        <view class="proTilte" >打卡任务</view>
+        <view class="des">完成进度</view>
+        <view class="numTotal">0/7</view>
+        <view class="rightGo">
+          <image src="/image/righticon.png" ></image>
+        </view>
+      </view>
+    </view>
+    <view class="itemWrap">
+      <view class="leftBox">
+        <image src="/image/ti.png"></image>
+      </view>
+      <view class="rightBox">
+        <view class="proTilte" >答题竞赛</view>
+        <view class="des">完成进度</view>
+        <view class="numTotal">0/5</view>
+        <view class="rightGo">
+          <image src="/image/righticon.png" ></image>
+        </view>
+      </view>
+    </view>
+    <view class="itemWrap">
+      <view class="leftBox" style="background:#62D7EC">
+        <image src="/image/quan.png"></image>
+      </view>
+      <view class="rightBox">
+        <view class="proTilte" >秀一秀</view>
+        <view class="des">完成进度</view>
+        <view class="numTotal">0/1</view>
+        <view class="rightGo">
+          <image src="/image/righticon.png" ></image>
+        </view>
+      </view>
+    </view>
+  </view>
  <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>

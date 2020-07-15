@@ -5,4 +5,64 @@
   right: 0;
   top: 0;
   bottom: 0;
+  background: #F3F3F3;
+}
+
+.topWrap {
+  background:red;
+  height: 200rpx;
+}
+ /* 中间部分 */
+ .centerWrap {
+   margin: 20rpx 5%;
+ }
+ .time {
+   font-size: 26rpx;
+   color: #A0A0A0;
+   text-align: center;
+   padding: 10rpx;
+ }
+ .itemWrap {
+  display: flex;
+  background: #fff;
+  margin: 30rpx 0;
+}
+.leftBox {
+  width: 150rpx;
+  height: 150rpx;
+  background: #3E65E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leftBox image {
+  width: 80rpx;
+  height: 80rpx;
+  
+}
+.rightBox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+.proTilte {
+  flex: 1;
+  text-align: center;
+  font-size: 32rpx;
+}
+.des, .numTotal {
+  padding: 0 10rpx;
+  font-size: 26rpx;
+  color: #A0A0A0
+}
+.rightGo{
+  width: 30rpx;
+  height:30rpx;
+  padding: 0 10rpx;
+}
+.rightGo > image {
+  width: 100%;
+  height: 100%;
 }

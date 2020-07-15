@@ -40,20 +40,23 @@
                       <image  class="{{index == currentIndex ? 'active': ''}}"src="https://www.guangliangkongjian.com/images/g5.png"  wx:if="{{index !== childrenList.length -1 && item.gender == 1 && 1500 >=item.myIntegral  && item.myIntegral  > 1200}}"></image>
                         <image class="{{index == currentIndex ? 'active': ''}}" src="https://www.guangliangkongjian.com/images/g6.png" wx:if="{{index !== childrenList.length -1 && item.gender == 1 && 49999 >=item.myIntegral  && item.myIntegral  > 1500}}"></image>
                           <image class="{{index == currentIndex ? 'active': ''}}" src="https://www.guangliangkongjian.com/images/g7.png" wx:if="{{index !== childrenList.length -1 && item.gender == 1 &&item.myIntegral >= 50000}}"></image>
-              <image class="{{index == currentIndex ? 'active': ''}}" style="width: 150rpx;height: 150rpx" wx:if="{{index == childrenList.length -1}}" src="/image/jia2.png"   bindtap="gotoAddChild"></image>
+              <image class="{{index == currentIndex ? 'active': ''}}" style="width: 150rpx;height: 150rpx" wx:if="{{index == childrenList.length -1}}" src="/image/jia3.png" mode="widthFix"class="u-img-slide"   bindtap="gotoAddChild"></image>
             </view>
-            <view class="name" wx:if="{{index !== childrenList.length -1}}">{{item.name}}</view>
+             <view class="name" wx:if="{{index !== childrenList.length -1}}">{{item.name}}</view>
              <view class="time" wx:if="{{index !== childrenList.length -1 && item.lastTime !== null}}">最近检测时间：</view>
              <view class="time" wx:if="{{item.lastTime !== null}}">{{item.lastTime}}</view> 
              <view class="time" wx:if="{{item.lastTime == null && index !== childrenList.length - 1}}">无</view>
              <view class="time" wx:if="{{item.lastTime == null && index !== childrenList.length - 1}}"></view>
-            <view class="name" wx:if="{{index == childrenList.length -1}}" style="color:#5f0ce6"></view>
+            <!-- <view class="yindao" wx:if="{{index == childrenList.length -1}}">
+              <image mode="widthFix" src="/image/jiantou.png"></image>
+            </view> -->
+            <view class="addUser" wx:if="{{index == childrenList.length -1}}">点击添加筛查者</view>
           </swiper-item>
         </block>
        <block  wx:if="{{childrenList.length == 0}}">
          <swiper-item class="swiperItemBefore">
             <view class="smPortrait">
-               <image src="/image/jia2.png" class="u-img-slide" mode="aspectFit" bindtap="gotoAddChild"></image>
+               <image src="/image/jia3.png" class="u-img-slide" mode="aspectFit" bindtap="gotoAddChild"></image>
             </view>
             <view class="name"  style="color:#5f0ce6"></view>
           </swiper-item>
