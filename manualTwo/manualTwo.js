@@ -56,7 +56,7 @@ Page({
       };
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
-        wx.switchTab({
+        wx.navigateTo({
           url: '/page/tabBar/screen/screen'
         })
       }

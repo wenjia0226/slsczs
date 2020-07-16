@@ -1,6 +1,7 @@
 <!--my.wxml-->
+ <image src="/image/bg2.png" class="bg" style="height: {{height + 90}}px"></image>
 <view class="main">
-  <view class="headerWrap">
+  <view class="headerWrap" style="height: {{height + 90}}px">
     <view class="inner">
       <view class="leftIcon">
         <image  class=" userinfo-avatar" src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image>
@@ -11,59 +12,95 @@
         <view class="phoneNum" wx:if="{{!phoneNum}}"><button  open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">获取手机号</button></view> 
          <view class="phoneNum el" wx:if="{{phoneNum}}">{{phoneNum}}</view> 
       </view>
-       <view class="centerNi" wx:if="{{!phone}}">
+      <view class="centerNi" wx:if="{{!phone}}">
         <view  class="login" bindtap="gotoLogin">
           点击登录
         </view>
       </view>
+      <!-- <view class="rightNi">
+         <view class="imgBox">
+          <image src="/image/girl.png"></image>
+         </view>
+         <view class="right_center">
+            <view class="reminTitle">当前绑定孩子</view>
+            <view class= "reminName">{{studentName}}</view>
+         </view>
+         <view class="right_right">
+            <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+         </view>
+      </view> -->
     </view>
   </view>
   <view class="centerBox">
-    <view class="centerItem"  bindtap="goToBao">
-      <image  mode ="widthFix"  src="/image/dangan.png"></image>
-      <view class="itemTitle">眼健康档案</view>
+   <view class="titleBox">
+        我的孩子
     </view>
-    <view class="centerItem"  bindtap="goToShai">
-      <image  mode ="widthFix"  src="/image/myShai.png"></image>
-      <view class="itemTitle">筛查档案</view>
+    <view class="contentBox">
+      <view class="rightNi">
+        <view class="imgBox">
+          <image src="/image/girl.png"></image>
+        </view>
+        <view class="right_center">
+          <view class="reminTitle">当前绑定孩子</view>
+          <view class= "reminName">{{studentName}}</view>
+        </view>
+        <view class="right_right">
+          <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+          <view class="manage">｜ 管理</view>
+        </view>
+      </view>
+      <!-- <view class="centerItem"  bindtap="gotMyChild">
+        <image  mode ="widthFix"  src="/image/mychildren.png"></image>
+        <view class="itemTitle">管理孩子</view>
+      </view> -->
     </view>
-    <view class="centerItem"  bindtap="gotMyChild">
-      <image  mode ="widthFix"  src="/image/mychildren.png"></image>
-      <view class="itemTitle">我的孩子</view>
+    <view class="titleBox">
+        档案明细
     </view>
-    <view class="centerItem" bindtap="gotoPlan">
-      <image  mode ="widthFix"  src="/image/record.png"></image>
-      <view class="itemTitle">爱眼打卡</view>
+    <view class="contentBox">
+      <view class="centerItem"  bindtap="goToBao">
+          <image  mode ="widthFix"  src="/image/myicon/dangan.png"></image>
+        <view class="itemTitle">眼健康档案</view>
+      </view>
+      <view class="centerItem"  bindtap="goToShai">
+        <image  mode ="widthFix"  src="/image/myicon/myShai.png"></image>
+        <view class="itemTitle">筛查档案</view>
+      </view>
+      
     </view>
-    <view class="centerItem" bindtap="gotoAnswer">
-      <image  mode ="widthFix"  src="/image/dati.png"></image>
-      <view class="itemTitle">爱眼答题</view>
+    <view class="titleBox">
+        赚取爱眼币
     </view>
-    <view class="centerItem" bindtap="gotoJiFen">
-      <image  mode ="widthFix"  src="/image/aiyanbi.png"></image>
-      <view class="itemTitle">我的爱眼币</view>
+    <view class="contentBox">
+      <view class="centerItem" bindtap="gotoPlan">
+        <image  mode ="widthFix"  src="/image/myicon/record.png"></image>
+        <view class="itemTitle">爱眼打卡</view>
+      </view>
+      <view class="centerItem" bindtap="gotoAnswer">
+          <image  mode ="widthFix"  src="/image/myicon/dati.png"></image>
+          <view class="itemTitle">爱眼答题</view>
+      </view>
     </view>
-    <view class="centerItem" style="background： red" >
-      <button open-type="share" style="padding: 0;line-height: 1;width:100%;border:none">
-        <image   mode ="widthFix" src="/image/share.png"></image>
-        <view class="itemTitle" style='font-size: 24rpx;font-weight: normal'>好友分享</view>
-      </button>
+    <view class="titleBox">
+      第三方
     </view>
-    <view class="centerItem" bindtap="gotoshare">
-      <image  mode ="widthFix"  src="/image/cooparation.png"></image>
-      <view class="itemTitle">合作机构</view>
-    </view>
-    <view class="centerItem" bindtap="goTeacher">
-      <image  mode ="widthFix"  src="/image/teacher.png"></image>
-      <view class="itemTitle">教师端入口</view>
-    </view>
-    <view class="centerItem" bindtap="goClert">
-      <image  mode ="widthFix" src="/image/clert.png"></image>
-      <view class="itemTitle">店员端入口</view>
-    </view>
-     <view class="centerItem" bindtap="gotoPing">
-      <image  mode ="widthFix" src="/image/assessment.png"></image>
-      <view class="itemTitle">视觉评估</view>
+    <view class="contentBox">
+      <view class="centerItem" bindtap="goTeacher">
+        <image  mode ="widthFix"  src="/image/myicon/teacher.png"></image>
+        <view class="itemTitle">教师端入口</view>
+      </view>
+      <view class="centerItem" bindtap="goClert">
+        <image  mode ="widthFix" src="/image/myicon/clert.png"></image>
+        <view class="itemTitle">店员端入口</view>
+      </view>
+      <view class="centerItem" bindtap="gotoPing">
+        <image  mode ="widthFix" src="/image/myicon/assessment.png"></image>
+        <view class="itemTitle">视觉评估</view>
+      </view>
+      <view class="centerItem" bindtap="gotoshare">
+        <image  mode ="widthFix"  src="/image/myicon/cooparation.png"></image>
+        <view class="itemTitle">合作机构</view>
+      </view>
     </view>
   </view>
    <tabbar tabbar="{{tabbar}}"></tabbar>

@@ -1,32 +1,40 @@
 /* my.wxss */
 .main {
-  background: #eee;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+.bg {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: -999;
+  display: block;
+  width: 100%;
+  background: #F7F8FA;
 }
 .headerWrap{
-  height: 200rpx;
-  margin-bottom: 120rpx;
-  background: -webkit-linear-gradient(bottom,
-    #4db2fd, #5F1BE8);
   position: relative;
 }
 .inner {
   position: absolute;
   top: 100rpx;
-  width: 90%;
-  margin: 0  5%;
+  margin: 0 8%;
   height: 200rpx;
-  background: #fff;
   border-radius: 20rpx 20rpx 0 0 ;
   display: flex;
   box-sizing: border-box;
+  align-items: center;
+  width: 100%;
 }
 .leftIcon {
-  width: 200rpx;
+  width: 120rpx;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -35,28 +43,74 @@
   padding:  0 10rpx;
 }
 .userinfo-avatar {
-  height: 150rpx;
-  width: 150rpx;
-  border-radius: 50%;
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 10rpx;
 }
 .centerNi{
+  padding: 0 20rpx;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex: 1;
   flex-direction: column;
-  margin-left: 10rpx;
+}
+.rightNi {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.imgBox {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 10rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+.imgBox > image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.right_center {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex: 1;
+  padding-left: 30rpx;
+}
+.reminTitle {
+  font-size:24rpx;
+  letter-spacing: 3rpx;
+}
+.reminName {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.right_right {
+  width: 260rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  height: 100%;
+  font-weight: bold;
+}
+.changeBtn {
+  padding: 5rpx 20rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  font-size: 24rpx;
+  box-shadow:  3rpx 0 3rpx 3rpx  red;
 }
 .el {
-  width: 250rpx;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis
 }
 .nickName {
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-weight: bold;
- 
 }
 .phoneNum {
   text-align: left;
@@ -65,8 +119,7 @@
 .phoneNum > button {
   font-weight: normal;
   font-size: 30rpx;
-  margin: 0 !important;
-  width: 100%;
+  margin: 0 !important; 
   text-align:left !important;
   padding: 0 !important;
 }
@@ -163,25 +216,43 @@ button { background-color: #fff;}
 
 /* 新修改样式 */
 .centerBox {
-  margin: 30rpx;
-  display: flex;
-  flex-flow:row wrap;
+  padding: 30rpx;
+   background: #F7F8FA;
+   flex:1;
+  /* display: flex;
+  flex-flow:row wrap; */
 }
 .centerItem {
-  padding: 20rpx;
-  width: 33%;
+  padding: 20rpx 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #fff;
   box-sizing: border-box;
+  width: 25%;
 
 }
 .centerItem image {
   width: 50rpx;
 }
 .itemTitle {
-  font-size: 26rpx !important;
+  font-size: 24rpx !important;
   padding: 20rpx  !important;
+}
+
+/* 重写样式 */
+.titleBox {
+  font-size: 26rpx;
+  color: #CBCBCC;
+  margin: 20rpx 0;
+}
+.contentBox {
+  display: flex;
+  background:#fff;
+}
+.manage {
+  font-size: 24rpx;
+  padding: 0 6rpx;
+
 }

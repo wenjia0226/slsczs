@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "爱眼打卡"
+  "navigationBarTitleText": "爱眼打卡",
+  "usingComponents": {
+    "Select": "/page/tabBar/select/select"
+  }
 }

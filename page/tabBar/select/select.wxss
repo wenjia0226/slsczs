@@ -1,0 +1,249 @@
+.com-selectBox{
+    width: 120rpx;
+}
+.com-sContent{
+    /* border: 1px solid #e2e2e2;
+    background: white; */
+    font-size: 16px;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+}
+.com-sImg{
+  position: absolute;
+  right: 10rpx;
+  top: 12rpx;
+  width: 36rpx;
+  height: 36rpx;
+  transition: all .3s ease;
+
+}
+.com-sTxt{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:0 20px 0 6px;
+    font-size: 14px;
+}
+.com-sList{
+    background: white;
+    position: absolute;
+    border: 3rpx solid #e2e2e2;
+    border-top: none;
+    box-sizing: border-box;
+    z-index: 3;
+    max-height: 200rpx;
+    overflow: auto;
+    width: 200rpx;
+}
+.com-sItem{
+    height: 30px;
+    line-height: 30px;
+    border-top: 1px solid #e2e2e2;
+    padding: 0 6px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+.com-sItem:first-child{
+    border-top: none;
+}
+/* //蒙层 */
+.bg2 {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 10;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+}
+.show {
+  position: fixed;
+  top: 40%;
+  left: 10%;
+  width: 80%;
+  box-sizing: border-box;
+  background-color: white;
+  z-index: 12;
+  overflow: auto;
+  margin: auto;
+  color: #000;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+.txt{
+  padding: 10rpx 0;
+}
+.quxiao {
+  text-align: right;
+  height: 50rpx;
+}
+.quxiao > image {
+  height: 40rpx;
+  width: 40rpx;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.gonglue  image {
+  height: 40rpx;
+  width: 40rpx;
+  padding-right: 10rpx;
+}
+.total {
+  font-size: 66rpx;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+.des {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+  color: #fff;
+}
+.des image {
+  height: 50rpx;
+  width: 50rpx;
+  margin: 0 20rpx 
+}
+.loveBi {
+  font-size: 36rpx;
+  padding: 0 30rpx; 
+}
+.seeRank {
+  margin: 0 10rpx;
+  font-size: 24rpx;
+  text-decoration: underline;
+  color: #000;
+}
+.centerWrap {
+  flex: 1;
+  background: #F7F8F8
+}
+.numWrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 50rpx;
+}
+.get {
+  display: flex;
+  align-items: center;
+}
+.getNum {
+  font-size: 46rpx;
+  color: orange;
+  text-align: center;
+  padding: 0 15rpx;
+}
+.huo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx 0;
+  color: #fff;
+}
+.huo > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx;
+}
+.detail {
+  position: absolute;
+  left: 15%;
+  bottom: -40rpx;
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  background: #3e65e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  letter-spacing: 3rpx;
+}
+.getdetail {
+  position: absolute;
+  right: 15%;
+  bottom: -40rpx;
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  background: #3e65e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  letter-spacing: 3rpx;
+}
+.activeGet {
+  background: #FF9B00;
+}
+.centerWrap{
+  margin: 10% 5% 0;
+}
+.itemWrap {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.leftitem {
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+}
+.time {
+  font-size: 20rpx;
+  color: #999;
+  margin: 6rpx 0;
+}
+.rightitem {
+  padding: 6rpx 0 0;
+  color: #3e65e4;
+  font-size: 36rpx;
+  box-sizing: border-box;
+}
+.daijinquan {
+  color: #f00;
+}
+  ::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.lingqu {
+  padding: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.btnBox {
+  display: flex;
+  justify-content: space-around;
+  margin: 30rpx 0;
+}
+.addBtn {
+  font-size: 30rpx;
+  background: #3e65e4;
+  text-align: center;
+  padding: 16rpx 60rpx;
+  border-radius: 50rpx;
+  color: #fff;
+}
+.modeTitle{
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+}

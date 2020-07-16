@@ -102,7 +102,6 @@ App({
         tabbar.list[i].selected = true
       }
     }
-    console.log(pagePath);
     _this.setData({
       tabbar: tabbar
     });

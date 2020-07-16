@@ -1,21 +1,16 @@
 <view class="main" wx:if="{{taskList.length}}">
-<view class="bg2"  wx:if="{{showCongratulation}}"></view>
-<view class="show"  wx:if="{{showCongratulation}}">
-  <view class="congratulaition"  wx:if="{{showCongratulation}}">
-    <image src="/image/cg.png" mode="aspectFit"></image>
+  <view class="titleBox">
+    <view class="imgBox">
+     <image src="/image/boy.png"></image>
+    </view>
+    <view class="centerBox">
+      <view class="name">{{studentName}}</view>
+      <view class="birthday">213</view>
+    </view>
+    <view class="rightBox">
+       <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+    </view>
   </view>
-  <view class="titleWrap">
-    获得 <text class="number">2个</text> 爱眼币
-    </view>
-    <view class="flowerWrap">
-      <image src="/image/flower2.png"  class="flower"mode="aspectFit"></image>
-      <image src="/image/eyes.png" class="eye" mode="aspectFit"></image>
-    </view>
-    <view class="buttonWrap">
-      <view class="iknow" bindtap='hideview'> 我知道了</view>
-      <!-- <view class="see" bindtap="gotobi"> 去看看</view> -->
-    </view>
-</view>
   <view class="itemwrap first">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan5.png" mode="aspectFit"></image>
@@ -65,7 +60,6 @@
        <view class="btn noFininsh" wx:else data-id="{{taskList[2].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-  
   <view class="itemwrap four">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan4.png" mode="aspectFit"></image>
@@ -132,4 +126,22 @@
         <view class="btn noFininsh" wx:else data-id="{{taskList[6].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
+</view>
+<!-- 弹框 -->
+<view class="bg2"  wx:if="{{showCongratulation}}"></view>
+<view class="show"  wx:if="{{showCongratulation}}">
+  <view class="congratulaition"  wx:if="{{showCongratulation}}">
+    <image src="/image/cg.png" mode="aspectFit"></image>
+  </view>
+  <view class="titleWrap">
+    获得 <text class="number">2个</text> 爱眼币
+    </view>
+    <view class="flowerWrap">
+      <image src="/image/flower2.png"  class="flower"mode="aspectFit"></image>
+      <image src="/image/eyes.png" class="eye" mode="aspectFit"></image>
+    </view>
+    <view class="buttonWrap">
+      <view class="iknow" bindtap='hideview'> 我知道了</view>
+      <!-- <view class="see" bindtap="gotobi"> 去看看</view> -->
+    </view>
 </view>

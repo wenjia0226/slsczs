@@ -13,7 +13,8 @@ Page({
     isShow: true,
     showModalStatus: false,  //关注公众号标志位
     reuploadFlag: false, //  重复上传标志位
-    tabbar: {}
+    tabbar: {},
+    show: false
   },
   onLoad() {
     app.editTabbar();
@@ -156,6 +157,7 @@ Page({
     if(that.data.childrenList) {
       let student = this.data.childrenList.filter((item, index) => { return index == that.data.currentIndex });
       wx.setStorageSync('studentId', student[0].id)
+      wx.setStorageSync('studentName', student[0].name)
     }
   },
   getItem(e) {
@@ -305,6 +307,79 @@ Page({
     let url = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUxMTkxMjg5NQ==&scene=124#wechat_redirect'
     wx.navigateTo({
       url: '/page/myCollection/pages/webview/webview?url=' + url,
+    })
+  },
+  hideview() {
+    this.setData({
+      show: true
+    })
+  },
+  hide() {
+    this.setData({
+      show: false
+    })
+  },
+  // 手动添加
+  gotoManu() {
+    wx.navigateTo({
+      url: '/manual/manual'
+    })
+  },
+  //扫码添加
+  gotoScan() {
+    let that = this;
+    wx.scanCode({  //扫码
+      success(res) {
+        var str = res.path;
+        let stuId = str.split('=')[1];
+        //获取到学生id后添加孩子
+        wx.setStorageSync('studentId', stuId);
+        let openId = wx.getStorageSync('openId');
+        let url = app.globalData.URL + 'binding', data = {
+          studentId: stuId,
+          openId: wx.getStorageSync('openId')
+        };
+        wx.showLoading({
+          title: '加载中...',
+        })
+        app.wxRequest(url, data, (res) => {
+          that.setData({
+            childrenList: res.data.data
+          })
+          that.data.childrenList.push({
+            age: 8,
+            birthday: "2019-04-01",
+            chairHeight: "60",
+            classesId: 42,
+            classesName: "二（3）班",
+            correct: 0,
+            description: "",
+            gender: 1,
+            height: "125",
+            id: 2,
+            name: "新增",
+            nature: "无",
+            parentPhone: "18311192425",
+            regionId: 1,
+            regionName: "唐山",
+            schoolId: 50,
+            schoolName: "唐山市师范附属小学",
+            sittingHeight: "105.0",
+            weight: "22.34"
+          })
+          that.setData({
+            childrenList: res.data.data,
+            show: false
+          })
+
+          // wx.setStorageSync('childLength', that.data.childrenList.length)
+          wx.navigateTo({
+            url: '/page/tabBar/screen/screen'
+          })
+        }, (err) => {
+          console.log(err)
+        })
+      }
     })
   }
 })

@@ -1,12 +1,12 @@
 {
   "pages": [
+    "page/tabBar/my/my",
     "page/tabBar/index/index",
     "page/tabBar/screen/screen",
-    
-   
+    "page/tabBar/select/select",
+
     "page/tabBar/eyeShow/eyeShow",
     "manual/manual",
-    "page/tabBar/my/my",
     "page/tabBar/navbar/navbar",
     "page/tabBar/exchange/exchange",
     "manualTwo/manualTwo",
@@ -19,7 +19,6 @@
         "text": "首页",
         "iconPath": "page/tabBar/tabbarComponent/icon/index.png",
         "selectedIconPath": "page/tabBar/tabbarComponent/icon/indexactive.png"
-       
       },
       {
         "pagePath": "page/tabBar/eyeShow/eyeShow",
@@ -28,7 +27,6 @@
         "selectedIconPath": "page/tabBar/tabbarComponent/icon/quanactive.png",
         "usingComponents": {
           "nav-bar": "page/tabBar/navbar/navbar"
-          
         }
       },
       {
@@ -50,7 +48,7 @@
   "subPackages": [
     {
       "root": "page/component/",
-      "pages": [  
+      "pages": [
         "pages/detail/detail",
         "pages/rightstart/rightstart",
         "pages/check/check",
@@ -80,7 +78,7 @@
         "pages/moderate/moderate",
         "pages/serious/serious",
         "pages/ranking/ranking",
-        "pages/answer/answer", 
+        "pages/answer/answer",
         "pages/answerResult/answerResult",
         "pages/startanswer/startanswer",
         "pages/clertLogin/clertLogin",
@@ -92,7 +90,8 @@
         "pages/assessment/assessment",
         "pages/assessmentResult/assessmentResult"
       ]
-    }, {
+    },
+    {
       "root": "page/mainFunction",
       "pages": [
         "pages/test/test",

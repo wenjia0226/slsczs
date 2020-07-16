@@ -35,11 +35,10 @@
           <view class="jinbi">
             <image src="/image/bi.png" mode ="aspectFit"></image>
             <view class="money">{{item.integral}}</view>
-            
           </view>
           <view class="exchangeBtn">兑换</view>
         </view>
       </view>
     </view>
-   <tabbar tabbar="{{tabbar}}"></tabbar>
+     <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>

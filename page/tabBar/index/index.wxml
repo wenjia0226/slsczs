@@ -1,7 +1,25 @@
 <!--index.wxml-->
 <view class="mainWrap">
   <view class="topWrap">
-    
+    <view class="avaterBox" style="margin-top: {{height}}px" >
+      <image src="/image/girl.png">
+      </image>
+      <view class="changeStu">
+       <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+      </view>
+     
+    </view>
+    <view class="stuName">{{studentName}}</view>
+    <view class="perMessage"> 
+     <view class="leftBi">
+       <image src="/image/bi.png"></image>
+       <view class="info">爱眼币 100个</view>
+     </view>
+     <view class="leftBi">
+       <image src="/image/rank.png"></image>
+       <view class="info">排行榜 100个</view>
+     </view>
+    </view>
   </view>
   <view class="centerWrap">
     <view class="time"> 最近检测时间： 2020-04-2 12: 00</view>

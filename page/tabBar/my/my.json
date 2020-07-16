@@ -1,7 +1,7 @@
 {
-  "navigationBarTitleText": "",
-  "navigationBarBackgroundColor": "#5F1BE8",
+  "navigationStyle": "custom",
   "usingComponents": {
-    "tabbar": "../tabbarComponent/tabbar"
+    "tabbar": "../tabbarComponent/tabbar",
+    "Select": "../select/select"
   }
 }

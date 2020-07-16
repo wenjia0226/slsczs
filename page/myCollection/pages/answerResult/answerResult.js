@@ -55,7 +55,7 @@ Page({
     })
   },
   gotoIndex() {
-    wx.switchTab({
+    wx.navigateTo({
       url: '/page/tabBar/screen/screen',
     })
   },

@@ -38,7 +38,7 @@
     <view class="show"  wx:if="{{show}}">
       <view class="quxiao" bindtap="hide">
        <image src="/image/quxiao3.png" mode="aspectFit"></image>
-    </view>
+     </view>
       <view class="txt title"> 爱眼币获取及使用规则</view>
       <view class="txt"> 1、每日首次完成“裸眼检测”或者“戴镜检测”，获得3个爱眼币。</view>
       <view class="txt"> 2、每日完成全部爱眼计划的打卡，会获得2个爱眼币。</view>

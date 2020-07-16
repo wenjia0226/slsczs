@@ -2,6 +2,7 @@
   "component": true,
    "navigationStyle": "custom",
     "usingComponents": {
-      "tabbar": "../tabbarComponent/tabbar"
+      "tabbar": "../tabbarComponent/tabbar",
+      "Select": "../select/select"
     }
 }

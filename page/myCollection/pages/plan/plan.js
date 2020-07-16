@@ -10,7 +10,15 @@ Page({
       plan5: '',
       plan6:'',
       plan7: '',
-    showCongratulation: false
+    showCongratulation: false,
+    selectArray: [],
+    studentName: '',
+    childrenList: []
+  },
+  myevent(e) {
+    this.setData({
+      studentName: e.detail.params
+    })
   },
   // 照相打卡
   gotoCamera() {
@@ -86,8 +94,14 @@ Page({
       console.log(err)
     })
   },
+  onLoad() {
+    this.getChildrenList();
+  },
   onShow: function () {
     if(wx.getStorageSync('phone')) {
+      this.setData({
+        studentName: wx.getStorageSync('studentName')
+      })
       if (wx.getStorageSync('studentId')) {
         this.getList();
       }else {
@@ -102,6 +116,27 @@ Page({
       })
     }
     
+  },
+  getChildrenList() {
+    let that = this;
+    let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
+    //如果已经授权过
+    if (wx.getStorageSync('phone')) {
+      wx.showLoading({
+        title: '加载中...'
+      })
+      app.wxRequest(url, data, (res) => {
+        console.log(res)
+        res.data.data.push({
+          name: '添加孩子'
+        })
+        if (res.data.status == 200) {
+          that.setData({
+            selectArray: res.data.data
+          })
+        }
+      })
+    }
   },  
   getList() {
     if (wx.getStorageSync('studentId')) {
