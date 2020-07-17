@@ -1,4 +1,5 @@
 // pages/check/check.js
+const app = getApp();
 Page({
   data: {
     num: 1,
@@ -59,9 +60,14 @@ Page({
         flag: true
       })
       wx.setStorageSync('scale', this.data.scale);
+      let that = this;
+      let url = app.globalData.URL + "editCalibration", data = { scale: this.data.scale, openId: wx.getStorageSync('openId') };
+      app.wxRequest(url, data, (res) => {
+        console.log(res)
+      })
+    }
       wx.navigateTo({
         url: '/page/component/pages/start/start'
       })
     }
-  }
 })

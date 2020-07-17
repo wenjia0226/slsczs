@@ -92,7 +92,7 @@ Page({
       wx.showModal({
         title: '此次检测无效',
         content: '是否重新检测右眼？',
-        cancelText: '跳到首页',//默认是“取消”
+        cancelText: "否",//默认是“取消”
         confirmText: "是",
         success: function(res) {
           if(res.confirm) {

@@ -245,34 +245,54 @@ Page({
   },
   //跳转到自我校准
   goJozhun(e) {
-    if(!this.data.flag) {
       this.setData({
-        flag: true,
         reuploadFlag: true
       })
       wx.setStorageSync('detectType', e.currentTarget.dataset.detecttype);
       wx.setStorageSync('reuploadFlag',  this.data.reuploadFlag);
       if (wx.getStorageSync('phone')) {
-        if(wx.getStorageSync('studentId') !== 2) {
-        if (this.data.childrenList.length == 0) {
-          wx.showToast({
-            title: '请先添加孩子',
-            icon: 'none',
-            duration: 2000
-          })
-          return;
-        } else {
-          wx.navigateTo({
-            url: '/page/component/pages/check/check'
+        let openId = wx.getStorageSync('openId');
+        let url = app.globalData.URL + 'chkCalibration', data = {
+          openId: wx.getStorageSync('openId')
+        };
+        wx.showLoading({
+          title: '加载中...',
+        })
+        app.wxRequest(url, data, (res) => {
+          let scale = res.data.data;
+          if(res.data.data == null) {
+            wx.navigateTo({
+              url: '/page/component/pages/check/check'
+            })
+          }else {
+            wx.showModal({
+            title: '提示',
+            content: '是否使用上次校验数据',
+            cancelText: "重新校验",
+            confirmText: "是",
+            success: function(res) {
+              if (res.confirm) {
+                wx.setStorageSync('scale', scale)
+                wx.navigateTo({
+                  url: '/page/component/pages/start/start',
+                })
+              }else if(res.cancel) {
+                wx.navigateTo({
+                  url: '/page/component/pages/check/check',
+                })
+              }
+            } 
           })
         }
-      } 
+          })
+         
+        // } 
       }else {
         wx.navigateTo({
           url: '/nicheng/nicheng'
         })
       }
-    }
+
   },
   onShareAppMessage() {
     return {

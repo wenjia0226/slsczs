@@ -53,9 +53,14 @@ Page({
     gender: this.data.gender,
     regionId: this.data.selectAreaId
     };
+    console.log(this.data.date)
     wx.setStorageSync('studentName', this.data.name);
+    wx.setStorageSync('gender', this.data.gender);
+    wx.setStorageSync('birthday', this.data.date);
     app.wxRequest(url, data, (res) => {
       console.log(res)
+      wx.setStorageSync('studentId', res.data.data)
+  
       if(res.data.status == 200) {
         wx.navigateTo({
           url: '/page/tabBar/screen/screen'

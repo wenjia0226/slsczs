@@ -1,9 +1,10 @@
 {
   "pages": [
+      "page/tabBar/screen/screen",
     "page/tabBar/index/index",
     "page/tabBar/my/my",
    
-    "page/tabBar/screen/screen",
+  
     "page/tabBar/select/select",
 
     "page/tabBar/eyeShow/eyeShow",
