@@ -48,11 +48,14 @@ Page({
     let that = this;
     let url = app.globalData.URL + "registerStudent", 
     data = {openId: wx.getStorageSync('openId'),
-     name: this.data.name,
+    name: this.data.name,
     birthday: this.data.date,
     gender: this.data.gender,
-    regionId: this.data.selectAreaId};
+    regionId: this.data.selectAreaId
+    };
+    wx.setStorageSync('studentName', this.data.name);
     app.wxRequest(url, data, (res) => {
+      console.log(res)
       if(res.data.status == 200) {
         wx.navigateTo({
           url: '/page/tabBar/screen/screen'

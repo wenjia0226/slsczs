@@ -55,8 +55,8 @@ Page({
     })
   },
   gotoIndex() {
-    wx.navigateTo({
-      url: '/page/tabBar/screen/screen',
+    wx.switchTab({
+      url: '/page/tabBar/index/index',
     })
   },
   gotobi() {

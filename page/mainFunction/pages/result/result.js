@@ -149,7 +149,7 @@ Page({
       // wx.setStorageSync('LeftEyeRightNum', 0);
       // wx.setStorageSync('LeftEyeWrongNum', 0);
      if (type == 'home') {
-       wx.switchTab({
+       wx.navigateTo({
          url: '/page/tabBar/screen/screen'
        })
      } else if (type == 'archives') {

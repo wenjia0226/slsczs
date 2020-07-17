@@ -1,7 +1,8 @@
 {
   "pages": [
-    "page/tabBar/my/my",
     "page/tabBar/index/index",
+    "page/tabBar/my/my",
+   
     "page/tabBar/screen/screen",
     "page/tabBar/select/select",
 

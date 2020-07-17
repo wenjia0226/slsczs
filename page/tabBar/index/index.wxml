@@ -1,36 +1,54 @@
 <!--index.wxml-->
 <view class="mainWrap">
   <view class="topWrap">
-    <view class="avaterBox" style="margin-top: {{height}}px" >
-      <image src="/image/girl.png">
-      </image>
-      <view class="changeStu">
+    <view class="avaterBox" style="margin-top: {{height}}px" wx:if="{{phone}}" >
+         <!-- 男孩及段位 -->
+      <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >=balance && balance > 300}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{gender == 0 && 900 >=balance  && balance > 600}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b4.png"  mode="aspectFit" wx:if="{{gender == 0 && 1200 >=balance  && balance > 900}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{gender == 0 && 1500 >=balance && balance > 1200}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{gender == 0 && 49999 >=balance && balance > 1500}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{gender == 0 &&balance  && balance >= 50000}}"></image>
+        <!-- 女孩及段位 -->
+      <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >=balance && balance >= 0}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{gender == 1 && 600 >=balance  && balance> 300}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{gender == 1 && 900 >=balance && balance > 600}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g4.png"  mode="aspectFit" wx:if="{{gender == 1 && 1200 >=balance  && balance > 900}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{gender == 1 && 1500 >=balance  && balance > 1200}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
+      <!-- 登录后如果没有孩子就显示添加按钮  gender == 2-->
+      <image  wx:if="{{gender == 2}}" src="/image/jia2.png" bindtap='hideview'></image>
+      <view class="changeStu" wx:if="{{gender !== 2}}">
        <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
       </view>
-     
     </view>
-    <view class="stuName">{{studentName}}</view>
-    <view class="perMessage"> 
+    <view wx:if="{{!phone}}" class="avaterBox" style="margin-top: {{height}}px" >
+       <image src="/image/jia2.png" bindtap="login"></image>
+    </view>
+    <view class="stuName" wx:if="{{phone && gender !== 2}}">{{studentName}}</view>
+    <view class="perMessage"  wx:if="{{phone && gender !== 2}}"> 
      <view class="leftBi">
        <image src="/image/bi.png"></image>
-       <view class="info">爱眼币 100个</view>
+       <view class="info">爱眼币 {{balance}}个</view>
      </view>
      <view class="leftBi">
        <image src="/image/rank.png"></image>
-       <view class="info">排行榜 100个</view>
+       <view class="info">排行榜 {{ranking}}名</view>
      </view>
     </view>
   </view>
   <view class="centerWrap">
-    <view class="time"> 最近检测时间： 2020-04-2 12: 00</view>
+    <view class="time"> 最近检测时间：{{lastTime}}</view>
     <view class="itemWrap">
       <view class="leftBox">
         <image src="/image/eys.png"></image>
       </view>
-      <view class="rightBox">
-        <view class="proTilte" >视力筛查</view>
+      <view class="rightBox" bindtap="gotoShai">
+        <view class="proTilte">视力筛查</view>
         <view class="des">完成进度</view>
-        <view class="numTotal">0/1</view>
+        <view class="numTotal">{{undetected}}/1</view>
         <view class="rightGo">
           <image src="/image/righticon.png" ></image>
         </view>
@@ -40,10 +58,10 @@
       <view class="leftBox" style="background:#62D7EC">
         <image src="/image/da.png"></image>
       </view>
-      <view class="rightBox">
+      <view class="rightBox" bindtap="gotoTask">
         <view class="proTilte" >打卡任务</view>
         <view class="des">完成进度</view>
-        <view class="numTotal">0/7</view>
+        <view class="numTotal">{{task}}/7</view>
         <view class="rightGo">
           <image src="/image/righticon.png" ></image>
         </view>
@@ -53,10 +71,10 @@
       <view class="leftBox">
         <image src="/image/ti.png"></image>
       </view>
-      <view class="rightBox">
+      <view class="rightBox" bindtap="gotoAnswer">
         <view class="proTilte" >答题竞赛</view>
         <view class="des">完成进度</view>
-        <view class="numTotal">0/5</view>
+        <view class="numTotal">{{answer}}/5</view>
         <view class="rightGo">
           <image src="/image/righticon.png" ></image>
         </view>
@@ -65,10 +83,10 @@
     <view class="itemWrap">
       <view class="leftBox" style="background:#62D7EC">
       <image src="/image/quan.png"></image>                                                                                                    </view>
-      <view class="rightBox">
+      <view class="rightBox" bindtap="gotoXiu">
         <view class="proTilte" >秀一秀</view>
         <view class="des">完成进度</view>
-        <view class="numTotal">0/1</view>
+        <view class="numTotal"></view>
         <view class="rightGo">
           <image src="/image/righticon.png" ></image>
         </view>
@@ -77,3 +95,18 @@
   </view>
  <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
+
+<!-- 添加孩子 -->
+   <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
+   <view class="show"  wx:if="{{show}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitle">
+        请选择添加方式
+      </view>
+      <view class="btnBox">
+        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+    </view>
+   </view>

@@ -13,12 +13,19 @@ Page({
     showCongratulation: false,
     selectArray: [],
     studentName: '',
-    childrenList: []
+    childrenList: [],
+    birthday: '',
+    gender:0,
+    balance: 0
   },
   myevent(e) {
     this.setData({
-      studentName: e.detail.params
-    })
+      studentName: e.detail.params,
+      gender:e.detail.gender,
+      birthday: e.detail.birthday,
+      balance: wx.getStorageSync('balance')
+    }),
+      this.getList();
   },
   // 照相打卡
   gotoCamera() {
@@ -96,6 +103,10 @@ Page({
   },
   onLoad() {
     this.getChildrenList();
+    this.setData({
+      birthday: wx.getStorageSync('birthday'),
+      balance: wx.getStorageSync('balance')
+    })
   },
   onShow: function () {
     if(wx.getStorageSync('phone')) {
