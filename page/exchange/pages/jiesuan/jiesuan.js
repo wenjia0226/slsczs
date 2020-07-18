@@ -20,7 +20,52 @@ Page({
     freight: 0,
     productType: 2,
     showRemind: false,
-    showWarning: false
+    showWarning: false,
+    show: true,
+    studentName: ''
+  },
+  onLoad() {
+    app.editTabbar();
+    this.getChildrenList();
+    this.setData({
+      studentName: wx.getStorageSync('studentName')
+    })
+  },
+  getChildrenList() {
+    let that = this;
+    let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
+    //如果已经授权过
+    if (wx.getStorageSync('phone')) {
+      wx.showLoading({
+        title: '加载中...'
+      })
+      app.wxRequest(url, data, (res) => {
+      
+        console.log(res.data.data)
+        if (res.data.status == 200) {
+          that.setData({
+            selectArray: res.data.data
+          })
+        }
+      })
+    }
+  },
+  // 添加孩子按钮
+  hideview() {
+    this.setData({
+      show: true
+    })
+  },
+  
+  hide() {
+    this.setData({
+      show: false
+    })
+  },
+  myevent(e) {
+    this.setData({
+      studentName: e.detail.params
+    })
   },
   handleBuynner(e) {
     this.setData({
@@ -202,7 +247,6 @@ Page({
   },
   // 服务类型跳转到
   gotoCode() {
-    console.log(1111)
      wx.navigateTo({
         url: '/page/myCollection/pages/code/code?id=' + this.data.orderId,
       })

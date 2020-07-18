@@ -20,11 +20,14 @@ Page({
     bannerImg: '',
     phone: '',
     prevImg: true,
-    tabbar: {}
+    tabbar: {},
+    newMessage: {
+      value: '0',
+      avatarUrl: ''
+    }// 新消息
   },
   onLoad() {
     app.editTabbar();
-   
   },
   onShow() {
     app.hidetabbar();
@@ -50,6 +53,11 @@ Page({
   gotoLogin() {
     wx.navigateTo({
       url: '/nicheng/nicheng'
+    })
+  },
+  gotoNewMessage() {
+    wx.navigateTo({
+      url: '/newMessage/newMessage',
     })
   },
   //  预览
@@ -127,9 +135,12 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-      
+       console.log(res)
         if (res.data.status == 200) {
-          var resCurrent = res.data.data;
+          var resCurrent = res.data.data.list;
+          that.setData({
+            newMessage: res.data.data.newMessage
+          })
           let content = that.data.content;
          
           if (that.data.page == 1) {
@@ -173,7 +184,9 @@ Page({
           data = {
             id: id,
             openId: wx.getStorageSync('openId'),
-            studentId: wx.getStorageSync('studentId')
+            studentId: wx.getStorageSync('studentId'),
+            nickName: wx.getStorageSync('nickName'),
+            avatarUrl: wx.getStorageSync('avatarUrl')
           };
         //如果已经授权过
         if (wx.getStorageSync('phone')) {
@@ -181,7 +194,7 @@ Page({
             title: '加载中...'
           })
           app.wxRequest(url, data, (res) => {
-            // console.log(res)
+            console.log(res)
             if (res.data.status == 200) {
               let changeItem = res.data.data;
               let arr = that.data.content.map((item) => item.id === changeItem.id ? changeItem : item)

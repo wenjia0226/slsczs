@@ -92,3 +92,24 @@
       <view class="remBtn" bindtap="gotoCode">我知道了</view>
   </view>
 </view>
+<!-- 确认添加弹框 -->
+   <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
+   <view class="show"  wx:if="{{show}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitle" wx:if="{{type == 1}}">
+        您确认支付{{total}}个爱眼币及运费{{freight}}元吗？
+      </view>
+       <view class="modeTitle" wx:if="{{type == 2 || type == 3}}">
+        您确认支付{{total}}个爱眼币吗？
+      </view>
+      <view class="childrenMessage">
+        <view>当前绑定孩子{{studentName}}，共有爱眼币 {{111}}个</view> 
+         <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+      </view>
+      <view class="btnBox">
+        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+    </view>
+   </view>

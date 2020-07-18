@@ -12,6 +12,15 @@
       <image  class=" userinfo-avatar" bindtap="gotoLogin"  src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image> 
     </view>
   </view>
+ <!-- 新消息提醒 -->
+   <view class="newMessageBox" wx:if="{{phone && (newMessage.value !== '0')}}" bindtap="gotoNewMessage">
+      <view class="newImg">
+        <image src="{{newMessage.avatarUrl}}"></image>
+      </view>
+      <view class="newNum">
+      {{newMessage.value}}条新消息
+      </view>
+   </view>
  <!-- 内容 -->
   <view class="centerWrap" wx:for="{{content}}" wx:if="{{ phone && content}}" :key="index">  
     <view class="centerItem">

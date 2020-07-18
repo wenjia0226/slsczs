@@ -62,6 +62,7 @@ Component({
       let birthday = e.target.dataset.birthday;
       wx.setStorageSync('studentName', nowText);
       wx.setStorageSync('birthday', birthday);
+      wx.setStorageSync('studentId', id)
       // 自定义一个事件，并且传值
       this.triggerEvent('myevent', { studentId: id, studentName: nowText, params: nowText, gender:gender,birthday: birthday},)
       //再次执行动画，注意这里一定，一定，一定是this.animation来使用动画

@@ -1,0 +1,19 @@
+<!--page/myCollection//pages/newMessage/mewMessage.wxml-->
+<view class="main">
+ <view class="itemWrap" wx:for="{{list}}">
+    <view class="imgBox">
+      <image src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class="centerBox">
+      <view class="title">{{item.nickName}}</view>
+      <image  class="img" src="/image/zan.png"></image>
+      <view class="time">{{item.date}}</view>
+    </view>
+    <view class="rightBox">
+       <image wx:if="{{item.img == 1}}" src='{{item.content}}'></image> 
+       <view  wx:if="{{item.img == 0}}" >
+        {{item.content}}
+       </view>
+    </view>
+ </view>
+</view>
