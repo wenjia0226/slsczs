@@ -16,24 +16,26 @@ Page({
     selectedName: '',
     picture: '',
     integral: '',
-    total: '',
+    total: 0,
     freight: 0,
     productType: 2,
     showRemind: false,
     showWarning: false,
-    show: true,
-    studentName: ''
+    show: false,
+    studentName: '',
+    balance: 0
   },
   onLoad() {
     app.editTabbar();
     this.getChildrenList();
     this.setData({
-      studentName: wx.getStorageSync('studentName')
+      studentName: wx.getStorageSync('studentName'),
+      balance: wx.getStorageSync('balance')
     })
   },
   getChildrenList() {
     let that = this;
-    let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
+    let url = app.globalData.URL + "childrenIntegral", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
@@ -64,7 +66,8 @@ Page({
   },
   myevent(e) {
     this.setData({
-      studentName: e.detail.params
+      studentName: e.detail.params,
+      balance: e.detail.balance
     })
   },
   handleBuynner(e) {
@@ -131,8 +134,12 @@ Page({
         type: 3
       })
     }
+    this.hideview();
+  },
+  confirmSubmit() {
+    let that= this;
     let url = app.globalData.URL + "addOrder";
-    let address = this.data.provinceName + this.data.cityName + this.data.countyName +this.data.detailInfo;
+    let address = this.data.provinceName + this.data.cityName + this.data.countyName + this.data.detailInfo;
     let data = {
       studentId: wx.getStorageSync('studentId'),
       specificationsId: wx.getStorageSync('selectedId'),
@@ -144,106 +151,81 @@ Page({
       remark: this.data.inputValue,
       openId: wx.getStorageSync('openId')
     };
-    
-   if(that.data.type == 1) {
-     wx.showModal({
-       title: '温馨提示',
-       content: '您确认支付' + that.data.total + '个爱眼币' + '及运费 ' + that.data.freight +'元吗？',
-       showCancel: true,//是否显示取消按钮  false 不显示
-       cancelText: "取消支付",//更改取消
-       confirmText: "确认支付",
-       success(res) {
-         if (res.confirm) {
-            app.wxRequest(url, data, (res) => {
-            // console.log(res)
-            if(res.data.status == 200) {
-              var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign":                res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
-              //发起支付
-              that.pay(param);
-            }else if(res.data.status == 10230) {
+    this.hide(); // 隐藏
+    if (that.data.type == 1) {
+        app.wxRequest(url, data, (res) => {
+          console.log(res)
+          if (res.data.status == 200) {
+            var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign": res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
+            //发起支付
+            that.pay(param);
+          } else if (res.data.status == 10230) {
+            that.setData({
+              showRemind: true,
+              
+            })
+            setTimeout(function () {
               that.setData({
-                showRemind: true
+                showRemind: false
               })
-              setTimeout(function() {
-                that.setData({
-                  showRemind: false
-                })
-              }, 1500)
-              return;
-            }
-          }, (err) => {
-            console.log("向后台发送数据失败")
+            }, 1500)
+            return;
+          }
+        }, (err) => {
+          console.log("向后台发送数据失败")
+        }) 
+    } else if (that.data.type == 2 || that.data.type == 3) { // 在校自取 和服务类型
+      app.wxRequest(url, data, (res) => {
+        //  console.log(res)
+        if (res.data.status == 200) {
+
+          if (that.data.type == 3) {  //如果是服务类型，
+            // 页面跳转做装备
+            wx.setStorageSync('partnership', res.data.data.partnership)
+            wx.setStorageSync('address', res.data.data.address)
+            that.setData({
+              orderId: res.data.data.orderId,
+              showWarning: true
+            })
+          } else if (that.data.type == 2) {
+            wx.navigateTo({
+              url: '/page/myCollection/pages/jifen/jifen'
+            })
+          }
+          that.setData({
+            number: 0,
+            delivryType: that.data.type,
+            contacts: '',
+            phone: '',
+            address: '',
+            remark: '',
+            total: 0,
+            userName: '',
+            provinceName: '',
+            cityName: '',
+            countyName: '',
+            detailInfo: '',
+            telNumber: '',
+            remark: '',
+            sizeNumber: 0,
+            selectedName: ''
           })
-       } else if (res.cancel) {
-          console.log('用户点击取消')
-       }
-      }
-    })  
-   }else if(that.data.type == 2 || that.data.type == 3) { // 在校自取 和服务类型
-     wx.showModal({
-       title: '温馨提示',
-       content: '您确认支付'+that.data.total+'个爱眼币吗？',
-       showCancel: true,//是否显示取消按钮  false 不显示
-       cancelText: "取消支付",//更改取消
-       confirmText: "确认支付",
-       success(res) {
-         if (res.confirm) {
-           app.wxRequest(url, data, (res) => {
-            //  console.log(res)
-             if (res.data.status == 200) {
-            
-               if(that.data.type == 3) {  //如果是服务类型，
-                 // 页面跳转做装备
-                 wx.setStorageSync('partnership', res.data.data.partnership)
-                 wx.setStorageSync('address', res.data.data.address)
-                 that.setData({
-                   orderId: res.data.data.orderId,
-                   showWarning: true
-                 })
-               } else if(that.data.type == 2) {
-                 wx.navigateTo({
-                   url: '/page/myCollection/pages/jifen/jifen'
-                 })
-               }
-               that.setData({
-                 number: 0,
-                 delivryType: that.data.type,
-                 contacts: '',
-                 phone: '',
-                 address: '',
-                 remark: '',
-                 total: 0,
-                 userName: '',
-                 provinceName: '',
-                 cityName: '',
-                 countyName: '',
-                 detailInfo: '',
-                 telNumber: '',
-                 remark: '',
-                 sizeNumber: 0,
-                 selectedName: ''
-               })
-             } else if (res.data.status == 10230) {
-                that.setData({
-                  showRemind: true
-                })
-                setTimeout(function () {
-                  that.setData({
-                    showRemind: false
-                  })
-                }, 1500)
-             }
-           }, (err) => {
-             console.log("向后台发送数据失败")
-           }, () => {
-             wx.hideLoading()
-           })
-         } else if (res.cancel) {
-           console.log('用户点击取消')
-         }
-       }
-     })    
-   }
+        } else if (res.data.status == 10230) {
+          that.setData({
+            showRemind: true
+          })
+          setTimeout(function () {
+            that.setData({
+              showRemind: false
+            })
+          }, 1500)
+        }
+      }, (err) => {
+        console.log("向后台发送数据失败")
+      }, () => {
+        wx.hideLoading()
+      })
+    }
   },
   // 服务类型跳转到
   gotoCode() {

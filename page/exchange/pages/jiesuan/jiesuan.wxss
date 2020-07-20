@@ -195,14 +195,13 @@
   align-items: center;
 }
 .addBtn {
-  flex: 1;
   background: #0073E9;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   font-size: 24rpx;
-  padding: 10rpx 0;
+  padding: 10rpx 20rpx;
 }
 .remindBox {
   position:fixed;
@@ -459,4 +458,23 @@
   font-weight: bold;
   text-align: center;
 }
+.chooseChild {
+  margin: 20rpx 0;
+  font-size: 24rpx;
 
+}
+.nameSelected {
+  font-size: 30rpx;
+  color: red;
+  font-weight: bold;
+  padding: 0 5rpx;
+}
+.cancleBtn{
+  color: #fff;
+  background:#aaa;
+  font-size: 30rpx;
+   text-align: center;
+  padding: 16rpx 60rpx;
+  border-radius: 50rpx;
+
+}

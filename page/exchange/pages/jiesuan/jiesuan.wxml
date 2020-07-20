@@ -105,11 +105,12 @@
         您确认支付{{total}}个爱眼币吗？
       </view>
       <view class="childrenMessage">
-        <view>当前绑定孩子{{studentName}}，共有爱眼币 {{111}}个</view> 
+        <view class="chooseChild">当前绑定孩子 <text class="nameSelected">{{studentName}},</text>共有爱眼币  <text  class="nameSelected">{{balance}}</text>个。</view> 
          <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
       </view>
       <view class="btnBox">
-        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
-        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+        <view   class="cancleBtn" bindtap="hide">取消</view>
+        <view class="addBtn" bindtap="confirmSubmit">确认支付</view>
+      
     </view>
    </view>
