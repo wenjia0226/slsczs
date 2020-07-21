@@ -80,7 +80,32 @@ Page({
     },
     ec2: {
       lazyLoad: true
-    }
+    },
+    selectArray: [],
+    studentName: '',
+    childrenList: [],
+    birthday: '',
+    gender: 0,
+    balance: 0
+  },
+  myevent(e) {
+    this.setData({
+      studentName: e.detail.params,
+      stId: e.detail.studentId,
+      gender: e.detail.gender,
+      birthday: e.detail.birthday,
+      balance: wx.getStorageSync('balance')
+    }),
+      this.getArchiveList();
+  },
+  onLoad() {
+    this.getChildrenList();
+    this.setData({
+      studentName: wx.getStorageSync('studentName'),
+      birthday: wx.getStorageSync('birthday'),
+      balance: wx.getStorageSync('balance'),
+      gender: wx.getStorageSync('gender')
+    })
   },
   //请求数据
   onShow() {
@@ -145,39 +170,26 @@ Page({
       app.wxRequest(url, data, (res) => {
         //  console.log(res)
         if (res.data.status == 200) {
+          res.data.data.push({
+            name: '添加孩子'
+          })
           that.setData({
+            selectArray: res.data.data,
             childrenList: res.data.data
           })
-          that.data.childrenList.push({
-            age: 8,
-            birthday: "2019-04-01",
-            chairHeight: "60",
-            classesId: 42,
-            classesName: "二（3）班",
-            correct: 0,
-            description: "",
-            gender: "",
-            lastTime: '',
-            height: "125",
-            id: 2,
-            name: "新增",
-            nature: "无",
-            parentPhone: "18311192425",
-            regionId: 1,
-            regionName: "唐山",
-            schoolId: 50,
-            schoolName: "唐山市师范附属小学",
-            sittingHeight: "105.0",
-            weight: "22.34",
-            lastTime: null
+          // that.setData({
+          //   stId: that.data.childrenList[0].id
+          // })
+        }else if (res.data.status == 10220) {
+          // that.setData({
+          //   childrenList: []
+          // })
+          let arr = [];
+          arr.push({
+            name: '添加孩子'
           })
           that.setData({
-            stId: that.data.childrenList[0].id
-          })
-        }
-        if (res.data.status == 10220) {
-          that.setData({
-            childrenList: []
+            selectArray: arr
           })
         }
       }, (err) => {
@@ -198,74 +210,12 @@ Page({
       };
       app.wxRequest(url, data, (res) => { 
         //如果孩子不为空
-        if(res.data.data !== null) {
+        if (res.data.data !== null) {
           that.setData({
             navList: res.data.data,
           })
-        if(that.data.navList) {
-          let stu = that.data.navList;
-          let currentStu = stu.filter((item, index) => {
-            if (item.id == that.data.stId) {
-              return item;
-            }
-          })
-          that.setData({
-            navList: currentStu
-          })
-          if(currentStu.length) {
-            let picList = currentStu.map((item) => {
-              return item.picList
-            })
-            let dataList = currentStu.map((item) => {
-              return item.dataList
-            })
-            let weardataList = currentStu.map((item) => {
-              return item.weardataList
-            })
-            let wearpicList = currentStu.map((item) => {
-              return item.wearpicList
-            })
-            that.setData({
-              dataList: dataList[0],
-              picList: picList[0],
-              weardataList: weardataList[0],
-              wearpicList: wearpicList[0]
-            })
-            let dataList2 = that.data.dataList;
-            let picList2 = that.data.picList;
-
-            let weardataList2 = that.data.weardataList;
-            let wearpicList2 = that.data.wearpicList;
-            xData = picList2.map((item) => {
-              return item.date
-            })
-            leftData = picList2.map((item) => {
-              return item.visionLeftStr
-            })
-            rightData = picList2.map((item) => {
-              return item.visionRightStr
-            })
-            wearxData = wearpicList2.map((item) => {
-              return item.date
-            })
-            wearleftData = wearpicList2.map((item) => {
-              return item.visionLeftStr
-            })
-            wearrightData = wearpicList2.map((item) => {
-              return item.visionRightStr
-            })
-          }
-        }
-          that.oneComponent = that.selectComponent('#mychart-one');
-          that.twoComponent = that.selectComponent("#mychart-two");
-        if (xData.length && leftData.length && rightData.length ) {
-          //某个人列表赋值
-          that.init_one(xData, leftData, rightData) 
-        }
-        if (wearxData.length && wearleftData.length && wearrightData.length ){
-          that.init_two(wearxData, wearleftData, wearrightData)
-        }
-      }else {  //如果孩子为空
+          that.getCurrentStudentInfo();
+        } else {  //如果孩子为空
         that.setData({
           navList: [],
           dataList: [],
@@ -278,6 +228,74 @@ Page({
         console.log(err)
       })
     } 
+  },
+  getCurrentStudentInfo() {
+    let that = this;
+    
+      if (that.data.navList) {
+        let stu = that.data.navList;
+        let currentStu = stu.filter((item, index) => {
+          if (item.id == that.data.stId) {
+            return item;
+          }
+        })
+        that.setData({
+          navList: currentStu
+        })
+        if (currentStu.length) {
+          let picList = currentStu.map((item) => {
+            return item.picList
+          })
+          let dataList = currentStu.map((item) => {
+            return item.dataList
+          })
+          let weardataList = currentStu.map((item) => {
+            return item.weardataList
+          })
+          let wearpicList = currentStu.map((item) => {
+            return item.wearpicList
+          })
+          that.setData({
+            dataList: dataList[0],
+            picList: picList[0],
+            weardataList: weardataList[0],
+            wearpicList: wearpicList[0]
+          })
+          let dataList2 = that.data.dataList;
+          let picList2 = that.data.picList;
+
+          let weardataList2 = that.data.weardataList;
+          let wearpicList2 = that.data.wearpicList;
+          xData = picList2.map((item) => {
+            return item.date
+          })
+          leftData = picList2.map((item) => {
+            return item.visionLeftStr
+          })
+          rightData = picList2.map((item) => {
+            return item.visionRightStr
+          })
+          wearxData = wearpicList2.map((item) => {
+            return item.date
+          })
+          wearleftData = wearpicList2.map((item) => {
+            return item.visionLeftStr
+          })
+          wearrightData = wearpicList2.map((item) => {
+            return item.visionRightStr
+          })
+        }
+      }
+      that.oneComponent = that.selectComponent('#mychart-one');
+      that.twoComponent = that.selectComponent("#mychart-two");
+      if (xData.length && leftData.length && rightData.length) {
+        //某个人列表赋值
+        that.init_one(xData, leftData, rightData)
+      }
+      if (wearxData.length && wearleftData.length && wearrightData.length) {
+        that.init_two(wearxData, wearleftData, wearrightData)
+      }
+  
   },
   init_one(xData, leftData, rightData) {
     // console.log(this.oneComponent)

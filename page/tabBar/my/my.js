@@ -10,7 +10,7 @@ Page({
     tabbar: {},
     height: app.globalData.navHeight,
     selectArray:[],
-    studentName: '',
+    studentName: '无',
     gender: 0,
     balance: ''
   },
@@ -18,13 +18,20 @@ Page({
     app.editTabbar();
   },
  
-  onShow() {  
+  onShow() {
     this.getChildrenList();
-    this.setData({
-      studentName: wx.getStorageSync('studentName'),
-      gender: wx.getStorageSync('gender'),
-      balance: wx.getStorageSync('balance')
-    })
+    if (wx.getStorageSync('studentId')) {
+      this.setData({
+        studentName: wx.getStorageSync('studentName'),
+        gender: wx.getStorageSync('gender'),
+        balance: wx.getStorageSync('balance')
+      })
+    } else {
+      this.setData({
+        studentName: "暂无绑定",
+        gender: 2
+      })
+    } 
     this.getPhone();
     wx.login({
       success: (res) => {
@@ -48,7 +55,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res.data.data, 99)
+        console.log(res.data)
         if (res.data.data) {
           res.data.data.push({
             name: '添加孩子'
@@ -58,6 +65,14 @@ Page({
         if (res.data.status == 200) {
           that.setData({
             selectArray: res.data.data
+          })
+        }else if(res.data.status == 10220) {
+          let arr = [];
+          arr.push({
+            name: '添加孩子' 
+          })
+          that.setData({
+            selectArray:arr
           })
         }
       })

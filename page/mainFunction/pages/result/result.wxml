@@ -17,7 +17,7 @@
     </view>
 </view>
   <view class="total" style="margin-top: {{height}}px">{{result}}</view>
-  <view class="centerWrap">
+  <view class="centerWrap" style="margin: 5% 0">
        <view class="leftWrap">
         <view class="title">右眼视力</view>
         <view class="bigNum" wx:if="{{!noUpdate}}">{{levelName5Right}}</view>
@@ -51,12 +51,26 @@
         <view class="changeTitle">替换筛查者</view>
         <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
       </view> -->
-      <view class="modeTitle">
-         您要将此次结果保存到<view class="name">{{studentName}}  
-        <view class="changeChild">
+      <view class="modeTitle" wx:if="{{studentId}}">
+        
+        <!-- <view>您要将此次结果保存到</view> 
+        <view class="name" >
+          {{studentName}}  
+          <view class="changeChild">
+            <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+          </view>
+        </view>
+        <view>的筛查档案中吗?</view> -->
+        <view class="remAdd">您要将此次结果保存到 <text class="name">{{studentName}}</text>的筛查档案中吗?</view> 
+        <view class="selectBox">
          <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
-        </view></view>的筛查档案中吗? 
-      
+        </view>
+      </view>
+      <view class="modeTitle" wx:if="{{!studentId}}">
+        <view class="remAdd">请点击切换按钮添加学生</view> 
+        <view class="selectBox">
+         <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+        </view>
       </view>
       <view class="btnBox">
         <view class="addBtn" style="background: #666" bindtap="hide">取消</view>

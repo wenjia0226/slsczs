@@ -19,9 +19,19 @@ Page({
     selectProvinceId: null,
     selectCityId: null,
     selectAreaId: null,
+    prevRoute: ''
   },
   onLoad: function (options) {  //在页面加载就调用获取
     this.getProvince()
+  },
+  onShow() {
+    let pages = getCurrentPages();//页面对象
+    let prevpage = pages[pages.length - 2];//上一个页面对象
+
+    console.log(prevpage.route)//上一个页面路由地址
+    this.setData({
+      prevRoute: prevpage.route
+    })
   },
   handleNameInput(e){
     this.setData({
@@ -53,7 +63,6 @@ Page({
     gender: this.data.gender,
     regionId: this.data.selectAreaId
     };
-    console.log(this.data.date)
     wx.setStorageSync('studentName', this.data.name);
     wx.setStorageSync('gender', this.data.gender);
     wx.setStorageSync('birthday', this.data.date);
@@ -62,10 +71,35 @@ Page({
       wx.setStorageSync('studentId', res.data.data)
   
       if(res.data.status == 200) {
-        wx.navigateTo({
-          url: '/page/tabBar/screen/screen'
-        })
-      }
+
+        console.log(that.data.prevRoute)
+        if (that.data.prevRoute == 'page/tabBar/index/index') {
+          wx.switchTab({
+            url: '/page/tabBar/index/index'
+          })
+        }else if(that.data.prevRoute == 'page/tabBar/my/my') {
+          wx.switchTab({
+            url: '/page/tabBar/my/my'
+          })
+        } else if (that.data.prevRoute == 'page/myCollection/pages/archives/archives') {
+          wx.navigateTo({
+            url: '/page/myCollection/pages/archives/archives',
+          })
+        } else if (that.data.prevRoute == 'page/myCollection/pages/plan/plan') {
+          wx.navigateTo({
+            url: '/page/myCollection/pages/plan/plan',
+          })
+        } else if (that.data.prevRoute == 'page/tabBar/screen/screen') {
+          wx.navigateTo({
+            url: '/page/tabBar/screen/screen',
+          })
+        }else if(that.data.prevRoute == 'page/mainFunction/pages/result/result') {
+          wx.navigateTo({
+            url: '/page/mainFunction/pages/result/result',
+          })
+        }
+       
+      } 
     })
   },
  

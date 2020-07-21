@@ -1,21 +1,27 @@
 // Componet/Componet.js
+const app = getApp();
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     propArray: {
       type: Array,
     },
   },
-  /**
-   * 组件的初始数据
-   */
+  onLoad() {
+    let pages = getCurrentPages();//页面对象
+    let prevpage = pages[pages.length - 2];//上一个页面对象
+
+    console.log(prevpage.route)//上一个页面路由地址
+    // this.setData({
+    //   prevRoute: prevpage.route
+    // })
+    // console.log(this.data.prevRoute)
+  },
   data: {
     selectShow: false,//初始option不显示
     nowText: "切换",//初始内容
     animationData: {},//右边箭头的动画
-    show: false
+    show: false,
+    prevRoute: ''
   },
   methods: {
     // 添加孩子按钮
@@ -65,6 +71,7 @@ Component({
       wx.setStorageSync('birthday', birthday);
       wx.setStorageSync('studentId', id);
       wx.setStorageSync('balance', balance);
+      wx.setStorageSync('gender', gender);
       // 自定义一个事件，并且传值
       this.triggerEvent('myevent', { studentId: id, studentName: nowText, params: nowText, gender:gender,birthday: birthday, balance: balance},)
       //再次执行动画，注意这里一定，一定，一定是this.animation来使用动画

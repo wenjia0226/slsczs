@@ -17,20 +17,20 @@ Page({
      };
    //如果已经授权
    app.wxRequest(url, data, (res) => {
-     
-     var list = res.data.data;
-     list.forEach((item, index) => {
-       let str = item.content;
-       if(item.content.substring(item.content.length - 3) == 'jpg') {
-         item.img = 1;
-       }else {
-        item.img = 0
-       }
-     })
-     console.log(list)
-     that.setData({
-       list: list
-     })
+     if(res.data.data) {
+      var list = res.data.data;
+      list.forEach((item, index) => {
+        let str = item.content;
+        if(item.content.substring(item.content.length - 3) == 'jpg') {
+          item.img = 1;
+        }else {
+          item.img = 0
+        }
+      })
+      that.setData({
+        list: list
+      })
+     }
    })
   
  }

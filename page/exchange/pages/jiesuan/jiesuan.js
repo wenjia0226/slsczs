@@ -42,8 +42,6 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-      
-        console.log(res.data.data)
         if (res.data.status == 200) {
           that.setData({
             selectArray: res.data.data
@@ -153,7 +151,7 @@ Page({
     };
     this.hide(); // 隐藏
     if (that.data.type == 1) {
-        app.wxRequest(url, data, (res) => {
+        app.wxRequest(url, data, (res) => { 
           console.log(res)
           if (res.data.status == 200) {
             var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign": res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };

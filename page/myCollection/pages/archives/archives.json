@@ -4,6 +4,7 @@
   "navigationBarBackgroundColor": "#eee",
   "component": true,
   "usingComponents": {
-    "ec-canvas": "../ec-canvas/ec-canvas"
+    "ec-canvas": "../ec-canvas/ec-canvas",
+    "Select": "/page/tabBar/select/select"
   }
 }

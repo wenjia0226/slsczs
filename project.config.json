@@ -81,6 +81,13 @@
 					"id": -1,
 					"name": "page/tabBar/screen/screen",
 					"pathName": "page/tabBar/screen/screen",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/tabBar/index/index",
+					"pathName": "page/tabBar/index/index",
 					"scene": null
 				}
 			]

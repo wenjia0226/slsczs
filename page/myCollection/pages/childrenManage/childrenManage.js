@@ -201,7 +201,7 @@ Page({
             title: '加载中...',
           })
           app.wxRequest(url,data, (res) => {
-            // console.log(res)
+            console.log(res)
             let childCollection = res.data.data;
             if (childCollection.length == 1) {
               let student = res.data.data;
@@ -215,13 +215,15 @@ Page({
               that.setData({
                 childrenList: res.data.data
               })
-              // console.log(that.data.childrenList[0])
               wx.setStorageSync('studentId', that.data.childrenList[0].id)
             }else {
               that.setData({
                 childrenList: []
               })
               wx.setStorageSync('studentId', '')
+              wx.setStorageSync('gender', 2);
+              wx.setStorageSync('studentName', '')
+              wx.setStorageSync('birthday', '')
             }
           }, (err) => {
             console.log(err)

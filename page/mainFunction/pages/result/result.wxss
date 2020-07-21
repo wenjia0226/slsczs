@@ -270,7 +270,8 @@
 }
 .centerWrap {
   flex: 1;
-  background: #F7F8F8
+  margin: 5% 0;
+  /* background: #F7F8F8 */
 }
 .numWrap {
   display: flex;
@@ -386,6 +387,9 @@
 }
 .modeTitle{
   font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .name {
   font-size: 40rpx;
@@ -404,4 +408,12 @@
  right: 0;
  top: 0;
  border-bottom: 2rpx solid #3e65e4;
+}
+.remAdd{
+  padding: 10rpx 20rpx;
+}
+.selectBox {
+  border: 2rpx solid red;
+  width: 120rpx;
+  border-radius: 10rpx;
 }

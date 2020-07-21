@@ -105,8 +105,9 @@
         您确认支付{{total}}个爱眼币吗？
       </view>
       <view class="childrenMessage">
-        <view class="chooseChild">当前绑定孩子 <text class="nameSelected">{{studentName}},</text>共有爱眼币  <text  class="nameSelected">{{balance}}</text>个。</view> 
-         <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+        <view class="chooseChild" wx:if="{{studentName}}">当前绑定孩子 <text class="nameSelected">{{studentName}},</text>共有爱眼币  <text  class="nameSelected">{{balance}}</text>个。</view> 
+        <view class="chooseChild"  wx:if="{{!studentName}}">请先添加孩子</view>
+         <view class="chooseBox"> <Select style="width: 200rpx" bindmyevent="myevent" prop-array='{{selectArray}}'></Select></view>
       </view>
       <view class="btnBox">
         <view   class="cancleBtn" bindtap="hide">取消</view>

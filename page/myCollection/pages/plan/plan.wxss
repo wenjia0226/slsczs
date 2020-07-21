@@ -36,9 +36,6 @@
   font-size: 24rpx;
   padding: 10rpx;
 }
-.rightBox {
-  /* width: 200rpx; */
-}
 .itemwrap {
   margin: 10rpx 20rpx;
   background: #eee;

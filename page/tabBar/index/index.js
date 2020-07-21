@@ -13,23 +13,29 @@ Page({
     task: 0,
     undetected: 0,
     lastTime: '无',
-    gender:2,
-    phone: wx.getStorageSync('phone')
+    gender: 2,
+    phone: wx.getStorageSync('phone'),
+    studentId: '',
+    show: false
   },
   onLoad() {
-    app.editTabbar();
-    
-  },
-  onShow() {
-    this.getChildrenList();
     this.setData({
-      studentName: wx.getStorageSync('studentName'),
-      gender: wx.getStorageSync('gender')
+      studentId: wx.getStorageSync('studentId'),
+      studentName: wx.getStorageSync('studentName')
     })
-    this.getTastList();
+    app.editTabbar();
   },
-  gotoAdd() {
-
+  onShow() { 
+    this.setData({
+      phone: wx.getStorageSync('phone'),
+      studentName: wx.getStorageSync('studentName'),
+      gender: wx.getStorageSync('gender'),
+      studentId: wx.getStorageSync('studentId'),
+      show: false
+    })
+    if (this.data.phone) {
+      this.getChildrenList();
+    }
   },
   login() {
     wx.navigateTo({
@@ -47,74 +53,120 @@ Page({
       show: false
     })
   },
-  getTastList(){
+  getTastList() {
     let that = this;
-    if(wx.getStorageSync('studentId')) {
-    let url = app.globalData.URL + "firstPage", data = { studentId: wx.getStorageSync('studentId')};
-    //如果已经授权过
-    if (wx.getStorageSync('phone')) {
-      wx.showLoading({
-        title: '加载中...'
-      })
-      app.wxRequest(url, data, (res) => {
-        res? res= res.data.data: '';
-        that.setData({
-          answer: res.answer,
-          balance: res.balance,
-          ranking: res.ranking,
-          task: res.task,
-          undetected: res.undetected,
-          lastTime: res.lastTime
+      let url = app.globalData.URL + "firstPage", data = { studentId: this.data.studentId };
+      //如果已经授权过
+      if (wx.getStorageSync('phone')) {
+        wx.showLoading({
+          title: '加载中...'
         })
-        wx.setStorageSync('balance', res.balance)
-      })
-    }
-    }else {
-      // 如果是新用户, 没有孩子
-      this.setData({
-        gender:2
-      })
-      console.log(this.data.gender)
-    }
+        app.wxRequest(url, data, (res) => {
+          res ? res = res.data.data : '';
+          that.setData({
+            answer: res.answer,
+            balance: res.balance,
+            ranking: res.ranking,
+            task: res.task,
+            undetected: res.undetected,
+            lastTime: res.lastTime
+          })
+          wx.setStorageSync('balance', res.balance)
+        })
+      }
   },
   myevent(e) {
     this.setData({
-      studentName: e.detail.params
+      studentName: e.detail.params,
+      gender: e.detail.gender,
+      studentId: e.detail.studentId
     })
+    
+    wx.setStorageSync('studentId', e.detail.studentId)
     this.getTastList();
   },
   getChildrenList() {
     let that = this;
-    let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
+    let url = app.globalData.URL + "childrenIntegral", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
-    if (wx.getStorageSync('phone')) {
       wx.showLoading({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        if(res.data.data) {
+       console.log(res)
+        if (res.data.data) {
           res.data.data.push({
             name: '添加孩子'
           })
         }
-        
         if (res.data.status == 200) {
           that.setData({
-            selectArray: res.data.data
+            selectArray: res.data.data,
+            childrenList: res.data.data
+          })
+        
+          if(that.data.studentId == '') {
+            that.setData({
+              studentId: res.data.data[0].id,
+              gender: res.data.data[0].gender,
+              balance: res.data.data[0].income,
+              ranking:res.data.data[0].ranking,
+              studentName: res.data.data[0].name
+            })
+            wx.setStorageSync('studentId', res.data.data[0].id);
+            wx.setStorageSync('gender', res.data.data[0].gender);
+            wx.setStorageSync('studentName', res.data.data[0].name);
+            wx.setStorageSync('birthday', res.data.data[0].birthday);
+          }
+          that.getTastList();
+        }else if(res.data.status == 10220) {
+          that.setData({
+            childrenList: [],
+            gender: 2
+          })
+          let arr = [];
+          arr.push({
+            name: '添加孩子'
+          })
+          that.setData({
+            selectArray: arr
           })
         }
       })
-    }
   },
-  gotoShai(){
+  addChild() {
+    let  that = this;
+    wx.showModal({
+      title: '温馨提示',
+      content: '请先绑定孩子',
+      confirmText: "去绑定",
+      cancelText: "取消",
+      success: function(res) {
+        if(res.confirm) {
+          that.hideview()
+        }
+      }
+    })
+  },
+  gotoShai() {
     wx.navigateTo({
       url: '/page/tabBar/screen/screen'
     })
   },
-  gotoTask() {
+  gotoLogin(){
     wx.navigateTo({
-      url: '/page/myCollection/pages/plan/plan'
+      url: '/nicheng/nicheng',
     })
+  },
+  gotoTask() {
+    if(this.data.phone) {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/plan/plan'
+      })
+    }else {
+      this.gotoLogin();
+    }
+  
   },
   gotoXiu() {
     wx.switchTab({
@@ -131,7 +183,7 @@ Page({
     wx.navigateTo({
       url: '/manual/manual'
     })
-    this.hide();
+    
   },
   //扫码添加
   gotoScan() {
@@ -154,33 +206,33 @@ Page({
           that.setData({
             childrenList: res.data.data
           })
-          that.data.childrenList.push({
-            age: 8,
-            birthday: "2019-04-01",
-            chairHeight: "60",
-            classesId: 42,
-            classesName: "二（3）班",
-            correct: 0,
-            description: "",
-            gender: 1,
-            height: "125",
-            id: 2,
-            name: "新增",
-            nature: "无",
-            parentPhone: "18311192425",
-            regionId: 1,
-            regionName: "唐山",
-            schoolId: 50,
-            schoolName: "唐山市师范附属小学",
-            sittingHeight: "105.0",
-            weight: "22.34"
-          })
+          // that.data.childrenList.push({
+          //   age: 8,
+          //   birthday: "2019-04-01",
+          //   chairHeight: "60",
+          //   classesId: 42,
+          //   classesName: "二（3）班",
+          //   correct: 0,
+          //   description: "",
+          //   gender: 1,
+          //   height: "125",
+          //   id: 2,
+          //   name: "新增",
+          //   nature: "无",
+          //   parentPhone: "18311192425",
+          //   regionId: 1,
+          //   regionName: "唐山",
+          //   schoolId: 50,
+          //   schoolName: "唐山市师范附属小学",
+          //   sittingHeight: "105.0",
+          //   weight: "22.34"
+          // })
           that.setData({
             childrenList: res.data.data,
             show: false
           })
-          wx.navigateTo({
-            url: '/page/tabBar/screen/screen'
+          wx.switchTab({
+            url: '/page/tabBar/index/index'
           })
         }, (err) => {
           console.log(err)

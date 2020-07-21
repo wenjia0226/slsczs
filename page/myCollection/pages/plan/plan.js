@@ -25,7 +25,7 @@ Page({
       birthday: e.detail.birthday,
       balance: wx.getStorageSync('balance')
     }),
-      this.getList();
+    this.getList();
   },
   // 照相打卡
   gotoCamera() {
@@ -105,7 +105,8 @@ Page({
     this.getChildrenList();
     this.setData({
       birthday: wx.getStorageSync('birthday'),
-      balance: wx.getStorageSync('balance')
+      balance: wx.getStorageSync('balance'),
+      gender: wx.getStorageSync('gender')
     })
   },
   onShow: function () {
@@ -116,8 +117,19 @@ Page({
       if (wx.getStorageSync('studentId')) {
         this.getList();
       }else {
-        wx.showToast({
-          title: '请先选择学生',
+        wx.showModal({
+          title: '无法打卡',
+          content: '请先添加学生',
+          cancelText: "否",
+          confirmText: "是",
+          success: function(res) {
+            wx.switchTab({
+              url: '/page/tabBar/index/index',
+            })
+          }
+        })
+        wx.navigateTo({
+          url: '/page/tabBar/index/index',
         })
       }
       
@@ -137,13 +149,24 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res)
-        res.data.data.push({
-          name: '添加孩子'
-        })
         if (res.data.status == 200) {
+          res.data.data.push({
+            name: '添加孩子'
+          })
           that.setData({
             selectArray: res.data.data
+          })
+        } else if (res.data.status == 10220) {
+          that.setData({
+            birthday: '暂无，请先添加孩子',
+            gender: 2
+          })
+          let arr = [];
+          arr.push({
+            name: '添加孩子'
+          })
+          that.setData({
+            selectArray: arr
           })
         }
       })
@@ -159,7 +182,6 @@ Page({
         studentId: wx.getStorageSync('studentId')
       };
       app.wxRequest(url, data, (res) => {
-        //  console.log(res)
         that.setData({
           taskList: res.data.data
         })

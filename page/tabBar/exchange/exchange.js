@@ -30,7 +30,9 @@ Page({
   },
   onLoad: function (options) {
     app.editTabbar();
-    this.getInfo(); //首页轮播图
+  },
+  onShow() {
+    this.getInfo();
     this.setData({
       page: 1,
       productList: []

@@ -11,7 +11,6 @@
 }
 .topWrap {
  background: -webkit-linear-gradient(bottom, #4db2fd, #5F1BE8);
- flex: 1;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -66,9 +65,6 @@
   height: 150rpx;
 }
  /* 中间部分 */
- .centerWrap {
-   margin: 20rpx 5% 120rpx;
- }
  .time {
    font-size: 26rpx;
    color: #A0A0A0;
@@ -81,8 +77,8 @@
   margin: 30rpx 0;
 }
 .leftBox {
-  width: 150rpx;
-  height: 150rpx;
+  width: 100rpx;
+  height: 100rpx;
   background: #3E65E4;
   display: flex;
   justify-content: center;
@@ -198,7 +194,8 @@
 }
 .centerWrap {
   flex: 1;
-  background: #F7F8F8
+  background: #F7F8F8;
+  margin: 20rpx 5% 120rpx;
 }
 .numWrap {
   display: flex;

@@ -24,10 +24,17 @@ Page({
     noUpdate: false,
     studentId: wx.getStorageSync('studentId'),
     showSelectPerson: true,
-    selectArray: [],
+    selectArray: [{name: '添加孩子'}],
     studentName: ''
   },
   submitResult() {
+    if(wx.getStorageSync('studentId')) {
+      if (wx.getStorageSync('studentId') == 2) {
+        wx.showToast({
+          title: '请先添加孩子',
+        })
+        return;
+      }
     this.setData({
       showSelectPerson: false
     })
@@ -69,6 +76,13 @@ Page({
       }, (err) => {
         console.log(err)
       })
+     }
+    } else  {
+    
+    wx.showToast({
+      title: '请先添加孩子',
+    })
+      return;
     }
   },
   // 添加孩子按钮
@@ -185,13 +199,10 @@ Page({
       })
       app.wxRequest(url, data, (res) => {
         console.log(res.data.data, 99)
-        if (res.data.data) {
-          res.data.data.push({
+        if (res.data.status == 200) {
+           res.data.data.push({
             name: '添加孩子'
           })
-        }
-
-        if (res.data.status == 200) {
           that.setData({
             selectArray: res.data.data
           })
@@ -218,8 +229,8 @@ Page({
       // wx.setStorageSync('LeftEyeRightNum', 0);
       // wx.setStorageSync('LeftEyeWrongNum', 0);
      if (type == 'home') {
-       wx.navigateTo({
-         url: '/page/tabBar/screen/screen'
+       wx.switchTab({
+         url: '/page/tabBar/index/index'
        })
      } else if (type == 'archives') {
        let studentId = wx.getStorageSync('studentId');

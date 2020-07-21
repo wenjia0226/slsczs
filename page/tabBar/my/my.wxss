@@ -218,7 +218,6 @@ button { background-color: #fff;}
 .centerBox {
   padding: 30rpx;
    background: #F7F8FA;
-   flex:1;
   /* display: flex;
   flex-flow:row wrap; */
 }
@@ -235,6 +234,7 @@ button { background-color: #fff;}
 }
 .centerItem image {
   width: 50rpx;
+  height: 50rpx;
 }
 .itemTitle {
   font-size: 24rpx !important;
@@ -255,4 +255,8 @@ button { background-color: #fff;}
   font-size: 24rpx;
   padding: 0 6rpx;
 
+}
+.imgItem {
+  width: 30rpx;
+  height: 30rpx;
 }

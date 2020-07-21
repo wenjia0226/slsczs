@@ -63,11 +63,11 @@
     </view>
     <view class="contentBox">
       <view class="centerItem"  bindtap="goToBao">
-          <image  mode ="widthFix"  src="/image/myicon/dangan.png"></image>
+          <image  src="/image/myicon/dangan.png"></image>
         <view class="itemTitle">眼健康档案</view>
       </view>
       <view class="centerItem"  bindtap="goToShai">
-        <image  mode ="widthFix"  src="/image/myicon/myShai.png"></image>
+        <image   src="/image/myicon/myShai.png"></image>
         <view class="itemTitle">筛查档案</view>
       </view>
       
@@ -77,11 +77,11 @@
     </view>
     <view class="contentBox">
       <view class="centerItem" bindtap="gotoPlan">
-        <image  mode ="widthFix"  src="/image/myicon/record.png"></image>
+        <image   src="/image/myicon/record.png"></image>
         <view class="itemTitle">爱眼打卡</view>
       </view>
       <view class="centerItem" bindtap="gotoAnswer">
-          <image  mode ="widthFix"  src="/image/myicon/dati.png"></image>
+          <image  src="/image/myicon/dati.png"></image>
           <view class="itemTitle">爱眼答题</view>
       </view>
     </view>
@@ -90,19 +90,19 @@
     </view>
     <view class="contentBox">
       <view class="centerItem" bindtap="goTeacher">
-        <image  mode ="widthFix"  src="/image/myicon/teacher.png"></image>
+        <image    src="/image/myicon/teacher.png"></image>
         <view class="itemTitle">教师端入口</view>
       </view>
       <view class="centerItem" bindtap="goClert">
-        <image  mode ="widthFix" src="/image/myicon/clert.png"></image>
+        <image  src="/image/myicon/clert.png"></image>
         <view class="itemTitle">店员端入口</view>
       </view>
       <view class="centerItem" bindtap="gotoPing">
-        <image  mode ="widthFix" src="/image/myicon/assessment.png"></image>
+        <image  src="/image/myicon/assessment.png"></image>
         <view class="itemTitle">视觉评估</view>
       </view>
       <view class="centerItem" bindtap="gotoshare">
-        <image  mode ="widthFix"  src="/image/myicon/cooparation.png"></image>
+        <image  src="/image/myicon/cooparation.png"></image>
         <view class="itemTitle">合作机构</view>
       </view>
     </view>
