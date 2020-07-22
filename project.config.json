@@ -88,6 +88,14 @@
 					"id": -1,
 					"name": "page/tabBar/index/index",
 					"pathName": "page/tabBar/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "page/tabBar/my/my",
+					"pathName": "page/tabBar/my/my",
+					"query": "scene=434",
 					"scene": null
 				}
 			]

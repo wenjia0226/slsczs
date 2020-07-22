@@ -31,6 +31,9 @@ Page({
       studentName: wx.getStorageSync('studentName'),
       gender: wx.getStorageSync('gender'),
       studentId: wx.getStorageSync('studentId'),
+      birthday: wx.getStorageSync('birthday'),
+      balance: wx.getStorageSync('balance'),       
+      ranking: wx.getStorageSync('ranking'),     
       show: false
     })
     if (this.data.phone) {
@@ -85,6 +88,28 @@ Page({
     wx.setStorageSync('studentId', e.detail.studentId)
     this.getTastList();
   },
+  newchildrenlist(e) {
+    console.log(e)
+    let curStudent = e.detail.newChildrenList;
+    this.setData({
+      selectArray: e.detail.newChildrenList
+    })
+    this.setData({
+      studentId: curStudent[0].id,
+      studentName: curStudent[0].name,
+      birthday: curStudent[0].birthday,
+      gender: curStudent[0].gender,
+      balance: curStudent[0].balance,
+      ranking: curStudent[0].ranking
+    })
+    wx.setStorageSync('studentName', curStudent[0].name);
+    wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('gender', curStudent[0].gender);
+    wx.setStorageSync('birthday', curStudent[0].birthday);
+    wx.setStorageSync('balance', curStudent[0].balance);
+    wx.setStorageSync('ranking', curStudent[0].ranking);
+    this.getTastList();
+  },
   getChildrenList() {
     let that = this;
     let url = app.globalData.URL + "childrenIntegral", data = { openId: wx.getStorageSync('openId') };
@@ -93,7 +118,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-       console.log(res)
+      //  console.log(res)
         if (res.data.data) {
           res.data.data.push({
             name: '添加孩子'
@@ -203,34 +228,31 @@ Page({
           title: '加载中...',
         })
         app.wxRequest(url, data, (res) => {
+          console.log(res)
+           res.data.data.push({
+             name: '添加孩子'
+           })
           that.setData({
-            childrenList: res.data.data
-          })
-          // that.data.childrenList.push({
-          //   age: 8,
-          //   birthday: "2019-04-01",
-          //   chairHeight: "60",
-          //   classesId: 42,
-          //   classesName: "二（3）班",
-          //   correct: 0,
-          //   description: "",
-          //   gender: 1,
-          //   height: "125",
-          //   id: 2,
-          //   name: "新增",
-          //   nature: "无",
-          //   parentPhone: "18311192425",
-          //   regionId: 1,
-          //   regionName: "唐山",
-          //   schoolId: 50,
-          //   schoolName: "唐山市师范附属小学",
-          //   sittingHeight: "105.0",
-          //   weight: "22.34"
-          // })
-          that.setData({
+            selectArray: res.data.data,
             childrenList: res.data.data,
             show: false
           })
+          let curStudent = that.data.childrenList;
+          that.setData({
+            studentId: curStudent[0].id,
+            studentName: curStudent[0].name,
+            birthday: curStudent[0].birthday,
+            gender: curStudent[0].gender,
+            balance: curStudent[0].balance,
+            ranking: curStudent[0].ranking
+          })
+          wx.setStorageSync('studentName', curStudent[0].name);
+          wx.setStorageSync('studentId', curStudent[0].id);
+          wx.setStorageSync('gender', curStudent[0].gender);
+          wx.setStorageSync('birthday', curStudent[0].birthday);
+          wx.setStorageSync('balance', curStudent[0].balance);
+          wx.setStorageSync('ranking', curStudent[0].ranking);
+          that.getTastList();
           wx.switchTab({
             url: '/page/tabBar/index/index'
           })

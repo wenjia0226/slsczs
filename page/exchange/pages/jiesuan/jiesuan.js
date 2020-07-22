@@ -42,9 +42,23 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
+        console.log(res)
         if (res.data.status == 200) {
+          if (res.data.data) {
+            res.data.data.push({
+              name: '添加孩子'
+            })
+          }
           that.setData({
             selectArray: res.data.data
+          })
+        } else if (res.data.status == 10220) {
+          let arr = [];
+          arr.push({
+            name: '添加孩子'
+          })
+          that.setData({
+            selectArray: arr
           })
         }
       })
@@ -67,6 +81,28 @@ Page({
       studentName: e.detail.params,
       balance: e.detail.balance
     })
+  },
+  newchildrenlist(e) {
+    let curStudent = e.detail.newChildrenList;
+    this.setData({
+      selectArray: e.detail.newChildrenList
+    })
+    this.setData({
+      studentId: curStudent[0].id,
+      studentName: curStudent[0].name,
+      birthday: curStudent[0].birthday,
+      gender: curStudent[0].gender,
+      balance: curStudent[0].balance,
+      ranking: curStudent[0].ranking
+
+    })
+    wx.setStorageSync('studentName', curStudent[0].name);
+    wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('gender', curStudent[0].gender);
+    wx.setStorageSync('birthday', curStudent[0].birthday);
+    wx.setStorageSync('balance', curStudent[0].balance);
+    wx.setStorageSync('ranking', curStudent[0].ranking)
+    console.log(this.data.studentId,888)
   },
   handleBuynner(e) {
     this.setData({
@@ -137,6 +173,7 @@ Page({
   confirmSubmit() {
     let that= this;
     let url = app.globalData.URL + "addOrder";
+    if(wx.getStorageSync('studentId')) {
     let address = this.data.provinceName + this.data.cityName + this.data.countyName + this.data.detailInfo;
     let data = {
       studentId: wx.getStorageSync('studentId'),
@@ -222,6 +259,11 @@ Page({
         console.log("向后台发送数据失败")
       }, () => {
         wx.hideLoading()
+      })
+    }
+    }else {
+      wx.showToast({
+        title: '请先选择孩子',
       })
     }
   },

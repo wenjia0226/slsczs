@@ -48,20 +48,18 @@ Page({
   },
   getChildrenList() {
     let that = this;
-    let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
+    let url = app.globalData.URL + "childrenIntegral", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
     if (wx.getStorageSync('phone')) {
       wx.showLoading({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res.data)
         if (res.data.data) {
           res.data.data.push({
             name: '添加孩子'
           })
         }
-
         if (res.data.status == 200) {
           that.setData({
             selectArray: res.data.data
@@ -83,6 +81,27 @@ Page({
       studentName: e.detail.params,
       gender: e.detail.gender
     })
+  },
+  newchildrenlist(e) {
+    let curStudent = e.detail.newChildrenList;
+    this.setData({
+      selectArray: e.detail.newChildrenList
+    })
+    this.setData({
+      studentId: curStudent[0].id,
+      studentName: curStudent[0].name,
+      birthday: curStudent[0].birthday,
+      gender: curStudent[0].gender,
+      balance: curStudent[0].balance,
+      ranking: curStudent[0].rankings
+
+    })
+    wx.setStorageSync('studentName', curStudent[0].name);
+    wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('gender', curStudent[0].gender);
+    wx.setStorageSync('birthday', curStudent[0].birthday);
+    wx.setStorageSync('balance', curStudent[0].balance);
+    wx.setStorageSync('ranking', curStudent[0].ranking)
   },
   getPhone() {
     let that = this;

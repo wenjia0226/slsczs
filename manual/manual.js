@@ -19,7 +19,8 @@ Page({
     selectProvinceId: null,
     selectCityId: null,
     selectAreaId: null,
-    prevRoute: ''
+    prevRoute: '',
+    flag: false
   },
   onLoad: function (options) {  //在页面加载就调用获取
     this.getProvince()
@@ -55,6 +56,10 @@ Page({
     })
   },
   saveStudent() {
+    if(!this.data.flag) {
+      this.setData({
+        flag: true
+      })
     let that = this;
     let url = app.globalData.URL + "registerStudent", 
     data = {openId: wx.getStorageSync('openId'),
@@ -67,12 +72,9 @@ Page({
     wx.setStorageSync('gender', this.data.gender);
     wx.setStorageSync('birthday', this.data.date);
     app.wxRequest(url, data, (res) => {
-      console.log(res)
       wx.setStorageSync('studentId', res.data.data)
   
       if(res.data.status == 200) {
-
-        console.log(that.data.prevRoute)
         if (that.data.prevRoute == 'page/tabBar/index/index') {
           wx.switchTab({
             url: '/page/tabBar/index/index'
@@ -97,10 +99,18 @@ Page({
           wx.navigateTo({
             url: '/page/mainFunction/pages/result/result',
           })
+        } else if(that.data.prevRoute == 'page/myCollection/pages/childrenManage/childrenManage') {
+          wx.navigateTo({
+            url: '/page/myCollection/pages/childrenManage/childrenManage',
+          })
+        } else if (that.data.prevRoute == 'page/exchange/pages/jiesuan/jiesuan') {
+          url: '/page/exchange/pages/jiesuan/jiesuan'
         }
        
       } 
     })
+
+    }
   },
  
   //获取省份列表

@@ -21,7 +21,7 @@
       <!-- 登录后如果没有孩子就显示添加按钮  gender == 2-->
       <image  wx:if="{{ phone && childrenList.length == 0}}" src="/image/jia2.png" bindtap='addChild'></image>
       <view class="changeStu">
-       <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+       <Select bindmyevent="myevent"  bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
       </view>
     </view>
     <view wx:if="{{!phone}}" class="avaterBox" style="margin-top: {{height}}px" >

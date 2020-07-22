@@ -21,7 +21,6 @@
   font-weight: bold;
   padding: 0 20rpx;
   text-align: center;
-  width: 20%;
 }
 .perMessage {
   display: flex;
@@ -51,7 +50,7 @@
 }
 /* 头部 */
 .avaterBox {
-  width: 400rpx;
+  width: 600rpx;
   height: 150rpx;
   border-radius: 50%;
   padding: 20rpx 0;

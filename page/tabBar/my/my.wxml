@@ -48,7 +48,7 @@
           <view class= "reminName">{{studentName}}</view>
         </view>
         <view class="right_right">
-          <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+          <Select bindmyevent="myevent"  bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
           <view>｜</view>
           <view class="manage" bindtap="gotMyChild"> 管理</view>
         </view>

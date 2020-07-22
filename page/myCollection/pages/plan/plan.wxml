@@ -23,7 +23,7 @@
       <view class="birthday">出生日期： {{birthday}}</view>
     </view>
     <view class="rightBox">
-       <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+       <Select bindmyevent="myevent" bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
     </view>
   </view>
   <view class="itemwrap first">

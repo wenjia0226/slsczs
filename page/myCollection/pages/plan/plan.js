@@ -27,6 +27,27 @@ Page({
     }),
     this.getList();
   },
+  newchildrenlist(e) {
+    let curStudent = e.detail.newChildrenList;
+    this.setData({
+      selectArray: e.detail.newChildrenList
+    })
+    this.setData({
+      studentId: curStudent[0].id,
+      studentName: curStudent[0].name,
+      birthday: curStudent[0].birthday,
+      gender: curStudent[0].gender,
+      balance: curStudent[0].balance,
+      ranking: curStudent[0].ranking
+
+    })
+    wx.setStorageSync('studentName', curStudent[0].name);
+    wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('gender', curStudent[0].gender);
+    wx.setStorageSync('birthday', curStudent[0].birthday);
+    wx.setStorageSync('balance', curStudent[0].balance);
+    wx.setStorageSync('ranking', curStudent[0].ranking)
+  },
   // 照相打卡
   gotoCamera() {
     wx.chooseImage({

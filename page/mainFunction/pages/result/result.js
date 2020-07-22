@@ -25,7 +25,8 @@ Page({
     studentId: wx.getStorageSync('studentId'),
     showSelectPerson: true,
     selectArray: [{name: '添加孩子'}],
-    studentName: ''
+    studentName: '',
+    childrenList: []
   },
   submitResult() {
     if(wx.getStorageSync('studentId')) {
@@ -173,21 +174,6 @@ Page({
     this.setData({
       studentName: wx.getStorageSync('studentName')
     })
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '是否保存此次筛查结果？',
-    //   cancelText: "否",
-    //   confirmText: "是",
-    //   success: function (res) {
-    //     if (res.confirm) {
-    //       that.setData({
-    //         showSelectPerson: true
-    //       })
-    //     }else if(res.cancel) {
-    //       return;
-    //     }
-    //   }
-    // })
   },
   getChildrenList() {
     let that = this;
@@ -204,16 +190,37 @@ Page({
             name: '添加孩子'
           })
           that.setData({
-            selectArray: res.data.data
+            selectArray: res.data.data,
+            childrenList: res.data.data
           })
         }
       })
     }
   },
-  myevent(e) {
+  myname(e) {
     this.setData({
-      studentName: e.detail.params
+      studentName: e.detail.studentName
     })
+  },
+  newchildrenlist(e) {
+    let curStudent = e.detail.newChildrenList;
+    this.setData({
+      selectArray: e.detail.newChildrenList
+    })
+    this.setData({
+      studentId: curStudent[0].id,
+      studentName: curStudent[0].name,
+      birthday: curStudent[0].birthday,
+      gender: curStudent[0].gender,
+      balance: curStudent[0].balance,
+      ranking: curStudent[0].ranking
+    })
+    wx.setStorageSync('studentName', curStudent[0].name);
+    wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('gender', curStudent[0].gender);
+    wx.setStorageSync('birthday', curStudent[0].birthday);
+    wx.setStorageSync('balance', curStudent[0].balance);
+    wx.setStorageSync('ranking', curStudent[0].ranking);
   },
    go(e) {
      let type = e.currentTarget.dataset.type;

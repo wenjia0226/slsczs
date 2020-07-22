@@ -1,5 +1,7 @@
 .com-selectBox{
-    width: 120rpx;
+    border: 2rpx solid #e2e2e2;
+    width: 200rpx;
+    border-radius: 10rpx;
 }
 .com-sContent{
     /* border: 1px solid #e2e2e2;

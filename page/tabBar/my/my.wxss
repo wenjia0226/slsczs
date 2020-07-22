@@ -89,7 +89,6 @@
   font-weight: bold;
 }
 .right_right {
-  width: 260rpx;
   display: flex;
   align-items: center;
   font-size: 30rpx;
@@ -253,7 +252,7 @@ button { background-color: #fff;}
 }
 .manage {
   font-size: 24rpx;
-  padding: 0 6rpx;
+  padding: 0 30rpx 0 10rpx;
 
 }
 .imgItem {

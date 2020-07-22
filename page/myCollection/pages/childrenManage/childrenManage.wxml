@@ -3,7 +3,7 @@
 <view class="main">
 <scroll-view scroll-y>
 <view class="itemContainer">
-  <view class="swiperwrap" wx:for="{{childrenList}}" wx:if="{{index !== childrenList.length}}" >
+  <view class="swiperwrap" wx:for="{{childrenList}}" >
   <view class="differ">
     <image src="/image/she.png" wx:if="{{item.schoolName == '社会'}}"></image>
     <image src="/image/guan.png" wx:if="{{item.schoolName !== '社会'}}"></image>
@@ -12,7 +12,6 @@
       <image src="/image/delete.png"></image>
     </view>
     <view class="logo">
-     
          <!-- 男孩及段位 -->
               <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{ item.gender == 0 && 300 >=item.myIntegral  && item.myIntegral >= 0}}"></image>
                 <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{item.gender == 0 && 600 >=item.myIntegral  && item.myIntegral > 300}}"></image>
@@ -43,19 +42,34 @@
       </view>
     </view>
   </view>
-  <view class="swiperwrap" bindtap="gotoAddChild" style="background: #F8F8F8;" else>
+  <view class="swiperwrap" bindtap="hideview3" style="background: #F8F8F8;" else>
     <image src="/image/zengjia.png" mode="aspectFit" style="width: 150rpx;"></image>
   </view>
   </view>
 
   <!-- 信息迁移蒙层 -->
   <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
-    <view class="show"  wx:if="{{show}}">
-      <view class="txt warning"> 温馨提醒</view>
-      <view class="txt"> 1、信息迁移会将孩子名下所有“检测记录”，“打卡记录”和所有“爱眼币”迁移到目标孩子名下</view>
-      <view class="txt"> 2、此操作可将手动添加的孩子通过扫码方式改成扫码孩子，让您的孩子归结到所在学校名下，参与排座等功能中去</view>
-      <view class="txt"> 3、本操作不可恢复，请确认无误后进行操作</view>
-      <view class="iknow" bindtap="removeInfo">我知道了</view>
+  <view class="show"  wx:if="{{show}}">
+    <view class="txt warning"> 温馨提醒</view>
+    <view class="txt"> 1、信息迁移会将孩子名下所有“检测记录”，“打卡记录”和所有“爱眼币”迁移到目标孩子名下</view>
+    <view class="txt"> 2、此操作可将手动添加的孩子通过扫码方式改成扫码孩子，让您的孩子归结到所在学校名下，参与排座等功能中去</view>
+    <view class="txt"> 3、本操作不可恢复，请确认无误后进行操作</view>
+    <view class="iknow" bindtap="removeInfo">我知道了</view>
+  </view>
+
+   <!-- 添加孩子 蒙层-->
+    <view class="bg3" wx:if="{{show3}}"  bindtap="hide3"></view>
+    <view class="show3"  wx:if="{{show3}}">
+      <view class="quxiao" bindtap="hide3">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitle">
+        请选择添加方式
+      </view>
+      <view class="btnBox">
+        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
     </view>
+  </view>
   </scroll-view>
 </view>

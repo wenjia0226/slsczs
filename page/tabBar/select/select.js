@@ -6,19 +6,9 @@ Component({
       type: Array,
     },
   },
-  onLoad() {
-    let pages = getCurrentPages();//页面对象
-    let prevpage = pages[pages.length - 2];//上一个页面对象
-
-    console.log(prevpage.route)//上一个页面路由地址
-    // this.setData({
-    //   prevRoute: prevpage.route
-    // })
-    // console.log(this.data.prevRoute)
-  },
   data: {
     selectShow: false,//初始option不显示
-    nowText: "切换",//初始内容
+    nowText: "切换孩子",//初始内容
     animationData: {},//右边箭头的动画
     show: false,
     prevRoute: ''
@@ -34,6 +24,12 @@ Component({
       this.setData({
         show: false
       })
+    },
+    onShow() {
+      let pages = getCurrentPages();
+      let prevpage = pages[pages.length - 2];//上一个页面对象
+
+      console.log(prevpage.route)//上一个页面路由地址
     },
     　　　//option的显示与否
     selectToggle: function () {
@@ -73,7 +69,8 @@ Component({
       wx.setStorageSync('balance', balance);
       wx.setStorageSync('gender', gender);
       // 自定义一个事件，并且传值
-      this.triggerEvent('myevent', { studentId: id, studentName: nowText, params: nowText, gender:gender,birthday: birthday, balance: balance},)
+      this.triggerEvent('myevent', { studentId: id, studentName: nowText, params: nowText, gender:gender,birthday: birthday, balance: balance})
+      // this.triggerEvent('chilrenList',{childrenList: childrenList})
       //再次执行动画，注意这里一定，一定，一定是this.animation来使用动画
       this.animation.rotate(0).step();
       this.setData({
@@ -90,6 +87,12 @@ Component({
     },
     //扫码添加
     gotoScan() {
+      let pages = getCurrentPages();
+      let prevpage = pages[pages.length -1];//上一个页面对象
+      this.setData({
+        prevRoute: prevpage.route
+      })
+      
       let that = this;
       wx.scanCode({  //扫码
         success(res) {
@@ -106,38 +109,29 @@ Component({
             title: '加载中...',
           })
           app.wxRequest(url, data, (res) => {
-            that.setData({
-              childrenList: res.data.data
-            })
-            that.data.childrenList.push({
-              age: 8,
-              birthday: "2019-04-01",
-              chairHeight: "60",
-              classesId: 42,
-              classesName: "二（3）班",
-              correct: 0,
-              description: "",
-              gender: 1,
-              height: "125",
-              id: 2,
-              name: "新增",
-              nature: "无",
-              parentPhone: "18311192425",
-              regionId: 1,
-              regionName: "唐山",
-              schoolId: 50,
-              schoolName: "唐山市师范附属小学",
-              sittingHeight: "105.0",
-              weight: "22.34"
-            })
+            if(res.data.data) {
+              res.data.data.push({
+                name: '添加孩子'
+              })
+            }
             that.setData({
               childrenList: res.data.data,
               show: false
             })
-            // wx.setStorageSync('childLength', that.data.childrenList.length)
-            wx.navigateTo({
-              url: '/page/tabBar/screen/screen'
-            })
+            // 自定义一个事件，并且传值
+           
+            that.triggerEvent('newchildrenlist', { newChildrenList: that.data.childrenList })
+            // if (that.data.prevpRoute == "page/myCollection/pages/plan/plan" || that.data.prevRoute == 'page/myCollection/pages/archives/archives' || that.data.prevRoute == 'page/mainFunction/pages/result/result') {
+            //   wx.navigateTo({
+            //     url: '/' + that.data.prevRoute
+            //   })
+            // }else {
+            //   wx.switchTab({
+            //     url: '/' + that.data.prevRoute
+            //   })
+            // }
+            that.selectToggle();
+            
           }, (err) => {
             console.log(err)
           })

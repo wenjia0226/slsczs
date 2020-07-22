@@ -294,6 +294,7 @@
 .quxiao {
   text-align: right;
   height: 50rpx;
+  padding: 20rpx 0;
 }
 .quxiao > image {
   height: 40rpx;
@@ -479,8 +480,13 @@
 
 }
 .chooseBox {
-  width: 110rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 20rpx auto;
-  border-bottom: 2rpx solid red;
-  
+}
+.changeSelect {
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  font-weight: bold;
 }

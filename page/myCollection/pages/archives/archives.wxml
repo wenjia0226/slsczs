@@ -24,7 +24,7 @@
           <view class="birthday" wx:if="{{birthday}}">出生日期： {{birthday}}</view>
         </view>
         <view class="rightBox">
-          <Select style="color: #000" bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+          <Select style="color: #000" bindmyevent="myevent" bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
         </view>
       </view>
     </view>

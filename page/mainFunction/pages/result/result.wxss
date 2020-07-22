@@ -224,11 +224,11 @@
 }
 .quxiao {
   text-align: right;
-  height: 50rpx;
+  height: 40rpx;
 }
 .quxiao > image {
-  height: 40rpx;
-  width: 40rpx;
+  height: 30rpx;
+  width: 30rpx;
 }
 .title {
   text-align: center;
@@ -396,9 +396,8 @@
   font-weight: bold;
   color: red;
   display: inline-block;
-  padding-right: 140rpx;
   position: relative;
-  padding-left:10rpx;
+  padding:0 10rpx;
  
 }
 .changeChild{
@@ -412,8 +411,16 @@
 .remAdd{
   padding: 10rpx 20rpx;
 }
-.selectBox {
-  border: 2rpx solid red;
-  width: 120rpx;
-  border-radius: 10rpx;
+.containWrap {
+  display: flex;
+  align-items: center;
+}
+.changeSelect {
+  font-size: 26rx;
+  padding: 0 20rpx;
+  font-weight: bold;
+}
+.containBox{
+  display: flex;
+  align-items: center;
 }
