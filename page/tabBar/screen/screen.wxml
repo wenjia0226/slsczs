@@ -40,7 +40,7 @@
                       <image  class="{{index == currentIndex ? 'active': ''}}"src="https://www.guangliangkongjian.com/images/g5.png"  wx:if="{{index !== childrenList.length -1 && item.gender == 1 && 1500 >=item.myIntegral  && item.myIntegral  > 1200}}"></image>
                         <image class="{{index == currentIndex ? 'active': ''}}" src="https://www.guangliangkongjian.com/images/g6.png" wx:if="{{index !== childrenList.length -1 && item.gender == 1 && 49999 >=item.myIntegral  && item.myIntegral  > 1500}}"></image>
                           <image class="{{index == currentIndex ? 'active': ''}}" src="https://www.guangliangkongjian.com/images/g7.png" wx:if="{{index !== childrenList.length -1 && item.gender == 1 &&item.myIntegral >= 50000}}"></image>
-              <image class="{{index == currentIndex ? 'active': ''}}" style="width: 150rpx;height: 150rpx" wx:if="{{index == childrenList.length -1}}" src="/image/jia3.png" mode="widthFix"class="u-img-slide"  bindtap='gotoAdd'></image>
+              <image class="{{index == currentIndex ? 'active': ''}}" style="width: 150rpx;height: 150rpx" wx:if="{{index == childrenList.length -1}}" src="/image/zengjia.png" mode="widthFix"class="u-img-slide"  bindtap='gotoAdd'></image>
             </view>
              <view class="name" wx:if="{{index !== childrenList.length -1}}">{{item.name}}</view>
              <view class="time" wx:if="{{index !== childrenList.length -1 && item.lastTime !== null}}">最近检测时间：</view>
@@ -56,7 +56,7 @@
        <block  wx:if="{{childrenList.length == 0}}">
          <swiper-item class="swiperItemBefore">
             <view class="smPortrait">
-               <image src="/image/jia3.png" class="u-img-slide" mode="aspectFit" bindtap="gotoAdd"></image>
+               <image src="/image/zengjia.png" class="u-img-slide"bindtap="gotoAdd"></image>
             </view>
             <view class="name"  style="color:#5f0ce6"></view>
           </swiper-item>

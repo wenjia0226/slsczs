@@ -92,12 +92,13 @@ swiper {
     width: 100%;
   }
   .u-img-slide {
-    width: 80rpx !important;
+    width: 200rpx;
+    height: 200rpx;
     
   }
   .smPortrait {
-     width: 150rpx;
-    height: 150rpx;
+     width: 200rpx;
+    height: 200rpx;
     border-radius: 50%;
     text-align: center;
     display: flex;
@@ -121,9 +122,9 @@ swiper {
     height: 40rpx;
   }
   .addUser {
-    color: red;
-    font-size: 30rpx;
+    font-size: 26rpx;
     padding: 5rpx;
+    color: #fff;
   }
 /* 轮播 */
 .u-wrp-bnr {

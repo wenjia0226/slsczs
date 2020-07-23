@@ -19,11 +19,12 @@ Page({
     show: false
   },
   onLoad() {
+    app.editTabbar();
     this.setData({
       studentId: wx.getStorageSync('studentId'),
       studentName: wx.getStorageSync('studentName')
     })
-    app.editTabbar();
+   
   },
   onShow() { 
     this.setData({

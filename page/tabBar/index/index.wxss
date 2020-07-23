@@ -1,10 +1,5 @@
 /* index.wxss */
 .mainWrap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   background: #F3F3F3;
   display: flex;
   flex-direction: column;
@@ -52,17 +47,16 @@
 /* 头部 */
 .avaterBox {
   width: 600rpx;
-  height: 150rpx;
   border-radius: 50%;
-  padding: 20rpx 0;
+  padding-bottom: 20rpx;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   position: relative;
 }
 .avaterBox > image {
-  width: 150rpx;
-  height: 150rpx;
+  width: 200rpx;
+  height: 200rpx;
 }
  /* 中间部分 */
  .time {
@@ -77,16 +71,16 @@
   margin: 30rpx 0;
 }
 .leftBox {
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx;
+  height: 120rpx;
   background: #3E65E4;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .leftBox image {
-  width: 80rpx;
-  height: 80rpx;
+  width: 50rpx;
+  height: 50rpx;
   
 }
 .rightBox {
@@ -193,9 +187,7 @@
   color: #000;
 }
 .centerWrap {
-  flex: 1;
-  background: #F7F8F8;
-  margin: 20rpx 5% 120rpx;
+  margin: 20rpx 5% 200rpx;
 }
 .numWrap {
   display: flex;
@@ -256,14 +248,10 @@
 .activeGet {
   background: #FF9B00;
 }
-.centerWrap{
-  margin: 10% 5% 0;
-}
 .itemWrap {
   display: flex;
   justify-content: space-between;
   background: #fff;
-  padding: 20rpx;
   box-sizing: border-box;
   margin-bottom: 20rpx;
 }

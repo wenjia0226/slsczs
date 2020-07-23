@@ -19,13 +19,13 @@
       <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
       <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
       <!-- 登录后如果没有孩子就显示添加按钮  gender == 2-->
-      <image  wx:if="{{ phone && childrenList.length == 0}}" src="/image/jia2.png" bindtap='addChild'></image>
+      <image  wx:if="{{ phone && childrenList.length == 0}}" src="/image/zengjia.png" bindtap='addChild'></image>
       <view class="changeStu">
        <Select bindmyevent="myevent"  bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
       </view>
     </view>
     <view wx:if="{{!phone}}" class="avaterBox" style="margin-top: {{height}}px" >
-       <image src="/image/jia2.png" bindtap="login"></image>
+       <image src="/image/zengjia.png" bindtap="login"></image>
     </view>
     <view class="stuName" wx:if="{{phone && studentName}}">{{studentName}}</view>
     <view class="perMessage"  wx:if="{{phone && ranking}}"> 
@@ -69,7 +69,7 @@
     </view>
     <view class="itemWrap">
       <view class="leftBox">
-        <image src="/image/da.png"></image>
+        <image src="/image/txt.png"></image>
       </view>
       <view class="rightBox" bindtap="gotoAnswer">
         <view class="proTilte" >答题竞赛</view>
@@ -93,7 +93,7 @@
       </view>
     </view>
   </view>
- <tabbar tabbar="{{tabbar}}"></tabbar>
+   <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
 
 <!-- 添加孩子 -->

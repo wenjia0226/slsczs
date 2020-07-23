@@ -63,7 +63,7 @@
     </view>
     <view class="contentBox">
       <view class="centerItem"  bindtap="goToBao">
-          <image  src="/image/myicon/dangan.png"></image>
+          <image  mode="" src="/image/myicon/dangan.png"></image>
         <view class="itemTitle">眼健康档案</view>
       </view>
       <view class="centerItem"  bindtap="goToShai">
