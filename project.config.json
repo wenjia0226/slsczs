@@ -93,8 +93,8 @@
 				},
 				{
 					"id": 5,
-					"name": "page/tabBar/my/my",
-					"pathName": "page/tabBar/my/my",
+					"name": "page/tabBar/screen/screen",
+					"pathName": "page/tabBar/screen/screen",
 					"query": "scene=434",
 					"scene": null
 				}
