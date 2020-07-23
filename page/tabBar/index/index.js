@@ -36,14 +36,20 @@ Page({
       ranking: wx.getStorageSync('ranking'),     
       show: false
     })
+    if(!this.data.studentId) {
+      this.setData({
+        gender:2,
+        answer: 0,
+        balance: 0,
+        ranking: 0,
+        task: 0,
+        undetected: 0,
+        lastTime: "无"
+      })
+    }
     if (this.data.phone) {
       this.getChildrenList();
     }
-  },
-  login() {
-    wx.navigateTo({
-      url: '/nicheng/nicheng',
-    })
   },
   // 添加孩子按钮
   hideview() {
@@ -89,7 +95,6 @@ Page({
     this.getTastList();
   },
   newchildrenlist(e) {
-    console.log(e)
     let curStudent = e.detail.newChildrenList;
     this.setData({
       selectArray: e.detail.newChildrenList
@@ -199,8 +204,17 @@ Page({
     })
   },
   gotoAnswer() {
+    if(this.data.phone) {
     wx.navigateTo({
       url: '/page/myCollection/pages/answer/answer'
+    })
+    }else {
+      this.login();
+    }
+  },
+  login() {
+    wx.navigateTo({
+      url: '/nicheng/nicheng',
     })
   },
   // 手动添加
@@ -208,7 +222,6 @@ Page({
     wx.navigateTo({
       url: '/manual/manual'
     })
-    
   },
   //扫码添加
   gotoScan() {

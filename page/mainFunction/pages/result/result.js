@@ -205,7 +205,8 @@ Page({
   newchildrenlist(e) {
     let curStudent = e.detail.newChildrenList;
     this.setData({
-      selectArray: e.detail.newChildrenList
+      selectArray: e.detail.newChildrenList,
+      childrenList: e.detail.newChildrenList
     })
     this.setData({
       studentId: curStudent[0].id,

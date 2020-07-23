@@ -52,7 +52,7 @@
         <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
       </view> -->
       <view class="modeTitle" wx:if="{{childrenList.length}}">
-        <view class="remAdd">您要将此次结果保存到 <text class="name">{{studentName}}</text>的筛查档案中吗?</view> 
+        <view class="remAdd">您要将此次筛查结果保存到 <text class="name">{{studentName}}</text>的筛查档案中吗?</view> 
         <view class="containBox">
          <view class="changeSelect">切换保存者</view>
          <view  class="selectBox">
@@ -63,7 +63,7 @@
       <view class="modeTitle" wx:if="{{!childrenList.length}}">
         <view class="remAdd">请点击切换按钮添加学生</view> 
         <view class="containWrap">
-          <view class="changeSelect">更改保存者</view>
+          <view class="changeSelect">添加保存者</view>
           <view class="selectBox">
             <Select bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
           </view> 

@@ -14,7 +14,8 @@ Page({
     showModalStatus: false,  //关注公众号标志位
     reuploadFlag: false, //  重复上传标志位
     tabbar: {},
-    show: false
+    show: false,
+    phone: wx.getStorageSync('phone')
   },
   onLoad() {
     app.editTabbar();
@@ -46,7 +47,8 @@ Page({
       statusBarHeight: app.globalData.statusBarHeight,
       navTop: app.globalData.navTop,
       navHeight: app.globalData.navHeight,
-      flag: false
+      flag: false,
+      phone: wx.getStorageSync('phone')
     })
     if (wx.getStorageSync('isShow') === false) {
       this.setData({
@@ -60,7 +62,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "childrenList", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
-    if (wx.getStorageSync('phone')) {
+    if (that.data.phone) {
       wx.showLoading({
         title: '加载中...'
       })
@@ -130,7 +132,7 @@ Page({
   showGuanzhu() {
     let that = this;
     let url = app.globalData.URL + "chkGzh", data = { openId: wx.getStorageSync('openId') };
-    if (wx.getStorageSync('phone')) {
+    if (that.data.phone) {
       wx.showLoading({
         title: '加载中...'
       })

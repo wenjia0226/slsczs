@@ -133,26 +133,29 @@ Page({
   onShow: function () {
     if(wx.getStorageSync('phone')) {
       this.setData({
-        studentName: wx.getStorageSync('studentName')
+        studentName: wx.getStorageSync('studentName'),
+        birthday: wx.getStorageSync('birthday'),
+        studentId: wx.getStorageSync('studentId')
       })
-      if (wx.getStorageSync('studentId')) {
+      if (this.data.studentId) {
         this.getList();
-      }else {
-        wx.showModal({
-          title: '无法打卡',
-          content: '请先添加学生',
-          cancelText: "否",
-          confirmText: "是",
-          success: function(res) {
-            wx.switchTab({
-              url: '/page/tabBar/index/index',
-            })
-          }
-        })
-        wx.navigateTo({
-          url: '/page/tabBar/index/index',
-        })
       }
+      // }else {
+      //   wx.showModal({
+      //     title: '无法打卡',
+      //     content: '请先添加学生',
+      //     cancelText: "否",
+      //     confirmText: "是",
+      //     success: function(res) {
+      //       wx.switchTab({
+      //         url: '/page/tabBar/index/index',
+      //       })
+      //     }
+      //   })
+      //   wx.navigateTo({
+      //     url: '/page/tabBar/index/index',
+      //   })
+      // }
       
     }else {
       wx.navigateTo({

@@ -29,7 +29,7 @@
       </view>
     </view>
     <view wx:if="{{!navList.length}}" class="headerWrapper nochild">
-        <view>请先在筛查页添加或者选择孩子！！！</view>
+        <view>请点击头部切换孩子绑定孩子！！！</view>
     </view>
     <view  class="liebiao" wx:if="showList" >
       <view class=" title {{isSelect == 0 ? 'active': ''}}" data-type="0" bindtap="changeTab">裸眼检测</view>
@@ -139,6 +139,6 @@
       </block>
     </swiper>
     <block wx:if="{{navList.length == 0}}">
-     <view class="nodangan">请先在筛查页添加或者选择孩子！！！</view>
+     <view class="nodangan">请点击头部切换孩子绑定孩子！！！</view>
     </block>  
 </view>

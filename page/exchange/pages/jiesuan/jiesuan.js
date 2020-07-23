@@ -23,15 +23,20 @@ Page({
     showWarning: false,
     show: false,
     studentName: '',
-    balance: 0
+    balance: 0,
+    remark: ''
   },
-  onLoad() {
+  onLoad(options) {
     app.editTabbar();
     this.getChildrenList();
     this.setData({
       studentName: wx.getStorageSync('studentName'),
       balance: wx.getStorageSync('balance')
     })
+    // 手动添加 跳页后展示孩子，爱眼币个数
+    if(options.manu) {
+      this.hideview()
+    }
   },
   getChildrenList() {
     let that = this;
@@ -79,7 +84,8 @@ Page({
   myevent(e) {
     this.setData({
       studentName: e.detail.params,
-      balance: e.detail.balance
+      balance: e.detail.balance,
+      studentId: e.detail.studentId
     })
   },
   newchildrenlist(e) {
@@ -102,7 +108,6 @@ Page({
     wx.setStorageSync('birthday', curStudent[0].birthday);
     wx.setStorageSync('balance', curStudent[0].balance);
     wx.setStorageSync('ranking', curStudent[0].ranking)
-    console.log(this.data.studentId,888)
   },
   handleBuynner(e) {
     this.setData({
@@ -133,7 +138,10 @@ Page({
       total: wx.getStorageSync('sizeNumber') * wx.getStorageSync('integral'),
       picture: wx.getStorageSync('jiesuanPicture'),
       freight: wx.getStorageSync('freight'),
-      productType: wx.getStorageSync('productType')
+      productType: wx.getStorageSync('productType'), // 商品的信息
+      studentId: wx.getStorageSync('studentId'),
+      studentName: wx.getStorageSync('studentName'),
+      balance: wx.getStorageSync('balance')
     })
   },
   //提交订单
@@ -163,12 +171,25 @@ Page({
           return;
         }
       }
-    }else if(that.data.productType == 1) {  // productType 1 是服务 2，是商品
+    }
+  if(that.data.productType == 1) {  // productType 1 是服务 2，是商品
       that.setData({
         type: 3
       })
+    if (this.data.userName == '' || this.data.telNumber == '') {
+      wx.showModal({
+        content: '请填写自取人姓名电话',
+      })
+      return;
     }
-    this.hideview();
+    if (this.data.telNumber.length !== 11) {
+      wx.showModal({
+        content: '请输入正确的手机号',
+      })
+      return;
+    }
+  }
+   this.hideview();  //如果都通过的话展示提交
   },
   confirmSubmit() {
     let that= this;
@@ -294,7 +315,6 @@ Page({
           contacts: '',
           phone: '',
           address: '',
-          remark: '',
           total: 0,
           userName: '',
           provinceName: '',

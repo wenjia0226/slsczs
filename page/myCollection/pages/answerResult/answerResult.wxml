@@ -18,8 +18,25 @@
 </view>
 
 <view class="titleWrap">
-  <image class="titleImg" src="{{avatarUrl}}"></image>
-  <view class="nameWrap">亲爱的 <text class="name">{{nickName}}</text></view>
+  <view class="titleImg">
+     <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >=balance && balance > 300}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{gender == 0 && 900 >=balance  && balance > 600}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b4.png"  mode="aspectFit" wx:if="{{gender == 0 && 1200 >=balance  && balance > 900}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{gender == 0 && 1500 >=balance && balance > 1200}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{gender == 0 && 49999 >=balance && balance > 1500}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{gender == 0 &&balance  && balance >= 50000}}"></image>
+        <!-- 女孩及段位 -->
+      <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >=balance && balance >= 0}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{gender == 1 && 600 >=balance  && balance> 300}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{gender == 1 && 900 >=balance && balance > 600}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g4.png"  mode="aspectFit" wx:if="{{gender == 1 && 1200 >=balance  && balance > 900}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{gender == 1 && 1500 >=balance  && balance > 1200}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
+      <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
+  </view>
+  
+  <view class="nameWrap" wx:if="{{studentId}}">亲爱的 <text class="name">{{studentName}}</text></view>
   <view class="centerWrap">
     <view class="conItem">本次您共答对{{rightAnswer}}道题</view>
     <view class="conItem">{{msg}}</view>
@@ -32,3 +49,39 @@
   </view>
 </view>
 </view>
+
+
+<!-- 选择保存人 -->
+ <!-- 添加孩子 -->
+   <view class="bg2" wx:if="{{showSelectPerson}}"  bindtap="hide"></view>
+   <view class="chooseBox"  wx:if="{{showSelectPerson}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+       <!-- <view class="chooseChild">
+        <view class="changeTitle">替换筛查者</view>
+        <Select bindmyevent="myevent" prop-array='{{selectArray}}'></Select>
+      </view> -->
+      <view class="modeTitle" wx:if="{{childrenList.length}}">
+        <view class="remAdd">您要将此次筛查结果保存到 <text class="name">{{studentName}}</text>的筛查档案中吗?</view> 
+        <view class="containBox">
+         <view class="changeSelect">切换保存者</view>
+         <view  class="selectBox">
+           <Select  bindmyname = "myname"bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
+         </view>
+        </view>
+      </view>
+      <view class="modeTitle" wx:if="{{!childrenList.length}}">
+        <view class="remAdd">请点击切换按钮添加学生</view> 
+        <view class="containWrap">
+          <view class="changeSelect">添加保存者</view>
+          <view class="selectBox">
+            <Select bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
+          </view> 
+        </view>
+      </view>
+      <view class="btnBox">
+        <view class="addBtn" style="background: #666" bindtap="hide">取消</view>
+        <view class="addBtn" bindtap="submitAnwser">确定</view>
+    </view>
+   </view>

@@ -1,4 +1,4 @@
-<view class="main" wx:if="{{taskList.length}}">
+<view class="main">
   <view class="titleBox">
     <view class="imgBox">
       <!-- 男孩及段位 -->
@@ -18,15 +18,18 @@
       <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
         <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
     </view>
-    <view class="centerBox">
+    <view class="centerBox" wx:if="{{studentId}}">
       <view class="name">{{studentName}}</view>
-      <view class="birthday">出生日期： {{birthday}}</view>
+      <view class="birthday">出生日期：{{birthday}}</view>
+    </view>
+    <view class="centerBox" wx:if="{{!studentId}}">
+     <view class="birthday"></view>
     </view>
     <view class="rightBox">
        <Select bindmyevent="myevent" bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
     </view>
   </view>
-  <view class="itemwrap first">
+  <view class="itemwrap first" wx:if="{{studentId}}">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan5.png" mode="aspectFit"></image>
      </view>
@@ -42,7 +45,7 @@
        <view class="btn noFininsh" wx:else data-id="{{taskList[0].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-   <view class="itemwrap second">
+   <view class="itemwrap second" wx:if="{{studentId}}">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan2.png" mode="aspectFit"></image>
      </view>
@@ -58,8 +61,7 @@
        <view class="btn noFininsh" wx:else data-id="{{taskList[1].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-
-   <view class="itemwrap third">
+   <view class="itemwrap third" wx:if="{{studentId}}">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan3.png" mode="aspectFit"></image>
      </view>
@@ -75,7 +77,7 @@
        <view class="btn noFininsh" wx:else data-id="{{taskList[2].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-  <view class="itemwrap four">
+  <view class="itemwrap four" wx:if="{{studentId}}">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan4.png" mode="aspectFit"></image>
      </view>
@@ -91,8 +93,7 @@
        <view class="btn noFininsh" wx:else data-id="{{taskList[3].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-
-  <view class="itemwrap five">
+  <view class="itemwrap five" wx:if="{{studentId}}">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan1.png" mode="aspectFit"></image>
      </view>
@@ -108,8 +109,7 @@
        <view class="btn noFininsh" wx:else  data-id="{{taskList[4].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-
-  <view class="itemwrap six">
+  <view class="itemwrap six" wx:if="{{studentId}}">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan6.png" mode="aspectFit"></image>
      </view>
@@ -125,7 +125,7 @@
         <view class="btn noFininsh"wx:else data-id="{{taskList[5].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-    <view class="itemwrap seven">
+  <view class="itemwrap seven" wx:if="{{studentId}}">
      <view class="imgWrap">
       <image src="https://www.guangliangkongjian.com/images/plan7.png" mode="aspectFit"></image>
      </view>
@@ -140,6 +140,9 @@
       </view>
         <view class="btn noFininsh" wx:else data-id="{{taskList[6].id}}" bindtap="fininsh">打卡</view>
      </view>
+  </view>
+  <view class="noTask" wx:if="{{!studentId}}">
+     暂无打卡任务，请先点击切换孩子按钮添加孩子
   </view>
 </view>
 <!-- 弹框 -->

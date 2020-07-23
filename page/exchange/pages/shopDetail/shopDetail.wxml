@@ -5,7 +5,7 @@
     <swiper  bindchange="swiperChange"
         autoplay= 'true'  circular="true"  class="swiperInner">
       <block>
-        <swiper-item class="swiperItem" wx:for="{{pictures}}" >
+        <swiper-item class="swiperItem" wx:for="{{pictures}}" wx:key="index" >
           <image src="{{item}}" ></image>
         </swiper-item>
       </block>
@@ -37,7 +37,7 @@
       <view> ------  猜你喜欢  ------</view>
    </view>
    <view class="listWrap">
-      <view class="itemWrap" wx:for="{{productList}}" data-id="{{item.id}}" bindtap="gotoDetail">
+      <view class="itemWrap" wx:for="{{productList}}" wx:key="index" data-id="{{item.id}}" bindtap="gotoDetail">
         <view  class="itemTop">
           <image src="{{item.pictures[0]}}"></image>
         </view>
@@ -63,7 +63,7 @@
     <view class="bg2" wx:if="{{showGuiGe}}"  bindtap="hideGuige"></view>
     <view class="show"  wx:if="{{showGuiGe}}" >
     <view class="price">
-        <view wx:if="{{selectedId == item.id}}" wx:for="{{specificationsList}}"> 
+        <view wx:if="{{selectedId == item.id}}" wx:for="{{specificationsList}}" wx:key="integral"> 
         <image src="/image/bi.png" style="width: 30rpx;height: 30rpx;margin: 0 10rpx"></image>{{item.integral}}</view>
         <view class="quxiaoBtn" bindtap="hideGuige">
           <image src="/image/quxiao2.png"></image>
@@ -71,7 +71,7 @@
         </view>
         <view class="sizeName"> 型号</view>
         <view class="sizeCon">
-          <text class="GuigeName  {{item.id == selectedId ? 'selectedActive': '' }}"  data-id="{{item.id}}" bindtap="selectGuige" wx:for="{{specificationsList}}">{{item.name}}</text>
+          <text class="GuigeName  {{item.id == selectedId ? 'selectedActive': '' }}"  data-id="{{item.id}}" bindtap="selectGuige" wx:for="{{specificationsList}}" wx:key="name">{{item.name}}</text>
         </view>
         <view class="numWrap"> 
            <view class="numTitle" >数量 <text > (库存 {{stock}})</text></view>

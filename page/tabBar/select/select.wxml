@@ -4,8 +4,8 @@
         <image src='/image/down.png'  class='com-sImg'  animation="{{animationData}}"></image>
     </view>
     <view class='com-sList' wx:if="{{selectShow}}">
-        <view wx:for="{{propArray}}" wx:if="{{index !== propArray.length -1}}" data-balance="{{item.balance}}" data-gender="{{item.gender}}"  data-birthday="{{item.birthday}}"data-index="{{index}}" data-id="{{item.id}}"  class='com-sItem' bindtap='setText'>{{item.name}}</view>
-        <view wx:for="{{propArray}}" wx:if="{{index == propArray.length -1}}"  class='com-sItem' bindtap='hideview'>{{item.name}}</view>
+        <view wx:for="{{propArray}}" wx:key="balance" wx:if="{{index !== propArray.length -1}}" data-balance="{{item.balance}}" data-gender="{{item.gender}}"  data-birthday="{{item.birthday}}"data-index="{{index}}" data-id="{{item.id}}"  class='com-sItem' bindtap='setText'>{{item.name}}</view>
+        <view wx:for="{{propArray}}" wx:key="name" wx:if="{{index == propArray.length -1}}"  class='com-sItem' bindtap='hideview'>{{item.name}}</view>
     </view>
 </view>
 

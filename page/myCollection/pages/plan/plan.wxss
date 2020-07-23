@@ -216,3 +216,10 @@
 .see {
   color: #FF9B00;
 }
+.noTask {
+  padding: 20rpx;
+  margin: 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  font-weight: bold;
+}

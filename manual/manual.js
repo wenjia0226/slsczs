@@ -72,8 +72,8 @@ Page({
     wx.setStorageSync('gender', this.data.gender);
     wx.setStorageSync('birthday', this.data.date);
     app.wxRequest(url, data, (res) => {
-      wx.setStorageSync('studentId', res.data.data)
-  
+      wx.setStorageSync('studentId', res.data.data.id)
+      wx.setStorageSync('balance', res.data.data.balance)
       if(res.data.status == 200) {
         if (that.data.prevRoute == 'page/tabBar/index/index') {
           wx.switchTab({
@@ -103,8 +103,11 @@ Page({
           wx.navigateTo({
             url: '/page/myCollection/pages/childrenManage/childrenManage',
           })
-        } else if (that.data.prevRoute == 'page/exchange/pages/jiesuan/jiesuan') {
-          url: '/page/exchange/pages/jiesuan/jiesuan'
+        } else if(that.data.prevRoute == 'page/exchange/pages/jiesuan/jiesuan') {
+          wx.navigateTo({
+            url: '/page/exchange/pages/jiesuan/jiesuan?manu=' + 1
+          })
+          
         }
        
       } 

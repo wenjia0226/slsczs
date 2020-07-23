@@ -14,7 +14,7 @@
       <swiper bindchange="swiperChange"
         autoplay= 'true'  circular="true" class="swiperInner">
         <block>
-          <swiper-item class="swiperItem"  wx:for="{{swiperList}}" data-id="{{item.productId}}" bindtap="gotoDetail">
+          <swiper-item class="swiperItem"  wx:for="{{swiperList}}" wx:key="index" data-id="{{item.productId}}" bindtap="gotoDetail">
             <image src="{{item.path}}" ></image>
           </swiper-item>
         </block>
@@ -23,7 +23,7 @@
     </view>
     <!-- 列表 --> 
     <view class="listWrap">
-      <view class="itemWrap" wx:for="{{productList}}" data-id="{{item.id}}" bindtap="gotoDetail">
+      <view class="itemWrap" wx:for="{{productList}}" wx:key="id" data-id="{{item.id}}" bindtap="gotoDetail">
         <view  class="itemTop">
           <image src="{{item.pictures[0]}}" mode=""></image>
         </view>
