@@ -56,7 +56,7 @@
         <view class="containBox">
          <view class="changeSelect">切换保存者</view>
          <view  class="selectBox">
-           <Select  bindmyname = "myname"bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
+           <Select bindmyevent="myevent" bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
          </view>
         </view>
       </view>

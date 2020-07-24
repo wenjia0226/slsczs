@@ -1,7 +1,7 @@
 
 <view class="main">
-  <view class="titleBox"  style="padding-top: {{height}}px">
-    <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px" > </nav-bar>
+  <view class="titleBox"  style="padding-top: {{height}}px" wx:if="{{studentId}}">
+    <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px;" > </nav-bar>
     <view class="imgBox">
       <!-- 男孩及段位 -->
       <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
@@ -143,8 +143,14 @@
         <view class="btn noFininsh" wx:else data-id="{{taskList[6].id}}" bindtap="fininsh">打卡</view>
      </view>
   </view>
-  <view class="noTask" wx:if="{{!studentId}}">
-     暂无打卡任务，请先点击切换孩子按钮添加孩子
+   <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px;" > </nav-bar>
+  <view class="noTask" wx:if="{{!studentId}}" style="margin-top: 100rpx">
+    <view class="imgBox">
+      <image src="/image/zengjiagrey.png" bindtap="gotoAdd"></image>
+    </view>
+     <view class="noTitle">
+      暂无打卡任务，请先点击切换孩子按钮添加孩子
+     </view>
   </view>
 </view>
 <!-- 弹框 -->
@@ -165,3 +171,19 @@
       <!-- <view class="see" bindtap="gotobi"> 去看看</view> -->
     </view>
 </view>
+
+
+<!-- 添加孩子 -->
+   <view class="bg" wx:if="{{show}}"  bindtap="hide"></view>
+   <view class="showAdd"  wx:if="{{show}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitle">
+        请选择添加方式
+      </view>
+      <view class="btnBox">
+        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+      </view>
+    </view>

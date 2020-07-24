@@ -12,15 +12,28 @@ Page({
     selectArray:[],
     studentName: '无',
     gender: 0,
-    balance: ''
+    balance: '',
+    show: false
   },
   onLoad() {
     app.editTabbar();
   },
- 
+  gotoAdd() {
+    if (this.data.phone) {
+      this.hideview()
+    } else {
+      wx.navigateTo({
+        url: '/nicheng/nicheng',
+      })
+    }
+  },
+  
   onShow() {
-    this.getChildrenList();
-    if (wx.getStorageSync('studentId')) {
+    this.setData({
+      studentId: wx.getStorageSync('studentId')
+    })
+    
+    if (this.data.studentId) {
       this.setData({
         studentName: wx.getStorageSync('studentName'),
         gender: wx.getStorageSync('gender'),
@@ -438,6 +451,74 @@ Page({
     } else {
       this.gotoLogin();
     }
+  },
+  hideview() {
+    this.setData({
+      show: true
+    })
+  },
+  hide() {
+    this.setData({
+      show: false
+    })
+  },
+  // 手动添加
+  gotoManu() {
+    wx.navigateTo({
+      url: '/manual/manual'
+    })
+    this.hide();
+  },
+  //扫码添加
+  gotoScan() {
+    let that = this;
+    wx.scanCode({  //扫码
+      success(res) {
+        var str = res.path;
+        let stuId = str.split('=')[1];
+        //获取到学生id后添加孩子
+        wx.setStorageSync('studentId', stuId);
+        let openId = wx.getStorageSync('openId');
+        let url = app.globalData.URL + 'binding', data = {
+          studentId: stuId,
+          openId: wx.getStorageSync('openId')
+        };
+        wx.showLoading({
+          title: '加载中...',
+        })
+        app.wxRequest(url, data, (res) => {
+          console.log(res)
+          res.data.data.push({
+            name: '添加孩子'
+          })
+          that.setData({
+            selectArray: res.data.data,
+            childrenList: res.data.data,
+            show: false
+          })
+          let curStudent = that.data.childrenList;
+          that.setData({
+            studentId: curStudent[0].id,
+            studentName: curStudent[0].name,
+            birthday: curStudent[0].birthday,
+            gender: curStudent[0].gender,
+            balance: curStudent[0].balance,
+            ranking: curStudent[0].ranking
+          })
+          wx.setStorageSync('studentName', curStudent[0].name);
+          wx.setStorageSync('studentId', curStudent[0].id);
+          wx.setStorageSync('gender', curStudent[0].gender);
+          wx.setStorageSync('birthday', curStudent[0].birthday);
+          wx.setStorageSync('balance', curStudent[0].balance);
+          wx.setStorageSync('ranking', curStudent[0].ranking);
+          wx.navigateTo({
+            url: '/page/tabBar/my/my'
+          })
+        }, (err) => {
+          console.log(err)
+        })
+      }
+    })
   }
   
 })

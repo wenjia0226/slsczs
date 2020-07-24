@@ -15,8 +15,7 @@ Page({
     lastTime: '无',
     gender: 2,
     phone: wx.getStorageSync('phone'),
-    studentId: '',
-    show: false
+    studentId: ''
   },
   onLoad() {
     app.editTabbar();

@@ -29,7 +29,7 @@ Page({
     let pages = getCurrentPages();//页面对象
     let prevpage = pages[pages.length - 2];//上一个页面对象
 
-    console.log(prevpage.route)//上一个页面路由地址
+    //console.log(prevpage.route)//上一个页面路由地址
     this.setData({
       prevRoute: prevpage.route
     })
@@ -107,9 +107,7 @@ Page({
           wx.navigateTo({
             url: '/page/exchange/pages/jiesuan/jiesuan?manu=' + 1
           })
-          
         }
-       
       } 
     })
 

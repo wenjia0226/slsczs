@@ -423,4 +423,6 @@
 .containBox{
   display: flex;
   align-items: center;
+  height: 160rpx;
+  padding: 10rpx 0;
 }

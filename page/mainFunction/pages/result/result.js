@@ -28,6 +28,13 @@ Page({
     studentName: '',
     childrenList: []
   },
+  myevent(e) {
+    this.setData({
+      studentName: e.detail.params,
+      gender: e.detail.gender,
+      studentId: e.detail.studentId
+    })
+  },
   submitResult() {
     if(wx.getStorageSync('studentId')) {
       if (wx.getStorageSync('studentId') == 2) {
@@ -184,7 +191,6 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res.data.data, 99)
         if (res.data.status == 200) {
            res.data.data.push({
             name: '添加孩子'

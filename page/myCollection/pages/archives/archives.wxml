@@ -1,7 +1,7 @@
 <view  class="main">
     <view class="headerWrapper">
       <view class="titleBox">
-        <view class="imgBox">
+        <view class="imgBox" wx:if="{{studentId}}">
           <!-- 男孩及段位 -->
           <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
           <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >=balance && balance > 300}}"></image>
@@ -18,6 +18,10 @@
           <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{gender == 1 && 1500 >=balance  && balance > 1200}}"></image>
           <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
             <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
+      
+        </view>
+        <view class="imgBox" wx:if="{{!studentId}}">
+          <image  wx:if="{{!studentId}}" src="/image/zengjiagrey.png" bindtap='gotoAdd'></image>
         </view>
         <view class="centerBox">
           <view class="name" wx:if="{{studentName}}">{{studentName}}</view>
@@ -142,3 +146,18 @@
      <view class="nodangan">请点击头部切换孩子绑定孩子！！！</view>
     </block>  
 </view>
+
+<!-- 添加孩子 -->
+   <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
+   <view class="show"  wx:if="{{show}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitle">
+        请选择添加方式
+      </view>
+      <view class="btnBox">
+        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+      </view>
+    </view>

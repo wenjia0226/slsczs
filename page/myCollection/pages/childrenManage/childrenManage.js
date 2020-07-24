@@ -18,7 +18,7 @@ Page({
       openId: wx.getStorageSync('openId')
     };
     app.wxRequest(url, data, (res) => {
-      console.log(res)
+      // console.log(res)
       that.setData({
         childrenList: res.data.data
       })
@@ -242,7 +242,7 @@ Page({
                 childrenList: []
               })
               wx.setStorageSync('studentId', '')
-              wx.setStorageSync('gender', 0);
+              wx.setStorageSync('gender', 2);
               wx.setStorageSync('studentName', '')
               wx.setStorageSync('birthday', '')
               wx.setStorageSync('balance', '')
