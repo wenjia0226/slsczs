@@ -3,6 +3,6 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "Select": "/page/tabBar/select/select",
-      "tabbar": "../navbar/navbar"
+    "nav-bar": "../navbar/navbar"
   }
 }

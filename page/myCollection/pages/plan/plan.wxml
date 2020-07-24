@@ -1,7 +1,7 @@
 
 <view class="main">
-  <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
-  <view class="titleBox">
+  <view class="titleBox"  style="padding-top: {{height}}px">
+    <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px" > </nav-bar>
     <view class="imgBox">
       <!-- 男孩及段位 -->
       <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
