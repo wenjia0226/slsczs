@@ -6,12 +6,12 @@
     </view>
     <view class="centerBox">
       <view class="title">{{item.nickName}}</view>
-      <image  class="img" src="/image/zan.png"></image>
+      <image  class="img" src="/image/newzan.png"></image>
       <view class="time">{{item.date}}</view>
     </view>
     <view class="rightBox">
        <image wx:if="{{item.img == 1}}" src='{{item.content}}'></image> 
-       <view  wx:if="{{item.img == 0}}" >
+       <view  class="contentBox" wx:if="{{item.img == 0}}" >
         {{item.content}}
        </view>
     </view>

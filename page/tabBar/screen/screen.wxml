@@ -71,7 +71,10 @@
       <image  src="https://www.guangliangkongjian.com/images/daijing.png"    mode="aspectFit"></image>
      </view>
    </view>
-   <tabbar tabbar="{{tabbar}}"></tabbar>
+   <view class="bottomWrap">
+    <tabbar tabbar="{{tabbar}}"></tabbar>
+   </view>
+  
 </view>
 <!-- 引导关注公众号 -->
  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>

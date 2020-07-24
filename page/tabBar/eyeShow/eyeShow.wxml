@@ -1,7 +1,7 @@
 <!--page/tabBar/eyeShow/eyeShow.wxml-->
 <view class="mainWrap" >
   <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
-  <view style="scrollTop: {{height}}px;margin-bottom: 140rpx;" >
+  <view style="scrollTop: {{height}}px;margin-bottom: 120rpx;" >
   <!-- 顶部头像图片 -->
   <view class="imgWrap" style="margin-top: {{height}}px;"> 
     <image src="{{bannerImg}}"></image>

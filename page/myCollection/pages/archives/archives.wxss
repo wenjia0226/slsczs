@@ -13,8 +13,7 @@
 }
 /* //头部轮播 */
 .headerWrapper{
-  height: 18vh;
-  margin: 20rpx  3%;
+  margin: 0 2%;
   text-align: center;
 }
 .nodangan {
@@ -64,7 +63,7 @@
 }
 .liebiao {
   white-space: nowrap;
-  padding: 30rpx 0;
+  padding: 10rpx 0;
   margin: 0 5%;
   text-align: center;
 }
@@ -129,7 +128,7 @@
 }
 .containter {
   height: 100%;
-  margin: 0 5%;
+  margin: 10rpx 5%;
   background: #fff;
 }
 ec-canvas {

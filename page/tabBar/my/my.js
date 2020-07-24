@@ -228,7 +228,7 @@ Page({
       url: '/nicheng/nicheng'
     })
   },
-  gotMyChild() {
+  gotoMyChild() {
     if(this.data.phone) {
       wx.navigateTo({
         url: '/page/myCollection/pages/childrenManage/childrenManage'

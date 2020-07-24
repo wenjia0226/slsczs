@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "爱眼打卡",
+  "navigationStyle": "custom",
   "usingComponents": {
-    "Select": "/page/tabBar/select/select"
+    "Select": "/page/tabBar/select/select",
+      "tabbar": "../navbar/navbar"
   }
 }

@@ -36,6 +36,9 @@
     height: 100%;
     position: relative;
 }
+.centerSpecial{
+  margin: 0 20rpx;
+}
 .tabbar_icon{
     width: 50rpx;
     height: 50rpx;
@@ -54,8 +57,8 @@
   padding: 6rpx; */
   position: fixed;
   bottom: 5rpx;
-  width: 140rpx;
-  height:140rpx;
+  width: 160rpx;
+  height:160rpx;
   border-radius: 50%;
   border-top: 2rpx solid #f2f2f3;
   background-color: #fff;

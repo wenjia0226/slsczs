@@ -1,4 +1,6 @@
+
 <view class="main">
+  <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
   <view class="titleBox">
     <view class="imgBox">
       <!-- 男孩及段位 -->

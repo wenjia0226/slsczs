@@ -16,7 +16,11 @@ Page({
     childrenList: [],
     birthday: '',
     gender:0,
-    balance: 0
+    balance: 0,
+    height: app.globalData.height * 2 + 20,
+    navbarData: {
+      title: '爱眼计划'
+    }
   },
   myevent(e) {
     this.setData({

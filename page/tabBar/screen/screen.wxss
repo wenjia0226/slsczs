@@ -262,6 +262,9 @@ swiper {
   font-size: 24rpx;
   line-height: 40rpx;
 }
+.bottomWrap {
+  height: 98rpx;
+}
 /* //蒙层 */
 .bg2 {
   position: fixed;
@@ -338,10 +341,6 @@ swiper {
   text-decoration: underline;
   color: #000;
 }
-.centerWrap {
-  flex: 1;
-  background: #F7F8F8
-}
 .numWrap {
   display: flex;
   justify-content: space-around;
@@ -401,9 +400,6 @@ swiper {
 .activeGet {
   background: #FF9B00;
 }
-.centerWrap{
-  margin: 10% 5% 0;
-}
 .itemWrap {
   display: flex;
   justify-content: space-between;
@@ -419,7 +415,7 @@ swiper {
 }
 .time {
   font-size: 20rpx;
-  color: #999;
+  color: #fff;
   margin: 6rpx 0;
 }
 .rightitem {

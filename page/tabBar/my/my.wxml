@@ -1,8 +1,7 @@
 <!--my.wxml-->
- <image src="/image/bg2.png" class="bg" style="height: {{height + 90}}px"></image>
 <view class="main">
-  <view class="headerWrap" style="height: {{height + 90}}px">
-    <view class="inner">
+  <view class="headerWrap" style="height: {{height + 160}}px">
+    <view class="inner" style="margin-top: {{height}}px">
       <view class="leftIcon">
         <image  class=" userinfo-avatar" src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image>
          <image   class=" userinfo-avatar" src="{{avatarUrl}}" mode="aspectFit" wx:if="{{avatarUrl}}"></image>
@@ -18,15 +17,45 @@
         </view>
       </view>
     </view>
+    <view  class="markTop">
+      <view class="imgBox">
+          <!-- 男孩及段位 -->
+        <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >=balance && balance > 300}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{gender == 0 && 900 >=balance  && balance > 600}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/b4.png"  mode="aspectFit" wx:if="{{gender == 0 && 1200 >=balance  && balance > 900}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{gender == 0 && 1500 >=balance && balance > 1200}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{gender == 0 && 49999 >=balance && balance > 1500}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{gender == 0 &&balance  && balance >= 50000}}"></image>
+          <!-- 女孩及段位 -->
+        <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >=balance && balance >= 0}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{gender == 1 && 600 >=balance  && balance> 300}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{gender == 1 && 900 >=balance && balance > 600}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/g4.png"  mode="aspectFit" wx:if="{{gender == 1 && 1200 >=balance  && balance > 900}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{gender == 1 && 1500 >=balance  && balance > 1200}}"></image>
+        <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
+          <!-- <image src="/image/zengjia.png" wx:if="{{!studentId}}"></image> -->
+        </view>
+        <view class="right_center">
+          <view class="reminTitle">当前绑定孩子</view>
+          <view class= "reminName">{{studentName}}</view>
+        </view>
+        <view class="right_right">
+          <Select bindmyevent="myevent"  bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
+          <view>｜</view>
+          <view class="manage" bindtap="gotoMyChild"> 管理</view>
+        </view>
+    </view>
   </view>
   <view class="centerBox">
-   <view class="titleBox">
+   <!-- <view class="titleBox">
         我的孩子
-    </view>
-    <view class="contentBox">
+    </view> -->
+    <!-- <view class="contentBox">
       <view class="rightNi">
         <view class="imgBox">
-              <!-- 男孩及段位 -->
+          <!-- 男孩及段位 
       <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
       <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >=balance && balance > 300}}"></image>
       <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{gender == 0 && 900 >=balance  && balance > 600}}"></image>
@@ -34,7 +63,7 @@
       <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{gender == 0 && 1500 >=balance && balance > 1200}}"></image>
       <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{gender == 0 && 49999 >=balance && balance > 1500}}"></image>
       <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{gender == 0 &&balance  && balance >= 50000}}"></image>
-        <!-- 女孩及段位 -->
+        <!-- 女孩及段位 
       <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >=balance && balance >= 0}}"></image>
       <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{gender == 1 && 600 >=balance  && balance> 300}}"></image>
       <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{gender == 1 && 900 >=balance && balance > 600}}"></image>
@@ -56,8 +85,8 @@
       <!-- <view class="centerItem"  bindtap="gotMyChild">
         <image  mode ="widthFix"  src="/image/mychildren.png"></image>
         <view class="itemTitle">管理孩子</view>
-      </view> -->
-    </view>
+      </view> 
+    </view> -->
     <view class="titleBox">
         档案明细
     </view>
@@ -83,6 +112,10 @@
       <view class="centerItem" bindtap="gotoAnswer">
           <image  src="/image/myicon/dati.png"></image>
           <view class="itemTitle">爱眼答题</view>
+      </view>
+       <view class="centerItem" bindtap="gotoJiFen">
+          <image  src="/image/myicon/aiyanbi.png"></image>
+          <view class="itemTitle">我的爱眼币</view>
       </view>
     </view>
     <view class="titleBox">

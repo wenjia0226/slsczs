@@ -72,6 +72,7 @@ Page({
           title: '加载中...'
         })
         app.wxRequest(url, data, (res) => {
+          console.log(res)
           res ? res = res.data.data : '';
           that.setData({
             answer: res.answer,
@@ -197,7 +198,6 @@ Page({
     }else {
       this.gotoLogin();
     }
-  
   },
   gotoXiu() {
     wx.switchTab({
@@ -222,6 +222,16 @@ Page({
   gotoManu() {
     wx.navigateTo({
       url: '/manual/manual'
+    })
+  },
+  gotoMyBi() {
+    wx.navigateTo({
+      url: '/page/myCollection/pages/jifen/jifen'
+    })
+  },
+  gotoRank() {
+    wx.navigateTo({
+      url: '/page/myCollection/pages/ranking/ranking'
     })
   },
   //扫码添加

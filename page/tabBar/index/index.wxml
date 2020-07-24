@@ -29,11 +29,11 @@
     </view>
     <view class="stuName" wx:if="{{phone && studentName}}">{{studentName}}</view>
     <view class="perMessage"  wx:if="{{phone && ranking}}"> 
-     <view class="leftBi">
+     <view class="leftBi" bindtap="gotoMyBi">
        <image src="/image/bi.png"></image>
        <view class="info">爱眼币 {{balance}}个</view>
      </view>
-     <view class="leftBi">
+     <view class="leftBi" bindtap="gotoRank">
        <image src="/image/rank.png"></image>
        <view class="info">排行榜 {{ranking}}名</view>
      </view>
@@ -86,7 +86,7 @@
       <view class="rightBox" bindtap="gotoXiu">
         <view class="proTilte" >秀一秀</view>
         <view class="des">完成进度</view>
-        <view class="numTotal"></view>
+        <view class="numTotal" style="color: #fff;"> 0/1</view>
         <view class="rightGo">
           <image src="/image/righticon.png" ></image>
         </view>
