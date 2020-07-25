@@ -47,7 +47,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == 200) {
           if (res.data.data) {
             res.data.data.push({
@@ -210,7 +210,7 @@ Page({
     this.hide(); // 隐藏
     if (that.data.type == 1) {
         app.wxRequest(url, data, (res) => { 
-          console.log(res)
+          //console.log(res)
           if (res.data.status == 200) {
             var param = { "timeStamp": res.data.data.timeStamp, "package": res.data.data.package, "paySign": res.data.data.paySign, "signType": "MD5", "nonceStr": res.data.data.nonceStr };
             //发起支付

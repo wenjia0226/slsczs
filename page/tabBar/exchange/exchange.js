@@ -29,9 +29,11 @@ Page({
     })
   },
   onLoad: function (options) {
+    app.hidetabbar();
     app.editTabbar();
   },
   onShow() {
+    //app.hidetabbar();
     this.getInfo();
     this.setData({
       page: 1,

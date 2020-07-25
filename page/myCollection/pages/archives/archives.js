@@ -59,7 +59,6 @@ function setOption(chart, xData, leftData, rightData) {
   chart.setOption(option);
   return chart
 }
-
 Page({
   data: {
     navList: [

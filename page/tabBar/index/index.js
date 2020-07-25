@@ -18,14 +18,16 @@ Page({
     studentId: ''
   },
   onLoad() {
+    app.hidetabbar();
     app.editTabbar();
-    this.setData({
-      studentId: wx.getStorageSync('studentId'),
-      studentName: wx.getStorageSync('studentName')
-    })
+    // this.setData({
+    //   studentId: wx.getStorageSync('studentId'),
+    //   studentName: wx.getStorageSync('studentName')
+    // })
    
   },
   onShow() { 
+   // app.hidetabbar();
     this.setData({
       phone: wx.getStorageSync('phone'),
       studentName: wx.getStorageSync('studentName'),
@@ -71,8 +73,9 @@ Page({
           title: '加载中...'
         })
         app.wxRequest(url, data, (res) => {
-          console.log(res)
+          //console.log(res)
           res ? res = res.data.data : '';
+          
           that.setData({
             answer: res.answer,
             balance: res.balance,
@@ -81,6 +84,11 @@ Page({
             undetected: res.undetected,
             lastTime: res.lastTime
           })
+          if (that.data.lastTime == "") {
+            this.setData({
+              lastTime: '无'
+            })
+          }
           wx.setStorageSync('balance', res.balance)
         })
       }

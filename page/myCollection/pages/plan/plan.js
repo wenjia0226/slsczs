@@ -202,13 +202,13 @@ Page({
       console.log(err)
     })
   },
-  // onLoad() {
-  //   this.setData({
-  //     birthday: wx.getStorageSync('birthday'),
-  //     balance: wx.getStorageSync('balance'),
-  //     gender: wx.getStorageSync('gender'),
-  //   })
-  // },
+  onLoad() {
+    this.setData({
+      birthday: wx.getStorageSync('birthday'),
+      balance: wx.getStorageSync('balance'),
+      gender: wx.getStorageSync('gender'),
+    })
+  },
   onShow: function () {
     this.setData({
       phone: wx.getStorageSync('phone')
@@ -218,7 +218,8 @@ Page({
       this.setData({
         studentName: wx.getStorageSync('studentName'),
         birthday: wx.getStorageSync('birthday'),
-        studentId: wx.getStorageSync('studentId')
+        studentId: wx.getStorageSync('studentId'),
+        gender: wx.getStorageSync('gender')
       })
       if (this.data.studentId) {
         this.getList();

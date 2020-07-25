@@ -27,10 +27,11 @@ Page({
     }// 新消息
   },
   onLoad() {
+     app.hidetabbar();
     app.editTabbar();
   },
   onShow() {
-    app.hidetabbar();
+    //app.hidetabbar();
     this.setData({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName'),
@@ -123,7 +124,7 @@ Page({
   },
   getXiuList() {
     let that = this;
-    if(wx.getStorageSync('phone')) {
+    if(this.data.phone) {
 
     let url = app.globalData.URL + "momentsList",
       data = {
@@ -135,7 +136,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-       console.log(res)
+         // console.log(res)
         if (res.data.status == 200) {
           var resCurrent = res.data.data.list;
           that.setData({

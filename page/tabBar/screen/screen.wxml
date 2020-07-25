@@ -58,7 +58,7 @@
             <view class="smPortrait">
                <image src="/image/zengjia.png" class="u-img-slide"bindtap="gotoAdd"></image>
             </view>
-            <view class="name"  style="color:#5f0ce6"></view>
+            <view class="name" >点击+添加筛查者</view>
           </swiper-item>
         </block>
       </swiper>
@@ -109,5 +109,20 @@
         <view class="addBtn" bindtap="gotoScan">扫码添加</view>
       </view>
     </view>
+<!-- 添加孩子 -->
+   <view class="greyBg" wx:if="{{reminShow}}"  bindtap="hideRemin"></view>
+   <view class="showRemin"  wx:if="{{reminShow}}">
+      <view class="quxiaoRemin" bindtap="hideRemin">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitleRemin">
+        是否使用上次校验数据
+      </view>
+      <view class="chooseBox">
+        <view class="chooseItem" bindtap="gotoCheck">重新校验</view>
+        <view class="chooseItem" bindtap="gotoStart">是</view>
+      </view>
+    </view>
+
 
 

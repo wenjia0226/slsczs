@@ -44,7 +44,7 @@
         <view class="school">{{thirdObj.schoolName}}</view>
         <view class="money">{{thirdObj.sum}}</view>
       </view>
-      <view class="rankItem four" wx:for="{{integtalRanking}}">
+      <view class="rankItem four" wx:for="{{integtalRanking}}" wx:key="index">
         <view class="rankImg rankLower">
           {{index + 4}}
         </view>

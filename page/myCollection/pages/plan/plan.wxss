@@ -14,6 +14,7 @@
   align-items: center;
   background: linear-gradient(to  bottom, #5A45F0, #509FF8);
   color: #fff;
+  margin-bottom: 20rpx;
 }
 .rightBox {
   color: #000
@@ -29,8 +30,8 @@
 }
 .centerBox {
    flex: 1;
-   padding: 20rpx;
-   margin: 0 20rpx;
+   /* padding: 20rpx;
+   margin: 0 20rpx; */
 }
 .name {
   font-size: 40rpx;
@@ -38,7 +39,7 @@
 }
 .birthday {
   font-size: 24rpx;
-  padding: 10rpx;
+  padding: 10rpx 0;
 }
 .itemwrap {
   margin: 10rpx 20rpx;

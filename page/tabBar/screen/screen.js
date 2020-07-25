@@ -6,6 +6,7 @@ Page({
     currentIndex: 0,
     studentId: '',
     result: '',
+    scale: '',
     statusBarHeight: '', 
     height: app.globalData.navHeight,
     flag: false,
@@ -15,10 +16,33 @@ Page({
     reuploadFlag: false, //  重复上传标志位
     tabbar: {},
     show: false,
+    reminShow: false,
     phone: wx.getStorageSync('phone')
   },
+  hideRemin() {
+    this.setData({
+      reminShow: false
+    })
+  },
+  showRemin() {
+    this.setData({
+      reminShow: true
+    })
+  },
   onLoad() {
+     app.hidetabbar();
     app.editTabbar();
+  },
+  gotoCheck() {
+    wx.navigateTo({
+      url: '/page/component/pages/check/check',
+    })
+  },
+  gotoStart() {
+    wx.setStorageSync('scale', this.data.scale)
+    wx.navigateTo({
+      url: '/page/component/pages/check/check',
+    })
   },
   //关注公众号
   followBtn() {
@@ -42,6 +66,7 @@ Page({
     })  
   },
   onShow() {
+    //app.hidetabbar();
     let that = this;
     this.setData({
       statusBarHeight: app.globalData.statusBarHeight,
@@ -256,6 +281,7 @@ Page({
   },
   //跳转到自我校准
   goJozhun(e) {
+    let that = this;
       this.setData({
         reuploadFlag: true
       })
@@ -270,30 +296,33 @@ Page({
           title: '加载中...',
         })
         app.wxRequest(url, data, (res) => {
-          let scale = res.data.data;
           if(res.data.data == null) {
             wx.navigateTo({
               url: '/page/component/pages/check/check'
             })
           }else {
-            wx.showModal({
-            title: '提示',
-            content: '是否使用上次校验数据',
-            cancelText: "重新校验",
-            confirmText: "是",
-            success: function(res) {
-              if (res.confirm) {
-                wx.setStorageSync('scale', scale)
-                wx.navigateTo({
-                  url: '/page/component/pages/start/start',
-                })
-              }else if(res.cancel) {
-                wx.navigateTo({
-                  url: '/page/component/pages/check/check',
-                })
-              }
-            } 
-          })
+            that.setData({
+              scale: res.data.data
+            })
+            that.showRemin();
+          //   wx.showModal({
+          //   title: '提示',
+          //   content: '是否使用上次校验数据',
+          //   cancelText: "重新校验",
+          //   confirmText: "是",
+          //   success: function(res) {
+          //     if (res.confirm) {
+          //       wx.setStorageSync('scale', scale)
+          //       wx.navigateTo({
+          //         url: '/page/component/pages/start/start',
+          //       })
+          //     }else if(res.cancel) {
+          //       wx.navigateTo({
+          //         url: '/page/component/pages/check/check',
+          //       })
+          //     }
+          //   } 
+          // })
         }
           })
          

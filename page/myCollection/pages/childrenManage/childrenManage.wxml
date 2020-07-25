@@ -3,7 +3,7 @@
 <view class="main">
 <scroll-view scroll-y>
 <view class="itemContainer">
-  <view class="swiperwrap" wx:for="{{childrenList}}" >
+  <view class="swiperwrap" wx:for="{{childrenList}}" wx:key="id" >
   <view class="differ">
     <image src="/image/she.png" wx:if="{{item.schoolName == '社会'}}"></image>
     <image src="/image/guan.png" wx:if="{{item.schoolName !== '社会'}}"></image>

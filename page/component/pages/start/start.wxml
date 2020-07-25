@@ -4,31 +4,13 @@
     <view class="right"> 右眼</view>
     <view> 视力自测</view>
    </view>
-  <!-- <view class="imgWrap">
-    <image src="/image/righttoufa.png" mode="aspectFit"></image>
-  </view> -->
     <view class="describe"> 
       <view class="zhegai"> 遮盖左眼</view>
       <view> ，点击开始测试</view>
   </view>
-  <!-- <view class="detail"> 测试方法说明</view> -->
   <view class="imgWrap">
-    <!-- <image src="/image/shuoming.gif" mode="aspectFit"></image> -->
-     <!-- <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" autoplay="true" circular>
-      <swiper-item class="swiperItem">
-        <image src="{{swiper1}}"mode="aspectFit"></image>
-      </swiper-item>
-      <swiper-item class="swiperItem" >
-        <image src="{{swiper4}}"mode="aspectFit"></image>
-      </swiper-item>
-      <swiper-item class="swiperItem">
-        <image src="{{swiper2}}"mode="aspectFit"></image>
-      </swiper-item>
-       <swiper-item class="swiperItem" >
-        <image src="{{swiper3}}"mode="aspectFit"></image>
-      </swiper-item> -->
       <swiper indicator-dots="{{indicatorDots}}" class="swiperWrap" autoplay circular>
-        <block wx:for="{{swiperImg}}">
+        <block wx:for="{{swiperImg}}" wx:key="index">
           <swiper-item class="swiperItem" >
             <image src="{{item}}"mode="aspectFit"></image>
           </swiper-item>

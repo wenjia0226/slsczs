@@ -16,6 +16,7 @@ Page({
     show: false
   },
   onLoad() {
+    app.hidetabbar();
     app.editTabbar();
   },
   gotoAdd() {
@@ -29,6 +30,7 @@ Page({
   },
   
   onShow() {
+  //  app.hidetabbar();
     this.setData({
       studentId: wx.getStorageSync('studentId')
     })

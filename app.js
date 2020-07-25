@@ -114,8 +114,8 @@ App({
     height: '',
     wz:'',
     menuHeight: '',
-    //URL: 'https://www.guangliangkongjian.com/lightspace/xcx/',
-    URL: 'http://192.168.100.199:8080/lightspace/xcx/',
+    URL: 'https://www.guangliangkongjian.com/lightspace/xcx/',
+    //URL: 'http://192.168.100.199:8080/lightspace/xcx/',
     systemInfo: null,//客户端设备信息
     tabBar: {
       "backgroundColor": "#ffffff",
@@ -180,11 +180,15 @@ App({
   },
   //自己对wx.hideTabBar的一个封装
   hidetabbar() {
-    wx.hideTabBar({
-      fail: function () {
+    wx.hideTabBar({  
+      fail: function (err) {
+        console.log(err, 999)
         setTimeout(function () { // 做了个延时重试一次，作为保底。
           wx.hideTabBar()
         }, 500)
+      },
+      success: function(res) {
+       // console.log(res)
       }
     });
   },

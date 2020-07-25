@@ -63,7 +63,7 @@ Page({
       let that = this;
       let url = app.globalData.URL + "editCalibration", data = { scale: this.data.scale, openId: wx.getStorageSync('openId') };
       app.wxRequest(url, data, (res) => {
-        console.log(res)
+        // console.log(res)
       })
     }
       wx.navigateTo({

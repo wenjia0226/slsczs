@@ -2,6 +2,7 @@
 .main {
   display: flex;
   flex-direction: column;
+  background: #F7F8FA;
 }
 .bg {
   position: absolute;
@@ -210,12 +211,16 @@ button { background-color: #fff;}
 
 /* 新修改样式 */
 .centerBox {
+  flex: 1;
   padding: 30rpx;
    background: #F7F8FA;
    padding-top: 140rpx;
    margin-bottom: 100rpx;
   /* display: flex;
   flex-flow:row wrap; */
+}
+.bottomBox {
+  height: 98rpx;
 }
 .centerItem {
   padding: 20rpx 0;
@@ -234,7 +239,7 @@ button { background-color: #fff;}
 }
 .itemTitle {
   font-size: 24rpx !important;
-  padding: 20rpx  !important;
+  padding: 20rpx  20rpx 0 !important;
 }
 
 /* 重写样式 */
@@ -307,8 +312,8 @@ button { background-color: #fff;}
   height: 50rpx;
 }
 .quxiao > image {
-  height: 40rpx;
-  width: 40rpx;
+  height: 30rpx;
+  width: 30rpx;
 }
 .title {
   text-align: center;
