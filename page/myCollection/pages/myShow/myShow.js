@@ -171,7 +171,9 @@ Page({
         data = {
           id: id,
           openId: wx.getStorageSync('openId'),
-          studentId: wx.getStorageSync('studentId')
+          studentId: wx.getStorageSync('studentId'),
+          nickName: wx.getStorageSync('nickName'),
+          avatarUrl: wx.getStorageSync('avatarUrl')
         };
       //如果已经授权过
       if (wx.getStorageSync('phone')) {

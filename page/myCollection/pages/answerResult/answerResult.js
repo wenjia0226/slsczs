@@ -10,7 +10,8 @@ Page({
     showCongratulation: false,
     studentId: '',
     studentName: '',
-    showSelectPerson: true
+    showSelectPerson: true,
+    balance: ''
   },
   voidRight() {
     const rightContext = wx.createInnerAudioContext();
@@ -27,7 +28,9 @@ Page({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       studentName: wx.getStorageSync('studentName'),
       rightAnswer: wx.getStorageSync('rightAnswer'),
-      studentId: wx.getStorageSync('studentId')
+      studentId: wx.getStorageSync('studentId'),
+      balance: wx.getStorageSync('balance'),
+      gender: wx.getStorageSync('gender')
     })
    this.getChildrenList();
   },

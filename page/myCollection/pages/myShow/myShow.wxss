@@ -90,6 +90,31 @@
    height: calc(34vw);
   margin: 1%;
 }
+.zanList {
+  background: #eee;
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.zanList > image {
+  position: absolute;
+  left: 10rpx;
+  top: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+
+}
+.zanBox {
+  font-size: 24rpx;
+  line-height:30rpx;
+  padding: 0 10rpx  0 40rpx;
+  color: #185396;
+  /* overflow:hidden;
+  white-space:nowrap;
+	text-overflow:ellipsis;
+  width:500rpx; */
+}
 /* //底部时间 点赞 */
 .itemBttom {
   display: flex;

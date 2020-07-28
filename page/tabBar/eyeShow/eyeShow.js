@@ -21,6 +21,7 @@ Page({
     phone: '',
     prevImg: true,
     tabbar: {},
+    fabulousList: [],
     newMessage: {
       value: '0',
       avatarUrl: ''
@@ -136,7 +137,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-         // console.log(res)
+        //  console.log(res)
         if (res.data.status == 200) {
           var resCurrent = res.data.data.list;
           that.setData({
@@ -195,7 +196,6 @@ Page({
             title: '加载中...'
           })
           app.wxRequest(url, data, (res) => {
-            console.log(res)
             if (res.data.status == 200) {
               let changeItem = res.data.data;
               let arr = that.data.content.map((item) => item.id === changeItem.id ? changeItem : item)

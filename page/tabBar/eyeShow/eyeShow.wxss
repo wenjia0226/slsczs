@@ -40,9 +40,9 @@
 }
 /* 内容 */
 .centerWrap {
-  margin: 10rpx 3%;
+  margin: 20rpx 3%;
   box-sizing: border-box;
-  /* border-bottom: 1rpx solid grey; */
+  border-bottom: 1rpx solid #999;
 }
 centerWrap:last-of-type{
   margin-bottom: 60rpx;
@@ -66,6 +66,7 @@ centerWrap:last-of-type{
 .centerContent {
  display: flex;
  font-size: 26rpx;
+ margin-bottom: 10rpx;
 }
 .leftConPart {
    width: 150rpx
@@ -84,6 +85,35 @@ centerWrap:last-of-type{
   width: 45%;
   height: calc(34vw);
   margin: 1%;
+}
+.zanList {
+  background: #eee;
+   padding: 10rpx;
+   display: flex;
+   align-items: center;
+   position: relative;
+  
+}
+.zanList > image {
+  position: absolute;
+  left: 10rpx;
+  top: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.seeMore {
+  font-size: 30rpx;
+  color:red;
+}
+.zanBox {
+  font-size: 24rpx;
+  line-height:30rpx;
+  padding: 0 10rpx  0 40rpx;
+  color: #185396;
+  overflow:hidden;
+  white-space:nowrap;
+	text-overflow:ellipsis;
+  width:500rpx;
 }
 /* //底部时间 点赞 */
 .itemBttom {

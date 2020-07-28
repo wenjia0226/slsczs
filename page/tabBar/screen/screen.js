@@ -30,7 +30,6 @@ Page({
     })
   },
   onLoad() {
-     app.hidetabbar();
     app.editTabbar();
   },
   gotoCheck() {
@@ -41,7 +40,7 @@ Page({
   gotoStart() {
     wx.setStorageSync('scale', this.data.scale)
     wx.navigateTo({
-      url: '/page/component/pages/check/check',
+      url: '/page/component/pages/start/start',
     })
   },
   //关注公众号
@@ -62,11 +61,9 @@ Page({
     wx.setStorageSync('isShow', false)
     this.setData({
       hideWarn: animation.export(),
-      
     })  
   },
   onShow() {
-    //app.hidetabbar();
     let that = this;
     this.setData({
       statusBarHeight: app.globalData.statusBarHeight,
