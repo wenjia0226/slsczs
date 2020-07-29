@@ -2,17 +2,15 @@
   <view class="centerWrap">
       <view class="itemWrap"  wx:for="{{productList}}" wx:if="{{productList.length}}">
         <view class="item">
-        
           <text class="number">{{index +1}}</text>
           <text class="size"> 商品名称:</text>
           <text class="name">{{item.productName}}</text>
-          <view class="imgWrap"  wx:if="{{index == 0}}"> <image src="/image/new.png"></image></view>
-         
+          <view class="imgWrap"  wx:if="{{index == 0}}"> <image src="/image/new.png"></image></view> 
         </view>
         <view class="item ">
          <text class="number coWhite">{{index +1}}</text>
           <text class="size"> 规格:</text>
-          <text class="name">{{item.specificationsName}}</text>
+          <text class="name">{{item.specificationName}}</text>
         </view>
         <view class="item">
          <text class="number coWhite">{{index +1}}</text>
@@ -20,21 +18,11 @@
           <text class="name">{{item.studentName}}</text>
         </view>
         <view class="item">
-         <text class="number coWhite">{{index +1}}</text>
-          <text class="size"> 体验时间:</text>
-          <text class="name bggrey">{{item.genTime}}</text>
-       
+          <view class="exchangeBtn" bindtap="exchange">兑换</view>
         </view>
       </view>
       <view  class="noData" wx:if="{{!productList.length}}">
         暂无数据
       </view>
   </view>
-  <!-- <view class="bottomWrap"  >
-   <view class="scanWrap" bindtap="getScanList">
-    <view  class="scanBox">
-      扫一扫
-    </view>
-   </view>
-  </view> -->
 </view>

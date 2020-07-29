@@ -7,12 +7,16 @@ Page({
     page: 1,
     pageSize: 9,
     hasMoreData: true,
+    studentId: ''
   },
-  onLoad() {
+  onLoad(options) {
+    this.setData({
+      studentId: options.studentId
+    })
     this.productList();
   },
   onPullDownRefresh: function () {
-   console.log('onPullDonwFresh')
+    console.log('onPullDonwFresh')
     let that = this;
     wx.stopPullDownRefresh();
     setTimeout(function () {
@@ -32,37 +36,18 @@ Page({
       })
     }
   },
-  getScanList() {
-    let that =this;
-    wx.scanCode({  //扫码
-      success(res) {
-        let id = res.result;
-        let url = app.globalData.URL + "clertSanningCode", data = { id: id, openId: wx.getStorageSync('openId') };
-        wx.showLoading({
-          title: '加载中...'
-        })
-        app.wxRequest(url, data, (res) => {
-           console.log(res)
-          if (res.data.status == 200) {
-            that.setData({
-              productList: [],
-              page: 1
-            })
-            that.productList();
-          }
-        })
-      }
-    }) 
+  exchange() {
+    
   },
   productList() {
     let that = this;
-    let url = app.globalData.URL + "sanningCodeList", data = { page: this.data.page, openId: wx.getStorageSync('openId') };
+    let url = app.globalData.URL + "orderShow", data = { studentId: this.data.studentId, page: this.data.page };
     wx.showLoading({
       title: '加载中...'
     })
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
-        var contentlist = res.data.data;
+        var contentlist = res.data.data.content;
         var productList = that.data.productList;
         if (that.data.page == 1) {
           productList = []
@@ -86,8 +71,8 @@ Page({
           icon: 'none'
         })
       }
-      
+
     })
   }
-  
+
 })

@@ -1,0 +1,23 @@
+.mainWrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.itemBox {
+ display: flex;
+ align-items: center;
+ justify-content: flex-end;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #dee;
+  font-size: 30rpx;
+  box-sizing: border-box; 
+}
+.txt {
+  margin: 0 10rpx;
+}
+.itemBox > image {
+  width: 40rpx;
+  height: 40rpx;
+}

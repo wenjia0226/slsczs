@@ -1,0 +1,161 @@
+<view  class="main">
+    <view class="headerWrapper"  wx:if="{{studentId}}">
+      <view class="titleBox">
+        <view class="imgBox" wx:if="{{studentId}}">
+          <!-- 男孩及段位 -->
+          <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >=balance && balance > 300}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{gender == 0 && 900 >=balance  && balance > 600}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b4.png"  mode="aspectFit" wx:if="{{gender == 0 && 1200 >=balance  && balance > 900}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{gender == 0 && 1500 >=balance && balance > 1200}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{gender == 0 && 49999 >=balance && balance > 1500}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{gender == 0 &&balance  && balance >= 50000}}"></image>
+            <!-- 女孩及段位 -->
+          <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >=balance && balance >= 0}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{gender == 1 && 600 >=balance  && balance> 300}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{gender == 1 && 900 >=balance && balance > 600}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g4.png"  mode="aspectFit" wx:if="{{gender == 1 && 1200 >=balance  && balance > 900}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{gender == 1 && 1500 >=balance  && balance > 1200}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
+      
+        </view>
+        <view class="centerBox">
+          <view class="name" wx:if="{{studentName}}">{{studentName}}</view>
+          <view class="birthday" wx:if="{{birthday}}">出生日期： {{birthday}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 没有孩子添加孩子 -->
+    <view wx:if="{{!studentId}}" class="headerWrapperNochild">
+        <view class="imgBox" wx:if="{{!studentId}}">
+          <image  wx:if="{{!studentId}}" src="/image/zengjia.png" bindtap='gotoAdd'></image>
+        </view>
+        <view class="noTitle">
+            暂无筛查记录，请先点击 + 号添加孩子     
+        </view>
+    </view>
+    <view  class="liebiao" wx:if="{{studentId && showList}}" >
+      <view class=" titleTop {{isSelect == 0 ? 'active': ''}}" data-type="0" bindtap="changeTab">裸眼检测</view>
+      <view class="titleTop {{isSelect == 1 ? 'active': ''}} " data-type="1" bindtap="changeTab"> 裸眼曲线</view>
+       <view class=" titleTop {{isSelect == 2 ? 'active': ''}}" data-type="2" bindtap="changeTab"> 戴镜检测</view>
+      <view class="titleTop {{isSelect == 3 ? 'active': ''}} " data-type="3" bindtap="changeTab">  戴镜曲线</view>
+    </view>
+    <!-- 裸眼检测列表 -->
+    <swiper current="{{isSelect}}" bindchange="swiperChange" class="mainCon" wx:if="{{navList.length && studentId}}" >
+      <block >
+        <swiper-item style="margin-bottom: 30rpx;height: 100%" wx:if="{{dataList.length}}">
+        <scroll-view scroll-y style="height: 100%">
+         <view class="list" wx:for="{{dataList}}" wx:key="id">
+          <view class="outerItems" >
+            <view  class="items" data-id="{{item.id}}" data-type="luo">
+              <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx">
+                <view class="item-top" style="margin: 10rpx 0"><image mode="aspectFit" src="/image/eye.png"></image></view>
+                <view class="genTime">{{item.date}}</view> 
+                <view class="genTime">{{item.time}}</view> 
+              </view>   
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/right.png"></image></view>
+                <view>{{item.visionRight}}</view> 
+              </view>
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/left.png"></image></view>
+                <view>{{item.visionLeft}}</view> 
+              </view>
+            </view>
+            
+          </view>
+        </view>
+        </scroll-view>
+        </swiper-item>
+        <swiper-item style="margin-bottom: 30rpx;height: 100%" wx:if="{{dataList.length == 0}}">       
+            <view class="nodangan">暂无档案信息</view>
+        </swiper-item>
+      </block>
+      <block >
+        <swiper-item style="margin-bottom: 30rpx"  wx:if="{{picList.length}}">
+          <view class="containter" wx:if="{{picList.length  != 0}}">
+            <ec-canvas id="mychart-one" canvas-id="c" ec="{{ec}}" width="100%" height="100%"  ></ec-canvas>
+          </view>
+        </swiper-item>
+        <swiper-item wx:if="{{picList.length == 0}}">
+          <view class="nodangan">近7天无检测记录，请尽快检测</view>
+        </swiper-item>
+      </block>
+      <!-- 戴镜 -->
+      <block>
+        <swiper-item wx:if="{{weardataList.length}}">
+          <scroll-view scroll-y style="height: 100%" >
+          <view class="list" wx:for="{{weardataList}}" wx:key="id">
+            <!-- <view class="items" bindtap="gotArchiveDetail" data-id="{{item.id}}" data-type="wear">
+              <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx">
+                <view class="item-top" style="margin: 10rpx 0"><image mode="aspectFit" src="/image/eye.png"></image></view>
+                <view class="genTime">{{item.date}}</view> 
+                <view class="genTime">{{item.time}}</view>
+              </view>
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/right.png"></image></view>
+                <view>{{item.visionRight}}</view> 
+              </view>
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/left.png"></image></view>
+                <view>{{item.visionLeft}}</view> 
+              </view>
+            </view> -->
+            <view class="outerItems">
+            <view  class="items" bindtap="gotArchiveDetail" data-id="{{item.id}}" data-type="wear">
+              <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx">
+                <view class="item-top" style="margin: 10rpx 0"><image mode="aspectFit" src="/image/eye.png"></image></view>
+                <view class="genTime">{{item.date}}</view> 
+                <view class="genTime">{{item.time}}</view> 
+              </view>   
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/right.png"></image></view>
+                <view>{{item.visionRight}}</view> 
+              </view>
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/left.png"></image></view>
+                <view>{{item.visionLeft}}</view> 
+              </view>
+            </view>
+            <view class="delWrap" data-id="{{item.id}}"  data-type="wear" bindtap="deleteItem">
+              <image src="/image/del.png"></image>
+            </view>
+          </view>
+          </view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item style="margin-bottom: 30rpx;height: 100%"  wx:if="{{weardataList.length == 0}}">
+          <view class="nodangan">暂无档案信息</view>
+        </swiper-item>
+      </block>
+      <block>
+        <swiper-item style="margin-bottom: 30rpx" wx:if="{{wearpicList.length}}">
+          <view class="containter" >
+            <ec-canvas id="mychart-two" canvas-id="c" ec="{{ec2}}" width="100%" height="100%"></ec-canvas>
+          </view>
+        </swiper-item>
+        <swiper-item wx:if="{{wearpicList.length == 0}}">
+            <view class="nodangan">近7天无检测记录，请尽快检测</view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- <block wx:if="{{navList.length == 0}}">
+     <view class="nodangan">请点击头部切换孩子绑定孩子！！！</view>
+    </block>   -->
+</view>
+
+<!-- 添加孩子 -->
+   <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
+   <view class="show"  wx:if="{{show}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitle">
+        请选择添加方式
+      </view>
+      <view class="btnBox">
+        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+      </view>
+    </view>

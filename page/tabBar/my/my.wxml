@@ -16,6 +16,10 @@
           点击登录
         </view>
       </view>
+      <view class="rightPart" bindtap="gotoCode">
+        <image  class="scan" src="/image/scan2.png"></image>
+        <image class="goSee" src="/image/righticon.png"></image>
+      </view>
     </view>
     <view  class="markTop">
       <view class="imgBox">
@@ -90,7 +94,7 @@
       </view>
       <view class="centerItem" bindtap="goClert">
         <image  src="/image/myicon/clert.png"></image>
-        <view class="itemTitle">店员端入口</view>
+        <view class="itemTitle">合作端入口</view>
       </view>
       <view class="centerItem" bindtap="gotoPing">
         <image  src="/image/myicon/assessment.png"></image>

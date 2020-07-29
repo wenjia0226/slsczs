@@ -19,6 +19,11 @@ Page({
     app.hidetabbar();
     app.editTabbar();
   },
+  gotoCode() {
+    wx.navigateTo({
+      url: '/page/myCollection/pages/studentCode/studentCode?studentId=' + this.data.studentId,
+    })
+  },
   gotoAdd() {
     if (this.data.phone) {
       this.hideview()
@@ -440,7 +445,7 @@ Page({
         console.log(res)
         if (res.data.status == 200) {
           wx.navigateTo({
-            url: '/page/myCollection/pages/clertPage/clertPage'
+            url: '/page/myCollection/pages/clertMain/clertMain'
           })
         } else if (res.data.status == 10227) {
           wx.navigateTo({

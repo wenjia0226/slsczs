@@ -26,7 +26,6 @@
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  width: 100%;
 }
 .leftIcon {
   width: 120rpx;
@@ -48,11 +47,24 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  flex: 1;
 }
 .rightNi {
   display: flex;
   align-items: center;
   width: 100%;
+}
+.rightPart {
+  padding: 10rpx;
+}
+.scan {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 10rpx;
+}
+.goSee {
+  width: 30rpx;
+  height: 30rpx;
 }
 .imgBox {
   width: 150rpx;

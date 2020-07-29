@@ -19,10 +19,14 @@ Page({
     pageSize:5,
     integralPageSize: 5,
     hasMoreData: true,
-    integralHasMoreData: true
+    integralHasMoreData: true,
+    studentId: ''
   },
   onShow: function (options) {
     this.getChildrenList(); 
+    this.setData({
+      studentId: wx.getStorageSync('studentId')
+    })
   },
   gotoRank() {
       wx.navigateTo({
@@ -79,11 +83,14 @@ Page({
   },
   handleGetCode(e) {
     let id = e.currentTarget.dataset.id;
-    wx.setStorageSync('address', e.currentTarget.dataset.address);
-    wx.setStorageSync('partnership', e.currentTarget.dataset.partnership)
-    wx.navigateTo({
-      url: '/page/myCollection/pages/code/code?id=' + id
-    })
+    //wx.setStorageSync('address', e.currentTarget.dataset.address);
+    //wx.setStorageSync('partnership', e.currentTarget.dataset.partnership)
+    // wx.navigateTo({
+    //   url: '/page/myCollection/pages/code/code?id=' + id
+    // })
+      wx.navigateTo({
+        url: '/page/myCollection/pages/studentCode/studentCode?studentId=' + this.data.studentId,
+      })
   },
   getChildrenList() {
     let that = this;

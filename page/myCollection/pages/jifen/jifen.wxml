@@ -106,7 +106,7 @@
           <view class="statusTitle">{{item.status}}</view>
           <text class="status" style="background: #5478F5" wx:if="{{item.status == '已完成'}}" data-id="{{item.id}}" bindtap="handleDelete">删除</text>
           <text class="status" style="background: #00C42A" wx:if="{{item.status == '已发货'}}" data-id ="{{item.id}}" bindtap="handleConfirm">确认收货</text>
-          <text class="status" style="background: #00C42A" wx:if="{{item.status == '待体验'}}" bindtap="handleGetCode" data-id="{{item.id}}" data-partnership="{{item.partnership}}" data-address="{{item.partnershipAddress}}"> 获取体验码</text>
+          <text class="status" style="background: #00C42A" wx:if="{{item.status == '待体验'}}" bindtap="handleGetCode" > 获取体验码</text>
         </view>
       </view>
   

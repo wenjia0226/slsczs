@@ -39,7 +39,11 @@ Page({
       if (res.data.status == 200) {
         console.log(res)
         wx.navigateTo({
-          url: '/page/myCollection/pages/clertPage/clertPage'
+          url: '/page/myCollection/pages/clertMain/clertMain'
+        })
+      }else {
+        wx.showToast({
+          title: res.data.msg
         })
       }
     }, (err) => {

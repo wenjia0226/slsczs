@@ -1,0 +1,107 @@
+/* page/myCollection//pages/clertPage/clertPage.wxss */
+.mainWrap {
+  /* background: #f7f8fa; */
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; */
+  display: flex;
+  flex-direction: column;
+}
+
+.number {
+ 
+  color: red;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 30rpx;
+  padding: 0 10rpx;
+}
+.coWhite {
+  color: #fff;
+}
+.imgWrap {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40rpx;
+  height: 40rpx;
+}
+.imgWrap > image {
+  width: 100%;
+  height: 100%;
+}
+.centerWrap {
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: 130rpx;
+}
+.itemWrap {
+  position: relative;
+ margin: 20rpx 5%;
+ border:2rpx solid grey;
+}
+.item {
+  padding:  16rpx 10rpx 16rpx 40rpx;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  display: flex;
+}
+.size {
+  width: 200rpx;
+  padding-left: 20rpx;
+  display: inline-block;
+}
+.name {
+  flex:1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  bottom: 0;
+}
+.bottomWrap {
+  width: 100%;
+  height: 120rpx;
+  position: fixed;
+  background:#fff;
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
+.scanWrap {
+  box-sizing: border-box;
+  width: 60%;
+}
+.scanBox {
+  width: 100%;
+  background: #1ea8ff;
+  padding: 16rpx;
+  box-sizing: border-box;
+  border-radius:  36rpx;
+  text-align: center;
+  color: #fff;
+}
+.exchangeBtn {
+  background: #5391FC;
+  width: 80%;
+  margin: 20rpx;
+  border-radius: 30rpx;
+  padding: 10rpx;
+  text-align: center;
+  color: #fff;
+
+}
+.bggrey {
+  color: grey;
+  font-size: 24rpx;
+}
+.noData {
+  text-align: center;
+  font-size: 30rpx;
+  color: grey;
+  margin-top: 50%;
+}
