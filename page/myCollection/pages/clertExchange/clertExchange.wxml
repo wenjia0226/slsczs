@@ -18,7 +18,7 @@
           <text class="name">{{item.studentName}}</text>
         </view>
         <view class="item">
-          <view class="exchangeBtn" bindtap="exchange">兑换</view>
+          <view class="exchangeBtn" data-id="{{item.id}}" bindtap="exchange">兑换</view>
         </view>
       </view>
       <view  class="noData" wx:if="{{!productList.length}}">

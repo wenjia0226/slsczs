@@ -23,6 +23,7 @@ Page({
     showWarning: false,
     show: false,
     studentName: '',
+    studentId: '',
     balance: 0,
     remark: ''
   },
@@ -291,7 +292,7 @@ Page({
   // 服务类型跳转到
   gotoCode() {
      wx.navigateTo({
-        url: '/page/myCollection/pages/code/code?id=' + this.data.orderId,
+       url: '/page/myCollection/pages/studentCode/studentCode?studentId=' + this.data.studentId,
       })
     this.setData({
       showWarning: false

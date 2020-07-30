@@ -36,8 +36,25 @@ Page({
       })
     }
   },
-  exchange() {
-    
+  exchange(e) {
+    //console.log(e.currentTarget.dataset.id)
+    let orderId = e.currentTarget.dataset.id;
+    let that = this;
+    let url = app.globalData.URL + "clertSanningCode", data = { id: orderId, openId: wx.getStorageSync('openId') };
+    wx.showLoading({
+      title: '加载中...'
+    })
+    app.wxRequest(url, data, (res) => {
+     // console.log(res)
+      if (res.data.status == 200) {
+        wx.showToast({
+          title: '恭喜您已经兑换完成',
+        })
+        wx.navigateTo({
+          url: '/page/myCollection/pages/clertPage/clertPage',
+        })
+      }
+    })
   },
   productList() {
     let that = this;
