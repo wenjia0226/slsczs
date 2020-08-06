@@ -8,6 +8,10 @@
      <text class="txt">学生筛查档案</text>
      <image  src="/image/righticon.png"></image>
   </view>
+  <view class="itemBox" bindtap ="gotoAddChun">
+     <text class="txt">眼健康档案上传</text>
+     <image  src="/image/righticon.png"></image>
+  </view>
   <view class="itemBox" bindtap="gotoLiebiao">
      <text class="txt">我的兑换</text>
      <image  src="/image/righticon.png"></image>

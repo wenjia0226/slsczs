@@ -6,6 +6,17 @@ Page({
    */
   data: {
 
+  },  
+  gotoAddChun() {
+    let that = this;
+    wx.scanCode({  //扫码
+      success(res) {
+        let studentId = res.result;
+        wx.navigateTo({
+          url: '/page/myCollection/pages/archiveUpdate/archiveUpdate?studentId=' + studentId,
+        })
+      }
+    })
   },
   gotoShai() {
     let that = this;
@@ -31,8 +42,16 @@ Page({
     })
   },
   gotoLiebiao() {
-    wx.navigateTo({
-      url: '/page/myCollection/pages/clertPage/clertPage'
+    let that = this;
+    wx.scanCode({  //扫码
+      success(res) {
+        // console.log(res)
+        let studentId = res.result;
+        wx.navigateTo({
+          url: '/page/myCollection/pages/clertPage/clertPage'
+        })
+      }
     })
+    
   }
 })

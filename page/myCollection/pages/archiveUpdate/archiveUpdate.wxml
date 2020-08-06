@@ -1,0 +1,156 @@
+<!--reportList/reportList.wxml-->
+<view class="main">
+<scroll-view scroll-y style="height: 100%">
+  <view class="title">视觉检测报告单</view>
+  <!-- 顶部头像 -->
+  <view class="itemWrap">
+    <view class="leftWrap">
+      <view class="logo">
+        <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == 1}}"></image>
+        <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == 0}}"></image>
+      </view>
+    </view>
+    <view class="centerWrap">
+      <view class="name white">{{name}}</view>
+      <view class="time white" >{{birthday}}</view>
+    </view>
+    <view class="rightWrap">
+      <view class="name white" >学校: {{school}}</view>
+      <view class="time white">班级: {{classesName}}</view>     
+    </view>
+  </view>
+  <view class="reportMian">
+    <!-- 屈光度 -->
+    <view class="listWTitle">屈光度</view>
+    <view  class="list" style=" border-top: 1rpx solid #6794EB;">
+      <view class="wth" style="border-left:  1rpx solid #6794EB;">眼别</view>
+      <view class="wth" >远裸视</view>
+      <view class="wth">近裸视</view>
+      <view class="wth">球镜</view>
+      <view class="wth">柱镜</view>
+      <view class="wth ">轴位</view>
+      <view class="wth " style="font-size: 20rpx">矫正视力</view>
+      <view class="wth">瞳距</view>
+      <view class="wth">主导眼</view>
+    </view>
+    <view  class="list listLeft">
+      <view class="wth"  style="border-left:  1rpx solid #6794EB;">右眼</view>
+      <input class="wth black"  bindinput="farRightInput"></input>
+      <input class="wth black" bindinput="nearRightInput"></input>
+      <input class="wth black"  bindinput="sphRightInput" ></input>   
+      <input class="wth black"  bindinput="cytRightInput"></input>
+      <input class="wth  black"  bindinput="axisRightInput"></input>
+      <input class="wth  black"  bindinput="correctRightInput"></input>
+      <input class="wth black"  bindinput="ipdRightInput"></input>
+      <input class="wth black"  bindinput="leadingRightInput"></input>
+    </view>
+     <view  class=" list listLeft" >
+      <view class="wth"  style="border-left:  1rpx solid #6794EB;">左眼</view>
+      <input class="wth black"  bindinput="farLeftInput"></input>
+      <input class="wth black" bindinput="nearLeftInput"></input>
+      <input class="wth black"  bindinput="sphLeftInput" ></input>   
+      <input class="wth black"  bindinput="cytLeftInput"></input>
+      <input class="wth  black"  bindinput="axisLeftInput"></input>
+      <input class="wth  black"  bindinput="correctLeftInput"></input>
+      <input class="wth black"  bindinput="ipdLeftInput"></input>
+      <input class="wth black"  bindinput="leadingLeftInput"></input>
+    </view>
+    <!-- 视功能检查 -->
+    <view class="listWTitle">视功能检查</view>
+    <view class="itemLine">
+      <view class="itemLeft" >
+        <view class="titleItem">眼球运动 :</view>
+        <input class="black sgn"  bindinput="motionInput"></input>
+      </view>
+      <view class="itemLeft">
+        <view class="titleItem">立体视检查 :</view> 
+        <input class="black sgn" bindinput="stereopsisInput"></input>
+      </view>
+    </view>
+     <view class="itemLine">
+      <view class="itemLeft">
+        <view class="titleItem">遮盖眼位:</view> 
+        <input class="black sgn" bindinput="coverInput"></input>
+      </view>
+      <view class="itemLeft">
+        <view class="titleItem"> Worth-4点:</view> 
+        <input class="black sgn" bindinput="worthInput"></input>
+      </view>
+    </view>
+    <view class="collectionWrap">
+      <view class="collectLeft">
+        <view class="coLWrap">
+        <view class="titleItem">集合近点:</view> 
+        <input class="black sgn" bindinput="assemblyInput"></input>
+        </view>
+        <view  class="coLWrap">
+        <view class="titleItem">色觉检查:</view> 
+        <input class="black sgn" bindinput="colourVisionInput"></input>
+        </view>
+      </view>
+      <view class="collectRight ">
+        <view class="collectRightTitle bd_bottom">调 节 灵 敏 度</view>
+         <view class="eyeWrap">
+            <input class="black" bindinput="splRightInput">{{splRight}}</input>
+            <input class="black" bindinput="splLeftInput">{{splLeft}}</input>
+            <input class="black" bindinput="splBinoculusInput">{{splBinoculus}}</input>
+         </view>
+      </view>
+    </view>
+     <!-- 生物测量检查 -->
+    <view class="listWTitle">生物测量检查</view>
+    <view  class="list" style=" border-top: 1rpx solid #6794EB;">
+      <view class="wth" style="border-left:  1rpx solid #6794EB;">眼别</view>
+      <view class="wth2">水平曲率值</view>
+      <view class="wth2">垂直曲率值</view>
+      <view class="wth2">眼轴长度</view>
+      <view class="wth2">前房深度</view>
+      <view class="wth2">晶体厚度</view>
+    </view>
+    <view  class=" list listLeft">
+       <view class="wth" style="border-left:  1rpx solid #6794EB;">右眼</view>
+      <input class="wth2 black"  bindinput="levelRightInput"></input>    
+      <input class="wth2 black"  bindinput="verticalRightInput"></input>
+      <input class="wth2 black"  bindinput="axialLengthRightInput"></input>
+      <input class="wth2 black"  bindinput="acdRightInput"></input>
+      <input class="wth2 black"  bindinput="ltRightInput"></input>
+    </view>
+    <view  class="list listLeft" style="padding: 0">
+      <view class="wth" style="border-left:  1rpx solid #6794EB;">左眼</view>
+      <input class="wth2 black"  bindinput="levelLeftInput"></input>    
+      <input class="wth2 black"  bindinput="verticalLeftInput"></input>
+      <input class="wth2 black"  bindinput="axialLengthLeftInput"></input>
+      <input class="wth2 black"  bindinput="acdLeftInput"></input>
+      <input class="wth2 black"  bindinput="ltLeftInput"></input>
+    </view>
+    <!-- 眼部健康检查 -->
+      <view class="listWTitle">眼部健康检查</view>
+      <view  class="list listLeft"  style="margin-bottom: 5rpx;">
+        <view>裂隙灯检查 :</view>
+        <input class="pl black" bindinput="slitLampInput"></input>
+      </view>
+      <view  class="list listLeft">
+        <view>眼底照相检查:</view>
+        <input class="pl black" bindinput="retCamInput"></input>
+      </view>
+      <!-- 身体情况 -->
+      <view class="listWTitle">身体情况</view>
+      <view  class="list listLeft"  style="margin-bottom: 5rpx;">
+        <view>身高（cm）:</view>
+        <input class="pl black" bindinput="heightInput"></input>
+      </view>
+      <view  class="list listLeft">
+        <view>体重（kg):</view>
+        <input class="pl black" bindinput="weightInput"></input>
+      </view>
+        <!-- 处理建议 -->
+      <view class="listWTitle">处理建议:</view>
+      <view  class="list listLeft"  style="height: 100rpx;">
+        <textarea class="pl black"  bindinput="suggestInput">{{suggest}}</textarea>
+      </view>
+      <view class="sumitBox" bindtap="submitReport">
+      <view class="sumitBtn" >提交</view>
+    </view>
+    </view> 
+    </scroll-view>
+</view>

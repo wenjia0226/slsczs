@@ -58,6 +58,7 @@
     {
       "root": "page/myCollection/",
       "pages": [
+        "pages/archiveUpdate/archiveUpdate",
         "pages/clertExchange/clertExchange",
         "pages/clertArchives/clertArchives",
         "pages/clertMain/clertMain",

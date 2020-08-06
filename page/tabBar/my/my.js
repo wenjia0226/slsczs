@@ -402,7 +402,7 @@ Page({
           })
           app.wxRequest(url, data, (res) => {
             if (res.data.status == 200) {
-              console.log(res)
+              //console.log(res)
               that.setData({
                 phoneNum: res.data.data
               })
@@ -441,8 +441,6 @@ Page({
         title: '加载中...',
       })
       app.wxRequest(url, data, (res) => {
-
-        console.log(res)
         if (res.data.status == 200) {
           wx.navigateTo({
             url: '/page/myCollection/pages/clertMain/clertMain'
