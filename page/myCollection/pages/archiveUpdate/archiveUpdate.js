@@ -454,7 +454,7 @@ Page({
           title: '加载中...'
         })
         app.wxRequest(url, data, (res) => {
-          console.log(res)
+         // console.log(res)
           res ? res = res.data.data : '';
           that.setData({
             name: res.name,

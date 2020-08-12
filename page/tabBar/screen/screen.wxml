@@ -74,7 +74,6 @@
    <view class="bottomWrap">
     <tabbar tabbar="{{tabbar}}"></tabbar>
    </view>
-  
 </view>
 <!-- 引导关注公众号 -->
  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
@@ -121,6 +120,22 @@
       <view class="chooseBox">
         <view class="chooseItem" bindtap="gotoCheck">重新校验</view>
         <view class="chooseItem" bindtap="gotoStart">是</view>
+      </view>
+    </view>
+     <!-- 检测主导眼 -->
+    <view class="greyBg" wx:if="{{mianEyeShow}}"  bindtap="hideMainEyeShow"></view>
+    <view class="showRemin"  wx:if="{{mianEyeShow}}">
+      <view class="quxiaoRemin" bindtap="hideMainEyeShow">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitleRemin">
+        <view>您的主导眼是？</view>
+        <view class="restitle" bindtap="handleSee">查看检测主导眼方法</view>
+      </view>
+     
+      <view class="chooseBox">
+        <view class="chooseItem" data-eye="左" bindtap="chooseLeftEye">左眼</view>
+        <view class="chooseItem" data-eye="右" bindtap="chooseLeftEye">右眼</view>
       </view>
     </view>
 

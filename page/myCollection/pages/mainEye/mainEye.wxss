@@ -1,0 +1,48 @@
+/* page/myCollection//pages/mainEye/mainEye.wxss */
+.mianWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3%;
+}
+.mianTitle {
+  font-size: 40rpx;
+  margin: 20rpx;
+  letter-spacing: 3rpx;
+  font-weight: 500
+}
+.itemWrap {
+  font-size: 30rpx;
+}
+.step1Img2 {
+  width: 60%;
+}
+.step1Img2 > image {
+  width: 100%;
+}
+.step {
+  padding: 3rpx 10rpx;
+  background: #3E65E4;
+  color: #fff;
+  margin: 20rpx 0;
+  display: inline-block;
+}
+.content {
+  font-size: 28rpx;
+  line-height: 36rpx;
+}
+.eye {
+  color: red;
+  display: inline-block;
+  padding: 0 5rpx;
+}
+.bottomWrap {
+  padding: 10rpx 60rpx;
+  background: #3E65E4;
+  border-radius: 30rpx;
+  margin: 30rpx 20rpx;
+  color: #fff;
+  font-size: 30rpx;
+  letter-spacing: 5rpx;
+}

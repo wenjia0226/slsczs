@@ -18,6 +18,13 @@
   display: block;
   width: 100%;
 }
+/* 主导眼  */
+.restitle {
+  color: red;
+  font-size: 24rpx;
+  letter-spacing: 3rpx;
+  margin-top: 15rpx;
+}
 /* // 温馨提示 */
 .warning {
   display: flex;

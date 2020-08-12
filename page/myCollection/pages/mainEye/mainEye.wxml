@@ -1,0 +1,29 @@
+<!--page/myCollection//pages/mainEye/mainEye.wxml-->
+<view class="mianWrap">
+  <view class="mianTitle">如何测试主视眼</view>
+  <image class="step1Img"  mode="widthFix" src="/image/step1.png"></image>
+  <view class="itemWrap">
+    <view class="step">步骤一:</view>
+    <view class="content">平伸双手，手臂伸直，将两手在眼前交叠，两手的虎口之间留出一个小孔。</view>
+    <view class="content"> 
+      <view class="eye">双眼</view> 通过小孔观察远处的物体，并将物体放于小孔中心位置。
+    </view>
+  </view>
+  <view  class="step1Img2">
+    <image  mode="widthFix" src="/image/step2.png"></image>
+  </view>
+  <view class="itemWrap">
+    <view class="step">步骤二:</view>
+    <view class="content">闭上一只眼睛，如果物体位置有变化或被手遮挡，则此眼不是主视眼。</view>
+  </view>
+  <view  class="step1Img2">
+    <image  mode="widthFix" src="/image/step2.png"></image>
+  </view>
+  <view class="itemWrap">
+    <view class="step">步骤三:</view>
+    <view class="content">反之，闭上一只眼睛，如果物体位置没有变化或没有被手遮挡，则此眼即为主视眼。 </view>
+  </view>
+  <view class="bottomWrap" bindtap="finish">
+    测试完成
+  </view>
+</view>

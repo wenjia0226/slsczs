@@ -17,7 +17,45 @@ Page({
     tabbar: {},
     show: false,
     reminShow: false,
-    phone: wx.getStorageSync('phone')
+    mianEyeShow: false,
+    dominantEye: '',
+    phone: 0,
+    openId: ''
+  },
+  hideMainEyeShow() {
+    this.setData({
+      mianEyeShow: false
+    })
+  },
+  handleSee() {
+    wx.navigateTo({
+      url: '/page/myCollection/pages/mainEye/mainEye',
+    })
+  },
+  //保存左右眼
+  chooseLeftEye(e) {
+    let that = this;
+    let eye = e.target.dataset.eye;
+    if(eye == '左'){
+       this.setData({
+         dominantEye: '左眼'
+       })
+    }else {
+      this.setData({
+        dominantEye: '右眼'
+      })
+    }
+    let url = app.globalData.URL + "saveDominantEye", data = { studentId: this.data.studentId,
+      dominantEye: this.data.dominantEye };
+    //如果已经授权过
+    app.wxRequest(url, data, (res) => {
+        console.log(res)
+        if(res.data.status == 200) {
+          that.hideMainEyeShow();
+          that.showRemin();
+        }
+    })
+
   },
   hideRemin() {
     this.setData({
@@ -70,7 +108,9 @@ Page({
       navTop: app.globalData.navTop,
       navHeight: app.globalData.navHeight,
       flag: false,
-      phone: wx.getStorageSync('phone')
+      phone: wx.getStorageSync('phone'),
+      studentId: wx.getStorageSync('studentId'),
+      openId: wx.getStorageSync('openId')
     })
     if (wx.getStorageSync('isShow') === false) {
       this.setData({
@@ -182,12 +222,16 @@ Page({
       let student = this.data.childrenList.filter((item, index) => { return index == that.data.currentIndex });
       wx.setStorageSync('studentId', student[0].id)
       wx.setStorageSync('studentName', student[0].name)
+      this.setData({
+        studentId: student[0].id
+      })
     }
   },
   getItem(e) {
     let that = this;
       this.setData({
-        currentIndex: e.currentTarget.dataset.index
+        currentIndex: e.currentTarget.dataset.index,
+        studentId: e.currentTarget.dataset.id
       })
   },
   gotoAdd() {
@@ -279,49 +323,34 @@ Page({
   //跳转到自我校准
   goJozhun(e) {
     let that = this;
+    //先验证是否检查过主视眼
       this.setData({
         reuploadFlag: true
       })
       wx.setStorageSync('detectType', e.currentTarget.dataset.detecttype);
       wx.setStorageSync('reuploadFlag',  this.data.reuploadFlag);
       if (wx.getStorageSync('phone')) {
-        let openId = wx.getStorageSync('openId');
-        let url = app.globalData.URL + 'chkCalibration', data = {
-          openId: wx.getStorageSync('openId')
-        };
-        wx.showLoading({
-          title: '加载中...',
-        })
-        app.wxRequest(url, data, (res) => {
-          if(res.data.data == null) {
-            wx.navigateTo({
-              url: '/page/component/pages/check/check'
-            })
-          }else {
-            that.setData({
-              scale: res.data.data
-            })
-            that.showRemin();
-          //   wx.showModal({
-          //   title: '提示',
-          //   content: '是否使用上次校验数据',
-          //   cancelText: "重新校验",
-          //   confirmText: "是",
-          //   success: function(res) {
-          //     if (res.confirm) {
-          //       wx.setStorageSync('scale', scale)
-          //       wx.navigateTo({
-          //         url: '/page/component/pages/start/start',
-          //       })
-          //     }else if(res.cancel) {
-          //       wx.navigateTo({
-          //         url: '/page/component/pages/check/check',
-          //       })
-          //     }
-          //   } 
-          // })
-        }
+        if (this.data.studentId) {  // 如果有学生Id
+          let url = app.globalData.URL + 'chkDominantEye', data = {
+            studentId: this.data.studentId
+          };
+          wx.showLoading({
+            title: '加载中...',
           })
+          app.wxRequest(url, data, (res) => {
+            console.log(res)
+            if (res.data.status == 10237) {  // 如果没验证过就去检测主导眼
+              that.setData({
+                mianEyeShow: true
+              })
+            } else {  //如果检测过主导眼就直接进行测试
+              that.showReminBox();
+            }
+          })
+        }else {   // 如果没有学生id 直接跳过 ，下次添加上孩子后还是需要检测一次主导眼
+          that.showReminBox();
+        }
+       
          
         // } 
       }else {
@@ -330,6 +359,27 @@ Page({
         })
       }
 
+  },
+  showReminBox() {
+    let that = this;
+    let url = app.globalData.URL + 'chkCalibration', data = {
+      openId: this.data.openId
+    };
+    wx.showLoading({
+      title: '加载中...',
+    })
+    app.wxRequest(url, data, (res) => {
+      if (res.data.data == null) {
+        wx.navigateTo({
+          url: '/page/component/pages/check/check'
+        })
+      } else {
+        that.setData({
+          scale: res.data.data
+        })
+        that.showRemin();
+      }
+    })
   },
   onShareAppMessage() {
     return {

@@ -1,12 +1,13 @@
 {
   "pages": [
+    "page/tabBar/screen/screen",
     "page/tabBar/index/index",
     "page/tabBar/my/my",
     "page/tabBar/exchange/exchange",
     "page/tabBar/eyeShow/eyeShow",
     "result/result",
     "newMessage/newMessage",
-    "page/tabBar/screen/screen",
+ 
     "manual/manual",
     "manualTwo/manualTwo",
     "nicheng/nicheng"
@@ -58,6 +59,7 @@
     {
       "root": "page/myCollection/",
       "pages": [
+        "pages/mainEye/mainEye",
         "pages/archiveUpdate/archiveUpdate",
         "pages/clertExchange/clertExchange",
         "pages/clertArchives/clertArchives",

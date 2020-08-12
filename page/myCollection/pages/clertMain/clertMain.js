@@ -33,7 +33,7 @@ Page({
     let that = this;
     wx.scanCode({  //扫码
       success(res) {
-        console.log(res)
+        //console.log(res)
         let studentId = res.result;
         wx.navigateTo({
           url: '/page/myCollection/pages/clertExchange/clertExchange?studentId=' + studentId
