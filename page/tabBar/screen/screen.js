@@ -338,7 +338,7 @@ Page({
             title: '加载中...',
           })
           app.wxRequest(url, data, (res) => {
-            console.log(res)
+           // console.log(res)
             if (res.data.status == 10237) {  // 如果没验证过就去检测主导眼
               that.setData({
                 mianEyeShow: true

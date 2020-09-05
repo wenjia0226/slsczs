@@ -115,10 +115,10 @@
         <image src="/image/quxiao3.png" mode="aspectFit"></image>
       </view>
       <view class="modeTitleRemin">
-        是否使用上次校验数据
+        是否与上次检测使用同一手机？
       </view>
       <view class="chooseBox">
-        <view class="chooseItem" bindtap="gotoCheck">重新校验</view>
+        <view class="chooseItem" bindtap="gotoCheck">否</view>
         <view class="chooseItem" bindtap="gotoStart">是</view>
       </view>
     </view>

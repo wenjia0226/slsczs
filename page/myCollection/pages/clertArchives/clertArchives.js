@@ -101,6 +101,12 @@ Page({
     })
     this.getArchiveList();
   },
+  //轮播图切换
+  swiperChange(e) {
+    this.setData({
+      isSelect: e.detail.current
+    })
+  },
 
   //获取档案列表
   getArchiveList() {
