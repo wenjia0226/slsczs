@@ -1,6 +1,11 @@
 <!--pages/detail/detail.wxml-->
 <view class="main">
-  <image src="https://www.guangliangkongjian.com/images/bg_rank.jpg" class="bg" style="height:{{height + 200}}px"></image>
+<view  class="bg">
+  <image src="https://www.guangliangkongjian.com/images/bg_rank.jpg" style="width: 100%;height:{{height + 200}}px"></image>
+  <view class="changeRank" style="top:{{height}}px">
+    <Select bindmyevent="myevent"  prop-array='{{selectArray}}'></Select>
+  </view>
+</view>
   <nav-bar navbar-data='{{navbarData}}' > </nav-bar>
   <view class="headerWrap">
     <view class="header_left">
@@ -20,7 +25,7 @@
         <view class="school">学校</view>
         <view class="money">爱眼币</view>
       </view>
-      <view class="rankItem firstBg">
+      <view class="rankItem firstBg" v-if="{{firstObj.length}}">
         <view class="rankImg">
           <image src="/image/first.png"></image>
         </view>
@@ -28,7 +33,7 @@
         <view class="school">{{firstObj.schoolName}}</view>
         <view class="money">{{firstObj.sum}}</view>
       </view>
-      <view class="rankItem secondBg">
+      <view class="rankItem secondBg" v-if="{{secondObj.length}}">
         <view class="rankImg">
           <image src="/image/second.png"></image>
         </view>
@@ -36,7 +41,7 @@
         <view class="school">{{secondObj.schoolName}}</view>
         <view class="money">{{secondObj.sum}}</view>
       </view>
-      <view class="rankItem thirdBg">
+      <view class="rankItem thirdBg" v-if="{{thirdObj.length}}">
         <view class="rankImg">
           <image src="/image/third.png"></image>
         </view>
@@ -44,7 +49,7 @@
         <view class="school">{{thirdObj.schoolName}}</view>
         <view class="money">{{thirdObj.sum}}</view>
       </view>
-      <view class="rankItem four" wx:for="{{integtalRanking}}" wx:key="index">
+      <view class="rankItem four" wx:for="{{integtalRanking}}" wx:key="index" v-if="{{integtalRanking.length}}">
         <view class="rankImg rankLower">
           {{index + 4}}
         </view>

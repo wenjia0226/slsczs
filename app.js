@@ -115,7 +115,7 @@ App({
     wz:'',
     menuHeight: '',                      
     URL:'https://www.guangliangkongjian.com/lightspace/xcx/',
-    //URL: 'http://192.168.100.199:8080/lightspace/xcx/',
+   // URL: 'http://192.168.100.199:8080/lightspace/xcx/',
     systemInfo: null,//客户端设备信息
     tabBar: {
       "backgroundColor": "#ffffff",

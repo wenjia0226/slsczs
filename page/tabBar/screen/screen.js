@@ -49,7 +49,7 @@ Page({
       dominantEye: this.data.dominantEye };
     //如果已经授权过
     app.wxRequest(url, data, (res) => {
-        console.log(res)
+      //  console.log(res)
         if(res.data.status == 200) {
           that.hideMainEyeShow();
           that.showRemin();

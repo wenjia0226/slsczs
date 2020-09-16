@@ -42,7 +42,8 @@
       <view class="txt title"> 爱眼币获取及使用规则</view>
       <view class="txt"> 1、每日首次完成“裸眼检测”或者“戴镜检测”，获得3个爱眼币。</view>
       <view class="txt"> 2、每日完成全部爱眼计划的打卡，会获得2个爱眼币。</view>
-      <view class="txt"> 3、爱眼币可用来兑换商品。</view>
+       <view class="txt"> 3、每日首次完成“爱眼答题”，获取相应的爱眼币。</view>
+      <view class="txt"> 4、爱眼币可用来兑换商品。</view>
     </view>
       <view class="total"> {{balance}}</view>
       <view class="des">

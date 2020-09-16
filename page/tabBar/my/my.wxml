@@ -17,7 +17,7 @@
         </view>
       </view>
       <view class="rightPart" bindtap="gotoCode">
-        <image  class="scan" src="/image/scan2.png"></image>
+        <image  class="scan" src="/image/code.png"></image>
         <image class="goSee" src="/image/righticon.png"></image>
       </view>
     </view>

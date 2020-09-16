@@ -77,22 +77,29 @@ Page({
       resetBirthday: dateNew
     })
   },
-  //修改站姿身高
+  validateNumber(val) {
+    return val.replace(/\D/g, '')
+  },
+  //修改椅子
   changeChairHeight(e) {
+    let value = this.validateNumber(e.detail.value)
+    console.log(value)
     this.setData({
-      resetChairHeight: e.detail.value
+      resetChairHeight: value
     })
   },
   //修改站姿身高
   changeHeight(e) {
+    let value = this.validateNumber(e.detail.value)
     this.setData({
-      resetHeight: e.detail.value
+      resetHeight: value
     })
   },
   //修改坐姿身高
   changeSitHeight(e) {
+    let value = this.validateNumber(e.detail.value)
     this.setData({
-      resetSittingHeight: e.detail.value
+      resetSittingHeight:value
     })
   },
   // 修改姓名

@@ -82,15 +82,15 @@
       <input class="inputInner" disabled  value="{{birthday}}"></input>
     </view>
     <view class="itemWrap">
-      <label class="name">站姿身高（米)</label>
+      <label class="name">站姿身高（单位:厘米)</label>
       <input class="inputInner" disabled value="{{height}}"></input>
     </view>
     <view class="itemWrap">
-      <label class="name">坐姿身高（米)</label>
+      <label class="name">坐姿身高（单位:厘米)</label>
       <input class="inputInner" disabled value="{{sittingHeight}}"></input>
     </view>
      <view class="itemWrap">
-      <label class="name">椅子高度（米)</label>
+      <label class="name">椅子高度（单位:厘米)</label>
       <input class="inputInner" disabled  value="{{chairHeight}}"></input>
     </view>  
   </view>
@@ -135,16 +135,16 @@
       <!-- <input class="inputInner" disabled placeholder="请输入姓名" value="{{birthday}}"></input> -->
     </view>
     <view class="itemWrap">
-      <label class="name">站姿身高(米)</label>
-      <input class="inputInner {{!displayInfo ? 'activeInput': ''}}" bindinput="changeHeight" placeholder="请输入站姿身高" value="{{resetHeight}}"></input>
+      <label class="name">站姿身高(单位:厘米)</label>
+      <input type="number" class="inputInner {{!displayInfo ? 'activeInput': ''}}" bindinput="changeHeight" placeholder="请输入站姿身高" value="{{resetHeight}}"></input>
     </view>
     <view class="itemWrap">
-      <label class="name">坐姿身高(米)</label>
-      <input class="inputInner {{!displayInfo ? 'activeInput': ''}}" bindinput="changeSitHeight" placeholder="请输入坐姿身高" value="{{resetSittingHeight}}"></input>
+      <label class="name">坐姿身高(单位:厘米)</label>
+      <input type="number" class="inputInner {{!displayInfo ? 'activeInput': ''}}" bindinput="changeSitHeight" placeholder="请输入坐姿身高" value="{{resetSittingHeight}}"></input>
     </view>
      <view class="itemWrap">
-      <label class="name">椅子高度(米)</label>
-      <input class="inputInner {{!displayInfo ? 'activeInput': ''}}" bindinput="changeChairHeight" placeholder="请输入椅子高度" value="{{resetChairHeight}}"></input>
+      <label class="name">椅子高度(单位:厘米)</label>
+      <input type="number" class="inputInner {{!displayInfo ? 'activeInput': ''}}" bindinput="changeChairHeight" placeholder="请输入椅子高度" value="{{resetChairHeight}}"></input>
     </view>
      
   </view>

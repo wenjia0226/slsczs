@@ -18,6 +18,7 @@ Page({
   onLoad() {
     app.hidetabbar();
     app.editTabbar();
+    this.getChildrenList()
   },
   gotoCode() {
     wx.navigateTo({

@@ -7,10 +7,10 @@
     "page/tabBar/eyeShow/eyeShow",
     "result/result",
     "newMessage/newMessage",
- 
     "manual/manual",
     "manualTwo/manualTwo",
-    "nicheng/nicheng"
+    "nicheng/nicheng",
+    "rankSelect"
   ],
   "tabBar": {
     "list": [
@@ -59,6 +59,7 @@
     {
       "root": "page/myCollection/",
       "pages": [
+        "pages/rankSelect/rankSelect",
         "pages/mainEye/mainEye",
         "pages/archiveUpdate/archiveUpdate",
         "pages/clertExchange/clertExchange",
@@ -95,7 +96,6 @@
         "pages/navbar/navbar",
         "pages/assessment/assessment",
         "pages/assessmentResult/assessmentResult"
-        
       ]
     },
     {

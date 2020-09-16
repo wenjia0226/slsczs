@@ -1,6 +1,7 @@
 {
  "navigationStyle": "custom",
   "usingComponents": {
-  "nav-bar": "/page/myCollection/pages/navbar/navbar"
+  "nav-bar": "/page/myCollection/pages/navbar/navbar",
+  "Select": "../rankSelect/rankSelect"
 }
 }

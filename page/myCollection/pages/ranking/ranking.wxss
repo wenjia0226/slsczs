@@ -122,3 +122,10 @@
    color: #3072FF;
    font-size: 32rpx;
  }
+
+ /* 切换排名方式 */
+ .changeRank {
+   position: absolute;
+   right: 5%;
+   top: 0;
+ }
