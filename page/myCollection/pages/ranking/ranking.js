@@ -79,7 +79,6 @@ Page({
     }) 
   },
   myevent(e) {
-    console.log(e.detail)
     this.setData({
       searchParam: e.detail.params
     })
@@ -99,7 +98,7 @@ Page({
         type: type
       };
       app.wxRequest(url, data, (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == 200) {
           that.setData({
             firstObj: res.data.data.integtalRanking[0],
