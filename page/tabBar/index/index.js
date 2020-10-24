@@ -20,14 +20,8 @@ Page({
   onLoad() {
     app.hidetabbar();
     app.editTabbar();
-    // this.setData({
-    //   studentId: wx.getStorageSync('studentId'),
-    //   studentName: wx.getStorageSync('studentName')
-    // })
-   
   },
   onShow() { 
-   // app.hidetabbar();
     this.setData({
       phone: wx.getStorageSync('phone'),
       studentName: wx.getStorageSync('studentName'),
@@ -75,7 +69,6 @@ Page({
         app.wxRequest(url, data, (res) => {
           //console.log(res)
           res ? res = res.data.data : '';
-          
           that.setData({
             answer: res.answer,
             balance: res.balance,
@@ -126,7 +119,7 @@ Page({
   },
   getChildrenList() {
     let that = this;
-    let url = app.globalData.URL + "childrenIntegral", data = { openId: wx.getStorageSync('openId') };
+    let url = app.globalData.URL + "childrenIntegral", data = {openId: wx.getStorageSync('openId') };
     //如果已经授权过
       wx.showLoading({
         title: '加载中...'
@@ -138,13 +131,11 @@ Page({
             name: '添加孩子'
           })
         }
-        if (res.data.status == 200) {
+        if(res.data.status == 200) {
           that.setData({
             selectArray: res.data.data,
             childrenList: res.data.data
-          })
-        
-          if(that.data.studentId == '') {
+          })  
             that.setData({
               studentId: res.data.data[0].id,
               gender: res.data.data[0].gender,
@@ -156,7 +147,6 @@ Page({
             wx.setStorageSync('gender', res.data.data[0].gender);
             wx.setStorageSync('studentName', res.data.data[0].name);
             wx.setStorageSync('birthday', res.data.data[0].birthday);
-          }
           that.getTastList();
         }else if(res.data.status == 10220) {
           that.setData({

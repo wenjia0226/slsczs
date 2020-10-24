@@ -54,7 +54,7 @@
     <view class="txt"> 1、信息迁移会将孩子名下所有“检测记录”，“打卡记录”和所有“爱眼币”迁移到目标孩子名下</view>
     <view class="txt"> 2、此操作可将手动添加的孩子通过扫码方式改成扫码孩子，让您的孩子归结到所在学校名下，参与排座等功能中去</view>
     <view class="txt"> 3、本操作不可恢复，请确认无误后进行操作</view>
-    <view class="iknow" bindtap="removeInfo">我知道了</view>
+    <view class="iknow"  data-id="23" bindtap="removeInfo">我知道了</view>
   </view>
 
    <!-- 添加孩子 蒙层-->

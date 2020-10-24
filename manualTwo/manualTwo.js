@@ -19,7 +19,8 @@ Page({
     selectProvinceId: null,
     selectCityId: null,
     selectAreaId: null,
-    prevRoute: ''
+    prevRoute: '',
+    reminShow: true
   },
   onLoad: function (options) {  //在页面加载就调用获取
     this.getProvince()
@@ -27,10 +28,51 @@ Page({
   onShow() {
     let pages = getCurrentPages();//页面对象
     let prevpage = pages[pages.length - 2];//上一个页面对象
-
-    console.log(prevpage.route)//上一个页面路由地址
     this.setData({
       prevRoute: prevpage.route
+    })
+  },
+  gotoStart() {
+    let that = this;
+    this.setData({
+      reminShow: false
+    })
+    wx.scanCode({  //扫码
+      success(res) {
+        var str = res.path;
+        let stuId = str.split('=')[1];
+        //获取到学生id后添加孩子
+        wx.setStorageSync('studentId', stuId);
+        let openId = wx.getStorageSync('openId');
+        let url = app.globalData.URL + 'binding', data = {
+          studentId: stuId,
+          openId: wx.getStorageSync('openId')
+        };
+        wx.showLoading({
+          title: '加载中...',
+        })
+        app.wxRequest(url, data, (res) => {
+          //  console.log(res)
+          if (res.data.status == 200) {  
+            wx.navigateTo({
+              url: '/page/myCollection/pages/childrenManage/childrenManage'
+            })
+          }
+
+        }, (err) => {
+          console.log(err)
+        })
+      }
+    })
+  },
+  hideRemin() {
+    this.setData({
+      reminShow: false
+    })
+  },
+  showRemin() {
+    this.setData({
+      reminShow: true
     })
   },
   handleNameInput(e) {
@@ -64,40 +106,17 @@ Page({
         gender: this.data.gender,
         regionId: this.data.selectAreaId
       };
-    wx.setStorageSync('studentName', this.data.name);
-    wx.setStorageSync('gender', this.data.gender);
-    wx.setStorageSync('birthday', this.data.date);
+    // wx.setStorageSync('studentName', this.data.name);
+    // wx.setStorageSync('gender', this.data.gender);
+    // wx.setStorageSync('birthday', this.data.date);
     app.wxRequest(url, data, (res) => {
-      wx.setStorageSync('studentId', res.data.data)
-
-      if (res.data.status == 200) {
-        if (that.data.prevRoute == 'page/tabBar/index/index') {
-          wx.switchTab({
-            url: '/page/tabBar/index/index'
-          })
-        } else if (that.data.prevRoute == 'page/tabBar/my/my') {
-          wx.switchTab({
-            url: '/page/tabBar/my/my'
-          })
-        } else if (that.data.prevRoute == 'page/myCollection/pages/archives/archives') {
-          wx.navigateTo({
-            url: '/page/myCollection/pages/archives/archives',
-          })
-        } else if (that.data.prevRoute == 'page/myCollection/pages/plan/plan') {
-          wx.navigateTo({
-            url: '/page/myCollection/pages/plan/plan',
-          })
-        } else if (that.data.prevRoute == 'page/tabBar/screen/screen') {
-          wx.navigateTo({
-            url: '/page/tabBar/screen/screen',
-          })
-        } else if (that.data.prevRoute == 'page/mainFunction/pages/result/result') {
-          wx.navigateTo({
-            url: '/page/mainFunction/pages/result/result',
-          })
-        }
-
+      if(res.data.status == 200) {
+        // wx.setStorageSync('studentId', res.data.data)
+        wx.navigateTo({
+          url: '/page/myCollection/pages/childrenManage/childrenManage',
+        })
       }
+      
     })
   },
 

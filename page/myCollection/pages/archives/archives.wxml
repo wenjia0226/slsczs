@@ -43,6 +43,7 @@
       <view class="titleTop {{isSelect == 1 ? 'active': ''}} " data-type="1" bindtap="changeTab"> 裸眼曲线</view>
        <view class=" titleTop {{isSelect == 2 ? 'active': ''}}" data-type="2" bindtap="changeTab"> 戴镜检测</view>
       <view class="titleTop {{isSelect == 3 ? 'active': ''}} " data-type="3" bindtap="changeTab">  戴镜曲线</view>
+       <view class="titleTop {{isSelect == 4 ? 'active': ''}} " data-type="4" bindtap="changeTab">  屈光度</view>
     </view>
     <!-- 裸眼检测列表 -->
     <swiper current="{{isSelect}}" bindchange="swiperChange" class="mainCon" wx:if="{{navList.length && studentId}}" >
@@ -144,10 +145,35 @@
             <view class="nodangan">近7天无检测记录，请尽快检测</view>
         </swiper-item>
       </block>
+       <!-- 屈光度-->
+      <block>
+        <swiper-item wx:if="{{diopterList.length}}">
+          <scroll-view scroll-y style="height: 100%" >
+          <view class="list" wx:for="{{diopterList}}" wx:key="id">
+            <view class="outerItems">
+            <view  class="items"  data-id="{{item.id}}" data-type="wear">
+              <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx">
+                <view class="item-top" style="margin: 10rpx 0"><image mode="aspectFit" src="/image/eye.png"></image></view>
+                <view class="genTime">{{item.genTime}}</view> 
+              </view>   
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/right.png"></image></view>
+                <view>{{item.diopterRight}}</view> 
+              </view>
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/left.png"></image></view>
+                <view>{{item.diopterLeft}}</view> 
+              </view>
+            </view>
+          </view>
+          </view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item style="margin-bottom: 30rpx;height: 100%"  wx:if="{{diopterList.length == 0}}">
+          <view class="nodangan">暂无屈光度信息</view>
+        </swiper-item>
+      </block>
     </swiper>
-    <!-- <block wx:if="{{navList.length == 0}}">
-     <view class="nodangan">请点击头部切换孩子绑定孩子！！！</view>
-    </block>   -->
 </view>
 
 <!-- 添加孩子 -->

@@ -1,0 +1,123 @@
+/* page/myCollection//pages/axial/axial.wxss */
+.mainWrap {
+  background: #eee;
+  overflow:hidden;
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0
+}
+list {
+  margin: 20rpx 0;
+  border-radius: 20rpx;
+  display:flex;
+}
+.outerItems {
+  display: flex; 
+  flex: 1;
+  margin: 0 4% 20rpx;
+  background: #fff;
+  border-radius:  15rpx;
+}
+.items {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  background: #fff;
+
+  position: relative;
+}
+.innerItem {
+  font-size: 18rpx;
+  padding-left: 4rpx;
+  box-sizing:border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.delWrap {
+  width: 40rpx;
+  height: 100%;
+  border-radius:  15rpx;
+  padding: 10rpx;
+}
+.delWrap image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.item {
+  flex:1;
+  padding: 8rpx 0;
+}
+.item-top{
+  padding: 10rpx 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  
+}
+.item-top > image {
+  height: 40rpx;
+  width: 100%;
+}
+.mainCon {
+  width: 100%;
+  flex: 1;
+}
+.containter {
+  height: 100%;
+  margin: 10rpx 5%;
+  background: #fff;
+}
+ec-canvas {
+  width: 60%;
+  height: 100%;
+}
+.time {
+  font-size: 20rpx;
+  color: #fff;
+}
+.genTime {
+  font-size: 24rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.titleBox {
+  display: flex;
+  margin: 10rpx 10rpx 20rpx;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  align-items: center;
+  background: #4db2fd;
+  border-radius: 20rpx;
+  color: #fff
+
+}
+.imgBox {
+  width: 150rpx;
+  height: 150rpx;
+}
+.imgBox > image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.centerBox {
+   flex: 1;
+   padding: 20rpx;
+   margin: 0 20rpx;
+}
+.name {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.birthday {
+  font-size: 24rpx;
+  padding: 10rpx;
+}

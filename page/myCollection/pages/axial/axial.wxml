@@ -1,0 +1,28 @@
+<!--page/myCollection//pages/axial/axial.wxml-->
+<view class="mainWrap">
+  <scroll-view scroll-y style="height: 100%;background: #eee;">
+    <view class="list" wx:for="{{axiosList}}" wx:key="id">
+    <view class="outerItems" >
+      <view  class="items" bindtap="gotArchiveDetail" data-id="{{item.id}}" data-type="luo">
+        <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx;">
+          <view class="item-top" style="margin: 10rpx 0">检测时间</view>
+          <view class="genTime">{{item.genTime}}</view> 
+        
+        </view>   
+        <view class="item">
+          <!-- <view  class="item-top"> <image  mode="aspectFit" src="/image/right.png"></image></view> -->
+          <view class="innerItem">右眼水平曲率：{{item.levelRight}}</view>
+          <view class="innerItem">右眼垂直曲率：{{item.verticalRight}}</view>
+          <view class="innerItem">右眼眼轴长度：{{item.axialLengthRight}}</view> 
+        </view>
+        <view class="item">
+          <!-- <view  class="item-top"> <image  mode="aspectFit" src="/image/left.png"></image></view> -->
+           <view class="innerItem">左眼水平曲率：{{item.levelLeft}}</view> 
+           <view class="innerItem">左眼垂直曲率：{{item.verticalLeft}}</view> 
+           <view class="innerItem">左眼眼轴长度：{{item.axialLengthLeft}}</view>  
+        </view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+</view>

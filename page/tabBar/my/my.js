@@ -66,6 +66,7 @@ Page({
       avatarUrl: wx.getStorageSync('avatarUrl'),
       nickName: wx.getStorageSync('nickName')
     })
+    this.getChildrenList()
   },
   getChildrenList() {
     let that = this;

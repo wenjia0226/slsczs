@@ -6,7 +6,7 @@ Page({
     school: "",
     classesName: '',
     phone: "",
-    studentId: '',
+    studentId: 8881,
     farRight: "",
     farLeft: "",
     nearRight: "",
@@ -236,10 +236,7 @@ Page({
     })
   },
   splBinoculusInput(e) {
-    this.setData({
-      splBinoculus: e.detail.value
-    })
-    
+    splBinoculus: e.detail.value
   },
   //生物检测 
   // 右眼
@@ -413,16 +410,11 @@ Page({
           // })
           let id = res.data.data;
           wx.showModal({
-            title: '恭喜您上传成功',
-            content: '请到眼健康档案查看保存结果',
-            showCancel:false,
+            content: '恭喜您上传成功',
             success(res) {
               if (res.confirm) {
-                // wx.navigateTo({
-                //   url: '/page/myCollection/pages/reportDetail/reportDetail?id=' + id,
-                // })
-                wx.switchTab({
-                  url: '/page/tabBar/my/my',
+                wx.navigateTo({
+                  url: '/page/myCollection/pages/reportDetail/reportDetail?id=' + id,
                 })
               } 
             }
@@ -499,9 +491,9 @@ Page({
   },
   // 参数传递
   onLoad(option) {
-    this.setData({
-      studentId: option.studentId
-    })
+    // this.setData({
+    //   studentId: option.studentId
+    // })
     this.getSudentInfo();
   },
   getSudentInfo() {

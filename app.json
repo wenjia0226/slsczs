@@ -95,7 +95,8 @@
         "pages/myShow/myShow",
         "pages/navbar/navbar",
         "pages/assessment/assessment",
-        "pages/assessmentResult/assessmentResult"
+        "pages/assessmentResult/assessmentResult",
+        "pages/axial/axial"
       ]
     },
     {

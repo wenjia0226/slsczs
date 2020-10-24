@@ -1,5 +1,5 @@
 <!--manual/manual.wxml-->
-<view class="mainWrap">
+<view class="mainWrap"  >
   <view class="label">所在地区</view>
   <view class='nameInnerWrap'> 
     <picker mode="multiSelector" bindchange="bindRegionChange" bindcolumnchange="bindRegionColumnChange" range='{{multiArray}}'>
@@ -37,3 +37,18 @@
       <view class="addBtn">确认添加</view>
     </view>
 </view>
+
+<!-- 再次确认扫码还是手动 -->
+   <view class="greyBg" wx:if="{{reminShow}}"  bindtap="hideRemin"></view>
+   <view class="showRemin"  wx:if="{{reminShow}}">
+      <view class="quxiaoRemin" bindtap="hideRemin">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitleRemin">
+        如果您是学校统一测试用户，请选择扫码添加！再次扫描二维码即可绑定孩子！ 请不要手动添加，避免数据无效
+      </view>
+      <view class="chooseBox">
+        <view class="chooseItem" bindtap="hideRemin">手动添加</view>
+        <view class="chooseItem" bindtap="gotoStart">扫码添加</view>
+      </view>
+    </view>

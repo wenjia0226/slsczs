@@ -232,16 +232,6 @@ Page({
    go(e) {
      let type = e.currentTarget.dataset.type;
        //清空存储
-      // wx.setStorageSync('right', '');
-      // wx.setStorageSync('left', '');
-      // wx.setStorageSync('visionLeft', '');
-      // wx.setStorageSync('visionRight', '');
-      // wx.setStorageSync('levelName5Left', '');
-      // wx.setStorageSync('levelName5Right', '');
-      // wx.setStorageSync('RightEyeRightNum', 0);
-      // wx.setStorageSync('RightEyeWrongNum', 0);
-      // wx.setStorageSync('LeftEyeRightNum', 0);
-      // wx.setStorageSync('LeftEyeWrongNum', 0);
      if (type == 'home') {
        wx.switchTab({
          url: '/page/tabBar/index/index'

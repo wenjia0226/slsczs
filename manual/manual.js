@@ -20,7 +20,8 @@ Page({
     selectCityId: null,
     selectAreaId: null,
     prevRoute: '',
-    flag: false
+    flag: false,
+    reminShow: true
   },
   onLoad: function (options) {  //在页面加载就调用获取
     this.getProvince()
@@ -32,6 +33,77 @@ Page({
     //console.log(prevpage.route)//上一个页面路由地址
     this.setData({
       prevRoute: prevpage.route
+    })
+  },
+  gotoStart() {
+    this.setData({
+      reminShow: false
+    })
+    let that = this;
+    wx.scanCode({  //扫码
+      success(res) {
+        var str = res.path;
+        let stuId = str.split('=')[1];
+        //获取到学生id后添加孩子
+        wx.setStorageSync('studentId', stuId);
+        let openId = wx.getStorageSync('openId');
+        let url = app.globalData.URL + 'binding', data = {
+          studentId: stuId,
+          openId: wx.getStorageSync('openId')
+        };
+        wx.showLoading({
+          title: '加载中...',
+        })
+        app.wxRequest(url, data, (res) => {
+          if(res.data.status == 200) {
+            if (that.data.prevRoute == 'page/tabBar/index/index') {
+              wx.switchTab({
+                url: '/page/tabBar/index/index'
+              })
+            } else if (that.data.prevRoute == 'page/tabBar/my/my') {
+              wx.switchTab({
+                url: '/page/tabBar/my/my'
+              })
+            } else if (that.data.prevRoute == 'page/myCollection/pages/archives/archives') {
+              wx.navigateTo({
+                url: '/page/myCollection/pages/archives/archives',
+              })
+            } else if (that.data.prevRoute == 'page/myCollection/pages/plan/plan') {
+              wx.navigateTo({
+                url: '/page/myCollection/pages/plan/plan',
+              })
+            } else if (that.data.prevRoute == 'page/tabBar/screen/screen') {
+              wx.navigateTo({
+                url: '/page/tabBar/screen/screen',
+              })
+            } else if (that.data.prevRoute == 'page/mainFunction/pages/result/result') {
+              wx.navigateTo({
+                url: '/page/mainFunction/pages/result/result',
+              })
+            } else if (that.data.prevRoute == 'page/myCollection/pages/childrenManage/childrenManage') {
+              wx.navigateTo({
+                url: '/page/myCollection/pages/childrenManage/childrenManage',
+              })
+            } else if (that.data.prevRoute == 'page/exchange/pages/jiesuan/jiesuan') {
+              wx.navigateTo({
+                url: '/page/exchange/pages/jiesuan/jiesuan?manu=' + 1
+              })
+            }
+          }
+        }, (err) => {
+          console.log(err)
+        })
+      }
+    }) 
+  },
+  hideRemin() {
+    this.setData({
+      reminShow: false
+    })
+  },
+  showRemin() {
+    this.setData({
+      reminShow: true
     })
   },
   handleNameInput(e){

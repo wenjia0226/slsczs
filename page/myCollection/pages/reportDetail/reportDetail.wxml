@@ -6,8 +6,8 @@
   <view class="itemWrap">
     <view class="leftWrap">
       <view class="logo">
-        <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == '女'}}"></image>
-        <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == '男'}}"></image>
+        <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == '1'}}"></image>
+        <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == '0'}}"></image>
         <image src="/image/my.png" mode="aspectFit" wx:if="{{!gender}}"></image>
       </view>
     </view>
@@ -27,8 +27,8 @@
   <view class="reportMian">
     <!-- 屈光度 -->
     <view class="listWTitle">屈光度</view>
-    <view  class="list">
-      <view class="wth">眼别</view>
+    <view  class="list" style="border-top: 1rpx solid #6794EB;">
+      <view class="wth"  style="border-left: 1rpx solid #6794EB">眼别</view>
       <view class="wth">远裸视</view>
       <view class="wth">近裸视</view>
       <view class="wth">球镜</view>
@@ -38,8 +38,8 @@
       <view class="wth">瞳距</view>
       <view class="wth">主导眼</view>
     </view>
-    <view  class="list listLeft" style="margin-bottom: 5rpx;">
-      <view class="wth">右眼</view>
+    <view  class="list listLeft" >
+      <view class="wth"  style="border-left: 1rpx solid #6794EB;">右眼</view>
       <view class="wth black" wx:if="{{farRight}}">{{farRight}} </view>
       <view class="wth black" wx:if="{{!farRight}}">-/-</view>
       <view class="wth black" wx:if="{{nearRight}}">{{nearRight}}</view>
@@ -54,11 +54,11 @@
       <view class="wth wthMax black" wx:if="{{!correctRight}}">-/-</view>
       <view class="wth black" wx:if="{{ipdRight}}">{{ipdRight}}</view>
       <view class="wth black" wx:if="{{!ipdRight}}">-/-</view>
-      <view class="wth black" wx:if="{{leadingRight}}">{{leadingRight}} </view>
-      <view class="wth black" wx:if="{{!leadingRight}}">-/-</view>
+      <view class="wth black" wx:if="{{leadingRight}}" style="border-bottom: none">{{leadingRight}} </view>
+      <view class="wth black" wx:if="{{!leadingRight}}" style="border-bottom: none" >-/-</view>
     </view>
      <view  class=" list listLeft" >
-      <view class="wth">左眼</view>
+      <view class="wth" style="border-left: 1rpx solid #6794EB;border-top: 1rpx solid #6794EB;">左眼</view>
       <view class="wth black" wx:if="{{farLeft}}"> {{farLeft}}</view>
       <view class="wth black" wx:if="{{!farLeft}}">-/-</view>
       <view class="wth black" wx:if="{{nearLeft}}">{{nearLeft}}</view>
@@ -73,21 +73,20 @@
       <view class="wth wthMax black" wx:if="{{!correctLeft}}">-/-</view>
       <view class="wth black" wx:if="{{ipdLeft}}">{{ipdLeft}}</view>
       <view class="wth black" wx:if="{{!ipdLeft}}">-/-</view>
-      <view class="wth black" wx:if="{{leadingLeft}}">{{leadingLeft}}</view>
-      <view class="wth black" wx:if="{{!leadingLeft}}">-/-</view>
+      <view class="wth black"></view>
     </view>
     <!-- 视功能检查 -->
     <view class="listWTitle">视功能检查</view>
     <view class="itemLine">
       <view class="itemLeft" >
       眼球运动:
-        <view class="black" wx:if="{{motion}}">{{motion}}</view>
-        <view class="black" wx:if="{{!motion}}">-/-</view>
+        <view class="black" wx:if="{{motion}}"> {{motion}}</view>
+        <view class="black" wx:if="{{!motion}}"> -/-</view>
       </view>
       <view class="itemLeft">
          立体视检查: 
-        <view class="black" wx:if="{{stereopsis}}">{{stereopsis}}</view>
-        <view class="black" wx:if="{{!stereopsis}}">-/-</view>
+        <view class="black" wx:if="{{stereopsis}}"> {{stereopsis}}</view>
+        <view class="black" wx:if="{{!stereopsis}}"> -/-</view>
       </view>
     </view>
      <view class="itemLine">
@@ -106,39 +105,39 @@
       <view class="collectLeft">
         <view>
           集合近点:
-        <text class="black" wx:if="{{assembly}}">{{assembly}}</text>
-        <text class="black" wx:if="{{!assembly}}">-/-</text>
+        <text class="black" wx:if="{{assembly}}"> {{assembly}}</text>
+        <text class="black" wx:if="{{!assembly}}"> -/-</text>
         </view>
         <view>
           色觉检查:
-        <text class="black" wx:if="{{colourVision}}">{{colourVision}}</text>
-        <text class="black" wx:if="{{!colourVision}}">-/-</text>
+        <text class="black" wx:if="{{colourVision}}"> {{colourVision}}</text>
+        <text class="black" wx:if="{{!colourVision}}"> -/-</text>
         </view>
       </view>
       <view class="collectRight ">
         <view class="collectRightTitle bd_bottom">调 节 灵 敏 度</view>
          <view class="eyeWrap">
-            <view class="black" wx:if="{{splRight}}">{{splRight}}</view>
-            <view class="black" wx:if="{{!splRight}}">-/-</view>
-            <view class="black" wx:if="{{splLeft}}">{{splLeft}}</view>
-             <view class="black" wx:if="{{!splLeft}}">-/-</view>
-            <view class="black" wx:if="{{splBinoculus}}">{{splBinoculus}}</view>
-             <view  class="black" wx:if="{{!splBinoculus}}">-/-</view>
+            <view class="black spl" wx:if="{{splRight}}">右眼：{{splRight}}cpm</view>
+            <view class="black spl" wx:if="{{!splRight}}">右眼：-/-</view>
+            <view class="black spl" wx:if="{{splLeft}}">左眼：{{splLeft}}cpm</view>
+             <view class="black spl" wx:if="{{!splLeft}}">左眼：-/-</view>
+            <view class="black spl" wx:if="{{splBinoculus}}">双眼：{{splBinoculus}}cpm</view>
+             <view  class="black spl" wx:if="{{!splBinoculus}}">双眼：-/-</view>
          </view>
       </view>
     </view>
      <!-- 生物测量检查 -->
     <view class="listWTitle">生物测量检查</view>
-    <view  class="list">
-      <view class="wth">眼别</view>
+    <view  class="list" style="border-top: 1rpx solid #6794EB;">
+      <view class="wth" style="border-left: 1rpx solid #6794EB;">眼别</view>
       <view class="wth2">水平曲率值</view>
       <view class="wth2">垂直曲率值</view>
       <view class="wth2">眼轴长度</view>
       <view class="wth2">前房深度</view>
       <view class="wth2">晶体厚度</view>
     </view>
-    <view  class=" list listLeft" style="margin-bottom: 5rpx;padding: 0">
-       <view class="wth">右眼</view>
+    <view  class=" list listLeft" style="padding: 0">
+       <view class="wth" style="border-left: 1rpx solid #6794EB;">右眼</view>
       <view class="wth2 black" wx:if="{{levelRight}}">{{levelRight}}</view>
       <view class="wth2 black" wx:if="{{!levelRight}}">-/-</view>
       <view class="wth2 black" wx:if="{{verticalRight}}">{{verticalRight}}</view>
@@ -151,8 +150,8 @@
        <view class="wth2 black" wx:if="{{!ltRight}}">-/-</view>
     </view>
     <view  class="list listLeft" style="padding: 0">
-      <view class="wth">左眼</view>
-      <view class="wth2 black" wx:if="{{levelLeft}}">{{levelLeft}}</view>
+      <view class="wth" style="border-left: 1rpx solid #6794EB;">左眼</view>
+      <view class="wth2 black" wx:if="{{levelLeft}}"> {{levelLeft}}</view>
        <view class="wth2 black" wx:if="{{!levelLeft}}">-/-</view>
       <view class="wth2 black" wx:if="{{verticalLeft}}">{{verticalLeft}}</view>
        <view class="wth2 black" wx:if="{{!verticalLeft}}">-/-</view>

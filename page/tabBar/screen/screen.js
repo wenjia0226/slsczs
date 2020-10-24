@@ -298,7 +298,7 @@ Page({
                   })
                   
                   // wx.setStorageSync('childLength', that.data.childrenList.length)
-                  wx.switchTab({
+                  wx.navigateTo({
                     url: '/page/tabBar/screen/screen'
                   })
                 }, (err) => {
@@ -450,7 +450,7 @@ Page({
           title: '加载中...',
         })
         app.wxRequest(url, data, (res) => {
-          console.log(res)
+          // console.log(res)
           res.data.data.push({
             name: '添加孩子'
           })

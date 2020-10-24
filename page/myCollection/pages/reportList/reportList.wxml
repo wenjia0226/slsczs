@@ -8,8 +8,11 @@
     </view>
     </view>
     <view class="centerWrap">
-      <view class="name">{{item.name}}</view>
-      <view class="time">检测时间: {{item.time}}</view>
+      <view class="name">姓名：{{item.name}}</view>
+      <view class="time">
+      <!-- <view>检测时间:</view> -->
+       <view>检测时间:{{item.time}}</view>
+      </view>
     </view>
     <view class="rightWrap" >
       <view class="report">报告详情</view>

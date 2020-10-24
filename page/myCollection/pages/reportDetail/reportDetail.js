@@ -78,7 +78,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "queryStudentWordById", data = { id: option.id };
     app.wxRequest(url, data, (res) => {
-      // console.log(res)
+      //console.log(res)
       if(res.data.status == 200) {
         res ? res= res.data.data: '';
         that.setData({

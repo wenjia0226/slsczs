@@ -50,13 +50,16 @@
 .wth {
   width: 11%;
   height: 50rpx;
-  /* border-right: 1px dotted #6794EB; */
+  border-bottom:  1rpx solid #6794EB;
+  border-right:  1rpx solid #6794EB;
   text-align: center;
 }
 .wth2 {
   width: 18%;
   height: 50rpx;
   text-align: center;
+  border-bottom:  1rpx solid #6794EB;
+  border-right:  1rpx solid #6794EB;
 }
 .wthMax {
   width: 13%;
@@ -73,7 +76,7 @@
   height: 200rpx;
 }
 .name {
-  font-size: 36rpx;
+  font-size: 24rpx;
 }
 .time {
   font-size: 24rpx;
@@ -103,7 +106,6 @@
   height: 50rpx;
   background: #FFF9EE;
   line-height: 50rpx;
-  padding: 0 10rpx;
 }
 .listWTitle {
   font-size: 30rpx;
@@ -182,6 +184,10 @@
   margin-bottom: 5rpx;
   background: #FFF9EE;
   box-sizing: border-box;
+}
+.spl {
+  display: flex;
+  align-items: center;
 }
 ::-webkit-scrollbar{
     width: 0;

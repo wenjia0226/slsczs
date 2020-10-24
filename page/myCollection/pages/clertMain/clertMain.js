@@ -6,7 +6,18 @@ Page({
    */
   data: {
 
-  },  
+  }, 
+  gotoDang() {
+    let that = this;
+    wx.scanCode({  //扫码
+      success(res) {
+        let studentId = res.result;
+        wx.navigateTo({
+          url: '/page/myCollection/pages/axial/axial?studentId=' + studentId,
+        })
+      }
+    })
+  }, 
   gotoAddChun() {
     let that = this;
     wx.scanCode({  //扫码

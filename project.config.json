@@ -111,6 +111,34 @@
 					"pathName": "page/tabBar/eyeShow/eyeShow",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "reportDetail/reportDatail",
+					"pathName": "reportDetail/reportDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "archiveUpdate/archiveUpdate",
+					"pathName": "archiveUpdate/archiveUpdate",
+					"query": "studentId =30",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "axial/axia/",
+					"pathName": "page/tabBar/screen/screen",
+					"query": "studnetId = 8881",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "axial/axial",
+					"pathName": "axial/axial",
+					"query": "studnetId = 8881",
+					"scene": null
 				}
 			]
 		}

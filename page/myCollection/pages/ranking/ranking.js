@@ -26,7 +26,7 @@ Page({
       type: 'school'
     };
     app.wxRequest(url, data, (res) => {
-       console.log(res)
+      //  console.log(res)
       if(res.data.status == 200) {
         if (res.data.data.integtalRanking.length >3) {
           that.setData({

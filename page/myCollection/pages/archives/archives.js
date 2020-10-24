@@ -66,6 +66,7 @@ Page({
     myIntegral: 0,
     dataList: [],
     picList: [],
+    diopterList: [],
     weardataList: [],
     wearpicList: [],
     i: 0,
@@ -253,7 +254,8 @@ Page({
           dataList: [],
           picList: [],
           weardataList: [],
-          wearpicList: []
+          wearpicList: [],
+          diopterList: []
         })
       }
       }, (err) => {
@@ -287,11 +289,15 @@ Page({
           let wearpicList = currentStu.map((item) => {
             return item.wearpicList
           })
+          let diopterList = currentStu.map((item) => {
+            return item.diopterList
+          })
           that.setData({
             dataList: dataList[0],
             picList: picList[0],
             weardataList: weardataList[0],
-            wearpicList: wearpicList[0]
+            wearpicList: wearpicList[0],
+            diopterList: diopterList[0]
           })
           let dataList2 = that.data.dataList;
           let picList2 = that.data.picList;

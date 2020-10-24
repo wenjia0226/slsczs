@@ -9,11 +9,11 @@ Page({
       title: '加载中...'
     })
     let that = this;
+    let studentId = wx.getStorageSync('studentId')
     let openId = wx.getStorageSync('openId');
-    let url = app.globalData.URL + "queryStudentWord", data = { openId: openId };
+    let url = app.globalData.URL + "queryStudentWord", data = { studentId: studentId };
     app.wxRequest(url, data, (res) => {
       if(res.data.status == 200) {
-        // console.log(res)
         if(res.data.data) {
         that.setData({
           reportList: res.data.data
@@ -23,7 +23,7 @@ Page({
     })
   },
   gotoDetailReport(e) {
-      let id = e.currentTarget.dataset.id;
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/page/myCollection/pages/reportDetail/reportDetail?id='+ id,
     })

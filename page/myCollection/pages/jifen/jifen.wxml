@@ -78,7 +78,7 @@
   <view class="centerWrap" wx:if="{{type == 0}}">
   <block wx:if="{{jifenList.length}}">
     <!-- <scroll-view scroll-y  style="height: 100%;"> -->
-      <view class="itemWrap" wx:for="{{jifenList}}">
+      <view class="itemWrap" wx:for="{{jifenList}}" wx:key="date">
         <view class="leftitem">
           <view>{{item.detailed}}</view>
           <view class="time">{{item.date}}</view>
