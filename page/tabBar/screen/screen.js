@@ -81,6 +81,7 @@ Page({
     app.editTabbar();
   },
   onShow() {  
+    wx.setStorageSync('tempFlag', this.data.tempFlag);
     if (this.data.tempFlag == 2) {  //  如果绑定的孩子
       let that = this;
       this.setData({

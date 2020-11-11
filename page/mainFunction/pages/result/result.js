@@ -81,6 +81,12 @@ Page({
             showCongratulation: true
           })
         }
+        if(that.data.tempFlag == 1) {
+          wx.setStorageSync('studentId', '')
+          wx.setStorageSync('gender', 2)
+          wx.setStorageSync('studentName', '')
+          wx.setStorageSync('birthday', '')
+        }
       }, (err) => {
         console.log(err)
       })
@@ -175,12 +181,95 @@ Page({
     }
   },
   onLoad() {
-    app.editTabbar();
-    this.getChildrenList();
-    let that = this;
+    let tempFlag = wx.getStorageSync('tempFlag');
     this.setData({
-      studentName: wx.getStorageSync('studentName')
+      tempFlag: tempFlag
     })
+    app.editTabbar();
+    if (tempFlag == 2) {  // 正常绑定
+      this.getChildrenList();
+      let that = this;
+      this.setData({
+        studentName: wx.getStorageSync('studentName')
+      })
+    }else if(tempFlag == 1) {
+      let arr = []
+     arr.push({
+          age: 8,
+          birthday: "2019-04-01",
+          chairHeight: "60",
+          classesId: 42,
+          classesName: "二（3）班",
+          correct: 0,
+          description: "",
+          gender: 2,
+          lastTime: '',
+          height: "125",
+          id: "",
+          name: "添加孩子",
+          nature: "无",
+          parentPhone: "18311192425",
+          regionId: 1,
+          regionName: "唐山",
+          schoolId: 50,
+          schoolName: "唐山市师范附属小学",
+          sittingHeight: "105.0",
+          weight: "22.34",
+          lastTime: null
+      })
+     this.setData({
+       studentName: wx.getStorageSync('studentName'),
+       childrenList: arr
+     })
+
+    }
+  },
+  getTempStudent() {
+    let that = this;
+    let url = app.globalData.URL + "findStudent", data = { studentId: wx.getStorageSync('studentId') };
+    //如果已经授权过
+   
+    app.wxRequest(url, data, (res) => {
+      if (res.data.status == 200) {
+        that.setData({
+          childrenList: res.data.data
+        })
+        let arr = [];
+        arr.push(res.data.data);
+        arr.push({
+          age: 8,
+          birthday: "2019-04-01",
+          chairHeight: "60",
+          classesId: 42,
+          classesName: "二（3）班",
+          correct: 0,
+          description: "",
+          gender: 2,
+          lastTime: '',
+          height: "125",
+          id: "",
+          name: "添加孩子",
+          nature: "无",
+          parentPhone: "18311192425",
+          regionId: 1,
+          regionName: "唐山",
+          schoolId: 50,
+          schoolName: "唐山市师范附属小学",
+          sittingHeight: "105.0",
+          weight: "22.34",
+          lastTime: null
+        })
+        that.setData({
+          childrenList: arr,
+          studentName: that.data.childrenList[0].name
+        })
+       
+        wx.setStorageSync('studentId', that.data.childrenList[0].id)
+        wx.setStorageSync('gender', that.data.childrenList[0].gender);
+        wx.setStorageSync('studentName', that.data.childrenList[0].name)
+      }
+    })
+    // }
   },
   getChildrenList() {
     let that = this;

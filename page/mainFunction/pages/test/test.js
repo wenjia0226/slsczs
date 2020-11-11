@@ -535,7 +535,7 @@ Page({
     // }
     let url = app.globalData.URL + 'screeningTopByStudent', data = { studentId: wx.getStorageSync('studentId'), type: 2, detectType: wx.getStorageSync('detectType') }; // 1是右眼， 2是左眼
     app.wxRequest(url, data, (res) => {
-       console.log(res)
+       //console.log(res)
       that.setData({
         levelPre: res.data.data,
         chooseid: 's' + res.data.data,
