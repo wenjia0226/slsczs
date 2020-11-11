@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "屈光度档案",
+  "navigationBarBackgroundColor": "#eee",
+  "component": true,
+  "usingComponents": {
+    "Select": "/page/tabBar/select/select"
+  }
+}

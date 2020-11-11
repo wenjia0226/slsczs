@@ -129,5 +129,18 @@ Page({
     wx.navigateTo({
       url: "/page/myCollection/pages/clock/clock"
     })
+  },
+  gotoScan() {
+    let that = this;
+    wx.scanCode({  //扫码
+      success(res) {
+        var str = res.path;
+        let stuId = str.split('=')[1];
+        wx.navigateTo({
+          url: '/page/tabBar/screen/screen?studentId=' + stuId + '&tempFlag=' + 1
+        })
+        //获取到学生id后添加孩子
+      }
+    })
   }
 })

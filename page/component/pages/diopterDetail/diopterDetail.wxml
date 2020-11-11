@@ -1,0 +1,77 @@
+<!--pages/detail/detail.wxml-->
+<view class="main">
+  <image src="/image/bg2.png" class="bg" style="height:{{height + 200}}px"></image>
+  <nav-bar navbar-data='{{navbarData}}' style="height: {{height}}px"> </nav-bar>
+  <view class="headerTop" style="height: 200px">
+    <view class="left">
+      <view> 姓名:{{studentName}}</view>
+      <view>出生日期：{{birthday}}</view>
+    </view>
+    <view class="right">
+      <view class="rightCon">
+        <!-- <image src="/image/boy.png" mode="aspectFit" wx:if="{{gender == 0}}"></image>
+        <image src="/image/girl.png" mode="aspectFit" wx:if="{{gender == 1}}"></image> -->
+          <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >= myIntegral  && myIntegral >= 0}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >= myIntegral  && myIntegral > 300}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{gender == 0 && 900 >= myIntegral  && myIntegral > 600}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/b4.png"  mode="aspectFit" wx:if="{{gender == 0 && 1200 >= myIntegral  && myIntegral > 900}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{gender == 0 && 1500 >= myIntegral  && myIntegral > 1200}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{gender == 0 && 49999 > myIntegral  && myIntegral > 1500}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{ gender == 0 &&myIntegral >= 50000}}"></image>
+            
+               <!-- 女孩及段位 -->
+            <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >= myIntegral  && myIntegral >= 0}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{ gender == 1 && 600 >= myIntegral  && myIntegral > 300}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{ gender == 1 && 900 >= myIntegral  && myIntegral > 600}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g4.png"  mode="aspectFit" wx:if="{{gender == 1 && 1200 >= myIntegral  && myIntegral > 900}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{ gender == 1 && 1500 >= myIntegral  && myIntegral > 1200}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{ gender == 1 && 49999 >= myIntegral  && myIntegral > 1500}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&myIntegral >= 50000}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="centerWrap">
+    <view class="leftWrap  {{isSelect == 1 ? 'active': ''}}" data-type = "1" bindtap="changeTab">
+      <view class="title">右眼视力</view>
+      <view class="bigNum">{{vision5Right}}</view>
+      <view class="smallNum">{{visionRightStr}}</view>
+    </view>
+    <view class="leftWrap  {{isSelect == 0 ? 'active': ''}} " data-type = "0" bindtap="changeTab">
+      <view class="title">左眼视力</view>
+      <view class="bigNum">{{vision5Left}}</view>
+      <view class="smallNum">{{visionLeftStr}}</view>
+    </view>
+  </view>
+  <view class="bottomWrap">
+    <scroll-view scroll-y style="height: 100%" wx:if="{{isSelect == 1}}">
+      <view class="time">检测时间:{{date}}</view>
+        <view class="inner">
+      <view class="distance">
+        <view class="item">右眼球镜:{{diopter.ds1R}}</view>
+        <view class="item">右眼柱镜: {{diopter.dc1R}}</view>
+        <view class="item">右眼轴位:{{diopter.axis1R}}</view>
+      </view> 
+      <view class="distance">
+        <view class="item">右眼水平眼位: {{diopter.ghR}}</view>
+        <view class="item">右眼垂直眼位:{{diopter.gvR}}</view>
+        <view class="item">瞳距: {{diopter.pd}}</view>
+      </view>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y style="height:100%" wx:if="{{isSelect == 0}}">
+      <view class="time">检测时间:{{date}}</view>
+        <view class="inner">
+        <view class="distance" >
+          <view class="item">左眼球镜:{{diopter.ds1L}}</view>
+          <view class="item">左眼柱镜: {{diopter.dc1L}}</view>
+          <view class="item">左眼轴位:{{diopter.axis1L}}</view>  
+        </view> 
+        <view class="distance" >
+          <view class="item">左眼水平眼位: {{diopter.ghL}}</view>
+          <view class="item">左眼垂直眼位:{{diopter.gvL}}</view>
+          <view class="item">瞳距: {{diopter.pd}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

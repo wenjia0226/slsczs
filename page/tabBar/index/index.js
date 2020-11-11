@@ -217,9 +217,12 @@ Page({
   },
   // 手动添加
   gotoManu() {
-    wx.navigateTo({
-      url: '/manual/manual'
+    wx.showToast({
+      title: '暂未开启该功能',
     })
+    // wx.navigateTo({
+    //   url: '/manual/manual'
+    // })
   },
   gotoMyBi() {
     wx.navigateTo({
@@ -249,7 +252,6 @@ Page({
           title: '加载中...',
         })
         app.wxRequest(url, data, (res) => {
-          console.log(res)
            res.data.data.push({
              name: '添加孩子'
            })

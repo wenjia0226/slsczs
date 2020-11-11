@@ -57,15 +57,18 @@
         档案明细
     </view>
     <view class="contentBox">
-      <view class="centerItem"  bindtap="goToBao">
-          <image  mode="" src="/image/myicon/dangan.png"></image>
-        <view class="itemTitle">眼健康档案</view>
-      </view>
       <view class="centerItem"  bindtap="goToShai">
         <image   src="/image/myicon/myShai.png"></image>
         <view class="itemTitle">筛查档案</view>
       </view>
-      
+      <view class="centerItem"  bindtap="goToQu">
+        <image   src="/image/myicon/myShai.png"></image>
+        <view class="itemTitle">屈光度档案</view>
+      </view>
+       <view class="centerItem"  bindtap="goToBao">
+          <image  mode="" src="/image/myicon/dangan.png"></image>
+        <view class="itemTitle">眼健康档案</view>
+      </view>
     </view>
     <view class="titleBox">
         赚取爱眼币
@@ -118,11 +121,14 @@
       <view class="quxiao" bindtap="hide">
         <image src="/image/quxiao3.png" mode="aspectFit"></image>
       </view>
-      <view class="modeTitle">
-        请选择添加方式
+     <view class="modeTitle">
+        请扫描学生二维码
       </view>
       <view class="btnBox">
-        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <!-- <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view> -->
         <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+    </view>
+      <view class="noCode" bindtap="gotoManu">
+       我没有二维码
       </view>
     </view>

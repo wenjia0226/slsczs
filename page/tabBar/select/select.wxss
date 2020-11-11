@@ -240,12 +240,18 @@
   font-size: 30rpx;
   background: #3e65e4;
   text-align: center;
-  padding: 16rpx 60rpx;
-  border-radius: 50rpx;
+  padding: 10rpx 0rpx;
+  border-radius: 10rpx;
   color: #fff;
+  width: 70%;
 }
 .modeTitle{
   font-size: 30rpx;
   font-weight: bold;
   text-align: center;
+}
+.noCode {
+  font-size: 16rpx;
+  text-align: right;
+  font-weight: bold;
 }

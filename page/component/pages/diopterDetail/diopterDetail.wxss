@@ -1,0 +1,140 @@
+/* pages/detail/detail.wxss */
+.main {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.back {
+  font-size: 30rpx;
+  color: #fff;
+}
+.bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -999;
+  display: block;
+  width: 100%;
+  height: 480rpx;
+}
+.headerTop {
+  display:flex;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  align-items: center;
+  height: 200px;
+}
+.item {
+  font-size: 24rpx;
+  text-align: left;
+  padding-left: 20rpx;
+}
+.left {
+  width: 60%;
+  color: #fff;
+  text-align: left;
+  margin-left: 100rpx;
+}
+.right {
+  width: 40%;
+}
+.rightCon {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightCon image {
+  width: 100%;
+  height: 100%;
+}
+.active {
+  border:15rpx solid #3e65e4 !important;
+}
+.pic{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+/* 中间圆圈 */
+.centerWrap{
+  padding:  5rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.leftWrap {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border:15rpx solid #C4D1FF;
+  margin: 30rpx;
+  padding: 20rpx;
+}
+.title {
+  color: #999;
+  font-size: 30rpx;
+}
+.bigNum {
+  font-size: 36rpx;
+  color: #4db2fd;
+  margin: 20rpx;
+}
+.smallNum {
+  font-size: 20rpx;
+  color: #999;
+}
+/* 底部 */
+.bottomWrap{
+  flex: 1;
+  height: 100%;
+  margin: 0 5%;
+}
+.common{
+ padding: 10rpx 0;
+ border-bottom: 1px dashed #527FF6;
+}
+.time {
+  text-align: center;
+  background: rgb(228, 201, 145);
+  color:#fff;
+  letter-spacing: 4rpx;
+  padding: 10rpx 0;
+}
+.inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #F5F8FF;
+}
+.distance {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: #3e65e4;
+  background: #F5F8FF;
+  border-bottom: 3rpx dotted #000;
+  font-size: 30rpx;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+}
+.borderNo {
+  border: none;
+}

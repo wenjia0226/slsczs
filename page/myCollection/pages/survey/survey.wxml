@@ -11,7 +11,7 @@
       <image src="/image/righticon.png"></image>
     </view>
   </view>
-   <view class="itemWrap" bindtap="gotoDown">
+  <view class="itemWrap" bindtap="gotoDown">
     <view class="leftWrap">
       视力下降人数
     </view>
@@ -28,6 +28,17 @@
     </view>
     <view class="centerWrap">
       {{untask}}
+    </view>
+    <view class="rightWrap">
+      <image src="/image/righticon.png"></image>
+    </view>
+  </view>
+  <view class="itemWrap" bindtap="gotoScan">
+    <view class="leftWrap">
+      教师代测
+    </view>
+    <view class="centerWrap">
+      
     </view>
     <view class="rightWrap">
       <image src="/image/righticon.png"></image>

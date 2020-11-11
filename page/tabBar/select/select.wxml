@@ -16,10 +16,13 @@
         <image src="/image/quxiao3.png" mode="aspectFit"></image>
       </view>
       <view class="modeTitle">
-        请选择添加方式
+        请扫描学生二维码
       </view>
       <view class="btnBox">
-        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <!-- <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view> -->
         <view class="addBtn" bindtap="gotoScan">扫码添加</view>
-    </view>
+      </view>
+      <view class="noCode" bindtap="gotoManu">
+       我没有二维码
+      </view>
    </view>

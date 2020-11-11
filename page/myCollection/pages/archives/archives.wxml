@@ -43,7 +43,7 @@
       <view class="titleTop {{isSelect == 1 ? 'active': ''}} " data-type="1" bindtap="changeTab"> 裸眼曲线</view>
        <view class=" titleTop {{isSelect == 2 ? 'active': ''}}" data-type="2" bindtap="changeTab"> 戴镜检测</view>
       <view class="titleTop {{isSelect == 3 ? 'active': ''}} " data-type="3" bindtap="changeTab">  戴镜曲线</view>
-       <view class="titleTop {{isSelect == 4 ? 'active': ''}} " data-type="4" bindtap="changeTab">  屈光度</view>
+       <!-- <view class="titleTop {{isSelect == 4 ? 'active': ''}} " data-type="4" bindtap="changeTab">  屈光度</view> -->
     </view>
     <!-- 裸眼检测列表 -->
     <swiper current="{{isSelect}}" bindchange="swiperChange" class="mainCon" wx:if="{{navList.length && studentId}}" >
@@ -93,21 +93,6 @@
         <swiper-item wx:if="{{weardataList.length}}">
           <scroll-view scroll-y style="height: 100%" >
           <view class="list" wx:for="{{weardataList}}" wx:key="id">
-            <!-- <view class="items" bindtap="gotArchiveDetail" data-id="{{item.id}}" data-type="wear">
-              <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx">
-                <view class="item-top" style="margin: 10rpx 0"><image mode="aspectFit" src="/image/eye.png"></image></view>
-                <view class="genTime">{{item.date}}</view> 
-                <view class="genTime">{{item.time}}</view>
-              </view>
-              <view class="item">
-                <view  class="item-top"> <image  mode="aspectFit" src="/image/right.png"></image></view>
-                <view>{{item.visionRight}}</view> 
-              </view>
-              <view class="item">
-                <view  class="item-top"> <image  mode="aspectFit" src="/image/left.png"></image></view>
-                <view>{{item.visionLeft}}</view> 
-              </view>
-            </view> -->
             <view class="outerItems">
             <view  class="items" bindtap="gotArchiveDetail" data-id="{{item.id}}" data-type="wear">
               <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx">
@@ -183,10 +168,13 @@
         <image src="/image/quxiao3.png" mode="aspectFit"></image>
       </view>
       <view class="modeTitle">
-        请选择添加方式
+        请扫描学生二维码
       </view>
       <view class="btnBox">
-        <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view>
+        <!-- <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view> -->
         <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+      </view>
+      <view class="noCode" bindtap="gotoManu">
+       我没有二维码
       </view>
     </view>

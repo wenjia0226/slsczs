@@ -20,7 +20,10 @@ Page({
     mianEyeShow: false,
     dominantEye: '',
     phone: 0,
-    openId: ''
+    openId: '',
+    tempFlag: 2,
+    tempId: ''
+
   },
   hideMainEyeShow() {
     this.setData({
@@ -51,8 +54,9 @@ Page({
     app.wxRequest(url, data, (res) => {
       //  console.log(res)
         if(res.data.status == 200) {
-          that.hideMainEyeShow();
-          that.showRemin();
+          // that.hideMainEyeShow(); //隐藏提醒主导眼
+          // that.showRemin(); //展示是否同一手机
+        that.gotoCheck();
         }
     })
 
@@ -67,12 +71,90 @@ Page({
       reminShow: true
     })
   },
-  onLoad() {
+  onLoad(options) {
+    if(options.tempFlag) {  //  如果是1 就是临时的
+      this.setData({
+        tempFlag: options.tempFlag,
+        temId: options.studentId
+      })
+    }
     app.editTabbar();
+  },
+  onShow() {  
+    if (this.data.tempFlag == 2) {  //  如果绑定的孩子
+      let that = this;
+      this.setData({
+        statusBarHeight: app.globalData.statusBarHeight,
+        navTop: app.globalData.navTop,
+        navHeight: app.globalData.navHeight,
+        flag: false,
+        phone: wx.getStorageSync('phone'),
+        studentId: wx.getStorageSync('studentId'),
+        openId: wx.getStorageSync('openId')
+      })
+      if (wx.getStorageSync('isShow') === false) {
+        this.setData({
+          isShow: wx.getStorageSync('isShow')
+        })
+      }
+      this.getChildrenList();
+      this.showGuanzhu();
+    } else if(this.data.tempFlag == 1) {  // 如果是临时绑定的
+      this.showGuanzhu();
+      this.getTempStudent();
+    }
+  },
+  getTempStudent() {
+    let that = this;
+    let url = app.globalData.URL + "findStudent", data = { studentId: this.data.temId } ;
+    //如果已经授权过
+    // if (that.data.phone) {
+    //   wx.showLoading({
+    //     title: '加载中...'
+    //   })
+      app.wxRequest(url, data, (res) => {
+        if (res.data.status == 200) {
+          that.setData({
+            childrenList: res.data.data
+          })
+          let arr = [];
+          arr.push(res.data.data);
+          arr.push({
+            age: 8,
+            birthday: "2019-04-01",
+            chairHeight: "60",
+            classesId: 42,
+            classesName: "二（3）班",
+            correct: 0,
+            description: "",
+            gender: 2,
+            lastTime: '',
+            height: "125",
+            id: "",
+            name: "添加孩子",
+            nature: "无",
+            parentPhone: "18311192425",
+            regionId: 1,
+            regionName: "唐山",
+            schoolId: 50,
+            schoolName: "唐山市师范附属小学",
+            sittingHeight: "105.0",
+            weight: "22.34",
+            lastTime: null
+          })
+          that.setData({
+            childrenList: arr
+          })
+          wx.setStorageSync('studentId', that.data.childrenList[0].id)
+          wx.setStorageSync('gender', that.data.childrenList[0].gender);
+          wx.setStorageSync('studentName', that.data.childrenList[0].name)
+        }
+        })
+      // }
   },
   gotoCheck() {
     wx.navigateTo({
-      url: '/page/component/pages/check/check',
+      url: '/page/component/pages/check/check'
     })
   },
   gotoStart() {
@@ -100,25 +182,6 @@ Page({
     this.setData({
       hideWarn: animation.export(),
     })  
-  },
-  onShow() {
-    let that = this;
-    this.setData({
-      statusBarHeight: app.globalData.statusBarHeight,
-      navTop: app.globalData.navTop,
-      navHeight: app.globalData.navHeight,
-      flag: false,
-      phone: wx.getStorageSync('phone'),
-      studentId: wx.getStorageSync('studentId'),
-      openId: wx.getStorageSync('openId')
-    })
-    if (wx.getStorageSync('isShow') === false) {
-      this.setData({
-        isShow: wx.getStorageSync('isShow')
-      })
-    }
-    this.getChildrenList();
-    this.showGuanzhu();
   },
   getChildrenList() {
     let that = this;
@@ -338,7 +401,6 @@ Page({
             title: '加载中...',
           })
           app.wxRequest(url, data, (res) => {
-           // console.log(res)
             if (res.data.status == 10237) {  // 如果没验证过就去检测主导眼
               that.setData({
                 mianEyeShow: true
@@ -350,8 +412,6 @@ Page({
         }else {   // 如果没有学生id 直接跳过 ，下次添加上孩子后还是需要检测一次主导眼
           that.showReminBox();
         }
-       
-         
         // } 
       }else {
         wx.navigateTo({
@@ -428,9 +488,12 @@ Page({
   },
   // 手动添加
   gotoManu() {
-    wx.navigateTo({
-      url: '/manual/manual'
+    wx.showToast({
+      title: '暂未开启该功能',
     })
+    // wx.navigateTo({
+    //   url: '/manual/manual'
+    // })
   },
   //扫码添加
   gotoScan() {

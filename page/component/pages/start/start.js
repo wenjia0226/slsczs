@@ -97,9 +97,8 @@ Page({
   gotocheck() {
     let scale = wx.getStorageSync('scale');
     wx.setStorageSync('resetscale', 1);
-    wx.navigateBack()
-    // wx.navigateTo({
-    //   url: '/page/component/pages/check/check'
-    // })
+    wx.navigateTo({
+      url: '/page/component/pages/check/check'
+    })
   }
 })

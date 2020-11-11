@@ -81,9 +81,12 @@ Component({
     },
     // 手动添加
     gotoManu() {
-      wx.navigateTo({
-        url: '/manual/manual'
+      wx.showToast({
+        title: '暂未开启该功能',
       })
+      // wx.navigateTo({
+      //   url: '/manual/manual'
+      // })
     },
     //扫码添加
     gotoScan() {
@@ -120,18 +123,8 @@ Component({
             })
             // 自定义一个事件，并且传值
            
-            that.triggerEvent('newchildrenlist', { newChildrenList: that.data.childrenList })
-            // if (that.data.prevpRoute == "page/myCollection/pages/plan/plan" || that.data.prevRoute == 'page/myCollection/pages/archives/archives' || that.data.prevRoute == 'page/mainFunction/pages/result/result') {
-            //   wx.navigateTo({
-            //     url: '/' + that.data.prevRoute
-            //   })
-            // }else {
-            //   wx.switchTab({
-            //     url: '/' + that.data.prevRoute
-            //   })
-            // }
-            that.selectToggle();
-            
+            that.triggerEvent('newchildrenlist', { newChildrenList: that.data.childrenList, stuId: stuId})
+            that.selectToggle();  
           }, (err) => {
             console.log(err)
           })

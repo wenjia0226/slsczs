@@ -1,0 +1,94 @@
+<view  class="main">
+    <view class="headerWrapper"  wx:if="{{studentId}}">
+      <view class="titleBox">
+        <view class="imgBox" wx:if="{{studentId}}">
+          <!-- 男孩及段位 -->
+          <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0 && 300 >=balance  && balance >= 0}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b2.png"  mode="aspectFit" wx:if="{{gender == 0 && 600 >=balance && balance > 300}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b3.png"  mode="aspectFit" wx:if="{{gender == 0 && 900 >=balance  && balance > 600}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b4.png"  mode="aspectFit" wx:if="{{gender == 0 && 1200 >=balance  && balance > 900}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b5.png"  mode="aspectFit" wx:if="{{gender == 0 && 1500 >=balance && balance > 1200}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b6.png"  mode="aspectFit" wx:if="{{gender == 0 && 49999 >=balance && balance > 1500}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/b7.png"  mode="aspectFit" wx:if="{{gender == 0 &&balance  && balance >= 50000}}"></image>
+            <!-- 女孩及段位 -->
+          <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >=balance && balance >= 0}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g2.png"  mode="aspectFit" wx:if="{{gender == 1 && 600 >=balance  && balance> 300}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g3.png"  mode="aspectFit" wx:if="{{gender == 1 && 900 >=balance && balance > 600}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g4.png"  mode="aspectFit" wx:if="{{gender == 1 && 1200 >=balance  && balance > 900}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g5.png"  mode="aspectFit" wx:if="{{gender == 1 && 1500 >=balance  && balance > 1200}}"></image>
+          <image src="https://www.guangliangkongjian.com/images/g6.png"  mode="aspectFit" wx:if="{{gender == 1 && 49999 >=balance && balance > 1500}}"></image>
+            <image src="https://www.guangliangkongjian.com/images/g7.png"  mode="aspectFit" wx:if="{{gender == 1 &&balance >= 50000}}"></image>
+      
+        </view>
+        <view class="centerBox">
+          <view class="name" wx:if="{{studentName}}">{{studentName}}</view>
+          <view class="birthday" wx:if="{{birthday}}">出生日期： {{birthday}}</view>
+        </view>
+        <view class="rightBox">
+          <Select style="color: #000" bindmyevent="myevent" bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
+        </view>
+      </view>
+    </view>
+    <!-- 没有孩子添加孩子 -->
+    <view wx:if="{{!studentId}}" class="headerWrapperNochild">
+        <view class="imgBox" wx:if="{{!studentId}}">
+          <image  wx:if="{{!studentId}}" src="/image/zengjia.png" bindtap='gotoAdd'></image>
+        </view>
+        <view class="noTitle">
+            暂无筛查记录，请先点击 + 号添加孩子     
+        </view>
+    </view>
+     <!-- 裸眼检测列表 -->
+    <swiper current="{{isSelect}}" bindchange="swiperChange" class="mainCon" >
+        <swiper-item style="margin-bottom: 30rpx;height: 100%" wx:if="{{diopterList.length}}">
+        <scroll-view scroll-y style="height: 100%">
+         <view class="list" wx:for="{{diopterList}}" wx:key="id">
+          <view class="outerItems" >
+            <view  class="items" bindtap="gotArchiveDetail" data-id="{{item.id}}" data-type="luo">
+              <view class="item" style="background: #6793ED; border-radius: 15rpx 0 0 15rpx">
+                <view class="item-top" style="margin: 10rpx 0"><image mode="aspectFit" src="/image/eye.png"></image></view>
+                <view class="genTime">{{item.genTime}}</view> 
+                 
+              </view>   
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/right.png"></image></view>
+                <view class="detailTitle">{{item.diopterRight}}</view> 
+              </view>
+              <view class="item">
+                <view  class="item-top"> <image  mode="aspectFit" src="/image/left.png"></image></view>
+                <view class="detailTitle">{{item.diopterLeft}}</view> 
+              </view>
+               <view class="item">
+                <view  class="item-top"> 瞳距</view>
+                <view class="detailTitle">{{item.pd}}</view> 
+              </view>
+            </view>
+            
+          </view>
+        </view>
+        </scroll-view>
+        </swiper-item>
+        <swiper-item style="margin-bottom: 30rpx;height: 100%" wx:if="{{ stuId &&diopterList.length ==0}}">       
+            <view class="nodangan">暂无档案信息</view>
+        </swiper-item>
+     
+    </swiper> 
+</view>
+
+<!-- 添加孩子 -->
+   <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
+   <view class="show"  wx:if="{{show}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+      <view class="modeTitle">
+        请扫描学生二维码
+      </view>
+      <view class="btnBox">
+        <!-- <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view> -->
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+      </view>
+      <view class="noCode" bindtap="gotoManu">
+       我没有二维码
+      </view>
+    </view>

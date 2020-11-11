@@ -266,9 +266,12 @@ Page({
   },
   // 手动添加
   gotoManu() {
-    wx.navigateTo({
-      url: '/manualTwo/manualTwo'
+    wx.showToast({
+      title: '暂未开启该功能',
     })
+    // wx.navigateTo({
+    //   url: '/manualTwo/manualTwo'
+    // })
 
   },
   //扫码添加

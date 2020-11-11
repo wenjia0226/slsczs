@@ -12,6 +12,7 @@ Page({
     selectNavList: [],
     pathList: [],
     levelPre: 9,
+    resetLevelPre: 9,
     right: 0,
     wrong: 0,
     rightNum: 0,
@@ -25,8 +26,8 @@ Page({
     noUpdate: false,
     rightEyeRightNum: 0,
     rightEyeWrongNum: 0,
-    chooseId: 's9',
-    toview: 's9'
+    chooseId: '',
+    toview: ''
   },
   selecteLevel(e) {
     let that = this;
@@ -102,14 +103,14 @@ Page({
               wrong: 0,
               rightNum: 0,
               wrongNum: 0,
-              levelPre: 9,
+              levelPre: that.data.resetLevelPre,
               id: 1,
               time: 0
                //从第一张图重新开始
             })
             //that.onShow()
           }else {
-            wx.switchTab({
+            wx.navigateTo({
               url: '/page/tabBar/screen/screen'
             })
           }
@@ -126,12 +127,26 @@ Page({
     wx.showLoading({
       title: '加载中...',
     })
+    this.getLevelPre();
     this.getList();
+    let that = this;
+    let url = app.globalData.URL + '';
     this.setData({
       rightEyeRightNum: wx.getStorageSync('RightEyeRightNum'),
-      rightEyeWrongNum: wx.getStorageSync('RightEyeWrongNum')
+      rightEyeWrongNum: wx.getStorageSync('RightEyeWrongNum'),
+      // levelPre: 2
     })
-    
+  },
+  getLevelPre() {
+    var that = this;
+    let url = app.globalData.URL + 'screeningTopByStudent', data = { studentId: wx.getStorageSync('studentId'), type: 1, detectType: wx.getStorageSync('detectType')}; // 1是右眼， 2是左眼 wear 1 裸视，2 戴镜
+    app.wxRequest(url, data, (res) => {
+      that.setData({
+        levelPre: res.data.data,
+        chooseid:'s' + res.data.data,
+        resetLevelPre: res.data.data
+      })
+    })
   },
   getList() {
     var that = this;
@@ -209,8 +224,7 @@ Page({
             id: 1,
             right: 0,
             wrong: 0,
-            levelPre: that.data.levelPre + 1,
-
+            levelPre: that.data.levelPre + 1
           })
         } else if (that.data.wrong >= 3) { //如果正确数量小于错误数量 降级
           that.setData({
@@ -291,8 +305,6 @@ Page({
             right: 0,
             wrong: 0
           })
-
-          console.log(that.data.navList, that.data.levelPre)
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionRight', currentLevel[0].levelName)
           wx.setStorageSync('levelName5Right', currentLevel[0].levelName5)
@@ -361,7 +373,6 @@ Page({
             right: 0,
             wrong: 0
           })
-          console.log(that.data.navList, that.data.levelPre)
           let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
           wx.setStorageSync('visionRight', currentLevel[0].levelName)
           wx.setStorageSync('levelName5Right', currentLevel[0].levelName5)
@@ -454,7 +465,6 @@ Page({
         })
       }
     } else if (that.data.levelPre <= 8 || that.data.levelPre >= 1) {
-
       if (that.data.time < 5) {   //五次循环 判断对错
         if (flag == 'right') {
           that.voidRight();
@@ -542,10 +552,10 @@ Page({
           } else if (that.data.wrong == 0) {
             that.setData({
               id: 1,
+              levelPre: that.data.levelPre + 1,
               right: 0,
               wrong: 0
             })
-            console.log(that.data.navList, that.data.levelPre)
             let currentLevel = that.data.navList.filter((item) => { return item.levelId == that.data.levelPre });
             wx.setStorageSync('visionRight', currentLevel[0].levelName)
             wx.setStorageSync('levelName5Right', currentLevel[0].levelName5)

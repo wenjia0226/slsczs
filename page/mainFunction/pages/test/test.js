@@ -10,6 +10,7 @@ Page({
     text: "没有滑动",
     navList: [],
     levelPre: 9,
+    resetLevelPre: 9,
     right: 0,
     wrong: 0,
     rightNum: 0,
@@ -25,8 +26,8 @@ Page({
     flag: false,
     leftEyeRightNum: 0,
     leftEyeWrongNum: 0,
-    chooseId: 's9',
-    toview: 's9'
+    chooseId: '',
+    toview: ''
   },
   selecteLevel(e) {
     if (this.data.time == 0) {
@@ -367,49 +368,49 @@ Page({
       } //测试5次后逻辑判断
       if (that.data.time == 5) {
         //存入数据
-        if (that.data.levelPre == 8) {
+        if (that.data.levelPre == 8) { //4.7-0.5
           that.data.list.push({
             l: "0.5",
             r: that.data.right,
             w: that.data.wrong
           })
-        } else if (that.data.levelPre == 7) {
+        } else if (that.data.levelPre == 7) {//4.6-0.4
           that.data.list.push({
             l: "0.4",
             r: that.data.right,
             w: that.data.wrong
           })
-        } else if (that.data.levelPre == 6) {
+        } else if (that.data.levelPre == 6) { //4.5-0.3
           that.data.list.push({
             l: "0.3",
             r: that.data.right,
             w: that.data.wrong
           })
-        }else if (that.data.levelPre == 5) {
+        } else if (that.data.levelPre == 5) {//4.4-0.25
           that.data.list.push({
             l: "0.25",
             r: that.data.right,
             w: that.data.wrong
           })
-        } else if (that.data.levelPre == 4) {
+        } else if (that.data.levelPre == 4) {//4.3-0.2
           that.data.list.push({
             l: 0.2,
             r: that.data.right,
             w: that.data.wrong
           })
-        } else if (that.data.levelPre == 3) {
+        } else if (that.data.levelPre == 3) {//4.2-0.15
           that.data.list.push({
             l: "0.15",
             r: that.data.right,
             w: that.data.wrong
           })
-        } else if (that.data.levelPre == 2) {
+        } else if (that.data.levelPre == 2) {//4.1-0.12
           that.data.list.push({
             l: "0.12",
             r: that.data.right,
             w: that.data.wrong
           })
-        } else if (that.data.levelPre == 1) {
+        } else if (that.data.levelPre == 1) {//4.0-0.1
           that.data.list.push({
             l: "0.1",
             r: that.data.right,
@@ -433,6 +434,7 @@ Page({
           } else if (that.data.wrong == 0) {
             that.setData({
               id: 1,
+              levelPre: that.data.levelPre + 1,
               right: 0,
               wrong: 0
             })
@@ -503,12 +505,12 @@ Page({
               wrong: 0,
               rightNum: 0,
               wrongNum: 0,
-              levelPre: 9,
+              levelPre: that.data.resetLevelPre,
               id: 1,
               time: 0
             })
           } else {
-            wx.switchTab({
+            wx.navigateTo({
               url: '/page/tabBar/screen/screen'
             })
           }
@@ -519,7 +521,30 @@ Page({
       })
     }
   },
+  getLevelPre() {
+    var that = this;
+    // if (wx.getStorageSync('studentId')) {
+     
+    // }else {
+    //   wx.showModal({
+    //     content: '请先扫码添加孩子',
+    //   })
+    //   wx.navigateTo({
+    //     url: '/page/',
+    //   })
+    // }
+    let url = app.globalData.URL + 'screeningTopByStudent', data = { studentId: wx.getStorageSync('studentId'), type: 2, detectType: wx.getStorageSync('detectType') }; // 1是右眼， 2是左眼
+    app.wxRequest(url, data, (res) => {
+       console.log(res)
+      that.setData({
+        levelPre: res.data.data,
+        chooseid: 's' + res.data.data,
+        resetLevelPre: res.data.data
+      })
+    })
+  },
   onShow() {
+    this.getLevelPre();
     var that = this;
     wx.showLoading({
       title: '加载中...',

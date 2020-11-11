@@ -29,6 +29,7 @@ Page({
     if (this.data.phone) {
       this.hideview()
     } else {
+
       wx.navigateTo({
         url: '/nicheng/nicheng',
       })
@@ -148,6 +149,15 @@ Page({
     if(wx.getStorageSync('phone')) {
       this.OneMoreGet();
     }else {
+      this.gotoLogin();
+    }
+  },
+  goToQu() {
+    if (wx.getStorageSync('phone')) {
+      wx.navigateTo({
+        url: '/page/myCollection/pages/diopter/diopter'
+      })
+    } else {
       this.gotoLogin();
     }
   },
@@ -471,10 +481,13 @@ Page({
   },
   // 手动添加
   gotoManu() {
-    wx.navigateTo({
-      url: '/manual/manual'
+    wx.showToast({
+      title: '暂未开启该功能',
     })
-    this.hide();
+    // wx.navigateTo({
+    //   url: '/manual/manual'
+    // })
+    //this.hide();
   },
   //扫码添加
   gotoScan() {
@@ -514,7 +527,7 @@ Page({
           })
           wx.setStorageSync('studentName', curStudent[0].name);
           wx.setStorageSync('studentId', curStudent[0].id);
-          wx.setStorageSync('gender', curStudent[0].gender);
+          wx.setStorageSync('gender', Number(curStudent[0].gender));
           wx.setStorageSync('birthday', curStudent[0].birthday);
           wx.setStorageSync('balance', curStudent[0].balance);
           wx.setStorageSync('ranking', curStudent[0].ranking);

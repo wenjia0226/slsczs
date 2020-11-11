@@ -50,6 +50,7 @@
       "root": "page/component/",
       "pages": [
         "pages/detail/detail",
+        "pages/diopterDetail/diopterDetail",
         "pages/rightstart/rightstart",
         "pages/check/check",
         "pages/start/start",
@@ -96,7 +97,8 @@
         "pages/navbar/navbar",
         "pages/assessment/assessment",
         "pages/assessmentResult/assessmentResult",
-        "pages/axial/axial"
+        "pages/axial/axial",
+        "pages/diopter/diopter"
       ]
     },
     {

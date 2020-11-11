@@ -43,9 +43,12 @@ Page({
   },
   // 手动添加
   gotoManu() {
-    wx.navigateTo({
-      url: '/manual/manual'
+    wx.showToast({
+      title: '暂未开启该功能',
     })
+    // wx.navigateTo({
+    //   url: '/manual/manual'
+    // })
   },
   //扫码添加
   gotoScan() {
