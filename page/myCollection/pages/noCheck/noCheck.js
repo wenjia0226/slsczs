@@ -21,14 +21,29 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
-        // console.log(res)
         if (res.data.status == 200) {
-          that.setData({
-            childrenList: res.data.data
+          let temp = res.data.data;
+          temp.forEach((item, index) => {
+            let str = item.remindUndetected.split('.')[0]
+            let str2 = str.split('T')[0] + '' + str.split('T') [1];
+            let flag =(new Date().getTime() - new Date(str).getTime()) / 3600/1000 > 22 ? true: false;   
+            item.flag = flag;
+            if (item.flag) {
+              that.data.checkbox.push('/image/nocheck.png')
+            } else {
+              that.data.checkbox.push('/image/checked.png')
+            }
           })
-          for (var i = 0; i < that.data.childrenList.length; i++) {
-            that.data.checkbox.push('/image/nocheck.png')
-          }
+          that.setData({
+            childrenList:temp
+          })
+          // for (var i = 0; i < that.data.childrenList.length; i++) {
+          //     if(item.flag) {
+          //       that.data.checkbox.push('/image/nocheck.png')
+          //     }else {
+          //       that.data.checkbox.push('/image/checked.png')
+          //     }
+          // }
           that.setData({
             checkbox: that.data.checkbox
           })

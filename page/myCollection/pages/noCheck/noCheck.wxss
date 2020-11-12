@@ -34,6 +34,7 @@
   height: 160rpx;
 }
 .rightArea {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,6 +46,11 @@
 .time {
   font-size: 24rpx;
   padding: 5rpx;
+}
+.rem{
+  color: red;
+  font-weight: bold;
+  font-size: 24rpx
 }
 
 /* 下面提框 */

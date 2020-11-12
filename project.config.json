@@ -139,6 +139,26 @@
 					"pathName": "axial/axial",
 					"query": "studnetId = 8881",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "更新编译模式",
+					"pathName": "page/tabBar/screen/screen",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编译更新",
+					"pathName": "page/tabBar/screen/screen",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "更新",
+					"pathName": "page/tabBar/screen/screen",
+					"scene": null
 				}
 			]
 		}

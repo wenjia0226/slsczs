@@ -26,7 +26,8 @@ Page({
     showSelectPerson: true,
     selectArray: [{name: '添加孩子'}],
     studentName: '',
-    childrenList: []
+    childrenList: [],
+    tempFlage: 2
   },
   myevent(e) {
     this.setData({
@@ -138,6 +139,7 @@ Page({
     that.setData({
       statusBarHeight: app.globalData.statusBarHeight,
       globalTop: app.globalData.top,
+      tempFlag: wx.getStorageSync('tempFlag')
     })
     let min;
     this.setData({
@@ -221,14 +223,12 @@ Page({
        studentName: wx.getStorageSync('studentName'),
        childrenList: arr
      })
-
     }
   },
   getTempStudent() {
     let that = this;
     let url = app.globalData.URL + "findStudent", data = { studentId: wx.getStorageSync('studentId') };
     //如果已经授权过
-   
     app.wxRequest(url, data, (res) => {
       if (res.data.status == 200) {
         that.setData({
@@ -263,7 +263,6 @@ Page({
           childrenList: arr,
           studentName: that.data.childrenList[0].name
         })
-       
         wx.setStorageSync('studentId', that.data.childrenList[0].id)
         wx.setStorageSync('gender', that.data.childrenList[0].gender);
         wx.setStorageSync('studentName', that.data.childrenList[0].name)

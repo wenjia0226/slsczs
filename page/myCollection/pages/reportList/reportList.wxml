@@ -21,7 +21,7 @@
   </view>
   <block wx:if="{{reportList.length == 0}}">
     <view class="nodangan">
-      <view class="no">暂无档案信息</view>
+      <view class="no">暂无眼健康档案信息</view>
     </view>
   </block>
 </view>

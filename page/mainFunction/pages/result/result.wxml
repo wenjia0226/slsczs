@@ -37,7 +37,7 @@
       <view>2、视力结果容易受到诸如检查环境、孩子注意力等因素的影响，单次检测结果仅供参考</view>
   </view>
   <view class="end" style="background: #92A6FF" bindtap="go" data-type="home">返回首页</view>
-  <view class="end" style="background:linear-gradient(to bottom right,#6EC9FF, #6B88FC)" data-type="archives" bindtap="go">进入档案</view>
+  <view class="end"  wx:if="{{tempFlag == 2}}"style="background:linear-gradient(to bottom right,#6EC9FF, #6B88FC)" data-type="archives" bindtap="go">进入档案</view>
 </view>
 
  <!-- 选择保存人 -->
