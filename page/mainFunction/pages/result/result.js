@@ -82,7 +82,7 @@ Page({
             showCongratulation: true
           })
         }
-        if(that.data.tempFlag == 1) {
+        if(that.data.tempFlag == 1) { // 如果是绑定的就清空
           wx.setStorageSync('studentId', '')
           wx.setStorageSync('gender', 2)
           wx.setStorageSync('studentName', '')
@@ -188,6 +188,7 @@ Page({
       tempFlag: tempFlag
     })
     app.editTabbar();
+    console.log(this.data.tempFlag)
     if (tempFlag == 2) {  // 正常绑定
       this.getChildrenList();
       let that = this;
@@ -196,7 +197,7 @@ Page({
       })
     }else if(tempFlag == 1) {
       let arr = []
-     arr.push({
+      arr.push({
           age: 8,
           birthday: "2019-04-01",
           chairHeight: "60",

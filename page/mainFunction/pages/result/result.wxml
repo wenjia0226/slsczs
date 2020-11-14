@@ -53,7 +53,7 @@
       </view> -->
       <view class="modeTitle" wx:if="{{childrenList.length}}">
         <view class="remAdd">您要将此次筛查结果保存到 <text class="name">{{studentName}}</text>的筛查档案中吗?</view> 
-        <view class="containBox">
+        <view class="containBox" wx:if="{{tempFlag == 2}}">
          <view class="changeSelect">切换保存者</view>
          <view  class="selectBox">
            <Select bindmyevent="myevent" bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>

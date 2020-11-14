@@ -129,7 +129,7 @@ Page({
   validateNumber(val) {
     return val.replace(/\D/g, '')
   },
-  onShow() {
+  onShow() {  
     this.setData({
       selectedId: wx.getStorageSync('selectedId'),
       sizeNumber: wx.getStorageSync('sizeNumber'),

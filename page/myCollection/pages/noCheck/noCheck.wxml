@@ -2,6 +2,9 @@
   <view >
     <scroll-view scroll-y height="500rpx">
     <view class="itemWraper" wx:for="{{childrenList}}"  bindtap='sty_background' data-index="{{index}}" data-id="{{item.id}}">
+      <view class="leftArea" data-id="{{item.id}}" wx:if="{{!item.flag}}">
+        <view  style="width: 50rpx;height: 50rpx"></view>
+      </view>
       <view class="leftArea" data-id="{{item.id}}" wx:if="{{item.flag}}">
         <image  class='checkbox_v'   src="{{checkbox[index]}}" ></image>
       </view>

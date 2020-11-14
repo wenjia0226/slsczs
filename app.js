@@ -27,8 +27,6 @@ App({
               wx.setStorageSync("encryptedData", res.encryptedData);
               wx.setStorageSync("iv", res.iv);
               // 可以将 res 发送给后台解码出 unionId
-        
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
@@ -162,10 +160,8 @@ App({
   },
   update: function() {
     if (wx.canIUse('getUpdateManager')) {
-      console.log(1)
       const updateManager = wx.getUpdateManager()
       updateManager.onCheckForUpdate(function (res) {
-        console.log(2)
         console.log('onCheckForUpdate====', res)
         // 请求完新版本信息的回调
         if (res.hasUpdate) {

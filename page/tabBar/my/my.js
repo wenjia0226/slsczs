@@ -13,7 +13,8 @@ Page({
     studentName: '无',
     gender: 0,
     balance: '',
-    show: false
+    show: false,
+    tempFlag: 2
   },
   onLoad() {
     app.hidetabbar();
@@ -37,37 +38,50 @@ Page({
   },
   
   onShow() {
-  //  app.hidetabbar();
     this.setData({
-      studentId: wx.getStorageSync('studentId')
+      tempFlag: wx.getStorageSync('tempFlag')
     })
-    
-    if (this.data.studentId) {
+    if(this.data.tempFlag == 2) {
+  //  app.hidetabbar();
       this.setData({
-        studentName: wx.getStorageSync('studentName'),
-        gender: wx.getStorageSync('gender'),
-        balance: wx.getStorageSync('balance')
+        studentId: wx.getStorageSync('studentId')
       })
-    } else {
-      this.setData({
-        studentName: "暂无绑定",
-        gender: 2
-      })
-    } 
-    this.getPhone();
-    wx.login({
-      success: (res) => {
+      if (this.data.studentId) {
         this.setData({
-          code: res.code
+          studentName: wx.getStorageSync('studentName'),
+          gender: wx.getStorageSync('gender'),
+          balance: wx.getStorageSync('balance')
+        })
+      } else {
+        this.setData({
+          studentName: "暂无绑定",
+          gender: 2
         })
       }
+      this.getPhone();
+      wx.login({
+        success: (res) => {
+          this.setData({
+            code: res.code
+          })
+        }
+      })
+      this.setData({
+        phone: wx.getStorageSync('phone'),
+        avatarUrl: wx.getStorageSync('avatarUrl'),
+        nickName: wx.getStorageSync('nickName')
+      })
+      this.getChildrenList()
+  }else if (this.data.tempFlag == 1) {
+    this.setData({ //如果是3 ，说明临时没测，直接跳到我的页面了
+      tempFlag: 3
     })
-    this.setData({
-      phone: wx.getStorageSync('phone'),
-      avatarUrl: wx.getStorageSync('avatarUrl'),
-      nickName: wx.getStorageSync('nickName')
-    })
+    wx.setStorageSync('studentName', '');
+    wx.setStorageSync('studentId', '');
+    wx.setStorageSync('gender', '');
+    wx.setStorageSync('tempFlag', 2);
     this.getChildrenList()
+  }
   },
   getChildrenList() {
     let that = this;
@@ -78,6 +92,7 @@ Page({
         title: '加载中...'
       })
       app.wxRequest(url, data, (res) => {
+        
         if (res.data.data) {
           res.data.data.push({
             name: '添加孩子'
@@ -87,6 +102,11 @@ Page({
           that.setData({
             selectArray: res.data.data
           })
+          if(that.data.tempFlag == 3) {
+            wx.setStorageSync('studentName', that.data.selectArray[0].name);
+            wx.setStorageSync('studentId', that.data.selectArray[0].id);
+            wx.setStorageSync('gender', that.data.selectArray[0].gender)
+          }
         }else if(res.data.status == 10220) {
           let arr = [];
           arr.push({

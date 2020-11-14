@@ -72,16 +72,18 @@ Page({
     })
   },
   onLoad(options) {
-    if(options.tempFlag) {  //  如果是1 就是临时的
+    if(options.tempFlag) {  //  如果是1 就是临时绑定的
       this.setData({
         tempFlag: options.tempFlag,
         temId: options.studentId
       })
+      wx.setStorageSync('tempFlag', options.tempFlag)
+    }else {
+      wx.setStorageSync('tempFlag', 2)
     }
     app.editTabbar();
   },
-  onShow() {  
-    wx.setStorageSync('tempFlag', this.data.tempFlag);
+  onShow() {
     if (this.data.tempFlag == 2) {  //  如果绑定的孩子
       let that = this;
       this.setData({
@@ -101,6 +103,9 @@ Page({
       this.getChildrenList();
       this.showGuanzhu();
     } else if(this.data.tempFlag == 1) {  // 如果是临时绑定的
+      this.setData({
+        phone: wx.getStorageSync('phone')
+      })
       this.showGuanzhu();
       this.getTempStudent();
     }
@@ -224,6 +229,9 @@ Page({
           that.setData({
             childrenList: that.data.childrenList
           })
+          // wx.setStorageSync('studentName', that.data.childrenList[0].name);
+          // wx.setStorageSync('studentId', that.data.childrenList[0].id);
+          // wx.setStorageSync('gender', that.data.childrenList[0].gender)
          
         let childrenList = res.data.data;
          childrenList.forEach((item) => {
@@ -299,6 +307,7 @@ Page({
       })
   },
   gotoAdd() {
+    console.log(this.data.phone, 11)
     if(this.data.phone) {
       this.hideview()
     }else {

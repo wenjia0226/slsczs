@@ -9,7 +9,8 @@ Page({
     swiperList: [],
     productList: [],
     current: 0,
-    tabbar: {}
+    tabbar: {},
+    tempFlag: 2
   },
   // 商品轮播
   swiperChange: function (e) {
@@ -33,13 +34,25 @@ Page({
     app.editTabbar();
   },
   onShow() {
-    //app.hidetabbar();
+      //app.hidetabbar();
+     this.setData({
+       tempFlag: wx.getStorageSync('tempFlag')
+     })
+    if (this.data.tempFlag == 1) {
+      this.setData({
+        tempFlag: 2
+      })
+      wx.setStorageSync('studentName', '');
+      wx.setStorageSync('studentId', '');
+      wx.setStorageSync('gender', '');
+      wx.setStorageSync('tempFlag', 2);
+    } 
     this.getInfo();
     this.setData({
       page: 1,
       productList: []
     })
-    this.productList()
+    this.productList();
   },
   //商品列表
   productList() {

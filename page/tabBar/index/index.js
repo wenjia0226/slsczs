@@ -15,36 +15,53 @@ Page({
     lastTime: '无',
     gender: 2,
     phone: wx.getStorageSync('phone'),
-    studentId: ''
+    studentId: '',
+    tempFlag: 2
   },
   onLoad() {
     app.hidetabbar();
     app.editTabbar();
+    
   },
-  onShow() { 
+  onShow() {
     this.setData({
-      phone: wx.getStorageSync('phone'),
-      studentName: wx.getStorageSync('studentName'),
-      gender: wx.getStorageSync('gender'),
-      studentId: wx.getStorageSync('studentId'),
-      birthday: wx.getStorageSync('birthday'),
-      balance: wx.getStorageSync('balance'),       
-      ranking: wx.getStorageSync('ranking'),     
-      show: false
+      tempFlag: wx.getStorageSync('tempFlag')
     })
-    if(!this.data.studentId) {
+    if(this.data.tempFlag == 2) {
       this.setData({
-        gender:2,
-        answer: 0,
-        balance: 0,
-        ranking: 0,
-        task: 0,
-        undetected: 0,
-        lastTime: "无"
+        phone: wx.getStorageSync('phone'),
+        studentName: wx.getStorageSync('studentName'),
+        gender: wx.getStorageSync('gender'),
+        studentId: wx.getStorageSync('studentId'),
+        birthday: wx.getStorageSync('birthday'),
+        balance: wx.getStorageSync('balance'),
+        ranking: wx.getStorageSync('ranking'),
+        show: false,
+        tempFlag: 2
       })
-    }
-    if (this.data.phone) {
-      this.getChildrenList();
+      if (!this.data.studentId) {
+        this.setData({
+          gender: 2,
+          answer: 0,
+          balance: 0,
+          ranking: 0,
+          task: 0,
+          undetected: 0,
+          lastTime: "无"
+        })
+      }
+      if (this.data.phone) {
+        this.getChildrenList();
+      }
+    }else if(this.data.tempFlag == 1) {
+      this.setData({
+        tempFlag: 3
+      })
+      wx.setStorageSync('studentName', '');
+      wx.setStorageSync('studentId', '');
+      wx.setStorageSync('gender', '');
+      wx.setStorageSync('tempFlag', 2);
+      this.getChildrenList()
     }
   },
   // 添加孩子按钮
@@ -136,6 +153,7 @@ Page({
             selectArray: res.data.data,
             childrenList: res.data.data
           })  
+          if(that.data.tempFlag == 3) {
             that.setData({
               studentId: res.data.data[0].id,
               gender: res.data.data[0].gender,
@@ -147,6 +165,7 @@ Page({
             wx.setStorageSync('gender', res.data.data[0].gender);
             wx.setStorageSync('studentName', res.data.data[0].name);
             wx.setStorageSync('birthday', res.data.data[0].birthday);
+          }
           that.getTastList();
         }else if(res.data.status == 10220) {
           that.setData({
