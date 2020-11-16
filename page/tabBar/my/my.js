@@ -11,7 +11,7 @@ Page({
     height: app.globalData.navHeight,
     selectArray:[],
     studentName: '无',
-    gender: 0,
+    gender: 2,
     balance: '',
     show: false,
     tempFlag: 2
@@ -19,7 +19,11 @@ Page({
   onLoad() {
     app.hidetabbar();
     app.editTabbar();
-    this.getChildrenList()
+    this.getChildrenList();
+    this.setData({
+      phone: wx.getStorageSync('phone')
+    })
+  
   },
   gotoCode() {
     wx.navigateTo({
@@ -39,6 +43,7 @@ Page({
   
   onShow() {
     this.setData({
+      phone: wx.getStorageSync('phone'),
       tempFlag: wx.getStorageSync('tempFlag')
     })
     if(this.data.tempFlag == 2) {
@@ -67,7 +72,6 @@ Page({
         }
       })
       this.setData({
-        phone: wx.getStorageSync('phone'),
         avatarUrl: wx.getStorageSync('avatarUrl'),
         nickName: wx.getStorageSync('nickName')
       })
@@ -87,7 +91,7 @@ Page({
     let that = this;
     let url = app.globalData.URL + "childrenIntegral", data = { openId: wx.getStorageSync('openId') };
     //如果已经授权过
-    if (wx.getStorageSync('phone')) {
+    if (this.data.phone) {
       wx.showLoading({
         title: '加载中...'
       })
@@ -166,14 +170,14 @@ Page({
     })
   },
   gotoQian() {
-    if(wx.getStorageSync('phone')) {
+    if(this.data.phone) {
       this.OneMoreGet();
     }else {
       this.gotoLogin();
     }
   },
   goToQu() {
-    if (wx.getStorageSync('phone')) {
+    if (this.data.phone) {
       wx.navigateTo({
         url: '/page/myCollection/pages/diopter/diopter'
       })
@@ -182,7 +186,7 @@ Page({
     }
   },
   goToShai() {
-    if (wx.getStorageSync('phone')) {
+    if (this.data.phone) {
       
       wx.navigateTo({
         url: '/page/myCollection/pages/archives/archives'
@@ -192,7 +196,7 @@ Page({
     }
   },
   gotoAnswer() {
-    if (wx.getStorageSync('phone')) {
+    if (this.data.phone) {
       wx.navigateTo({
         url: '/page/myCollection/pages/answer/answer'
       })
@@ -299,7 +303,7 @@ Page({
     }
   },
   goToBao() {
-    if (wx.getStorageSync('phone')) {
+    if (this.data.phone) {
       wx.navigateTo({
         url: '/page/myCollection/pages/reportList/reportList'
       })
@@ -363,7 +367,7 @@ Page({
     })
   },
   goTeacher() {
-    if (wx.getStorageSync('phone')) {
+    if (this.data.phone) {
     let that = this;
     let url = app.globalData.URL + 'chkState';
     let data = {
@@ -463,7 +467,7 @@ Page({
     }
   },
   goClert() {
-    if (wx.getStorageSync('phone')) {
+    if (this.data.phone) {
       let that = this;
       let url = app.globalData.URL + 'chkClert';
       let data = {

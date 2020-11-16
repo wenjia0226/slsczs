@@ -1,5 +1,8 @@
 <!--survey/survey.wxml-->
 <view class="mainContainer">
+  <view class="loginoutBox" >
+    <view class="loginout" bindtap="loginOut">退出登录</view>
+  </view>
   <view class="itemWrap" bindtap="gotoNoCheck">
     <view class="leftWrap">
       未检测人数

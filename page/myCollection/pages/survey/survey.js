@@ -142,5 +142,20 @@ Page({
         //获取到学生id后添加孩子
       }
     })
-  }
+  },
+  // 退出登录
+  loginOut() {
+    let that = this;
+    let url = app.globalData.URL + 'loginOut', data = { openId: wx.getStorageSync('openId')};
+      wx.showLoading({
+        title: '加载中...'
+      })
+      app.wxRequest(url, data, (res) => {
+        if (res.data.status == 200) {
+          wx.switchTab({
+            url: '/page/tabBar/my/my',
+          })
+        }
+      })
+    }
 })

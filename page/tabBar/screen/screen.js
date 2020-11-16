@@ -290,10 +290,12 @@ Page({
     this.setData({
       currentIndex: e.detail.current
     })
+   
     if(that.data.childrenList) {
       let student = this.data.childrenList.filter((item, index) => { return index == that.data.currentIndex });
       wx.setStorageSync('studentId', student[0].id)
-      wx.setStorageSync('studentName', student[0].name)
+      wx.setStorageSync('studentName', student[0].name);
+      wx.setStorageSync('gender', student[0].gender)
       this.setData({
         studentId: student[0].id
       })
@@ -307,7 +309,6 @@ Page({
       })
   },
   gotoAdd() {
-    console.log(this.data.phone, 11)
     if(this.data.phone) {
       this.hideview()
     }else {

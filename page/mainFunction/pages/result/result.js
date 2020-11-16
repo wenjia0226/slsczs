@@ -188,7 +188,6 @@ Page({
       tempFlag: tempFlag
     })
     app.editTabbar();
-    console.log(this.data.tempFlag)
     if (tempFlag == 2) {  // 正常绑定
       this.getChildrenList();
       let that = this;

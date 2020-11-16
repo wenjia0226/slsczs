@@ -77,7 +77,7 @@ Page({
   },
   getTastList() {
     let that = this;
-      let url = app.globalData.URL + "firstPage", data = { studentId: this.data.studentId };
+      let url = app.globalData.URL + "firstPage", data = { studentId:   this.data.studentId };
       //如果已经授权过
       if (wx.getStorageSync('phone')) {
         wx.showLoading({
@@ -134,7 +134,7 @@ Page({
     wx.setStorageSync('ranking', curStudent[0].ranking);
     this.getTastList();
   },
-  getChildrenList() {
+   getChildrenList() {
     let that = this;
     let url = app.globalData.URL + "childrenIntegral", data = {openId: wx.getStorageSync('openId') };
     //如果已经授权过
@@ -153,7 +153,8 @@ Page({
             selectArray: res.data.data,
             childrenList: res.data.data
           })  
-          if(that.data.tempFlag == 3) {
+          // 临时绑定的孩子后孩子设置
+          if(that.data.tempFlag == 3 || !(wx.getStorageSync('studentId')) ) {
             that.setData({
               studentId: res.data.data[0].id,
               gender: res.data.data[0].gender,
