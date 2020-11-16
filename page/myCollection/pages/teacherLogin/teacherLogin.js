@@ -9,9 +9,10 @@ Page({
     isLogin: false,
     height: app.globalData.height * 2 + 20,
     navbarData: {
-      title: '',
-      
-    }
+      title: ''  
+    },
+    reminShow: false,
+    message: ''
   },
   // 获取输入账号 
   phoneInput: function (e) {
@@ -37,20 +38,29 @@ Page({
       title: '加载中...',
     })
     app.wxRequest(url, data, (res) => {
+      wx.hideLoading();
       if (res.data.status == 200) {
-        console.log(res)
         wx.navigateTo({
           url: '/page/myCollection/pages/survey/survey'
         })
       }else {
-        wx.showToast({
-          title: '账号或密码错误',
-          icon: 'none',
-          duration: 2000
+        that.setData({
+          reminShow: true,
+          message:res.data.msg
         })
       }
     }, (err) => {
       console.log(err)
     })
-  }
+  },
+  hideRemin() {
+    this.setData({
+      reminShow: false
+    })
+  },
+  showRemin() {
+    this.setData({
+      reminShow: true
+    })
+  },
 })

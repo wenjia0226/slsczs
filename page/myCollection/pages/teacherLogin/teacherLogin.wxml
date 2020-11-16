@@ -1,21 +1,30 @@
 
   <nav-bar navbar-data='{{navbarData}}'  style="height: {{height}}px"> </nav-bar>
-<view class="container">
-  <view class="login-icon"> 
-    <image class="login-img" src="/image/teacherLogin.png"></image>
-  </view>
-  <view class="teacher-login"> 教师登录</view>
-  <view class="login-form">
-    <view class="inputView">
-      <label class="loginLab"><image src="/image/user.png"></image> <view>账号</view></label>
-      <input class ="inputText" value="{{phone}}" bindinput="phoneInput"></input>
+  <view class="container">
+    <view class="login-icon"> 
+      <image class="login-img" src="/image/teacherLogin.png"></image>
     </view>
-    <view class="inputView">
-      <label class="loginLab"><image src="/image/password.png"></image> <view>密码</view></label>
-      <input class ="inputText" value="{{password1}}" bindinput="passwordInput"></input>
+    <view class="teacher-login"> 教师登录</view>
+    <view class="login-form">
+      <view class="inputView">
+        <label class="loginLab"><image src="/image/user.png"></image> <view>账号</view></label>
+        <input class ="inputText" value="{{phone}}" bindinput="phoneInput"></input>
+      </view>
+      <view class="inputView">
+        <label class="loginLab"><image src="/image/password.png"></image> <view>密码</view></label>
+        <input class ="inputText" value="{{password1}}" bindinput="passwordInput"></input>
+      </view>
+      <view>
+        <view class="singIn" bindtap="teacherLogin">登录</view>
+      </view>
     </view>
-  <view>
-   <view class="singIn" bindtap="teacherLogin">登录</view>
-  </view>
-  </view>
 </view>
+  <view class="greyBg" wx:if="{{reminShow}}"  bindtap="hideRemin"></view>
+  <view class="showRemin"  wx:if="{{reminShow}}">
+    <view class="quxiaoRemin" bindtap="hideRemin">
+      <image src="/image/quxiao3.png" mode="aspectFit"></image>
+    </view>
+    <view class="modeTitleRemin">
+      {{message}}
+    </view>
+  </view>
