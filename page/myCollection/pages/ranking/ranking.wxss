@@ -22,12 +22,10 @@
   position: relative;
   display: block;
   width: 100%;
-  height: 480rpx;
 }
 /* 排行白色标题 */
 .headerWrap {
   position: absolute;
-  top: 180px;
   left: 20rpx;
   right: 20rpx;
   height: 80px;

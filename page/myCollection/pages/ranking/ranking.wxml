@@ -1,13 +1,13 @@
 <!--pages/detail/detail.wxml-->
 <view class="main">
-<view  class="bg">
+<view  class="bg" style="height: {{height + 200}}px">
   <image src="https://www.guangliangkongjian.com/images/bg_rank.jpg" style="width: 100%;height:{{height + 200}}px"></image>
   <view class="changeRank" style="top:{{height}}px">
     <Select bindmyevent="myevent"  prop-array='{{selectArray}}'></Select>
   </view>
 </view>
   <nav-bar navbar-data='{{navbarData}}' > </nav-bar>
-  <view class="headerWrap">
+  <view class="headerWrap" style="top: {{height + 120}}px">
     <view class="header_left">
       <view class="rank">{{myRanking}}</view>
       <view class= "title">我的排名</view>
@@ -17,14 +17,14 @@
       <view class= "title">爱眼币</view>
     </view>
   </view>
-  <view class="centerWrap">
-    <scroll-view scroll-y style="height: 100%" >
+  <view class="centerWrap" style="height: 700rpx">
       <view class="centerTitle">
         <view class="rankNum">排名</view>
         <view class="name">姓名</view>
         <view class="school">学校</view>
         <view class="money">爱眼币</view>
-      </view>
+      </view> 
+      <scroll-view scroll-y="true" style="height: 100%">
       <view class="rankItem firstBg" v-if="{{firstObj.length}}">
         <view class="rankImg">
           <image src="/image/first.png"></image>
