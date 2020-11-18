@@ -54,8 +54,7 @@ App({
         fail(err) {
           console.log(err);
         }
-      })
-     
+      }) 
   },
   editTabbar: function () {
     let tabbar = this.globalData.tabBar;

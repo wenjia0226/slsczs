@@ -126,6 +126,7 @@ Page({
             studentName: res.data.data[0].name
           })
           wx.setStorageSync('studentId', res.data.data[0].id);
+          wx.setStorageSync('selectRankStu', res.data.data[0].id);
           wx.setStorageSync('gender', res.data.data[0].gender);
           wx.setStorageSync('studentName', res.data.data[0].name);
           wx.setStorageSync('birthday', res.data.data[0].birthday);
@@ -166,6 +167,7 @@ Page({
     })
     wx.setStorageSync('studentName', curStudent[0].name);
     wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('selectRankStu', curStudent[0].id);
     wx.setStorageSync('gender', curStudent[0].gender);
     wx.setStorageSync('birthday', curStudent[0].birthday);
     wx.setStorageSync('balance', curStudent[0].balance);

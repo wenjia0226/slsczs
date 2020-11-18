@@ -59,6 +59,7 @@ Page({
         let stuId = str.split('=')[1];
         //获取到学生id后添加孩子
         wx.setStorageSync('studentId', stuId);
+        wx.setStorageSync('selectRankStu', stuId);
         let openId = wx.getStorageSync('openId');
         let url = app.globalData.URL + 'binding', data = {
           studentId: stuId,
@@ -88,6 +89,7 @@ Page({
           })
           wx.setStorageSync('studentName', curStudent[0].name);
           wx.setStorageSync('studentId', curStudent[0].id);
+          wx.setStorageSync('selectRankStu', curStudent[0].id);
           wx.setStorageSync('gender', curStudent[0].gender);
           wx.setStorageSync('birthday', curStudent[0].birthday);
           wx.setStorageSync('balance', curStudent[0].balance);
@@ -126,6 +128,7 @@ Page({
     })
     wx.setStorageSync('studentName', curStudent[0].name);
     wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('selectRankStu', curStudent[0].id);
     wx.setStorageSync('gender', curStudent[0].gender);
     wx.setStorageSync('birthday', curStudent[0].birthday);
     wx.setStorageSync('balance', curStudent[0].balance);

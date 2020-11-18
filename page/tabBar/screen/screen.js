@@ -151,7 +151,8 @@ Page({
           that.setData({
             childrenList: arr
           })
-          wx.setStorageSync('studentId', that.data.childrenList[0].id)
+          wx.setStorageSync('studentId', that.data.childrenList[0].id);
+          wx.setStorageSync('selectRankStu', that.data.childrenList[0].id);
           wx.setStorageSync('gender', that.data.childrenList[0].gender);
           wx.setStorageSync('studentName', that.data.childrenList[0].name)
         }
@@ -250,7 +251,8 @@ Page({
            }
          })
         if (that.data.currentIndex == 0) {
-          wx.setStorageSync('studentId', that.data.childrenList[0].id)
+          wx.setStorageSync('studentId', that.data.childrenList[0].id);
+          wx.setStorageSync('selectRankStu', that.data.childrenList[0].id);
         }
         }
         if (res.data.status == 10220) {
@@ -293,7 +295,8 @@ Page({
    
     if(that.data.childrenList) {
       let student = this.data.childrenList.filter((item, index) => { return index == that.data.currentIndex });
-      wx.setStorageSync('studentId', student[0].id)
+      wx.setStorageSync('studentId', student[0].id);
+      wx.setStorageSync('selectRankStu', student[0].id);
       wx.setStorageSync('studentName', student[0].name);
       wx.setStorageSync('gender', student[0].gender)
       this.setData({
@@ -334,6 +337,7 @@ Page({
                 let stuId = str.split('=')[1];   
                 //获取到学生id后添加孩子
                 wx.setStorageSync('studentId', stuId);
+                wx.setStorageSync('selectRankStu', stuId);
                 let openId = wx.getStorageSync('openId');
                 let url = app.globalData.URL + 'binding', data = {
                   studentId: stuId,
@@ -515,6 +519,7 @@ Page({
         let stuId = str.split('=')[1];
         //获取到学生id后添加孩子
         wx.setStorageSync('studentId', stuId);
+        wx.setStorageSync('selectRankStu', stuId);
         let openId = wx.getStorageSync('openId');
         let url = app.globalData.URL + 'binding', data = {
           studentId: stuId,
@@ -544,6 +549,7 @@ Page({
           })
           wx.setStorageSync('studentName', curStudent[0].name);
           wx.setStorageSync('studentId', curStudent[0].id);
+          wx.setStorageSync('selectRankStu', curStudent[0].id);
           wx.setStorageSync('gender', curStudent[0].gender);
           wx.setStorageSync('birthday', curStudent[0].birthday);
           wx.setStorageSync('balance', curStudent[0].balance);

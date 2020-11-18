@@ -105,6 +105,7 @@ Page({
     })
     wx.setStorageSync('studentName', curStudent[0].name);
     wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('selectRankStu', curStudent[0].id);
     wx.setStorageSync('gender', curStudent[0].gender);
     wx.setStorageSync('birthday', curStudent[0].birthday);
     wx.setStorageSync('balance', curStudent[0].balance);

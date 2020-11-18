@@ -25,11 +25,11 @@ Page({
   },
   onShow() {
     this.setData({
-      tempFlag: wx.getStorageSync('tempFlag')
+      tempFlag: wx.getStorageSync('tempFlag'),
+      phone: wx.getStorageSync('phone')
     })
     if(this.data.tempFlag == 2) {
       this.setData({
-        phone: wx.getStorageSync('phone'),
         studentName: wx.getStorageSync('studentName'),
         gender: wx.getStorageSync('gender'),
         studentId: wx.getStorageSync('studentId'),
@@ -59,6 +59,7 @@ Page({
       })
       wx.setStorageSync('studentName', '');
       wx.setStorageSync('studentId', '');
+      wx.setStorageSync('selectRankStu', '');
       wx.setStorageSync('gender', '');
       wx.setStorageSync('tempFlag', 2);
       this.getChildrenList()
@@ -110,13 +111,15 @@ Page({
       studentId: e.detail.studentId
     })
     
-    wx.setStorageSync('studentId', e.detail.studentId)
+    wx.setStorageSync('studentId', e.detail.studentId);
+    wx.setStorageSync('selectRankStu', e.detail.studentId);
     this.getTastList();
   },
   newchildrenlist(e) {
     let curStudent = e.detail.newChildrenList;
     this.setData({
-      selectArray: e.detail.newChildrenList
+      selectArray: e.detail.newChildrenList,
+      childrenList: e.detail.newChildrenList
     })
     this.setData({
       studentId: curStudent[0].id,
@@ -128,6 +131,7 @@ Page({
     })
     wx.setStorageSync('studentName', curStudent[0].name);
     wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('selectRankStu', curStudent[0].id);
     wx.setStorageSync('gender', curStudent[0].gender);
     wx.setStorageSync('birthday', curStudent[0].birthday);
     wx.setStorageSync('balance', curStudent[0].balance);
@@ -163,6 +167,7 @@ Page({
               studentName: res.data.data[0].name
             })
             wx.setStorageSync('studentId', res.data.data[0].id);
+            wx.setStorageSync('selectRankStu', res.data.data[0].id);
             wx.setStorageSync('gender', res.data.data[0].gender);
             wx.setStorageSync('studentName', res.data.data[0].name);
             wx.setStorageSync('birthday', res.data.data[0].birthday);
@@ -263,6 +268,7 @@ Page({
         let stuId = str.split('=')[1];
         //获取到学生id后添加孩子
         wx.setStorageSync('studentId', stuId);
+        wx.setStorageSync('selectRankStu', stuId);
         let openId = wx.getStorageSync('openId');
         let url = app.globalData.URL + 'binding', data = {
           studentId: stuId,
@@ -291,6 +297,7 @@ Page({
           })
           wx.setStorageSync('studentName', curStudent[0].name);
           wx.setStorageSync('studentId', curStudent[0].id);
+          wx.setStorageSync('selectRankStu', curStudent[0].id);
           wx.setStorageSync('gender', curStudent[0].gender);
           wx.setStorageSync('birthday', curStudent[0].birthday);
           wx.setStorageSync('balance', curStudent[0].balance);

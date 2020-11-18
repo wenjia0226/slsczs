@@ -21,6 +21,7 @@ Page({
       selectArray: [{ text: '区排名' }, { text: '学校排名' }]
     })
     let that = this;
+    let stuId ='';
     let url = app.globalData.URL + 'integralRanking', data = {
       studentId: wx.getStorageSync('selectRankStu'),
       type: 'school'

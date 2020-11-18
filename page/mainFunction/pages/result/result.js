@@ -83,7 +83,8 @@ Page({
           })
         }
         if(that.data.tempFlag == 1) { // 如果是绑定的就清空
-          wx.setStorageSync('studentId', '')
+          wx.setStorageSync('studentId', '');
+          wx.setStorageSync('selectRankStu', '');
           wx.setStorageSync('gender', 2)
           wx.setStorageSync('studentName', '')
           wx.setStorageSync('birthday', '')
@@ -263,7 +264,8 @@ Page({
           childrenList: arr,
           studentName: that.data.childrenList[0].name
         })
-        wx.setStorageSync('studentId', that.data.childrenList[0].id)
+        wx.setStorageSync('studentId', that.data.childrenList[0].id);
+        wx.setStorageSync('selectRankStu', that.data.childrenList[0].id);
         wx.setStorageSync('gender', that.data.childrenList[0].gender);
         wx.setStorageSync('studentName', that.data.childrenList[0].name)
       }
@@ -312,6 +314,7 @@ Page({
     })
     wx.setStorageSync('studentName', curStudent[0].name);
     wx.setStorageSync('studentId', curStudent[0].id);
+    wx.setStorageSync('selectRankStu', curStudent[0].id);
     wx.setStorageSync('gender', curStudent[0].gender);
     wx.setStorageSync('birthday', curStudent[0].birthday);
     wx.setStorageSync('balance', curStudent[0].balance);
